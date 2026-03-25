@@ -1,0 +1,945 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QUIZ DA EBD Fiel - Completo</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- jsPDF -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <style>
+        :root {
+            --primary: #4361ee;
+            --primary-dark: #3a56d4;
+            --secondary: #7209b7;
+            --accent: #f72585;
+            --success: #4cc9f0;
+            --warning: #f8961e;
+            --danger: #f94144;
+            --light: #f8f9fa;
+            --dark: #212529;
+            --text: #343a40;
+            --gray: #6c757d;
+            --shadow: 0 10px 30px rgba(0,0,0,0.1);
+            --shadow-lg: 0 15px 50px rgba(0,0,0,0.15);
+            --gradient: linear-gradient(135deg, #4361ee 0%, #7209b7 100%);
+            --gradient-light: linear-gradient(135deg, #4cc9f0 0%, #4361ee 100%);
+            --instagram: #E1306C;
+            --bg-body: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --bg-container: white;
+            --text-color: #343a40;
+            --card-bg: #f8f9fa;
+        }
+
+        body.dark-mode {
+            --primary: #bb86fc;
+            --primary-dark: #9b67f0;
+            --secondary: #03dac6;
+            --accent: #cf6679;
+            --success: #4caf50;
+            --warning: #ff9800;
+            --danger: #f44336;
+            --light: #333;
+            --dark: #f8f9fa;
+            --text: #f8f9fa;
+            --gray: #aaa;
+            --bg-body: #121212;
+            --bg-container: #1e1e1e;
+            --text-color: #f8f9fa;
+            --card-bg: #2d2d2d;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: var(--bg-body);
+            color: var(--text-color);
+            min-height: 100vh;
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            line-height: 1.6;
+            transition: background 0.3s, color 0.3s;
+        }
+
+        .container {
+            max-width: 100%;
+            width: 100%;
+            background: var(--bg-container);
+            border-radius: 20px;
+            box-shadow: var(--shadow-lg);
+            overflow: hidden;
+            margin: 10px 0;
+            position: relative;
+            transition: background 0.3s;
+        }
+
+        /* Botões flutuantes */
+        .floating-buttons {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            display: flex;
+            gap: 10px;
+        }
+        .floating-btn {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: var(--primary);
+            color: white;
+            border: none;
+            cursor: pointer;
+            box-shadow: var(--shadow);
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.2s;
+        }
+        .floating-btn:hover {
+            transform: scale(1.1);
+        }
+
+        /* Animações */
+        .fade-in {
+            animation: fadeIn 0.5s ease forwards;
+        }
+        .slide-in {
+            animation: slideIn 0.4s ease;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes slideIn {
+            from { transform: translateX(20px); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+
+        /* Header */
+        .modern-header {
+            background: var(--gradient);
+            color: white;
+            padding: 25px 20px;
+        }
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+        .logo {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            overflow: hidden;
+            background: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+        .logo-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .logo-text h1 {
+            font-size: 1.8rem;
+            line-height: 1.2;
+        }
+        .welcome-card {
+            background: rgba(255,255,255,0.15);
+            padding: 20px;
+            border-radius: 16px;
+            margin: 20px 0;
+        }
+
+        /* Instruções */
+        .instructions {
+            padding: 20px;
+            background: var(--card-bg);
+            border-radius: 16px;
+            margin: 20px;
+        }
+        .instructions ul {
+            list-style: none;
+            margin-top: 15px;
+        }
+        .instructions li {
+            margin: 10px 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* Seções de conteúdo (mantido original) */
+        .content-section {
+            padding: 30px 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+        .about-card, .details-card {
+            background: var(--card-bg);
+            border-radius: 16px;
+            padding: 25px 20px;
+            box-shadow: var(--shadow);
+        }
+        .card-title {
+            font-size: 1.3rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .card-content p {
+            margin-bottom: 10px;
+        }
+        .card-content ul {
+            list-style: none;
+        }
+        .card-content li {
+            margin-bottom: 12px;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+        }
+        .highlight {
+            background: var(--gradient-light);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-weight: 600;
+        }
+
+        /* Botão iniciar */
+        .cta-section {
+            display: flex;
+            justify-content: center;
+            margin-top: 30px;
+        }
+        .start-btn {
+            padding: 16px 35px;
+            border: none;
+            border-radius: 50px;
+            background: var(--accent);
+            color: white;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.3s;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 8px 20px rgba(248, 37, 133, 0.4);
+        }
+        .start-btn:hover {
+            transform: translateY(-3px);
+        }
+
+        /* Quiz */
+        .quiz-section {
+            display: none;
+            padding: 20px;
+        }
+        .progress-container {
+            margin-bottom: 20px;
+        }
+        .progress-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+        .progress-bar {
+            height: 8px;
+            background: #e9ecef;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        .progress {
+            height: 100%;
+            background: var(--gradient);
+            transition: width 0.5s;
+        }
+
+        .question {
+            background: var(--card-bg);
+            border-radius: 16px;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-left: 5px solid var(--primary);
+        }
+        .question-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        .difficulty-badge {
+            padding: 5px 12px;
+            border-radius: 20px;
+            color: white;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+        .difficulty-easy { background: var(--success); }
+        .difficulty-medium { background: var(--warning); }
+        .difficulty-hard { background: var(--danger); }
+
+        .tip-icon {
+            cursor: pointer;
+            color: var(--warning);
+            font-size: 1.3rem;
+        }
+        .tip-text {
+            display: none;
+            background: var(--light);
+            padding: 10px;
+            border-radius: 8px;
+            margin: 10px 0;
+            font-style: italic;
+            border-left: 3px solid var(--warning);
+        }
+
+        .options {
+            display: grid;
+            gap: 12px;
+        }
+        .option {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 16px 15px;
+            background: var(--light);
+            border-radius: 12px;
+            cursor: pointer;
+            transition: 0.3s;
+            border: 2px solid transparent;
+        }
+        .option:hover {
+            transform: translateY(-2px);
+            border-color: var(--primary);
+        }
+        .option-letter {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 32px;
+            height: 32px;
+            background: rgba(255,255,255,0.3);
+            border-radius: 50%;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+        .option-text {
+            flex: 1;
+            word-break: break-word;
+        }
+        .option.selected.correct {
+            background: var(--success);
+            color: white;
+        }
+        .option.selected.incorrect {
+            background: var(--danger);
+            color: white;
+        }
+        .option.correct-answer {
+            background: var(--success);
+            color: white;
+        }
+        .feedback-curiosity {
+            margin-top: 15px;
+            padding: 10px;
+            background: var(--light);
+            border-radius: 8px;
+            font-size: 0.9rem;
+            border-left: 3px solid var(--primary);
+        }
+
+        /* Navegação */
+        .navigation {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        button {
+            padding: 12px 20px;
+            border: none;
+            border-radius: 50px;
+            background: var(--primary);
+            color: white;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.3s;
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+        button:hover {
+            transform: translateY(-2px);
+            filter: brightness(1.1);
+        }
+        button:disabled {
+            background: var(--gray);
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        /* Resultados */
+        .results {
+            display: none;
+            padding: 30px 20px;
+            text-align: center;
+        }
+        .score {
+            font-size: 4rem;
+            font-weight: 700;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin: 20px 0;
+        }
+        .performance {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin: 20px 0;
+            flex-wrap: wrap;
+        }
+        .performance-item {
+            background: var(--card-bg);
+            padding: 15px 20px;
+            border-radius: 16px;
+            min-width: 100px;
+        }
+        .action-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+            margin: 20px 0;
+        }
+        .action-btn {
+            background: var(--secondary);
+            padding: 10px 20px;
+            border: none;
+            border-radius: 50px;
+            color: white;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+        #review-container {
+            text-align: left;
+            margin: 20px 0;
+            max-height: 400px;
+            overflow-y: auto;
+            padding: 15px;
+            background: var(--card-bg);
+            border-radius: 16px;
+        }
+        .review-item {
+            padding: 15px;
+            border-radius: 12px;
+            margin-bottom: 10px;
+            border-left: 5px solid;
+        }
+        .review-item.correct { border-color: var(--success); }
+        .review-item.incorrect { border-color: var(--danger); }
+        .ranking {
+            background: var(--card-bg);
+            padding: 20px;
+            border-radius: 16px;
+            margin-top: 20px;
+        }
+        .ranking-list {
+            list-style: none;
+            margin-top: 10px;
+        }
+        .ranking-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px 0;
+            border-bottom: 1px solid var(--gray);
+        }
+
+        /* Rodapé */
+        .church-info {
+            text-align: center;
+            padding: 20px;
+            background: var(--card-bg);
+            border-top: 1px solid #dee2e6;
+        }
+        .instagram-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--instagram);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 50px;
+            text-decoration: none;
+            margin-top: 10px;
+        }
+
+        /* Responsivo */
+        @media (max-width: 600px) {
+            .logo-container {
+                justify-content: center;
+                text-align: center;
+            }
+            .logo-text h1 {
+                font-size: 1.4rem;
+            }
+            .option {
+                padding: 12px 10px;
+                gap: 8px;
+            }
+            .option-letter {
+                width: 28px;
+                height: 28px;
+                font-size: 0.9rem;
+            }
+            .performance {
+                flex-direction: column;
+            }
+            .floating-buttons {
+                top: 10px;
+                right: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="floating-buttons">
+        <button class="floating-btn" id="theme-toggle" title="Modo noturno/claro"><i class="fas fa-moon"></i></button>
+        <button class="floating-btn" id="sound-toggle" title="Ativar/desativar sons"><i class="fas fa-volume-up"></i></button>
+    </div>
+
+    <!-- ANIMAÇÃO INICIAL (opcional, pode ser removida se preferir) -->
+    <div class="quiz-start-animation" id="quiz-start-animation" style="display: none; position: fixed; top:0; left:0; width:100%; height:100%; background:var(--gradient); z-index:9999; flex-direction:column; align-items:center; justify-content:center; color:white;">
+        <div class="animation-icon"><i class="fas fa-heart"></i></div>
+        <div class="animation-text">Quiz da EBD Fiel</div>
+        <div class="countdown" id="countdown">3</div>
+    </div>
+
+    <div class="container">
+        <!-- HEADER -->
+        <header class="modern-header">
+            <div class="logo-container">
+                <div class="logo">
+                    <img src="https://i.ibb.co/9mLXgx7k/logo.png" alt="Logo EBD Fiel" class="logo-img" id="logo-img" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 100 100\'><circle cx=\'50\' cy=\'50\' r=\'45\' fill=\'%234361ee\'/><text x=\'50\' y=\'60\' text-anchor=\'middle\' fill=\'white\' font-size=\'40\' font-family=\'Arial\'>EBD</text></svg>'">
+                </div>
+                <div class="logo-text">
+                    <h1>QUIZ DA EBD Fiel</h1>
+                    <p>Lção 08: Os Discípulos de Cristo e o Bom Ânimo</p>
+                </div>
+            </div>
+            <div class="welcome-card">
+                <h2><i class="fas fa-hands"></i> Bem-vindo!</h2>
+                <p>Teste seus conhecimentos sobre a lição.</p>
+            </div>
+        </header>
+
+        <!-- CONTEÚDO ORIGINAL (exatamente como solicitado) -->
+        <section class="content-section">
+            <div class="about-card">
+                <h2 class="card-title"><i class="fas fa-info-circle"></i> Sobre Esta Lição</h2>
+                <div class="card-content">
+                    <p>Nesta lição, estudaremos como os discípulos de Cristo devem manter o bom ânimo mesmo diante das adversidades da vida. O Texto Áureo (João 16:33) nos lembra que no mundo teremos aflições, mas podemos ter bom ânimo porque Jesus venceu o mundo.</p>
+                    <p>A lição aborda exemplos inspiradores como José, que manteve a fé mesmo sendo vendido como escravo, e Paulo, que enfrentou perseguições sem perder o bom ânimo. Veremos como o perdão, a fé e a confiança em Deus são fundamentais para superar os desafios.</p>
+                    <p><span class="highlight">Em Cristo encontramos a força para vencer todas as adversidades</span> - este é o coração da mensagem desta lição.</p>
+                </div>
+            </div>
+
+            <div class="details-card">
+                <h2 class="card-title"><i class="fas fa-book-open"></i> O Que Você Vai Aprender</h2>
+                <div class="card-content">
+                    <ul>
+                        <li><i class="fas fa-check"></i> Como manter o bom ânimo nas tribulações</li>
+                        <li><i class="fas fa-check"></i> O exemplo de José diante das adversidades</li>
+                        <li><i class="fas fa-check"></i> Como Paulo enfrentou perseguições com fé</li>
+                        <li><i class="fas fa-check"></i> O valor do perdão nas dificuldades</li>
+                        <li><i class="fas fa-check"></i> Como encontrar força e esperança na fé</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- TELA DE INSTRUÇÕES -->
+        <div class="instructions" id="instructions-screen">
+            <h3><i class="fas fa-info-circle"></i> Como funciona</h3>
+            <ul>
+                <li><i class="fas fa-check-circle" style="color:var(--success);"></i> 15 perguntas sobre a lição</li>
+                <li><i class="fas fa-lightbulb" style="color:var(--warning);"></i> Perguntas difíceis têm dica (clique na lâmpada)</li>
+                <li><i class="fas fa-music"></i> Sons de acerto/erro (pode mutar)</li>
+                <li><i class="fas fa-chart-line"></i> Ao final, veja seu desempenho e compartilhe</li>
+                <li><i class="fas fa-trophy"></i> As 5 melhores pontuações ficam salvas</li>
+            </ul>
+            <div class="cta-section">
+                <button class="start-btn" id="start-btn"><i class="fas fa-play"></i> Iniciar Quiz</button>
+            </div>
+        </div>
+
+        <!-- QUIZ -->
+        <div class="quiz-section" id="quiz-section">
+            <div class="progress-container">
+                <div class="progress-header">
+                    <span id="progress-text">Pergunta 1 de 15</span>
+                </div>
+                <div class="progress-bar"><div class="progress" id="quiz-progress"></div></div>
+            </div>
+            <div id="quiz-container"></div>
+            <div class="navigation">
+                <button id="prev-btn" disabled><i class="fas fa-arrow-left"></i> Anterior</button>
+                <button id="next-btn" class="btn-next">Próxima <i class="fas fa-arrow-right"></i></button>
+            </div>
+        </div>
+
+        <!-- RESULTADOS -->
+        <div class="results" id="results">
+            <h2><i class="fas fa-trophy" id="trophy-icon"></i> Resultado Final</h2>
+            <div class="score" id="score">0/0</div>
+            <div class="performance" id="performance"></div>
+            <div class="message" id="message"></div>
+
+            <div class="action-buttons">
+                <button class="action-btn" id="share-whatsapp"><i class="fab fa-whatsapp"></i> Compartilhar</button>
+                <button class="action-btn" id="export-pdf"><i class="fas fa-file-pdf"></i> Exportar PDF</button>
+                <button class="action-btn" id="review-btn"><i class="fas fa-search"></i> Revisar respostas</button>
+            </div>
+
+            <div id="review-container" style="display: none;"></div>
+
+            <div class="ranking">
+                <h3><i class="fas fa-ranking-star"></i> Ranking Local (Top 5)</h3>
+                <ul class="ranking-list" id="ranking-list"></ul>
+            </div>
+
+            <button id="restart-btn" style="background:var(--success); margin-top:20px;"><i class="fas fa-redo"></i> Fazer novamente</button>
+        </div>
+
+        <!-- RODAPÉ -->
+        <div class="church-info">
+            <div class="church-name">EBD FIEL</div>
+            <div class="church-location">FIEL A PALAVRA</div>
+            <a href="https://www.instagram.com/ebdfiel" target="_blank" class="instagram-link">
+                <i class="fab fa-instagram"></i> @ebdfiel
+            </a>
+        </div>
+    </div>
+
+    <script>
+        // ---------- BANCO DE PERGUNTAS ----------
+        const allQuestions = [
+            // FÁCEIS
+            { question: "Qual é o versículo do Texto Áureo desta lição?", options: ["João 14:6", "João 16:33", "2 Coríntios 4:7", "Filipenses 4:13"], correct: 1, explanation: "O Texto Áureo é João 16:33.", difficulty: "easy", tip: "Jesus falou sobre ter paz em mim.", curiosity: "João 16:33 - 'Tenho-vos dito isto, para que em mim tenhais paz...'" },
+            { question: "O que significa ter 'bom ânimo' segundo a lição?", options: ["Estar sempre alegre e sorridente", "Não esmorecer e não perder a fé mesmo nas adversidades", "Ignorar os problemas da vida", "Esperar que tudo dê certo sem esforço"], correct: 1, explanation: "Bom ânimo é não esmorecer.", difficulty: "easy", tip: "Relacionado com fé.", curiosity: "Provérbios 18:10 - Torre forte é o nome do Senhor." },
+            { question: "Quem é o exemplo bíblico que manteve o bom ânimo mesmo sendo vendido como escravo?", options: ["Moisés", "José", "Davi", "Paulo"], correct: 1, explanation: "José confiou em Deus.", difficulty: "easy", tip: "Filho de Jacó.", curiosity: "Gênesis 45:5 - Deus me enviou adiante de vós." },
+            { question: "O que não paralisa o autêntico discípulo de Cristo, segundo a lição?", options: ["O desânimo", "A alegria", "A paz", "A fé"], correct: 0, explanation: "O desânimo não paralisa o autêntico discípulo.", difficulty: "easy", tip: "É o oposto de ânimo.", curiosity: "Filipenses 4:13 - Tudo posso naquele que me fortalece." },
+            { question: "Qual destes versículos mostra Jesus incentivando alguém a ter bom ânimo?", options: ["Mateus 9:2", "João 3:16", "Romanos 8:1", "Efésios 2:8"], correct: 0, explanation: "Ao paralítico.", difficulty: "easy", tip: "Ele disse: 'Filho, tem bom ânimo; perdoados são os teus pecados.'", curiosity: "Mateus 9:2 - A fé do paralítico." },
+            // MÉDIAS
+            { question: "Como Paulo reagia às perseguições e sofrimentos que enfrentava?", options: ["Desistia temporariamente de pregar", "Mantinha o bom ânimo por se fortalecer em Cristo", "Pedia aos outros apóstolos que pregassem em seu lugar", "Escrevia cartas de queixa às igrejas"], correct: 1, explanation: "Paulo se fortalecia em Cristo.", difficulty: "medium", tip: "Filipenses 4:13", curiosity: "2 Coríntios 11:24-27 - Lista de sofrimentos de Paulo." },
+            { question: "O que José entendeu sobre as adversidades que enfrentou no Egito?", options: ["Eram um castigo por seus pecados", "Tudo fazia parte do plano de Deus para preservação da vida", "Eram resultado do azar e do destino", "Mostravam que Deus o abandonara"], correct: 1, explanation: "Deus transformou o mal em bem.", difficulty: "medium", tip: "Gênesis 50:20", curiosity: "José disse: 'Vós intentastes o mal, mas Deus o tornou em bem.'" },
+            { question: "Segundo a lição, o que o perdão representa para o cristão?", options: ["Uma obrigação difícil que deve ser evitada", "Uma graça que Deus nos dá para prosseguir após um ferimento", "Um sinal de fraqueza e submissão", "Algo que só devemos fazer se a pessoa pedir desculpas"], correct: 1, explanation: "Graça para prosseguir.", difficulty: "medium", tip: "Dom divino", curiosity: "Efésios 4:32 - Perdoai-vos uns aos outros." },
+            { question: "O que as adversidades produzem no cristão, segundo a lição?", options: ["Apenas sofrimento e dor", "Crescimento e amadurecimento em Cristo", "Dúvidas e questionamentos", "Isolamento e solidão"], correct: 1, explanation: "Crescimento e amadurecimento.", difficulty: "medium", tip: "Romanos 5:3-5", curiosity: "A tribulação produz paciência." },
+            { question: "Onde encontramos ânimo para superar as adversidades?", options: ["Em nossas próprias forças", "Em Jesus Cristo", "Nos amigos e familiares", "No sucesso profissional"], correct: 1, explanation: "Em Jesus.", difficulty: "medium", tip: "João 16:33", curiosity: "Jesus venceu o mundo." },
+            // DIFÍCEIS
+            { question: "Segundo 2 Coríntios 4, por que Paulo não desanimava em meio às aflições?", options: ["Porque as aflições são leves comparadas à glória eterna", "Porque ele era naturalmente uma pessoa otimista", "Porque ele tinha riquezas que o confortavam", "Porque evitava situações difíceis sempre que possível"], correct: 0, explanation: "As aflições são leves e momentâneas.", difficulty: "hard", tip: "Peso eterno de glória", curiosity: "2 Coríntios 4:17 - 'Porque a nossa leve e momentânea tribulação...'" },
+            { question: "Qual o papel da Palavra de Deus para o cristão que enfrenta adversidades?", options: ["É a espada do Espírito que nos ajuda a vencer as batalhas", "É apenas um livro de histórias inspiradoras", "Serve apenas para estudos acadêmicos", "É útil apenas para líderes religiosos"], correct: 0, explanation: "É a espada do Espírito.", difficulty: "hard", tip: "Efésios 6:17", curiosity: "A palavra é viva e eficaz." },
+            { question: "Qual foi a atitude de José em relação a seus irmãos que o venderam?", options: ["Ele os perdoou e reconheceu que Deus usou aquilo para o bem", "Ele os denunciou às autoridades egípcias", "Ele os evitou pelo resto da vida", "Ele exigiu compensação financeira pelo mal sofrido"], correct: 0, explanation: "Perdoou e reconheceu o plano de Deus.", difficulty: "hard", tip: "Gênesis 50:20", curiosity: "Ele os confortou." },
+            { question: "Como a lição explica a relação entre fé e bom ânimo nas tribulações?", options: ["A fé em Cristo nos enche de força e esperança para enfrentar desafios", "Fé e bom ânimo são conceitos separados", "Primeiro vem o bom ânimo, depois a fé", "A fé substitui a necessidade de bom ânimo"], correct: 0, explanation: "A fé enche de força e esperança.", difficulty: "hard", tip: "Hebreus 11", curiosity: "Sem fé é impossível agradar a Deus." },
+            { question: "O que o Senhor representa para os que passam por provações, segundo a lição?", options: ["Uma torre segura e refúgio", "Um juiz severo que observa nossos erros", "Um observador distante", "Um mestre exigente que testa nossos limites"], correct: 0, explanation: "Torre forte e refúgio.", difficulty: "hard", tip: "Provérbios 18:10", curiosity: "O justo corre para ela e está seguro." }
+        ];
+
+        // ---------- VARIÁVEIS GLOBAIS ----------
+        let shuffledQuestions = [];
+        let shuffledOptionsState = [];
+        let userAnswers = [];
+        let currentQuestionIndex = 0;
+        let quizStarted = false;
+        let soundEnabled = true;
+        let darkMode = false;
+        const AudioContext = window.AudioContext || window.webkitAudioContext;
+        let audioCtx = null;
+
+        function playSound(type) {
+            if (!soundEnabled) return;
+            if (!audioCtx) audioCtx = new AudioContext();
+            const osc = audioCtx.createOscillator();
+            const gain = audioCtx.createGain();
+            osc.connect(gain);
+            gain.connect(audioCtx.destination);
+            osc.type = 'sine';
+            if (type === 'correct') {
+                osc.frequency.value = 800;
+                gain.gain.value = 0.1;
+                osc.start();
+                osc.stop(audioCtx.currentTime + 0.2);
+            } else {
+                osc.frequency.value = 400;
+                gain.gain.value = 0.1;
+                osc.start();
+                osc.stop(audioCtx.currentTime + 0.15);
+            }
+        }
+
+        // ---------- INICIALIZAÇÃO ----------
+        document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById('start-btn').addEventListener('click', startQuiz);
+            document.getElementById('prev-btn').addEventListener('click', showPreviousQuestion);
+            document.getElementById('next-btn').addEventListener('click', showNextQuestion);
+            document.getElementById('restart-btn').addEventListener('click', restartQuiz);
+            document.getElementById('share-whatsapp').addEventListener('click', shareWhatsApp);
+            document.getElementById('export-pdf').addEventListener('click', exportPDF);
+            document.getElementById('review-btn').addEventListener('click', toggleReview);
+            document.getElementById('theme-toggle').addEventListener('click', toggleTheme);
+            document.getElementById('sound-toggle').addEventListener('click', toggleSound);
+            updateRankingDisplay();
+        });
+
+        function startQuiz() {
+            shuffledQuestions = shuffleArray([...allQuestions]);
+            shuffledOptionsState = [];
+            userAnswers = new Array(shuffledQuestions.length).fill(null);
+            currentQuestionIndex = 0;
+            quizStarted = true;
+            document.querySelector('.modern-header').style.display = 'none';
+            document.getElementById('instructions-screen').style.display = 'none';
+            document.querySelector('.content-section').style.display = 'none';
+            document.getElementById('quiz-section').style.display = 'block';
+            document.getElementById('results').style.display = 'none';
+            showQuestion(currentQuestionIndex);
+        }
+
+        function shuffleArray(arr) {
+            for (let i = arr.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [arr[i], arr[j]] = [arr[j], arr[i]];
+            }
+            return arr;
+        }
+
+        function getShuffledOptions(qIndex) {
+            if (!shuffledOptionsState[qIndex]) {
+                const q = shuffledQuestions[qIndex];
+                const opts = q.options.map((text, idx) => ({ text, originalIndex: idx }));
+                shuffledOptionsState[qIndex] = shuffleArray([...opts]);
+            }
+            return shuffledOptionsState[qIndex];
+        }
+
+        function showQuestion(index) {
+            const q = shuffledQuestions[index];
+            const shuffledOpts = getShuffledOptions(index);
+            const letters = ['A', 'B', 'C', 'D'];
+            let html = `<div class="question slide-in">`;
+            html += `<div class="question-header">`;
+            html += `<span class="difficulty-badge difficulty-${q.difficulty}">${q.difficulty === 'easy' ? 'Fácil' : q.difficulty === 'medium' ? 'Médio' : 'Difícil'}</span>`;
+            if (q.difficulty === 'hard') {
+                html += `<span class="tip-icon" onclick="event.stopPropagation(); showTip(${index})"><i class="fas fa-lightbulb"></i></span>`;
+            }
+            html += `</div>`;
+            html += `<div class="question-text">${q.question}</div>`;
+            if (q.difficulty === 'hard') {
+                html += `<div class="tip-text" id="tip-${index}">💡 Dica: ${q.tip}</div>`;
+            }
+            html += `<div class="options">`;
+            shuffledOpts.forEach((opt, i) => {
+                const selected = userAnswers[index] === opt.originalIndex;
+                let cls = 'option';
+                if (selected) cls += ' selected' + (opt.originalIndex === q.correct ? ' correct' : ' incorrect');
+                if (userAnswers[index] !== null && opt.originalIndex === q.correct && userAnswers[index] !== q.correct) cls += ' correct-answer';
+                html += `<div class="${cls}" data-original-index="${opt.originalIndex}" onclick="selectOption(${index}, ${opt.originalIndex})">`;
+                html += `<span class="option-letter">${letters[i]}</span>`;
+                html += `<span class="option-text">${opt.text}</span>`;
+                html += `<span class="feedback-icon">${selected ? (opt.originalIndex === q.correct ? '<i class="fas fa-check"></i>' : '<i class="fas fa-times"></i>') : ''}</span>`;
+                html += `</div>`;
+            });
+            html += `</div>`;
+            if (userAnswers[index] !== null) {
+                html += `<div class="feedback-curiosity"><i class="fas fa-book-open"></i> ${q.curiosity}</div>`;
+            }
+            html += `</div>`;
+            document.getElementById('quiz-container').innerHTML = html;
+            updateProgressBar(index);
+            updateNavButtons();
+        }
+
+        window.selectOption = function(qIndex, optIndex) {
+            if (!quizStarted) return;
+            userAnswers[qIndex] = optIndex;
+            const q = shuffledQuestions[qIndex];
+            if (optIndex === q.correct) playSound('correct');
+            else playSound('incorrect');
+            showQuestion(qIndex);
+        };
+
+        window.showTip = function(qIndex) {
+            const tip = document.getElementById(`tip-${qIndex}`);
+            if (tip) tip.style.display = tip.style.display === 'block' ? 'none' : 'block';
+        };
+
+        function updateProgressBar(index) {
+            const pct = ((index + 1) / shuffledQuestions.length) * 100;
+            document.getElementById('quiz-progress').style.width = pct + '%';
+            document.getElementById('progress-text').innerText = `Pergunta ${index+1} de ${shuffledQuestions.length}`;
+        }
+
+        function updateNavButtons() {
+            document.getElementById('prev-btn').disabled = currentQuestionIndex === 0;
+            const nextBtn = document.getElementById('next-btn');
+            if (currentQuestionIndex === shuffledQuestions.length - 1) {
+                nextBtn.innerHTML = 'Ver Resultados <i class="fas fa-chart-bar"></i>';
+            } else {
+                nextBtn.innerHTML = 'Próxima <i class="fas fa-arrow-right"></i>';
+            }
+            nextBtn.disabled = userAnswers[currentQuestionIndex] === null;
+        }
+
+        function showNextQuestion() {
+            if (currentQuestionIndex < shuffledQuestions.length - 1) {
+                currentQuestionIndex++;
+                showQuestion(currentQuestionIndex);
+            } else {
+                showResults();
+            }
+        }
+
+        function showPreviousQuestion() {
+            if (currentQuestionIndex > 0) {
+                currentQuestionIndex--;
+                showQuestion(currentQuestionIndex);
+            }
+        }
+
+        // ---------- RESULTADOS ----------
+        function showResults() {
+            document.getElementById('quiz-section').style.display = 'none';
+            document.getElementById('results').style.display = 'block';
+            let score = 0, easy=0, med=0, hard=0, totEasy=0, totMed=0, totHard=0;
+            shuffledQuestions.forEach((q, i) => {
+                if (q.difficulty === 'easy') totEasy++;
+                if (q.difficulty === 'medium') totMed++;
+                if (q.difficulty === 'hard') totHard++;
+                if (userAnswers[i] === q.correct) {
+                    score++;
+                    if (q.difficulty === 'easy') easy++;
+                    if (q.difficulty === 'medium') med++;
+                    if (q.difficulty === 'hard') hard++;
+                }
+            });
+            document.getElementById('score').innerText = `${score}/${shuffledQuestions.length}`;
+            document.getElementById('performance').innerHTML = `
+                <div class="performance-item"><strong>Fáceis</strong><br>${easy}/${totEasy}</div>
+                <div class="performance-item"><strong>Médias</strong><br>${med}/${totMed}</div>
+                <div class="performance-item"><strong>Difíceis</strong><br>${hard}/${totHard}</div>
+            `;
+            let msg = '';
+            if (score === shuffledQuestions.length) msg = 'Perfeito! Você acertou todas!';
+            else if (score >= shuffledQuestions.length*0.8) msg = 'Excelente!';
+            else if (score >= shuffledQuestions.length*0.6) msg = 'Muito bom!';
+            else if (score >= shuffledQuestions.length*0.5) msg = 'Bom trabalho!';
+            else msg = 'Continue estudando!';
+            document.getElementById('message').innerHTML = `<i class="fas fa-smile"></i> ${msg}`;
+
+            saveRanking(score);
+            updateRankingDisplay();
+        }
+
+        function saveRanking(score) {
+            let ranking = JSON.parse(localStorage.getItem('quizRanking')) || [];
+            ranking.push({ score: score, date: new Date().toLocaleDateString() });
+            ranking.sort((a, b) => b.score - a.score);
+            ranking = ranking.slice(0, 5);
+            localStorage.setItem('quizRanking', JSON.stringify(ranking));
+        }
+
+        function updateRankingDisplay() {
+            let ranking = JSON.parse(localStorage.getItem('quizRanking')) || [];
+            let html = '';
+            ranking.forEach((item, i) => {
+                html += `<li class="ranking-item"><span>${i+1}. ${item.score} pontos</span> <span>${item.date}</span></li>`;
+            });
+            document.getElementById('ranking-list').innerHTML = html || '<li>Nenhuma pontuação ainda.</li>';
+        }
+
+        function shareWhatsApp() {
+            let score = document.getElementById('score').innerText;
+            let text = `Fiz ${score} no Quiz da EBD Fiel! Venha testar seus conhecimentos também! Acesse: ${window.location.href}`;
+            window.open(`https://wa.me/?text=${encodeURIComponent(text)}`, '_blank');
+        }
+
+        function exportPDF() {
+            const { jsPDF } = window.jspdf;
+            const doc = new jsPDF();
+            doc.text('Resultado do Quiz EBD Fiel', 10, 10);
+            doc.text(`Pontuação: ${document.getElementById('score').innerText}`, 10, 20);
+            doc.text(document.getElementById('message').innerText.replace(/<[^>]*>/g, ''), 10, 30);
+            doc.save('resultado_quiz.pdf');
+        }
+
+        function toggleReview() {
+            let container = document.getElementById('review-container');
+            if (container.style.display === 'none') {
+                let html = '<h3>Revisão das respostas</h3>';
+                shuffledQuestions.forEach((q, i) => {
+                    let userAns = userAnswers[i];
+                    let isCorrect = userAns === q.correct;
+                    html += `<div class="review-item ${isCorrect ? 'correct' : 'incorrect'}">`;
+                    html += `<div class="review-question"><strong>${i+1}. ${q.question}</strong></div>`;
+                    html += `<div class="review-answer">Sua resposta: ${q.options[userAns] || 'N/A'} - ${isCorrect ? '✅' : '❌'}</div>`;
+                    html += `<div class="review-explanation">${q.explanation}</div>`;
+                    html += `</div>`;
+                });
+                container.innerHTML = html;
+                container.style.display = 'block';
+            } else {
+                container.style.display = 'none';
+            }
+        }
+
+        function toggleTheme() {
+            document.body.classList.toggle('dark-mode');
+            const icon = document.querySelector('#theme-toggle i');
+            icon.className = document.body.classList.contains('dark-mode') ? 'fas fa-sun' : 'fas fa-moon';
+        }
+
+        function toggleSound() {
+            soundEnabled = !soundEnabled;
+            const icon = document.querySelector('#sound-toggle i');
+            icon.className = soundEnabled ? 'fas fa-volume-up' : 'fas fa-volume-mute';
+        }
+
+        function restartQuiz() {
+            quizStarted = false;
+            document.querySelector('.modern-header').style.display = 'block';
+            document.getElementById('instructions-screen').style.display = 'block';
+            document.querySelector('.content-section').style.display = 'flex';
+            document.getElementById('quiz-section').style.display = 'none';
+            document.getElementById('results').style.display = 'none';
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>

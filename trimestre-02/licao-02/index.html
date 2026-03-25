@@ -1,0 +1,1567 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QUIZ DA EBD Fiel | Lição 2: Princípios Bíblicos para a Vida dos Discípulos de Cristo</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* ===== VARIÁVEIS E RESET ===== */
+        :root {
+            --primary: #4361ee;
+            --primary-dark: #3a56d4;
+            --secondary: #7209b7;
+            --accent: #f72585;
+            --success: #4cc9f0;
+            --warning: #f8961e;
+            --danger: #f94144;
+            --light: #f8f9fa;
+            --dark: #212529;
+            --text: #343a40;
+            --gray: #6c757d;
+            --shadow: 0 10px 30px rgba(0,0,0,0.1);
+            --shadow-lg: 0 15px 50px rgba(0,0,0,0.15);
+            --gradient: linear-gradient(135deg, #4361ee 0%, #7209b7 100%);
+            --gradient-light: linear-gradient(135deg, #4cc9f0 0%, #4361ee 100%);
+            --instagram: #E1306C;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: var(--text);
+            min-height: 100vh;
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            line-height: 1.6;
+        }
+
+        /* ===== CONTAINER PRINCIPAL ===== */
+        .container {
+            max-width: 100%;
+            width: 100%;
+            background: white;
+            border-radius: 20px;
+            box-shadow: var(--shadow-lg);
+            overflow: hidden;
+            margin: 10px 0;
+            position: relative;
+        }
+
+        /* ===== ANIMAÇÃO INICIAL ===== */
+        .quiz-start-animation {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--gradient);
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .quiz-start-animation.active {
+            display: flex;
+        }
+
+        .animation-icon {
+            font-size: 5rem;
+            margin-bottom: 20px;
+            animation: bounce 1s infinite, starPulse 2s infinite;
+        }
+
+        .animation-text {
+            font-size: 2rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+            animation: slideInLeft 1s ease forwards;
+        }
+
+        .animation-subtext {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            animation: slideInRight 1s ease forwards;
+            animation-delay: 0.3s;
+        }
+
+        .countdown {
+            font-size: 3rem;
+            font-weight: bold;
+            margin-top: 30px;
+            animation: pulse 1s infinite;
+        }
+
+        /* ===== HEADER MODERNO ===== */
+        .modern-header {
+            background: var(--gradient);
+            color: white;
+            padding: 25px 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.1;
+            background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAiIGhlaWdodD0iMTAwIiB2aWV3Qm94PSIwIDAgMTAwIDEwMCI+PHBhdGggZD0iTTIxLDMwIEMyMSwzMCA0MCwzMCA1MCw0MCBDNjAsMzAgNzksMzAgNzksMzAgQzc5LDMwIDg1LDM1IDg1LDQwIEM4NSw0NSA3OSw1MCA3OSw1MCBDNzksNTAgNjAsNTAgNTAsNjAgQzQwLDUwIDIxLDUwIDIxLDUwIEMyMSw1MCAxNSw0NSAxNSw0MCBDMTUsMzUgMjEsMzAgMjEsMzAgWiIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiLz48L3N2Zz4=');
+            background-size: 150px;
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 2;
+            max-width: 100%;
+            margin: 0 auto;
+        }
+
+        .logo-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .logo {
+            width: 120px;
+            height: 120px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            border-radius: 50%;
+            background: white;
+            padding: 10px;
+        }
+
+        .logo-img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            border-radius: 50%;
+        }
+
+        .logo-text {
+            text-align: center;
+        }
+
+        .logo-text h1 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin: 0;
+            line-height: 1.2;
+        }
+
+        .logo-text .subtitle {
+            font-size: 1rem;
+            opacity: 0.9;
+            font-weight: 400;
+            margin-top: 5px;
+        }
+
+        .welcome-card {
+            background: rgba(255,255,255,0.15);
+            backdrop-filter: blur(10px);
+            padding: 20px;
+            border-radius: 16px;
+            margin: 20px 0;
+            border: 1px solid rgba(255,255,255,0.2);
+            text-align: left;
+        }
+
+        .welcome-card h2 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .welcome-card p {
+            font-size: 1rem;
+            opacity: 0.9;
+            line-height: 1.5;
+        }
+
+        .features {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 12px;
+            margin-top: 20px;
+            width: 100%;
+            max-width: 300px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .feature {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: rgba(255,255,255,0.1);
+            padding: 12px 15px;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            backdrop-filter: blur(5px);
+            justify-content: center;
+        }
+
+        /* ===== SEÇÃO DE CONTEÚDO ===== */
+        .content-section {
+            padding: 30px 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        .about-card, .details-card {
+            background: var(--light);
+            border-radius: 16px;
+            padding: 25px 20px;
+            box-shadow: var(--shadow);
+        }
+
+        .card-title {
+            font-size: 1.3rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .card-content {
+            font-size: 0.95rem;
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        .card-content ul {
+            list-style: none;
+            margin-top: 15px;
+        }
+
+        .card-content li {
+            margin-bottom: 12px;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+        }
+
+        .card-content li i {
+            color: var(--primary);
+            margin-top: 3px;
+            flex-shrink: 0;
+        }
+
+        .highlight {
+            background: var(--gradient-light);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-weight: 600;
+        }
+
+        /* ===== BOTÃO INICIAR ===== */
+        .cta-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .start-btn {
+            padding: 16px 35px;
+            border: none;
+            border-radius: 50px;
+            background: var(--accent);
+            color: white;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 8px 20px rgba(248, 37, 133, 0.4);
+            width: 100%;
+            max-width: 280px;
+            justify-content: center;
+        }
+
+        .start-btn:hover {
+            transform: translateY(-3px) scale(1.03);
+            box-shadow: 0 12px 25px rgba(248, 37, 133, 0.5);
+            background: #ff2d95;
+        }
+
+        /* ===== SEÇÃO DO QUIZ ===== */
+        .quiz-section {
+            display: none;
+            padding: 20px 15px;
+        }
+
+        .progress-container {
+            padding: 0 15px;
+            margin-bottom: 20px;
+        }
+
+        .progress-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .progress-text {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        .progress-bar {
+            height: 8px;
+            background: #e9ecef;
+            border-radius: 10px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .progress {
+            height: 100%;
+            background: var(--gradient);
+            border-radius: 10px;
+            transition: width 0.5s ease;
+            position: relative;
+        }
+
+        .progress::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            background-image: linear-gradient(
+                -45deg,
+                rgba(255, 255, 255, 0.2) 25%,
+                transparent 25%,
+                transparent 50%,
+                rgba(255, 255, 255, 0.2) 50%,
+                rgba(255, 255, 255, 0.2) 75%,
+                transparent 75%,
+                transparent
+            );
+            background-size: 20px 20px;
+            animation: move 1s linear infinite;
+        }
+
+        @keyframes move {
+            0% { background-position: 0 0; }
+            100% { background-position: 20px 0; }
+        }
+
+        .question {
+            margin-bottom: 25px;
+            padding: 20px;
+            border-radius: 16px;
+            background: white;
+            box-shadow: var(--shadow);
+            border-left: 5px solid var(--primary);
+        }
+
+        .question-header {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .question-difficulty {
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: bold;
+            color: white;
+            align-self: flex-start;
+        }
+
+        .difficulty-easy { background: var(--success); }
+        .difficulty-medium { background: var(--warning); }
+        .difficulty-hard { background: var(--danger); }
+
+        .question-text {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--primary);
+            line-height: 1.4;
+        }
+
+        .options {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 12px;
+        }
+
+        .option {
+            padding: 16px 15px;
+            background: var(--light);
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            border: 2px solid transparent;
+            position: relative;
+        }
+
+        .option:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            border-color: var(--primary);
+        }
+
+        .option.selected.correct {
+            background: var(--success);
+            color: white;
+            border-color: var(--success);
+            transform: translateY(-2px);
+        }
+
+        .option.selected.incorrect {
+            background: var(--danger);
+            color: white;
+            border-color: var(--danger);
+            transform: translateY(-2px);
+        }
+
+        .option.correct-answer {
+            background: var(--success);
+            color: white;
+            border-color: var(--success);
+            animation: pulse 0.6s ease;
+        }
+
+        .option-letter {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 32px;
+            height: 32px;
+            background: rgba(255,255,255,0.3);
+            border-radius: 50%;
+            margin-right: 12px;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+
+        .option.selected .option-letter,
+        .option.correct-answer .option-letter {
+            background: rgba(255,255,255,0.2);
+        }
+
+        .feedback-icon {
+            margin-left: auto;
+            font-size: 1.1rem;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            flex-shrink: 0;
+        }
+
+        .option.selected.correct .feedback-icon,
+        .option.correct-answer .feedback-icon {
+            opacity: 1;
+        }
+
+        .option.selected.incorrect .feedback-icon {
+            opacity: 1;
+        }
+
+        .option.locked {
+            cursor: not-allowed;
+        }
+
+        .option.locked:hover {
+            transform: none;
+            box-shadow: none;
+            border-color: transparent;
+        }
+
+        /* ===== NAVEGAÇÃO ===== */
+        .navigation {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 25px;
+            gap: 10px;
+            flex-direction: row-reverse;
+        }
+
+        button {
+            padding: 14px 20px;
+            border: none;
+            border-radius: 50px;
+            background: var(--primary);
+            color: white;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.95rem;
+            flex: 1;
+            justify-content: center;
+        }
+
+        button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        }
+
+        button:disabled {
+            background: #bdc3c7;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+
+        .btn-next {
+            background: var(--secondary);
+        }
+
+        /* ===== RESULTADOS ===== */
+        .results {
+            text-align: center;
+            padding: 30px 20px;
+            display: none;
+        }
+
+        .results-header {
+            margin-bottom: 25px;
+        }
+
+        .score {
+            font-size: 3.5rem;
+            font-weight: 700;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin: 15px 0;
+        }
+
+        .performance {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 15px;
+            margin: 30px 0;
+        }
+
+        .performance-item {
+            text-align: center;
+            padding: 20px;
+            border-radius: 16px;
+            background: var(--light);
+            box-shadow: var(--shadow);
+        }
+
+        .performance-value {
+            font-size: 2rem;
+            font-weight: 700;
+            margin: 10px 0;
+        }
+
+        .performance-easy { color: var(--success); }
+        .performance-medium { color: var(--warning); }
+        .performance-hard { color: var(--danger); }
+
+        .message {
+            font-size: 1.1rem;
+            margin: 25px 0;
+            padding: 20px;
+            border-radius: 16px;
+            background: var(--light);
+            box-shadow: var(--shadow);
+            line-height: 1.5;
+        }
+
+        /* ===== ANIMAÇÕES FINAIS ===== */
+        .confetti-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 999;
+            overflow: hidden;
+            display: none;
+        }
+
+        .confetti-container.active {
+            display: block;
+        }
+
+        .confetti {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            opacity: 0;
+            animation: confettiRain 2s ease forwards;
+        }
+
+        .trophy-animation {
+            animation: trophyGlow 2s infinite;
+        }
+
+        .star-animation {
+            animation: starPulse 1.5s infinite;
+        }
+
+        /* ===== INFORMAÇÕES DA IGREJA E INSTAGRAM ===== */
+        .church-info {
+            text-align: center;
+            padding: 20px;
+            background: var(--light);
+            border-top: 1px solid #dee2e6;
+        }
+
+        .church-name {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 5px;
+        }
+
+        .church-location {
+            color: var(--text);
+            opacity: 0.8;
+            font-size: 0.95rem;
+            margin-bottom: 15px;
+        }
+
+        .instagram-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .instagram-text {
+            font-size: 0.9rem;
+            color: var(--text);
+        }
+
+        .instagram-link {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 20px;
+            background: var(--instagram);
+            color: white;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(225, 48, 108, 0.3);
+        }
+
+        .instagram-link:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(225, 48, 108, 0.4);
+            background: #C13584;
+        }
+
+        .instagram-icon {
+            font-size: 1.2rem;
+        }
+
+        /* ===== ANIMAÇÕES ===== */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-10px); }
+            60% { transform: translateY(-5px); }
+        }
+
+        @keyframes slideInLeft {
+            from { opacity: 0; transform: translateX(-50px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        @keyframes slideInRight {
+            from { opacity: 0; transform: translateX(50px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        @keyframes confettiRain {
+            0% { transform: translateY(-100px) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
+        }
+
+        @keyframes starPulse {
+            0%, 100% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.2); opacity: 0.8; }
+        }
+
+        @keyframes trophyGlow {
+            0%, 100% { filter: drop-shadow(0 0 5px rgba(255, 215, 0, 0.7)); }
+            50% { filter: drop-shadow(0 0 20px rgba(255, 215, 0, 0.9)); }
+        }
+
+        .fade-in {
+            animation: fadeIn 0.5s ease forwards;
+        }
+
+        /* ===== RESPONSIVO ===== */
+        @media (max-width: 480px) {
+            body {
+                padding: 10px;
+            }
+            
+            .container {
+                border-radius: 16px;
+            }
+            
+            .modern-header {
+                padding: 20px 15px;
+            }
+            
+            .logo-text h1 {
+                font-size: 1.6rem;
+            }
+            
+            .logo {
+                width: 100px;
+                height: 100px;
+            }
+            
+            .welcome-card {
+                padding: 15px;
+            }
+            
+            .content-section {
+                padding: 25px 15px;
+            }
+            
+            .about-card, .details-card {
+                padding: 20px 15px;
+            }
+            
+            .quiz-section {
+                padding: 15px 10px;
+            }
+            
+            .question {
+                padding: 15px;
+            }
+            
+            .question-text {
+                font-size: 1.1rem;
+            }
+            
+            .option {
+                padding: 14px 12px;
+            }
+            
+            .navigation {
+                flex-direction: column-reverse;
+            }
+            
+            button {
+                width: 100%;
+            }
+            
+            .results {
+                padding: 25px 15px;
+            }
+            
+            .score {
+                font-size: 3rem;
+            }
+            
+            .animation-text {
+                font-size: 1.5rem;
+            }
+            
+            .animation-icon {
+                font-size: 3.5rem;
+            }
+            
+            .countdown {
+                font-size: 2.5rem;
+            }
+        }
+
+        @media (min-width: 768px) {
+            .container {
+                max-width: 700px;
+            }
+            
+            .logo-container {
+                flex-direction: row;
+                text-align: left;
+            }
+            
+            .logo-text {
+                text-align: left;
+            }
+            
+            .features {
+                flex-direction: row;
+                max-width: 100%;
+            }
+            
+            .performance {
+                flex-direction: row;
+            }
+            
+            .navigation {
+                flex-direction: row-reverse;
+            }
+            
+            .instagram-section {
+                flex-direction: row;
+                justify-content: center;
+            }
+        }
+
+        @media (min-width: 992px) {
+            .container {
+                max-width: 900px;
+            }
+            
+            .content-section {
+                grid-template-columns: 1fr 1fr;
+                display: grid;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- ANIMAÇÃO INICIAL -->
+    <div class="quiz-start-animation" id="quiz-start-animation">
+        <div class="animation-icon">
+            <i class="fas fa-book-bible"></i>
+        </div>
+        <div class="animation-text">Quiz da EBD Fiel</div>
+        <div class="animation-subtext">Lição 02: Princípios Bíblicos para a Vida dos Discípulos de Cristo</div>
+        <div class="countdown" id="countdown">3</div>
+    </div>
+
+    <!-- CONFETES -->
+    <div class="confetti-container" id="confetti-container"></div>
+
+    <div class="container fade-in">
+        <!-- HEADER -->
+        <header class="modern-header">
+            <div class="header-bg"></div>
+            <div class="header-content">
+                <div class="logo-container">
+                    <div class="logo">
+                        <img src="https://i.ibb.co/9mLXgx7k/logo.png" alt="Logo EBD Fiel" class="logo-img" id="logo-img">
+                    </div>
+                    <div class="logo-text">
+                        <h1>QUIZ DA EBD Fiel</h1>
+                        <div class="subtitle">Lição 02: Princípios Bíblicos para a Vida dos Discípulos de Cristo</div>
+                    </div>
+                </div>
+
+                <div class="welcome-card">
+                    <h2><i class="fas fa-hands"></i> Bem-vindo ao Quiz da EBD Fiel!</h2>
+                    <p>Explore os princípios bíblicos que norteiam a vida dos discípulos de Cristo. Descubra como aplicar esses ensinamentos em todas as áreas da vida, com a indispensável ajuda do Espírito Santo.</p>
+                </div>
+
+                <div class="features">
+                    <div class="feature">
+                        <i class="fas fa-star" style="color: #4cc9f0;"></i>
+                        <span>15 Perguntas</span>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-check-circle" style="color: #f8961e;"></i>
+                        <span>Feedback Imediato</span>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-graduation-cap" style="color: #f94144;"></i>
+                        <span>Aprenda com a Bíblia</span>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- CONTEÚDO -->
+        <section class="content-section">
+            <div class="about-card">
+                <h2 class="card-title"><i class="fas fa-info-circle"></i> Sobre Esta Lição</h2>
+                <div class="card-content">
+                    <p>Esta lição nos conduz a uma importante reflexão sobre o viver diário do discípulo de Cristo. Veremos que precisamos recorrer às Escrituras, pois nelas encontramos os princípios que devem nortear todas as áreas da nossa vida.</p>
+                    <p>Precisamos também da ajuda do Espírito Santo, pois não basta conhecer os princípios, é preciso aplicá-los no dia a dia para nossa contínua edificação e a Glória de Deus.</p>
+                    <p><span class="highlight">"É tudo quanto fizerdes, fazei-o de todo o coração, como ao Senhor, e não aos homens" (Colossenses 3:23).</span> Este é o texto áureo que norteia esta lição.</p>
+                </div>
+            </div>
+
+            <div class="details-card">
+                <h2 class="card-title"><i class="fas fa-book-open"></i> O Que Você Vai Aprender</h2>
+                <div class="card-content">
+                    <ul>
+                        <li><i class="fas fa-check"></i> Princípios bíblicos para um viver coerente</li>
+                        <li><i class="fas fa-check"></i> O padrão bíblico para a vida do cristão</li>
+                        <li><i class="fas fa-check"></i> Como cultivar um caráter puro</li>
+                        <li><i class="fas fa-check"></i> A importância de resistir às tentações</li>
+                        <li><i class="fas fa-check"></i> O significado da vida cristã vitoriosa</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- BOTÃO INICIAR NO FINAL -->
+            <div class="cta-section">
+                <button class="start-btn" id="start-btn">
+                    <i class="fas fa-play"></i> Iniciar Quiz
+                </button>
+            </div>
+        </section>
+
+        <!-- QUIZ -->
+        <div class="quiz-section" id="quiz-section">
+            <div class="progress-container">
+                <div class="progress-header">
+                    <div class="progress-text" id="progress-text">Pergunta 1 de 15</div>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress" id="quiz-progress"></div>
+                </div>
+            </div>
+
+            <div class="quiz-container" id="quiz-container">
+                <!-- Perguntas serão inseridas aqui -->
+            </div>
+
+            <div class="navigation">
+                <button id="prev-btn" disabled>
+                    <i class="fas fa-arrow-left"></i> Anterior
+                </button>
+                <button id="next-btn" class="btn-next">
+                    Próxima <i class="fas fa-arrow-right"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- RESULTADOS -->
+        <div class="results" id="results">
+            <div class="results-header">
+                <h2><i class="fas fa-trophy" id="trophy-icon"></i> Resultado Final</h2>
+            </div>
+            <div class="score" id="score">0/0</div>
+
+            <div class="performance" id="performance">
+                <div class="performance-item">
+                    <div class="performance-value performance-easy" id="correct-easy">0</div>
+                    <div>Fáceis</div>
+                </div>
+                <div class="performance-item">
+                    <div class="performance-value performance-medium" id="correct-medium">0</div>
+                    <div>Médias</div>
+                </div>
+                <div class="performance-item">
+                    <div class="performance-value performance-hard" id="correct-hard">0</div>
+                    <div>Difíceis</div>
+                </div>
+            </div>
+
+            <div class="message" id="message"></div>
+
+            <button id="restart-btn" style="background: var(--success);">
+                <i class="fas fa-redo"></i> Fazer Quiz Novamente
+            </button>
+        </div>
+
+        <!-- INFORMAÇÕES DA IGREJA -->
+        <div class="church-info">
+            <div class="church-name">EBD FIEL</div>
+            <div class="church-location">FIEL A PALAVRA</div>
+
+            <div class="instagram-section">
+                <div class="instagram-text">Curta nossa página no Instagram:</div>
+                <a href="https://www.instagram.com/ebdfiel" target="_blank" class="instagram-link">
+                    <i class="fab fa-instagram instagram-icon"></i>
+                    @ebdfiel
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // =============================================
+        // BANCO DE PERGUNTAS - LIÇÃO 2 (RESPOSTAS VARIADAS)
+        // =============================================
+        const allQuestions = [
+            // PERGUNTAS FÁCEIS (1-5) - Respostas corretas: A, C, D, B, A
+            {
+                question: "Qual é o texto áureo da lição 2?",
+                options: [
+                    "Colossenses 3.23 - 'É tudo quanto fizerdes, fazei-o de todo o coração, como ao Senhor, e não aos homens'",
+                    "Mateus 5.16 - 'Assim brilhe a vossa luz diante dos homens'", 
+                    "Filipenses 4.8 - 'Tudo o que é verdadeiro, honesto, justo, puro, amável, de boa fama... nisso pensai'",
+                    "Romanos 12.2 - 'E não vos conformeis com este século, mas transformai-vos pela renovação da vossa mente'"
+                ],
+                correct: 0, // A
+                explanation: "O texto áureo da lição 2 é Colossenses 3.23, conforme indicado no início do material: 'É tudo quanto fizerdes, fazei-o de todo o coração, como ao Senhor, e não aos homens'.",
+                difficulty: "easy"
+            },
+            {
+                question: "Segundo a Verdade Aplicada da lição, o que norteia a vida do discípulo de Cristo em todas as áreas?",
+                options: [
+                    "As tradições da igreja e os ensinamentos dos pastores",
+                    "A própria consciência e a sabedoria humana",
+                    "Os princípios bíblicos e a indispensável ajuda do Espírito Santo",
+                    "As leis do país e os valores da sociedade"
+                ],
+                correct: 2, // C
+                explanation: "A Verdade Aplicada afirma: 'A vida do discípulo de Cristo, em todas as áreas, é norteada pelos princípios bíblicos e pela indispensável ajuda do Espírito Santo'.",
+                difficulty: "easy"
+            },
+            {
+                question: "O que o texto de Filipenses 4.8 nos exorta a pensar?",
+                options: [
+                    "Nos problemas e dificuldades da vida",
+                    "No passado e nos arrependimentos",
+                    "Nas coisas materiais e no sucesso profissional",
+                    "Em tudo o que é verdadeiro, honesto, justo, puro, amável e de boa fama"
+                ],
+                correct: 3, // D
+                explanation: "Filipenses 4.8 diz: 'Quanto ao mais, irmãos, tudo o que é verdadeiro, tudo o que é honesto, tudo o que é justo, tudo o que é puro, tudo o que é amável, tudo o que é de boa fama, se há alguma virtude, e se há algum louvor, nisso pensai'.",
+                difficulty: "easy"
+            },
+            {
+                question: "Segundo a lição, o que conduz a um caminho de paz?",
+                options: [
+                    "A riqueza material e o sucesso profissional",
+                    "Viver os valores cristãos",
+                    "A fama e o reconhecimento público",
+                    "O isolamento e a solidão"
+                ],
+                correct: 1, // B
+                explanation: "Um dos objetivos da lição é 'Enfatizar que viver os valores cristãos conduz a um caminho de paz'.",
+                difficulty: "easy"
+            },
+            {
+                question: "Como a Bíblia é descrita em relação ao nosso crescimento espiritual?",
+                options: [
+                    "A revelação de Deus e fonte de alimento necessário",
+                    "Um livro de histórias antigas",
+                    "Um guia de regras e proibições",
+                    "Um manual de filosofia"
+                ],
+                correct: 0, // A
+                explanation: "No tópico 1.1, a lição afirma: 'A Bíblia é a revelação de Deus e fonte de alimento necessário para o nosso crescimento espiritual (1Pe 2.2)'.",
+                difficulty: "easy"
+            },
+            
+            // PERGUNTAS MÉDIAS (6-10) - Respostas corretas: D, C, B, A, C
+            {
+                question: "O que significa amar o próximo na prática, segundo a lição?",
+                options: [
+                    "Apenas sentir afeto pelos outros",
+                    "Orar pelos outros sem envolvimento pessoal",
+                    "Evangelizar e converter pessoas",
+                    "Demonstrar amor genuíno por meio de ações concretas como ajudar, perdoar e compartilhar"
+                ],
+                correct: 3, // D
+                explanation: "No tópico 1.2, a lição explica: 'Na prática, isso significa demonstrar amor genuíno e altruísta por meio de ações concretas, como: oferecer ajuda a quem precisa, perdoar ofensas, ouvir com empatia ou compartilhar recursos com generosidade'.",
+                difficulty: "medium"
+            },
+            {
+                question: "Qual é o papel do Espírito Santo no crescimento espiritual, segundo a lição?",
+                options: [
+                    "Apenar confortar nos momentos difíceis",
+                    "Dar dons espirituais para exibição pública",
+                    "Transformar o discípulo à imagem de Cristo, guiando pensamentos, decisões e ações",
+                    "Ajudar a memorizar versículos bíblicos"
+                ],
+                correct: 2, // C
+                explanation: "No tópico 1.3, a lição afirma: 'O crescimento espiritual não é um esforço apenas humano, mas uma Obra do Espírito Santo, que transforma o discípulo à imagem de Cristo'.",
+                difficulty: "medium"
+            },
+            {
+                question: "O que o profeta Miqueias (Mq 6.8) exorta a praticar?",
+                options: [
+                    "Oferecer muitos sacrifícios no templo",
+                    "Praticar a justiça, amar a misericórdia e andar humildemente com Deus",
+                    "Guardar rigidamente o sábado",
+                    "Jejuar regularmente"
+                ],
+                correct: 1, // B
+                explanation: "No tópico 2, a lição cita Miqueias 6.8: 'praticar a justiça, amar a misericórdia e andar humildemente com Deus', revelando um padrão que envolve alinhar pensamentos, palavras e ações aos ensinamentos bíblicos.",
+                difficulty: "medium"
+            },
+            {
+                question: "O que significa cultivar um caráter puro, segundo a lição?",
+                options: [
+                    "Afastar-se de tudo que contamina e perseverar em viver como discípulos dignos de ser templo santo",
+                    "Ser perfeito e não cometer erros",
+                    "Isolar-se completamente do mundo",
+                    "Ter uma aparência impecável e postura irrepreensível"
+                ],
+                correct: 0, // A
+                explanation: "No tópico 2.1, a lição afirma: 'Portanto, devemos nos afastar de tudo que nos contamina, perseverando em viver como discípulos dignos de ser templo santo para o culto a Deus (2Co 7.1)'.",
+                difficulty: "medium"
+            },
+            {
+                question: "O que é o amor fraternal, segundo a lição?",
+                options: [
+                    "O amor entre irmãos de sangue",
+                    "O amor romântico entre casais",
+                    "O amor que faz a pessoa não buscar os próprios interesses e se expressa em ações concretas",
+                    "O amor a Deus acima de todas as coisas"
+                ],
+                correct: 2, // C
+                explanation: "No tópico 2.3, a lição explica: 'Um dos princípios da vida cristã é cultivar o amor fraternal (Rm 12.10), isto é, aquele entre os irmãos. É o amor que faz a pessoa não buscar os próprios interesses (1Pe 3.8) e se expressa em ações concretas (1Ts 4.9)'.",
+                difficulty: "medium"
+            },
+            
+            // PERGUNTAS DIFÍCEIS (11-15) - Respostas corretas: B, D, B, A, D
+            {
+                question: "O que a expressão 'purificar-se a si mesmo' (1Jo 3.3) significa no grego, segundo o Bispo Abner Ferreira?",
+                options: [
+                    "Katharidzo - limpar externamente",
+                    "Hagnidzo - tornar puro, no sentido moral",
+                    "Apothou - rejeitar completamente",
+                    "Metanoeo - arrepender-se profundamente"
+                ],
+                correct: 1, // B
+                explanation: "No tópico 2.1, o Bispo Abner Ferreira explica: 'Essa expressão no grego é hagnidzo, com o significado de tornar puro, no sentido moral'.",
+                difficulty: "hard"
+            },
+            {
+                question: "O que o cristão deve fazer para resistir às tentações, segundo a lição?",
+                options: [
+                    "Confiar apenas em sua própria força de vontade",
+                    "Evitar todas as situações difíceis e desafiantes",
+                    "Pedir ajuda apenas aos amigos e familiares",
+                    "Buscar se encher do Espírito e viver em constante santificação"
+                ],
+                correct: 3, // D
+                explanation: "No tópico 2.2, a lição afirma: 'Diante de tamanha gravidade, devemos buscar nos encher do Espírito e viver em constante santificação'.",
+                difficulty: "hard"
+            },
+            {
+                question: "O que significa ser um pacificador, segundo a lição?",
+                options: [
+                    "Aquele que evita conflitos a qualquer custo, mesmo cedendo princípios",
+                    "Aquele que faz com que a paz aconteça, seguindo o exemplo de Deus, o autor da paz e reconciliação",
+                    "Aquele que sempre concorda com os outros para manter a harmonia",
+                    "Aquele que se mantém neutro em todas as controvérsias"
+                ],
+                correct: 1, // B
+                explanation: "No tópico 3.1, o Bispo Abner Ferreira explica: 'O pacificador é aquele que faz com que a paz aconteça. A pacificação é uma obra divina, pois a paz significa reconciliação, e Deus é o autor da paz e da reconciliação'.",
+                difficulty: "hard"
+            },
+            {
+                question: "O que caracteriza a vida de um verdadeiro adorador, segundo a lição?",
+                options: [
+                    "É um estilo de vida, uma adoração diária, contínua, constante, que reflete a glória de Deus",
+                    "Cantar louvores com frequência e levantar as mãos no culto",
+                    "Frequentar cultos regularmente e participar de todas as atividades da igreja",
+                    "Conhecer muitos hinos e cânticos espirituais"
+                ],
+                correct: 0, // A
+                explanation: "No tópico 3.3, o Bispo Abner Ferreira afirma: 'Ser verdadeiro adorador vai além de cantar, entoar louvores, levantar as mãos, glorificar ou outra forma. Mas é um estilo de vida e não algo momentâneo'.",
+                difficulty: "hard"
+            },
+            {
+                question: "Segundo a lição, o que envolve a transformação pelo Espírito Santo?",
+                options: [
+                    "Apenas a mudança de comportamentos exteriores",
+                    "Aumentar o conhecimento bíblico e teológico",
+                    "Desenvolver habilidades naturais e talentos pessoais",
+                    "Reconhecer áreas de pecado e buscar a renovação da mente com os pensamentos de Cristo"
+                ],
+                correct: 3, // D
+                explanation: "No tópico 1.3, a lição explica: 'Isso envolve reconhecer áreas de pecado e buscar a renovação da mente com os pensamentos de Cristo (Rm 12.2)'.",
+                difficulty: "hard"
+            }
+        ];
+
+        // =============================================
+        // VARIÁVEIS GLOBAIS
+        // =============================================
+        let currentQuestionIndex = 0;
+        let userAnswers = [];
+        let quizStarted = false;
+
+        // =============================================
+        // INICIALIZAÇÃO
+        // =============================================
+        document.addEventListener('DOMContentLoaded', function() {
+            // Configurar eventos dos botões
+            document.getElementById('start-btn').addEventListener('click', startQuizWithAnimation);
+            document.getElementById('prev-btn').addEventListener('click', showPreviousQuestion);
+            document.getElementById('next-btn').addEventListener('click', showNextQuestion);
+            document.getElementById('restart-btn').addEventListener('click', restartQuiz);
+            
+            // Inicializar array de respostas
+            userAnswers = new Array(allQuestions.length).fill(null);
+            
+            // Configurar imagem da logo
+            const logoImg = document.getElementById('logo-img');
+            logoImg.onerror = function() {
+                logoImg.src = 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="45" fill="%234361ee"/><text x="50" y="60" text-anchor="middle" fill="white" font-size="40" font-family="Arial">EBD</text></svg>';
+            };
+        });
+
+        // =============================================
+        // FUNÇÕES DO QUIZ
+        // =============================================
+        function startQuizWithAnimation() {
+            // Mostrar animação inicial
+            const startAnimation = document.getElementById('quiz-start-animation');
+            startAnimation.classList.add('active');
+            
+            // Contagem regressiva
+            let count = 3;
+            const countdownElement = document.getElementById('countdown');
+            
+            const countdownInterval = setInterval(() => {
+                countdownElement.textContent = count;
+                count--;
+                
+                if (count < 0) {
+                    clearInterval(countdownInterval);
+                    startQuiz();
+                }
+            }, 1000);
+        }
+
+        function startQuiz() {
+            // Esconder animação inicial
+            document.getElementById('quiz-start-animation').classList.remove('active');
+            
+            // Esconder elementos iniciais e mostrar quiz
+            document.querySelector('.modern-header').style.display = 'none';
+            document.querySelector('.content-section').style.display = 'none';
+            document.getElementById('quiz-section').style.display = 'block';
+            document.getElementById('results').style.display = 'none';
+            
+            // Resetar variáveis
+            quizStarted = true;
+            currentQuestionIndex = 0;
+            userAnswers = new Array(allQuestions.length).fill(null);
+            
+            // Mostrar primeira pergunta
+            showQuestion(currentQuestionIndex);
+        }
+
+        function showQuestion(index) {
+            const question = allQuestions[index];
+            const quizContainer = document.getElementById('quiz-container');
+            
+            // Atualizar barra de progresso
+            updateProgressBar();
+            
+            // Criar HTML da pergunta
+            let optionsHTML = '';
+            const letters = ['A', 'B', 'C', 'D'];
+            
+            question.options.forEach((option, i) => {
+                const isSelected = userAnswers[index] === i;
+                let optionClass = 'option';
+                
+                if (isSelected) {
+                    optionClass += ' selected';
+                    if (i === question.correct) {
+                        optionClass += ' correct';
+                    } else {
+                        optionClass += ' incorrect';
+                    }
+                }
+                
+                optionsHTML += `
+                    <div class="${optionClass}" data-index="${i}">
+                        <span class="option-letter">${letters[i]}</span>
+                        <span class="option-text">${option}</span>
+                        <span class="feedback-icon">
+                            ${isSelected ? (i === question.correct ? '<i class="fas fa-check"></i>' : '<i class="fas fa-times"></i>') : ''}
+                        </span>
+                    </div>
+                `;
+            });
+            
+            quizContainer.innerHTML = `
+                <div class="question fade-in">
+                    <div class="question-header">
+                        <span class="question-difficulty difficulty-${question.difficulty}">
+                            ${question.difficulty === 'easy' ? 'Fácil' : question.difficulty === 'medium' ? 'Médio' : 'Difícil'}
+                        </span>
+                        <div class="question-text">${question.question}</div>
+                    </div>
+                    <div class="options">
+                        ${optionsHTML}
+                    </div>
+                </div>
+            `;
+            
+            // Adicionar eventos às opções
+            document.querySelectorAll('.option').forEach(option => {
+                option.addEventListener('click', function() {
+                    if (!quizStarted) return;
+                    
+                    const selectedIndex = parseInt(this.getAttribute('data-index'));
+                    selectOption(selectedIndex);
+                });
+            });
+            
+            // Atualizar botões de navegação
+            updateNavigationButtons();
+        }
+
+        function selectOption(optionIndex) {
+            userAnswers[currentQuestionIndex] = optionIndex;
+            const question = allQuestions[currentQuestionIndex];
+            
+            // Atualizar visual das opções
+            const options = document.querySelectorAll('.option');
+            options.forEach((option, i) => {
+                option.classList.remove('selected', 'correct', 'incorrect', 'correct-answer');
+                
+                if (i === optionIndex) {
+                    option.classList.add('selected');
+                    if (i === question.correct) {
+                        option.classList.add('correct');
+                    } else {
+                        option.classList.add('incorrect');
+                    }
+                }
+                
+                // Mostrar resposta correta se o usuário errou
+                if (i === question.correct && optionIndex !== question.correct) {
+                    option.classList.add('correct-answer');
+                }
+            });
+            
+            // Atualizar botões de navegação
+            updateNavigationButtons();
+        }
+
+        function showNextQuestion() {
+            if (currentQuestionIndex < allQuestions.length - 1) {
+                currentQuestionIndex++;
+                showQuestion(currentQuestionIndex);
+            } else {
+                showResults();
+            }
+        }
+
+        function showPreviousQuestion() {
+            if (currentQuestionIndex > 0) {
+                currentQuestionIndex--;
+                showQuestion(currentQuestionIndex);
+            }
+        }
+
+        function updateProgressBar() {
+            const progress = ((currentQuestionIndex + 1) / allQuestions.length) * 100;
+            document.getElementById('quiz-progress').style.width = `${progress}%`;
+            document.getElementById('progress-text').textContent = `Pergunta ${currentQuestionIndex + 1} de ${allQuestions.length}`;
+        }
+
+        function updateNavigationButtons() {
+            document.getElementById('prev-btn').disabled = currentQuestionIndex === 0;
+            
+            const nextButton = document.getElementById('next-btn');
+            if (currentQuestionIndex === allQuestions.length - 1) {
+                nextButton.innerHTML = 'Ver Resultados <i class="fas fa-chart-bar"></i>';
+            } else {
+                nextButton.innerHTML = 'Próxima <i class="fas fa-arrow-right"></i>';
+            }
+            
+            // Habilitar próximo apenas se uma opção foi selecionada
+            nextButton.disabled = userAnswers[currentQuestionIndex] === null;
+        }
+
+        // =============================================
+        // ANIMAÇÕES FINAIS
+        // =============================================
+        function createConfetti(scorePercentage) {
+            const container = document.getElementById('confetti-container');
+            container.classList.add('active');
+            container.innerHTML = '';
+            
+            const colors = ['#4361ee', '#7209b7', '#f72585', '#4cc9f0', '#f8961e', '#f94144'];
+            const confettiCount = Math.min(100, Math.floor(scorePercentage * 100));
+            
+            for (let i = 0; i < confettiCount; i++) {
+                const confetti = document.createElement('div');
+                confetti.className = 'confetti';
+                
+                // Configurações aleatórias
+                const left = Math.random() * 100;
+                const size = Math.random() * 10 + 5;
+                const color = colors[Math.floor(Math.random() * colors.length)];
+                const delay = Math.random() * 2;
+                const duration = Math.random() * 2 + 2;
+                
+                confetti.style.left = `${left}%`;
+                confetti.style.width = `${size}px`;
+                confetti.style.height = `${size}px`;
+                confetti.style.backgroundColor = color;
+                confetti.style.borderRadius = Math.random() > 0.5 ? '50%' : '0';
+                confetti.style.animationDelay = `${delay}s`;
+                confetti.style.animationDuration = `${duration}s`;
+                
+                container.appendChild(confetti);
+            }
+            
+            // Remover confetes após 5 segundos
+            setTimeout(() => {
+                container.classList.remove('active');
+                container.innerHTML = '';
+            }, 5000);
+        }
+
+        function showResults() {
+            document.getElementById('quiz-section').style.display = 'none';
+            document.getElementById('results').style.display = 'block';
+            
+            // Calcular pontuação
+            let score = 0;
+            let correctEasy = 0, correctMedium = 0, correctHard = 0;
+            let totalEasy = 0, totalMedium = 0, totalHard = 0;
+            
+            allQuestions.forEach((question, index) => {
+                // Contar totais por dificuldade
+                if (question.difficulty === 'easy') totalEasy++;
+                if (question.difficulty === 'medium') totalMedium++;
+                if (question.difficulty === 'hard') totalHard++;
+                
+                // Verificar resposta correta
+                if (userAnswers[index] === question.correct) {
+                    score++;
+                    
+                    if (question.difficulty === 'easy') correctEasy++;
+                    if (question.difficulty === 'medium') correctMedium++;
+                    if (question.difficulty === 'hard') correctHard++;
+                }
+            });
+            
+            const scorePercentage = score / allQuestions.length;
+            
+            // Atualizar resultados na tela
+            document.getElementById('score').textContent = `${score}/${allQuestions.length}`;
+            document.getElementById('correct-easy').textContent = `${correctEasy}/${totalEasy}`;
+            document.getElementById('correct-medium').textContent = `${correctMedium}/${totalMedium}`;
+            document.getElementById('correct-hard').textContent = `${correctHard}/${totalHard}`;
+            
+            // Configurar mensagem e animações baseadas na pontuação
+            const trophyIcon = document.getElementById('trophy-icon');
+            const messageElement = document.getElementById('message');
+            
+            let message = '';
+            let animationType = '';
+            
+            if (score === allQuestions.length) {
+                // PERFEITO
+                message = '<i class="fas fa-crown star-animation"></i> <strong>PERFEITO!</strong> Você acertou todas as questões! Sua compreensão sobre os princípios bíblicos para a vida dos discípulos de Cristo é excepcional.';
+                trophyIcon.className = 'fas fa-crown trophy-animation';
+                createConfetti(1);
+                animationType = 'perfect';
+            } else if (scorePercentage >= 0.8) {
+                // EXCELENTE
+                message = '<i class="fas fa-star star-animation"></i> <strong>EXCELENTE!</strong> Você demonstrou um conhecimento excepcional sobre os princípios bíblicos que norteiam a vida dos discípulos de Cristo.';
+                trophyIcon.className = 'fas fa-trophy trophy-animation';
+                createConfetti(scorePercentage);
+                animationType = 'excellent';
+            } else if (scorePercentage >= 0.6) {
+                // MUITO BOM
+                message = '<i class="fas fa-thumbs-up"></i> <strong>MUITO BOM!</strong> Você tem um bom entendimento da lição sobre princípios bíblicos para a vida dos discípulos. Continue estudando!';
+                trophyIcon.className = 'fas fa-award';
+                createConfetti(scorePercentage * 0.7);
+                animationType = 'good';
+            } else if (scorePercentage >= 0.5) {
+                // BOM
+                message = '<i class="fas fa-check-circle"></i> <strong>BOM TRABALHO!</strong> Você acertou a maioria das questões. Revise os pontos em que teve dificuldade.';
+                trophyIcon.className = 'fas fa-medal';
+                createConfetti(scorePercentage * 0.5);
+                animationType = 'average';
+            } else {
+                // CONTINUE ESTUDANDO
+                message = '<i class="fas fa-book"></i> <strong>CONTINUE ESTUDANDO!</strong> Os princípios bíblicos para a vida dos discípulos são fundamentais. Reveja a lição e tente novamente.';
+                trophyIcon.className = 'fas fa-book';
+                animationType = 'study';
+            }
+            
+            messageElement.innerHTML = message;
+            
+            // Adicionar animação de entrada aos elementos
+            const resultElements = document.querySelectorAll('#results > *');
+            resultElements.forEach((element, index) => {
+                element.classList.add('fade-in');
+                element.style.animationDelay = `${index * 0.2}s`;
+            });
+            
+            // Rolagem suave para os resultados
+            setTimeout(() => {
+                document.getElementById('results').scrollIntoView({ behavior: 'smooth' });
+            }, 500);
+        }
+
+        function restartQuiz() {
+            // Resetar variáveis
+            currentQuestionIndex = 0;
+            userAnswers = new Array(allQuestions.length).fill(null);
+            quizStarted = false;
+            
+            // Esconder resultados e confetes
+            document.getElementById('results').style.display = 'none';
+            document.getElementById('confetti-container').classList.remove('active');
+            document.getElementById('confetti-container').innerHTML = '';
+            
+            // Mostrar página inicial
+            document.querySelector('.modern-header').style.display = 'block';
+            document.querySelector('.content-section').style.display = 'flex';
+            
+            // Rolagem para o topo
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>
