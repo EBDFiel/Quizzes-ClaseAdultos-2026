@@ -1262,9 +1262,9 @@
                 </div>
             </div>
             
-            <!-- BOTÃO INICIAR COM FALLBACK ONCLICK -->
+            <!-- BOTÃO INICIAR SEM ONCLICK (evento será adicionado via JS) -->
             <div class="cta-section">
-                <button class="start-btn" id="start-btn" onclick="startQuizWithAnimation()">
+                <button class="start-btn" id="start-btn">
                     <i class="fas fa-play"></i> Iniciar Quiz
                 </button>
             </div>
@@ -1719,17 +1719,20 @@
             currentQuestionIndex = 0;
             quizStarted = true;
             
-            // Após instruções, iniciar o quiz de fato
-            const startQuizBtn = document.createElement('button');
-            startQuizBtn.className = 'start-btn';
-            startQuizBtn.innerHTML = '<i class="fas fa-play"></i> Começar Agora';
-            startQuizBtn.style.margin = '20px auto';
-            startQuizBtn.onclick = function() {
-                document.getElementById('instructions-screen').style.display = 'none';
-                document.getElementById('quiz-section').style.display = 'block';
-                showQuestion(currentQuestionIndex);
-            };
-            document.getElementById('instructions-screen').appendChild(startQuizBtn);
+            // Verifica se o botão de início já existe para evitar duplicação
+            if (!document.getElementById('start-quiz-btn')) {
+                const startQuizBtn = document.createElement('button');
+                startQuizBtn.id = 'start-quiz-btn';
+                startQuizBtn.className = 'start-btn';
+                startQuizBtn.innerHTML = '<i class="fas fa-play"></i> Começar Agora';
+                startQuizBtn.style.margin = '20px auto';
+                startQuizBtn.onclick = function() {
+                    document.getElementById('instructions-screen').style.display = 'none';
+                    document.getElementById('quiz-section').style.display = 'block';
+                    showQuestion(currentQuestionIndex);
+                };
+                document.getElementById('instructions-screen').appendChild(startQuizBtn);
+            }
         }
 
         function showQuestion(index) {
@@ -2063,13 +2066,16 @@
         }
 
         // =============================================
-        // EVENT LISTENERS (adicional para garantir)
+        // EVENT LISTENERS (corrigido: apenas um handler para o botão iniciar)
         // =============================================
         document.addEventListener('DOMContentLoaded', function() {
-            // Botão iniciar já tem onclick no HTML, mas também adicionamos event listener por segurança
+            // Remove qualquer outro listener e adiciona apenas este
             const startBtn = document.getElementById('start-btn');
             if (startBtn) {
-                startBtn.addEventListener('click', startQuizWithAnimation);
+                // Remove possíveis listeners anteriores (por segurança)
+                const newStartBtn = startBtn.cloneNode(true);
+                startBtn.parentNode.replaceChild(newStartBtn, startBtn);
+                newStartBtn.addEventListener('click', startQuizWithAnimation);
             }
             
             document.getElementById('prev-btn').addEventListener('click', showPreviousQuestion);
