@@ -461,6 +461,16 @@
             align-items: center;
             gap: 8px;
             font-weight: 500;
+            flex-wrap: wrap;
+        }
+
+        .release-date {
+            color: #ffb347;
+            font-size: 0.8rem;
+            background: rgba(255,180,71,0.1);
+            padding: 2px 8px;
+            border-radius: 20px;
+            margin-left: 8px;
         }
 
         /* Progress bar */
@@ -688,96 +698,148 @@
                         <p style="margin-top:12px;"><strong>Observação:</strong> As lições serão liberadas automaticamente às sextas-feiras que antecedem o domingo de cada aula. Caso queira forçar a liberação de uma lição, adicione <code>?force_lesson=X</code> na URL (ex: index.html?force_lesson=3).</p>
                     </div>
                     <div class="licoes-grid" id="licoes-2tri">
-                        <!-- Lição 01 -->
+                        <!-- Lição 01 (já disponível) -->
                         <div class="licao-card" data-lesson="1">
                             <div class="numero">01</div>
                             <h3>O chamado que transforma a dor em propósito</h3>
-                            <div class="data"><span>📅</span> 2º Trim. 2026 <span class="status ativa">Disponível</span></div>
+                            <div class="data">
+                                <span>📅</span> 2º Trim. 2026
+                                <span class="status ativa">Disponível</span>
+                                <span class="release-date"></span>
+                            </div>
                             <div class="progress-bar"><div class="progress" style="width:100%"></div></div>
                             <a href="trimestre-02/licao-01/" class="btn-quiz"><i class="fas fa-play-circle"></i> Iniciar Quiz</a>
                         </div>
-                        <!-- Lição 02 a 13: inicialmente inativas, serão ativadas via JS -->
+                        <!-- Lição 02 a 13: inicialmente inativas -->
                         <div class="licao-card" data-lesson="2">
                             <div class="numero">02</div>
                             <h3>Preparando-se para o agir de Deus</h3>
-                            <div class="data"><span>📅</span> 2º Trim. 2026 <span class="status breve">Em preparação</span></div>
+                            <div class="data">
+                                <span>📅</span> 2º Trim. 2026
+                                <span class="status breve">Em preparação</span>
+                                <span class="release-date"></span>
+                            </div>
                             <div class="progress-bar"><div class="progress" style="width:0%"></div></div>
                             <a href="#" class="btn-quiz disabled"><i class="fas fa-clock"></i> Em preparação</a>
                         </div>
                         <div class="licao-card" data-lesson="3">
                             <div class="numero">03</div>
                             <h3>Lidando com vozes contrárias</h3>
-                            <div class="data"><span>📅</span> 2º Trim. 2026 <span class="status breve">Em preparação</span></div>
+                            <div class="data">
+                                <span>📅</span> 2º Trim. 2026
+                                <span class="status breve">Em preparação</span>
+                                <span class="release-date"></span>
+                            </div>
                             <div class="progress-bar"><div class="progress" style="width:0%"></div></div>
                             <a href="#" class="btn-quiz disabled"><i class="fas fa-clock"></i> Em preparação</a>
                         </div>
                         <div class="licao-card" data-lesson="4">
                             <div class="numero">04</div>
                             <h3>O poder das palavras: pedras que edificam e não ferem</h3>
-                            <div class="data"><span>📅</span> 2º Trim. 2026 <span class="status breve">Em preparação</span></div>
+                            <div class="data">
+                                <span>📅</span> 2º Trim. 2026
+                                <span class="status breve">Em preparação</span>
+                                <span class="release-date"></span>
+                            </div>
                             <div class="progress-bar"><div class="progress" style="width:0%"></div></div>
                             <a href="#" class="btn-quiz disabled"><i class="fas fa-clock"></i> Em preparação</a>
                         </div>
                         <div class="licao-card" data-lesson="5">
                             <div class="numero">05</div>
                             <h3>Fortalecido pela fé para combater o medo com coragem</h3>
-                            <div class="data"><span>📅</span> 2º Trim. 2026 <span class="status breve">Em preparação</span></div>
+                            <div class="data">
+                                <span>📅</span> 2º Trim. 2026
+                                <span class="status breve">Em preparação</span>
+                                <span class="release-date"></span>
+                            </div>
                             <div class="progress-bar"><div class="progress" style="width:0%"></div></div>
                             <a href="#" class="btn-quiz disabled"><i class="fas fa-clock"></i> Em preparação</a>
                         </div>
                         <div class="licao-card" data-lesson="6">
                             <div class="numero">06</div>
                             <h3>Discernimento espiritual: a sabedoria divina em tempos de engano</h3>
-                            <div class="data"><span>📅</span> 2º Trim. 2026 <span class="status breve">Em preparação</span></div>
+                            <div class="data">
+                                <span>📅</span> 2º Trim. 2026
+                                <span class="status breve">Em preparação</span>
+                                <span class="release-date"></span>
+                            </div>
                             <div class="progress-bar"><div class="progress" style="width:0%"></div></div>
                             <a href="#" class="btn-quiz disabled"><i class="fas fa-clock"></i> Em preparação</a>
                         </div>
                         <div class="licao-card" data-lesson="7">
                             <div class="numero">07</div>
                             <h3>Unidade: a receita que nos faz vencer as adversidades da vida</h3>
-                            <div class="data"><span>📅</span> 2º Trim. 2026 <span class="status breve">Em preparação</span></div>
+                            <div class="data">
+                                <span>📅</span> 2º Trim. 2026
+                                <span class="status breve">Em preparação</span>
+                                <span class="release-date"></span>
+                            </div>
                             <div class="progress-bar"><div class="progress" style="width:0%"></div></div>
                             <a href="#" class="btn-quiz disabled"><i class="fas fa-clock"></i> Em preparação</a>
                         </div>
                         <div class="licao-card" data-lesson="8">
                             <div class="numero">08</div>
                             <h3>A fidelidade e o temor: características que geram confiança</h3>
-                            <div class="data"><span>📅</span> 2º Trim. 2026 <span class="status breve">Em preparação</span></div>
+                            <div class="data">
+                                <span>📅</span> 2º Trim. 2026
+                                <span class="status breve">Em preparação</span>
+                                <span class="release-date"></span>
+                            </div>
                             <div class="progress-bar"><div class="progress" style="width:0%"></div></div>
                             <a href="#" class="btn-quiz disabled"><i class="fas fa-clock"></i> Em preparação</a>
                         </div>
                         <div class="licao-card" data-lesson="9">
                             <div class="numero">09</div>
                             <h3>Alegria e gratidão ao Senhor resultam da Palavra de Deus</h3>
-                            <div class="data"><span>📅</span> 2º Trim. 2026 <span class="status breve">Em preparação</span></div>
+                            <div class="data">
+                                <span>📅</span> 2º Trim. 2026
+                                <span class="status breve">Em preparação</span>
+                                <span class="release-date"></span>
+                            </div>
                             <div class="progress-bar"><div class="progress" style="width:0%"></div></div>
                             <a href="#" class="btn-quiz disabled"><i class="fas fa-clock"></i> Em preparação</a>
                         </div>
                         <div class="licao-card" data-lesson="10">
                             <div class="numero">10</div>
                             <h3>O arrependimento: aspecto indispensável para uma nova vida</h3>
-                            <div class="data"><span>📅</span> 2º Trim. 2026 <span class="status breve">Em preparação</span></div>
+                            <div class="data">
+                                <span>📅</span> 2º Trim. 2026
+                                <span class="status breve">Em preparação</span>
+                                <span class="release-date"></span>
+                            </div>
                             <div class="progress-bar"><div class="progress" style="width:0%"></div></div>
                             <a href="#" class="btn-quiz disabled"><i class="fas fa-clock"></i> Em preparação</a>
                         </div>
                         <div class="licao-card" data-lesson="11">
                             <div class="numero">11</div>
                             <h3>O culto: a importância para uma vida cristã edificada</h3>
-                            <div class="data"><span>📅</span> 2º Trim. 2026 <span class="status breve">Em preparação</span></div>
+                            <div class="data">
+                                <span>📅</span> 2º Trim. 2026
+                                <span class="status breve">Em preparação</span>
+                                <span class="release-date"></span>
+                            </div>
                             <div class="progress-bar"><div class="progress" style="width:0%"></div></div>
                             <a href="#" class="btn-quiz disabled"><i class="fas fa-clock"></i> Em preparação</a>
                         </div>
                         <div class="licao-card" data-lesson="12">
                             <div class="numero">12</div>
                             <h3>Vigilância e oração: o perigo das alianças erradas</h3>
-                            <div class="data"><span>📅</span> 2º Trim. 2026 <span class="status breve">Em preparação</span></div>
+                            <div class="data">
+                                <span>📅</span> 2º Trim. 2026
+                                <span class="status breve">Em preparação</span>
+                                <span class="release-date"></span>
+                            </div>
                             <div class="progress-bar"><div class="progress" style="width:0%"></div></div>
                             <a href="#" class="btn-quiz disabled"><i class="fas fa-clock"></i> Em preparação</a>
                         </div>
                         <div class="licao-card" data-lesson="13">
                             <div class="numero">13</div>
                             <h3>Os elementos fundamentais da vitória de Neemias</h3>
-                            <div class="data"><span>📅</span> 2º Trim. 2026 <span class="status breve">Em preparação</span></div>
+                            <div class="data">
+                                <span>📅</span> 2º Trim. 2026
+                                <span class="status breve">Em preparação</span>
+                                <span class="release-date"></span>
+                            </div>
                             <div class="progress-bar"><div class="progress" style="width:0%"></div></div>
                             <a href="#" class="btn-quiz disabled"><i class="fas fa-clock"></i> Em preparação</a>
                         </div>
@@ -889,7 +951,6 @@
 
         // ===== LIBERAÇÃO AUTOMÁTICA DAS LIÇÕES DO 2º TRIMESTRE =====
         // Datas de liberação (sexta-feira anterior ao domingo da lição)
-        // Ajuste conforme o calendário real de 2026
         const lessonReleaseDates = [
             { lesson: 1, releaseDate: new Date(2026, 3, 3) },  // 03/04/2026 (sexta)
             { lesson: 2, releaseDate: new Date(2026, 3, 10) }, // 10/04/2026
@@ -905,6 +966,14 @@
             { lesson: 12, releaseDate: new Date(2026, 5, 19) },// 19/06/2026
             { lesson: 13, releaseDate: new Date(2026, 5, 26) } // 26/06/2026
         ];
+
+        // Função para formatar data como DD/MM/AAAA
+        function formatDate(date) {
+            const day = date.getDate().toString().padStart(2, '0');
+            const month = (date.getMonth() + 1).toString().padStart(2, '0');
+            const year = date.getFullYear();
+            return `${day}/${month}/${year}`;
+        }
 
         // Função para verificar se a lição deve ser liberada
         function isLessonAvailable(lessonNumber) {
@@ -928,6 +997,14 @@
             const cards = document.querySelectorAll('#licoes-2tri .licao-card');
             cards.forEach(card => {
                 const lessonNum = parseInt(card.getAttribute('data-lesson'), 10);
+                const releaseInfo = lessonReleaseDates.find(item => item.lesson === lessonNum);
+                const releaseDateSpan = card.querySelector('.release-date');
+
+                // Define a data de liberação no span (se existir)
+                if (releaseInfo && releaseDateSpan) {
+                    releaseDateSpan.textContent = `📆 Disponível a partir de ${formatDate(releaseInfo.releaseDate)}`;
+                }
+
                 if (isLessonAvailable(lessonNum)) {
                     const statusSpan = card.querySelector('.status');
                     const btn = card.querySelector('.btn-quiz');
@@ -946,6 +1023,11 @@
                     if (progressBar) {
                         progressBar.style.width = '100%';
                     }
+                    // Oculta a data de liberação quando disponível (opcional)
+                    if (releaseDateSpan) releaseDateSpan.style.display = 'none';
+                } else {
+                    // Se não disponível, mostra a data no span (já está visível)
+                    if (releaseDateSpan) releaseDateSpan.style.display = 'inline-block';
                 }
             });
         }
