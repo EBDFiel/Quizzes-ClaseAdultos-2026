@@ -64,6 +64,7 @@
             margin: 0 auto 20px auto;
             filter: drop-shadow(0 8px 24px rgba(255,200,100,0.3));
             animation: logoPulse 3s ease-in-out infinite;
+            cursor: pointer;
         }
 
         @keyframes logoPulse {
@@ -589,7 +590,7 @@
 
     <div class="container">
         <header>
-            <img src="https://i.imgur.com/vsNu5IC.png" alt="Logo EBD" class="logo-img">
+            <img src="https://i.imgur.com/vsNu5IC.png" alt="Logo EBD" class="logo-img" id="logoImg">
             <h1>Quizzes da EBD Fiel</h1>
             <p class="subtitle">Quizzes Interativos <strong>Classe Adultos</strong></p>
             <p style="color: rgba(255,255,255,0.55); margin-top: 16px;">Teste seu conhecimento com os quizzes das lições da EBD</p>
@@ -695,7 +696,7 @@
                     <div class="descricao-detalhada">
                         <p>Neste segundo trimestre, estudaremos a vida de Neemias, um exemplo de liderança e determinação. O tema “Neemias: Restaurando Muros, Reconstruindo Vidas e Renovando Propósitos” nos convida a refletir sobre a importância de reconstruir aquilo que foi destruído, tanto em nossa vida pessoal quanto na comunidade de fé.</p>
                         <p style="margin-top:12px;">Acompanharemos Neemias desde o chamado até a conclusão da obra, aprendendo sobre oração, planejamento, enfrentamento de oposições e a importância de manter a visão de Deus. Que este trimestre seja de restauração e renovação para todos nós!</p>
-                        <p style="margin-top:12px;"><strong>Observação:</strong> As lições serão liberadas automaticamente às sextas-feiras que antecedem o domingo de cada aula. Caso queira forçar a liberação de uma lição, adicione <code>?force_lesson=X</code> na URL (ex: index.html?force_lesson=3).</p>
+                        <p style="margin-top:12px;"><strong>Observação:</strong> As lições serão liberadas automaticamente às sextas-feiras que antecedem o domingo de cada aula. Clique 5 vezes no logo para abrir o painel de administração e liberar uma lição antecipadamente.</p>
                     </div>
                     <div class="licoes-grid" id="licoes-2tri">
                         <!-- Lição 01 (já disponível) -->
@@ -949,10 +950,9 @@
             });
         });
 
-        // ===== LIBERAÇÃO AUTOMÁTICA DAS LIÇÕES DO 2º TRIMESTRE =====
-        // Datas de liberação (sexta-feira anterior ao domingo da lição)
+        // ===== DATAS DE LIBERAÇÃO DAS LIÇÕES (SEXTA ANTES DO DOMINGO) =====
         const lessonReleaseDates = [
-            { lesson: 1, releaseDate: new Date(2026, 3, 3) },  // 03/04/2026 (sexta)
+            { lesson: 1, releaseDate: new Date(2026, 3, 3) },  // 03/04/2026
             { lesson: 2, releaseDate: new Date(2026, 3, 10) }, // 10/04/2026
             { lesson: 3, releaseDate: new Date(2026, 3, 17) }, // 17/04/2026
             { lesson: 4, releaseDate: new Date(2026, 3, 24) }, // 24/04/2026
@@ -975,14 +975,13 @@
             return `${day}/${month}/${year}`;
         }
 
-        // Função para verificar se a lição deve ser liberada
+        // Função principal para verificar disponibilidade (considera localStorage)
         function isLessonAvailable(lessonNumber) {
             const today = new Date();
             today.setHours(0, 0, 0, 0);
 
-            // Verifica se há força manual via URL (?force_lesson=X)
-            const urlParams = new URLSearchParams(window.location.search);
-            const forcedLesson = urlParams.get('force_lesson');
+            // Verifica força via localStorage (painel admin)
+            const forcedLesson = localStorage.getItem('force_lesson');
             if (forcedLesson && parseInt(forcedLesson) === lessonNumber) {
                 return true;
             }
@@ -1000,7 +999,7 @@
                 const releaseInfo = lessonReleaseDates.find(item => item.lesson === lessonNum);
                 const releaseDateSpan = card.querySelector('.release-date');
 
-                // Define a data de liberação no span (se existir)
+                // Exibe a data de liberação no span
                 if (releaseInfo && releaseDateSpan) {
                     releaseDateSpan.textContent = `📆 Disponível a partir de ${formatDate(releaseInfo.releaseDate)}`;
                 }
@@ -1023,14 +1022,82 @@
                     if (progressBar) {
                         progressBar.style.width = '100%';
                     }
-                    // Oculta a data de liberação quando disponível (opcional)
+                    // Oculta a data de liberação quando disponível
                     if (releaseDateSpan) releaseDateSpan.style.display = 'none';
                 } else {
-                    // Se não disponível, mostra a data no span (já está visível)
                     if (releaseDateSpan) releaseDateSpan.style.display = 'inline-block';
                 }
             });
         }
+
+        // ===== PAINEL ADMIN (CLIQUE 5 VEZES NO LOGO) =====
+        let logoClickCount = 0;
+        const logo = document.getElementById('logoImg');
+        const adminPanel = document.createElement('div');
+        adminPanel.id = 'admin-panel';
+        adminPanel.style.position = 'fixed';
+        adminPanel.style.bottom = '20px';
+        adminPanel.style.right = '20px';
+        adminPanel.style.backgroundColor = 'rgba(0,0,0,0.9)';
+        adminPanel.style.backdropFilter = 'blur(10px)';
+        adminPanel.style.padding = '15px';
+        adminPanel.style.borderRadius = '20px';
+        adminPanel.style.zIndex = '9999';
+        adminPanel.style.border = '1px solid #ffb347';
+        adminPanel.style.display = 'none';
+        adminPanel.style.flexDirection = 'column';
+        adminPanel.style.gap = '10px';
+        adminPanel.style.minWidth = '200px';
+        adminPanel.innerHTML = `
+            <div style="display:flex; justify-content:space-between; align-items:center;">
+                <strong style="color:#ffb347;">Liberar lição</strong>
+                <button id="close-admin" style="background:none; border:none; color:white; cursor:pointer;">✕</button>
+            </div>
+            <select id="lesson-select" style="padding:8px; border-radius:8px; background:#1e2f4a; color:white;">
+                <option value="1">Lição 01</option>
+                <option value="2">Lição 02</option>
+                <option value="3">Lição 03</option>
+                <option value="4">Lição 04</option>
+                <option value="5">Lição 05</option>
+                <option value="6">Lição 06</option>
+                <option value="7">Lição 07</option>
+                <option value="8">Lição 08</option>
+                <option value="9">Lição 09</option>
+                <option value="10">Lição 10</option>
+                <option value="11">Lição 11</option>
+                <option value="12">Lição 12</option>
+                <option value="13">Lição 13</option>
+            </select>
+            <button id="force-release" style="background:#ffb347; color:#1e2f4a; border:none; padding:8px; border-radius:8px; cursor:pointer;">Liberar agora</button>
+            <button id="clear-all-forces" style="background:#555; color:white; border:none; padding:8px; border-radius:8px; cursor:pointer;">Limpar todas</button>
+        `;
+        document.body.appendChild(adminPanel);
+
+        if (logo) {
+            logo.addEventListener('click', () => {
+                logoClickCount++;
+                if (logoClickCount >= 5) {
+                    adminPanel.style.display = 'flex';
+                    logoClickCount = 0;
+                }
+                setTimeout(() => { logoClickCount = 0; }, 2000);
+            });
+        }
+
+        document.getElementById('close-admin')?.addEventListener('click', () => {
+            adminPanel.style.display = 'none';
+        });
+
+        document.getElementById('force-release')?.addEventListener('click', () => {
+            const lesson = document.getElementById('lesson-select').value;
+            localStorage.setItem('force_lesson', lesson);
+            location.reload();
+        });
+
+        document.getElementById('clear-all-forces')?.addEventListener('click', () => {
+            localStorage.removeItem('force_lesson');
+            location.reload();
+        });
 
         // Executar ao carregar a página
         applyLessonAvailability();
