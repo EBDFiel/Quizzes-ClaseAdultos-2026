@@ -3,19 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Quiz da EBD Fiel - Classe Adultos | Lição 01: O chamado que transforma a dor em propósito</title>
+    <title>Quiz da EBD Fiel - Classe Adultos | Lição 1: O chamado que transforma a dor em propósito</title>
 
-    <!-- ===== META TAGS ===== -->
-    <meta property="og:title" content="Quiz da EBD Fiel - Lição 01: O chamado que transforma a dor em propósito" />
-    <meta property="og:description" content="Teste seus conhecimentos sobre o contexto de Neemias, suas reações diante das más notícias e o poder da oração e do jejum. 15 perguntas bíblicas!" />
+    <!-- ===== META TAGS PARA COMPARTILHAMENTO ===== -->
+    <meta property="og:title" content="Quiz da EBD Fiel - Lição 1: O chamado que transforma a dor em propósito" />
+    <meta property="og:description" content="Teste seus conhecimentos sobre a história de Neemias, suas reações diante da adversidade e o chamado de Deus que transforma a dor em propósito. 15 perguntas bíblicas!" />
     <meta property="og:image" content="https://i.ibb.co/9mLXgx7k/logo.png" />
-    <meta property="og:url" content="https://seudominio.com.br/trimestre-02/licao-01/" />
+    <meta property="og:url" content="https://seudominio.com.br/trimestre-01/licao-1/" />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="EBD Fiel" />
     <meta property="og:locale" content="pt_BR" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Quiz da EBD Fiel - Lição 01: O chamado que transforma a dor em propósito" />
-    <meta name="twitter:description" content="Teste seus conhecimentos sobre o contexto de Neemias, suas reações diante das más notícias e o poder da oração e do jejum. 15 perguntas bíblicas!" />
+    <meta name="twitter:title" content="Quiz da EBD Fiel - Lição 1: O chamado que transforma a dor em propósito" />
+    <meta name="twitter:description" content="Teste seus conhecimentos sobre a história de Neemias, suas reações diante da adversidade e o chamado de Deus que transforma a dor em propósito. 15 perguntas bíblicas!" />
     <meta name="twitter:image" content="https://i.ibb.co/9mLXgx7k/logo.png" />
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -30,6 +30,7 @@
 
         body {
             font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #0f2027 0%, #203a43 50%, #2c5364 100%);
             min-height: 100vh;
             color: #eaf6ff;
             overflow-x: hidden;
@@ -42,50 +43,26 @@
             justify-content: center;
         }
 
-        /* Vídeo de fundo */
-        #bg-video {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            z-index: -2;
-            filter: brightness(0.6);
-        }
-
-        /* Overlay escuro sobre o vídeo */
-        .video-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.5);
-            z-index: -1;
-        }
-
-        /* Partículas (opcional, com opacidade reduzida) */
+        /* Partículas de fundo */
         #particles {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            z-index: -1;
+            z-index: 0;
             pointer-events: none;
-            opacity: 0.4;
         }
 
         .container {
             max-width: 100%;
             width: 100%;
-            background: rgba(0, 0, 0, 0.4);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
             border-radius: 30px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
             overflow: hidden;
             margin: 10px 0;
             position: relative;
@@ -106,7 +83,7 @@
             width: 45px;
             height: 45px;
             border-radius: 50%;
-            background: rgba(0,0,0,0.5);
+            background: rgba(255,255,255,0.1);
             backdrop-filter: blur(5px);
             border: 1px solid rgba(255,255,255,0.2);
             color: white;
@@ -132,7 +109,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0,0,0,0.9);
+            background: linear-gradient(135deg, #0f2027 0%, #203a43 50%, #2c5364 100%);
             display: none;
             flex-direction: column;
             align-items: center;
@@ -141,7 +118,6 @@
             color: white;
             text-align: center;
             padding: 20px;
-            backdrop-filter: blur(8px);
         }
 
         .quiz-start-animation.active {
@@ -190,7 +166,7 @@
 
         /* Header moderno */
         .modern-header {
-            background: linear-gradient(135deg, rgba(0,0,0,0.5), rgba(0,0,0,0.3));
+            background: linear-gradient(135deg, rgba(0,100,200,0.3), rgba(0,50,150,0.3));
             color: white;
             padding: 30px 20px;
             text-align: center;
@@ -256,7 +232,7 @@
             font-weight: 800;
             margin: 0;
             line-height: 1.2;
-            background: linear-gradient(to right, #fff, #e0ffc0);
+            background: linear-gradient(to right, #fff, #b3e5ff);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
@@ -266,7 +242,7 @@
             opacity: 0.9;
             font-weight: 400;
             margin-top: 8px;
-            background: rgba(0,0,0,0.4);
+            background: rgba(255,255,255,0.1);
             padding: 5px 15px;
             border-radius: 50px;
             display: inline-block;
@@ -275,16 +251,60 @@
             color: white;
         }
 
-        .welcome-card, .about-card, .details-card, .instructions, .question, .ranking, .church-info {
-            background: rgba(0,0,0,0.4);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255,255,255,0.1);
+        /* DESTAQUE: NÚMERO DA LIÇÃO GRANDE */
+        .lesson-number-hero {
+            margin: 10px 0 20px 0;
+            text-align: center;
+        }
+
+        .lesson-number-badge {
+            display: inline-flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            background: rgba(0,0,0,0.3);
+            backdrop-filter: blur(8px);
+            padding: 15px 35px;
+            border-radius: 70px;
+            border: 1px solid rgba(255,180,70,0.5);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
+
+        .lesson-number-badge .lesson-label {
+            font-size: 1.2rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #ffb347;
+        }
+
+        .lesson-number-badge .lesson-number-large {
+            font-size: 4rem;
+            font-weight: 800;
+            line-height: 1;
+            background: linear-gradient(135deg, #ffb347, #ff8c00);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+
+        .lesson-name-large {
+            font-size: 1.8rem;
+            font-weight: 800;
+            margin-top: 10px;
+            color: white;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+            letter-spacing: -0.5px;
         }
 
         .welcome-card {
+            background: rgba(0,0,0,0.2);
+            backdrop-filter: blur(10px);
             padding: 25px;
             border-radius: 30px;
             margin: 25px 0;
+            border: 1px solid rgba(255,255,255,0.1);
             text-align: left;
             box-shadow: 0 8px 25px rgba(0,0,0,0.2);
         }
@@ -303,7 +323,7 @@
             font-size: 1.05rem;
             opacity: 0.9;
             line-height: 1.6;
-            color: rgba(255,255,255,0.9);
+            color: rgba(255,255,255,0.8);
         }
 
         .features {
@@ -322,7 +342,7 @@
             display: flex;
             align-items: center;
             gap: 10px;
-            background: rgba(0,0,0,0.3);
+            background: rgba(0,0,0,0.2);
             padding: 12px 18px;
             border-radius: 50px;
             font-size: 0.95rem;
@@ -333,7 +353,7 @@
         }
 
         .feature:hover {
-            background: rgba(255,180,70,0.3);
+            background: rgba(255,180,70,0.2);
             transform: translateY(-3px);
         }
 
@@ -341,6 +361,7 @@
             color: #ffb347;
         }
 
+        /* Seção de conteúdo */
         .content-section {
             padding: 35px 25px;
             display: flex;
@@ -349,8 +370,12 @@
         }
 
         .about-card, .details-card {
-            padding: 30px 25px;
+            background: rgba(0,0,0,0.2);
+            backdrop-filter: blur(10px);
             border-radius: 30px;
+            padding: 30px 25px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            border: 1px solid rgba(255,255,255,0.1);
             transition: transform 0.3s ease;
         }
 
@@ -370,7 +395,7 @@
 
         .card-content {
             font-size: 1rem;
-            color: rgba(255,255,255,0.9);
+            color: rgba(255,255,255,0.8);
             line-height: 1.7;
         }
 
@@ -390,7 +415,7 @@
         }
 
         .card-content li:hover {
-            background: rgba(255,180,70,0.2);
+            background: rgba(255,180,70,0.1);
         }
 
         .card-content li i {
@@ -405,6 +430,7 @@
             font-weight: 600;
         }
 
+        /* Botões iniciais */
         .cta-section {
             display: flex;
             flex-direction: column;
@@ -413,12 +439,11 @@
             margin-top: 30px;
         }
 
-        .start-btn {
+        .start-btn, .share-initial-btn {
             padding: 18px 40px;
             border: none;
             border-radius: 50px;
-            background: linear-gradient(135deg, #ffb347, #ff8c00);
-            color: #1e2f4a;
+            color: white;
             font-weight: 700;
             cursor: pointer;
             transition: all 0.3s ease;
@@ -426,14 +451,23 @@
             display: flex;
             align-items: center;
             gap: 12px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
             width: 100%;
             max-width: 300px;
             justify-content: center;
             position: relative;
             overflow: hidden;
             z-index: 1;
+        }
+
+        .start-btn {
+            background: linear-gradient(135deg, #00b4d8, #0077b6);
+            box-shadow: 0 10px 25px rgba(0,180,216,0.3);
             animation: gentlePulse 3s infinite ease-in-out;
+        }
+
+        .share-initial-btn {
+            background: linear-gradient(135deg, #25D366, #128C7E);
+            box-shadow: 0 10px 25px rgba(37,211,102,0.3);
         }
 
         @keyframes gentlePulse {
@@ -442,7 +476,7 @@
             100% { transform: scale(1); }
         }
 
-        .start-btn::before {
+        .start-btn::before, .share-initial-btn::before {
             content: '';
             position: absolute;
             top: 0; left: -100%;
@@ -452,20 +486,24 @@
             z-index: -1;
         }
 
-        .start-btn:hover {
+        .start-btn:hover, .share-initial-btn:hover {
             transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.4);
             animation: none;
         }
 
-        .start-btn:hover::before {
+        .start-btn:hover::before, .share-initial-btn:hover::before {
             left: 100%;
         }
 
+        /* Instruções */
         .instructions {
+            background: rgba(0,0,0,0.2);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.1);
             border-radius: 30px;
             padding: 25px;
             margin: 20px;
+            display: none;
         }
 
         .instructions h3 {
@@ -482,13 +520,14 @@
             display: flex;
             align-items: center;
             gap: 10px;
-            color: rgba(255,255,255,0.9);
+            color: rgba(255,255,255,0.8);
         }
 
         .instructions li i {
             color: #ffb347;
         }
 
+        /* Seção do quiz */
         .quiz-section {
             display: none;
             padding: 25px 20px;
@@ -514,7 +553,7 @@
 
         .progress-bar {
             height: 8px;
-            background: rgba(255,255,255,0.2);
+            background: rgba(255,255,255,0.1);
             border-radius: 10px;
             overflow: hidden;
             position: relative;
@@ -554,6 +593,9 @@
         .question {
             padding: 25px;
             border-radius: 30px;
+            background: rgba(0,0,0,0.2);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.1);
             border-left: 6px solid #ffb347;
             position: relative;
             overflow: hidden;
@@ -611,13 +653,13 @@
 
         .tip-text {
             display: none;
-            background: rgba(0,0,0,0.5);
+            background: rgba(0,0,0,0.3);
             padding: 12px;
             border-radius: 15px;
             margin: 10px 0;
             font-style: italic;
             border-left: 3px solid #ffb347;
-            color: rgba(255,255,255,0.9);
+            color: rgba(255,255,255,0.8);
         }
 
         .question-text {
@@ -636,7 +678,7 @@
 
         .option {
             padding: 18px 20px;
-            background: rgba(0,0,0,0.3);
+            background: rgba(0,0,0,0.2);
             backdrop-filter: blur(5px);
             border: 1px solid rgba(255,255,255,0.1);
             border-radius: 20px;
@@ -683,7 +725,7 @@
             align-items: center;
             justify-content: center;
             width: 36px; height: 36px;
-            background: rgba(255,180,70,0.3);
+            background: rgba(255,180,70,0.2);
             border-radius: 50%;
             margin-right: 15px;
             font-weight: 800;
@@ -720,11 +762,11 @@
         .feedback-curiosity {
             margin-top: 20px;
             padding: 15px;
-            background: rgba(0,0,0,0.3);
+            background: rgba(0,0,0,0.2);
             border-radius: 20px;
             font-size: 0.95rem;
             border-left: 3px solid #ffb347;
-            color: rgba(255,255,255,0.9);
+            color: rgba(255,255,255,0.8);
         }
 
         .navigation {
@@ -739,7 +781,7 @@
             padding: 16px 25px;
             border: none;
             border-radius: 50px;
-            background: linear-gradient(135deg, #2c7a3e, #1e5a2e);
+            background: linear-gradient(135deg, #00b4d8, #0077b6);
             color: white;
             font-weight: 700;
             cursor: pointer;
@@ -750,7 +792,7 @@
             font-size: 1rem;
             flex: 1;
             justify-content: center;
-            box-shadow: 0 8px 20px rgba(44,122,62,0.3);
+            box-shadow: 0 8px 20px rgba(0,180,216,0.3);
             position: relative;
             overflow: hidden;
             z-index: 1;
@@ -768,7 +810,7 @@
 
         button:hover {
             transform: translateY(-3px);
-            box-shadow: 0 12px 25px rgba(44,122,62,0.4);
+            box-shadow: 0 12px 25px rgba(0,180,216,0.4);
         }
 
         button:hover::before {
@@ -776,8 +818,8 @@
         }
 
         button:disabled {
-            background: rgba(255,255,255,0.2);
-            color: rgba(255,255,255,0.5);
+            background: rgba(255,255,255,0.1);
+            color: rgba(255,255,255,0.3);
             cursor: not-allowed;
             transform: none;
             box-shadow: none;
@@ -790,13 +832,13 @@
         .btn-next {
             background: linear-gradient(135deg, #ffb347, #ff8c00);
             box-shadow: 0 8px 20px rgba(255,140,0,0.3);
-            color: #1e2f4a;
         }
 
         .btn-next:hover {
             box-shadow: 0 12px 25px rgba(255,140,0,0.4);
         }
 
+        /* Resultados */
         .results {
             text-align: center;
             padding: 40px 25px;
@@ -836,7 +878,7 @@
             text-align: center;
             padding: 25px 20px;
             border-radius: 30px;
-            background: rgba(0,0,0,0.3);
+            background: rgba(0,0,0,0.2);
             backdrop-filter: blur(10px);
             border: 1px solid rgba(255,255,255,0.1);
             transition: transform 0.3s ease;
@@ -869,7 +911,7 @@
             margin: 30px 0;
             padding: 25px;
             border-radius: 30px;
-            background: rgba(0,0,0,0.3);
+            background: rgba(0,0,0,0.2);
             backdrop-filter: blur(10px);
             border: 1px solid rgba(255,255,255,0.1);
             line-height: 1.6;
@@ -885,7 +927,7 @@
         }
 
         .action-btn {
-            background: linear-gradient(135deg, #2c7a3e, #1e5a2e);
+            background: linear-gradient(135deg, #00b4d8, #0077b6);
             color: white;
             padding: 12px 20px;
             border: none;
@@ -901,7 +943,7 @@
 
         .action-btn:hover {
             transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(44,122,62,0.3);
+            box-shadow: 0 10px 20px rgba(0,180,216,0.3);
         }
 
         #review-container {
@@ -910,7 +952,7 @@
             max-height: 400px;
             overflow-y: auto;
             padding: 15px;
-            background: rgba(0,0,0,0.3);
+            background: rgba(0,0,0,0.2);
             border-radius: 20px;
         }
 
@@ -923,12 +965,12 @@
 
         .review-item.correct {
             border-color: #28a745;
-            background: rgba(40,167,69,0.2);
+            background: rgba(40,167,69,0.1);
         }
 
         .review-item.incorrect {
             border-color: #dc3545;
-            background: rgba(220,53,69,0.2);
+            background: rgba(220,53,69,0.1);
         }
 
         .review-question {
@@ -939,17 +981,17 @@
         .review-answer {
             margin-top: 5px;
             font-size: 0.95rem;
-            color: rgba(255,255,255,0.8);
+            color: rgba(255,255,255,0.7);
         }
 
         .review-explanation {
             margin-top: 5px;
             font-style: italic;
-            color: rgba(255,255,255,0.6);
+            color: rgba(255,255,255,0.5);
         }
 
         .ranking {
-            background: rgba(0,0,0,0.3);
+            background: rgba(0,0,0,0.2);
             backdrop-filter: blur(10px);
             padding: 25px;
             border-radius: 30px;
@@ -971,9 +1013,10 @@
             justify-content: space-between;
             padding: 8px 0;
             border-bottom: 1px solid rgba(255,255,255,0.1);
-            color: rgba(255,255,255,0.8);
+            color: rgba(255,255,255,0.7);
         }
 
+        /* Confetes */
         .confetti-container {
             position: fixed;
             top: 0;
@@ -1022,9 +1065,12 @@
             50% { filter: drop-shadow(0 0 25px rgba(255,180,70,0.9)); }
         }
 
+        /* Informações da igreja */
         .church-info {
             text-align: center;
             padding: 25px 20px;
+            background: rgba(0,0,0,0.2);
+            backdrop-filter: blur(10px);
             border-top: 1px solid rgba(255,255,255,0.1);
         }
 
@@ -1036,7 +1082,7 @@
         }
 
         .church-location {
-            color: rgba(255,255,255,0.7);
+            color: rgba(255,255,255,0.6);
             font-size: 1rem;
             margin-bottom: 20px;
         }
@@ -1051,7 +1097,7 @@
 
         .instagram-text {
             font-size: 1rem;
-            color: rgba(255,255,255,0.9);
+            color: rgba(255,255,255,0.8);
             font-weight: 500;
         }
 
@@ -1151,6 +1197,8 @@
             .animation-text { font-size: 1.8rem; }
             .animation-icon { font-size: 3.5rem; }
             .countdown { font-size: 3rem; width: 80px; height: 80px; }
+            .lesson-number-badge .lesson-number-large { font-size: 3rem; }
+            .lesson-name-large { font-size: 1.4rem; }
         }
 
         @media (min-width: 768px) {
@@ -1166,20 +1214,13 @@
 
         @media (min-width: 992px) {
             .container { max-width: 900px; }
-            .content-section { grid-template-columns: 1fr 1fr; display: grid; }
+            .content-section { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
             .logo-text h1 { font-size: 2rem; }
         }
     </style>
 </head>
 <body>
-    <!-- VÍDEO DE FUNDO -->
-    <video autoplay muted loop playsinline id="bg-video">
-        <source src="https://cdn.coverr.co/videos/coverr-old-city-of-jerusalem-1575232422310/720p.mp4" type="video/mp4">
-        Seu navegador não suporta vídeos em HTML5.
-    </video>
-    <div class="video-overlay"></div>
-
-    <!-- Partículas de fundo (opcional) -->
+    <!-- Partículas de fundo -->
     <canvas id="particles"></canvas>
 
     <!-- BOTÕES FLUTUANTES -->
@@ -1190,11 +1231,9 @@
 
     <!-- ANIMAÇÃO INICIAL -->
     <div class="quiz-start-animation" id="quiz-start-animation">
-        <div class="animation-icon">
-            <i class="fas fa-hand-holding-heart"></i>
-        </div>
-        <div class="animation-text">Quiz da EBD Fiel - Classe Adultos 👨‍👩</div>
-        <div class="animation-subtext">Lição 01: O chamado que transforma a dor em propósito</div>
+        <div class="animation-icon"><i class="fas fa-cloud-sun"></i></div>
+        <div class="animation-text">Quiz da EBD Fiel - Classe Adultos</div>
+        <div class="animation-subtext">1º Trimestre 2026 - Lição 1</div>
         <div class="countdown" id="countdown">3</div>
     </div>
 
@@ -1211,29 +1250,29 @@
                         <img src="https://i.ibb.co/9mLXgx7k/logo.png" alt="Logo EBD Fiel" class="logo-img" id="logo-img" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 100 100\'><circle cx=\'50\' cy=\'50\' r=\'45\' fill=\'%234361ee\'/><text x=\'50\' y=\'60\' text-anchor=\'middle\' fill=\'white\' font-size=\'40\' font-family=\'Arial\'>EBD</text></svg>'">
                     </div>
                     <div class="logo-text">
-                        <h1>QUIZ DA EBD Fiel - Classe Adultos 👨‍👩</h1>
-                        <div class="subtitle">Lição 01: O chamado que transforma a dor em propósito</div>
+                        <h1>QUIZ DA EBD Fiel - Classe Adultos</h1>
+                        <div class="subtitle">1º Trimestre 2026</div>
                     </div>
+                </div>
+
+                <!-- NÚMERO DA LIÇÃO EM DESTAQUE -->
+                <div class="lesson-number-hero">
+                    <div class="lesson-number-badge">
+                        <span class="lesson-label"><i class="fas fa-book-open"></i> LIÇÃO</span>
+                        <div class="lesson-number-large">1</div>
+                    </div>
+                    <div class="lesson-name-large">O CHAMADO QUE TRANSFORMA A DOR EM PROPÓSITO</div>
                 </div>
 
                 <div class="welcome-card">
-                    <h2><i class="fas fa-hands"></i> Bem-vindo ao Quiz da EBD Fiel!</h2>
-                    <p>Estude sobre o chamado de Neemias, sua reação diante das más notícias e a importância da oração e do jejum para vencer desafios. Aprenda como Deus transforma a dor em propósito!</p>
+                    <h2><i class="fas fa-hands"></i> Neemias: Dor que gera propósito</h2>
+                    <p>Neemias, copeiro do rei, ao saber da miséria de Jerusalém, não se omitiu. Sua dor transformou-se em propósito, levando-o a jejuar, orar e agir. Esta lição mostra como o chamado de Deus pode surgir em meio a momentos difíceis.</p>
                 </div>
 
                 <div class="features">
-                    <div class="feature">
-                        <i class="fas fa-star"></i>
-                        <span>15 Perguntas</span>
-                    </div>
-                    <div class="feature">
-                        <i class="fas fa-check-circle"></i>
-                        <span>Feedback Imediato</span>
-                    </div>
-                    <div class="feature">
-                        <i class="fas fa-graduation-cap"></i>
-                        <span>Aprenda com a Bíblia</span>
-                    </div>
+                    <div class="feature"><i class="fas fa-star"></i><span>15 Perguntas</span></div>
+                    <div class="feature"><i class="fas fa-check-circle"></i><span>Feedback Imediato</span></div>
+                    <div class="feature"><i class="fas fa-graduation-cap"></i><span>Aprenda com a Bíblia</span></div>
                 </div>
             </div>
         </header>
@@ -1243,9 +1282,9 @@
             <div class="about-card">
                 <h2 class="card-title"><i class="fas fa-info-circle"></i> Sobre Esta Lição</h2>
                 <div class="card-content">
-                    <p>Neemias tinha uma posição confortável como copeiro do rei, mas ao receber notícias da destruição de Jerusalém, sua vida mudou. Ele chorou, jejuou e orou, e Deus o usou para restaurar os muros.</p>
-                    <p>Esta lição nos ensina que grandes chamados nascem em meio às lágrimas e que devemos buscar a Deus em oração antes de agir.</p>
-                    <p><span class="highlight">"E sucedeu que, ouvindo eu estas palavras, assentei-me, e chorei, e lamentei por alguns dias; e estive jejuando e orando perante o Deus dos céus"</span> (Neemias 1.4).</p>
+                    <p>A história de Neemias nos ensina que o chamado de Deus pode surgir mesmo quando estamos em posições confortáveis. Ao ouvir sobre a miséria de Jerusalém, Neemias reagiu com choro, jejum e oração, buscando a direção do Deus dos céus.</p>
+                    <p><span class="highlight">Texto Áureo:</span> "E sucedeu que, ouvindo eu estas palavras, assentei-me, e chorei, e lamentei por alguns dias; e estive jejuando e orando perante o Deus dos céus" (Neemias 1.4).</p>
+                    <p>A lição aborda o contexto de Neemias, suas reações diante das más notícias e a certeza de que Deus prometeu restaurar o Seu povo.</p>
                 </div>
             </div>
 
@@ -1253,28 +1292,27 @@
                 <h2 class="card-title"><i class="fas fa-book-open"></i> O Que Você Vai Aprender</h2>
                 <div class="card-content">
                     <ul>
-                        <li><i class="fas fa-check"></i> A situação do povo e de Jerusalém após o cativeiro</li>
-                        <li><i class="fas fa-check"></i> As reações de Neemias diante das más notícias</li>
-                        <li><i class="fas fa-check"></i> O poder da oração e do jejum</li>
-                        <li><i class="fas fa-check"></i> A batalha espiritual e as armas de Deus</li>
-                        <li><i class="fas fa-check"></i> Como Deus promete restaurar o seu povo</li>
+                        <li><i class="fas fa-check"></i> Compreender o contexto histórico de Neemias e Jerusalém</li>
+                        <li><i class="fas fa-check"></i> As reações de Neemias diante da adversidade: choro, lamento, jejum e oração</li>
+                        <li><i class="fas fa-check"></i> A importância da união de propósitos e bons relacionamentos</li>
+                        <li><i class="fas fa-check"></i> A batalha espiritual e as armas espirituais usadas por Neemias</li>
+                        <li><i class="fas fa-check"></i> Confiar em Deus mesmo em meio à dor</li>
                     </ul>
                 </div>
             </div>
             
-            <!-- BOTÃO INICIAR SEM ONCLICK (evento será adicionado via JS) -->
+            <!-- BOTÕES INICIAIS -->
             <div class="cta-section">
-                <button class="start-btn" id="start-btn">
-                    <i class="fas fa-play"></i> Iniciar Quiz
-                </button>
+                <button class="share-initial-btn" id="share-initial-btn"><i class="fab fa-whatsapp"></i> Compartilhar Quiz</button>
+                <button class="start-btn" id="start-btn"><i class="fas fa-play"></i> Iniciar Quiz</button>
             </div>
         </section>
 
         <!-- TELA DE INSTRUÇÕES -->
-        <div class="instructions" id="instructions-screen" style="display: none;">
+        <div class="instructions" id="instructions-screen">
             <h3><i class="fas fa-info-circle"></i> Como funciona</h3>
             <ul>
-                <li><i class="fas fa-check-circle"></i> 15 perguntas sobre a lição</li>
+                <li><i class="fas fa-check-circle"></i> 15 perguntas sobre a lição de Neemias 1</li>
                 <li><i class="fas fa-lightbulb"></i> Perguntas difíceis têm dica (clique na lâmpada)</li>
                 <li><i class="fas fa-music"></i> Sons de acerto/erro (pode mutar)</li>
                 <li><i class="fas fa-chart-line"></i> Ao final, veja seu desempenho e compartilhe</li>
@@ -1298,12 +1336,8 @@
             </div>
 
             <div class="navigation">
-                <button id="prev-btn" disabled>
-                    <i class="fas fa-arrow-left"></i> Anterior
-                </button>
-                <button id="next-btn" class="btn-next">
-                    Próxima <i class="fas fa-arrow-right"></i>
-                </button>
+                <button id="prev-btn" disabled><i class="fas fa-arrow-left"></i> Anterior</button>
+                <button id="next-btn" class="btn-next">Próxima <i class="fas fa-arrow-right"></i></button>
             </div>
         </div>
 
@@ -1347,7 +1381,7 @@
                 <ul class="ranking-list" id="ranking-list"></ul>
             </div>
 
-            <button id="restart-btn" style="background: linear-gradient(135deg, #ffb347, #ff8c00); margin-top:20px; color:#1e2f4a;">
+            <button id="restart-btn" style="background: linear-gradient(135deg, #00b4d8, #0077b6); margin-top:20px;">
                 <i class="fas fa-redo"></i> Fazer Quiz Novamente
             </button>
         </div>
@@ -1356,7 +1390,6 @@
         <div class="church-info">
             <div class="church-name">EBD FIEL</div>
             <div class="church-location">FIEL A PALAVRA</div>
-
             <div class="instagram-section">
                 <div class="instagram-text">Curta nossa página no Instagram:</div>
                 <a href="https://www.instagram.com/ebdfiel" target="_blank" class="instagram-link">
@@ -1381,12 +1414,12 @@
         resizeCanvas();
         window.addEventListener('resize', resizeCanvas);
 
-        const particles = Array.from({ length: 80 }, () => ({
+        const particles = Array.from({ length: 100 }, () => ({
             x: Math.random() * canvas.width,
             y: Math.random() * canvas.height,
             r: Math.random() * 2,
-            d: Math.random() * 0.8 + 0.3,
-            o: Math.random() * 0.2 + 0.1
+            d: Math.random() * 1 + 0.5,
+            o: Math.random() * 0.3 + 0.1
         }));
 
         function drawParticles() {
@@ -1394,7 +1427,7 @@
             particles.forEach(p => {
                 ctx.beginPath();
                 ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-                ctx.fillStyle = `rgba(255, 200, 120, ${p.o})`;
+                ctx.fillStyle = `rgba(255, 180, 70, ${p.o})`;
                 ctx.fill();
                 p.y += p.d;
                 if (p.y > canvas.height) {
@@ -1407,40 +1440,26 @@
         drawParticles();
 
         // =============================================
-        // BANCO DE PERGUNTAS - LIÇÃO 1 (2º TRIMESTRE)
+        // BANCO DE PERGUNTAS - LIÇÃO 1 (15 perguntas)
         // =============================================
         const allQuestions = [
             // PERGUNTAS FÁCEIS (1-5)
             {
-                question: "Qual é o texto áureo da Lição 1 sobre o chamado de Neemias?",
+                question: "Qual é o texto áureo da Lição 1 sobre o chamado que transforma a dor em propósito?",
                 options: [
-                    "'O Senhor é o meu pastor; nada me faltará' – Salmo 23.1",
                     "'E sucedeu que, ouvindo eu estas palavras, assentei-me, e chorei, e lamentei por alguns dias; e estive jejuando e orando perante o Deus dos céus' – Neemias 1.4",
-                    "'Neemias, filho de Hacalias, era copeiro do rei' – Neemias 1.11",
-                    "'Alegrai-vos na esperança' – Romanos 12.12"
+                    "'Longe está o Senhor dos ímpios, mas escutará a oração dos justos' – Provérbios 15.29",
+                    "'Se te mostrares frouxo no dia da angústia, a tua força será pequena' – Provérbios 24.10",
+                    "'Os que semeiam em lágrimas segarão com alegria' – Salmo 126.5"
                 ],
-                correct: 1,
-                explanation: "O texto áureo da lição é Neemias 1.4: 'E sucedeu que, ouvindo eu estas palavras, assentei-me, e chorei, e lamentei por alguns dias; e estive jejuando e orando perante o Deus dos céus'.",
+                correct: 0,
+                explanation: "O texto áureo é Neemias 1.4: 'E sucedeu que, ouvindo eu estas palavras, assentei-me, e chorei, e lamentei por alguns dias; e estive jejuando e orando perante o Deus dos céus'.",
                 difficulty: "easy",
-                tip: "Está no primeiro capítulo de Neemias, versículo 4.",
-                curiosity: "Esse versículo mostra a reação imediata de Neemias ao ouvir as más notícias sobre Jerusalém."
+                tip: "Está no primeiro capítulo de Neemias.",
+                curiosity: "Neemias era copeiro do rei persa Artaxerxes, uma posição de grande confiança."
             },
             {
-                question: "Qual era a posição de Neemias antes de receber as notícias sobre Jerusalém?",
-                options: [
-                    "Era escriba do rei",
-                    "Era copeiro do rei",
-                    "Era sacerdote no templo",
-                    "Era governador de Judá"
-                ],
-                correct: 1,
-                explanation: "Neemias servia como copeiro do rei Artaxerxes, uma posição de confiança e prestígio.",
-                difficulty: "easy",
-                tip: "Neemias 1.11: '...eu era copeiro do rei'.",
-                curiosity: "O copeiro era responsável por provar o vinho do rei para garantir que não estivesse envenenado."
-            },
-            {
-                question: "Quem trouxe a Neemias as notícias sobre Jerusalém?",
+                question: "Quem trouxe a Neemias as notícias sobre a situação de Jerusalém?",
                 options: [
                     "Esdras",
                     "Hanani",
@@ -1448,182 +1467,196 @@
                     "Daniel"
                 ],
                 correct: 1,
-                explanation: "Hanani, um de seus irmãos, veio com alguns homens de Judá e contou a Neemias sobre a situação de Jerusalém.",
+                explanation: "Neemias 1.2: 'Que veio Hanani, um de meus irmãos, ele e alguns de Judá; e perguntei-lhes pelos judeus que escaparam e que restaram do cativeiro e acerca de Jerusalém'.",
                 difficulty: "easy",
-                tip: "Neemias 1.2: 'Que veio Hanani, um de meus irmãos, ele e alguns de Judá'.",
-                curiosity: "O nome Hanani significa 'Deus é gracioso'."
+                tip: "O nome significa 'Deus é gracioso'.",
+                curiosity: "Hanani era provavelmente irmão de Neemias ou parente próximo."
             },
             {
-                question: "Qual era a condição de Jerusalém segundo o relato de Hanani?",
+                question: "Qual era a situação de Jerusalém quando Hanani falou com Neemias?",
                 options: [
-                    "A cidade estava próspera e segura",
+                    "A cidade estava próspera e seus muros restaurados",
                     "O muro estava fendido e as portas queimadas a fogo",
-                    "A cidade havia sido reconstruída",
-                    "O templo estava sendo ampliado"
+                    "A cidade estava sendo reconstruída rapidamente",
+                    "O povo vivia em paz com os povos vizinhos"
                 ],
                 correct: 1,
                 explanation: "Neemias 1.3: '...o muro de Jerusalém, fendido, e as suas portas, queimadas a fogo'.",
                 difficulty: "easy",
-                tip: "A cidade estava em ruínas e vulnerável.",
-                curiosity: "Jerusalém permanecia em ruínas desde sua destruição por Nabucodonosor, cerca de 140 anos antes."
+                tip: "A destruição havia ocorrido cerca de 140 anos antes.",
+                curiosity: "Os muros eram essenciais para a proteção e identidade da cidade."
             },
             {
-                question: "Diante das notícias sobre Jerusalém, qual foi a primeira reação de Neemias?",
+                question: "Qual foi a primeira reação de Neemias ao ouvir as más notícias?",
                 options: [
-                    "Ficou indiferente",
-                    "Chorou e lamentou",
-                    "Imediatamente pediu permissão ao rei",
-                    "Convocou uma reunião"
+                    "Imediatamente pediu permissão ao rei para viajar",
+                    "Assentou-se, chorou, lamentou e jejuou",
+                    "Convocou uma reunião com os líderes",
+                    "Escreveu uma carta ao sumo sacerdote"
                 ],
                 correct: 1,
-                explanation: "Neemias 1.4: '...assentei-me, e chorei, e lamentei por alguns dias'.",
+                explanation: "Neemias 1.4: 'E sucedeu que, ouvindo eu estas palavras, assentei-me, e chorei, e lamentei por alguns dias; e estive jejuando e orando perante o Deus dos céus'.",
                 difficulty: "easy",
-                tip: "Ele não agiu impulsivamente; primeiro chorou.",
-                curiosity: "O choro de Neemias mostra seu amor pelo povo de Deus e pela cidade santa."
+                tip: "Ele não agiu por impulso.",
+                curiosity: "Neemias demonstrou compaixão genuína pelo seu povo."
+            },
+            {
+                question: "Segundo a lição, o que devemos ter em mente no enfrentamento dos desafios da jornada cristã?",
+                options: [
+                    "Nossas próprias forças",
+                    "Recursos financeiros",
+                    "Dependência do Senhor e da direção do Espírito Santo",
+                    "Apoio político"
+                ],
+                correct: 2,
+                explanation: "A Verdade Aplicada diz: 'Devemos ter em mente que dependemos do Senhor e da direção do Espírito Santo no enfrentamento dos diversos desafios que surgem na jornada cristã'.",
+                difficulty: "easy",
+                tip: "Neemias buscou a Deus antes de agir.",
+                curiosity: "A dependência de Deus é um princípio central na vida cristã."
             },
             
             // PERGUNTAS MÉDIAS (6-10)
             {
-                question: "Além de chorar, que outras práticas Neemias realizou nos dias seguintes?",
+                question: "Neemias era copeiro do rei. O que isso significa?",
                 options: [
-                    "Jejum e oração",
-                    "Jejuou apenas",
-                    "Orou apenas",
-                    "Fez planos de viagem"
-                ],
-                correct: 0,
-                explanation: "Neemias 1.4: '...estive jejuando e orando perante o Deus dos céus'.",
-                difficulty: "medium",
-                tip: "Ele combinou jejum com oração.",
-                curiosity: "O jejum de Neemias durou vários dias, demonstrando sua dependência total de Deus."
-            },
-            {
-                question: "De acordo com a lição, o que Neemias fez antes de tomar qualquer atitude prática?",
-                options: [
-                    "Consultou os anciãos",
-                    "Buscou a Deus em oração",
-                    "Escreveu uma carta ao rei",
-                    "Reuniu recursos financeiros"
+                    "Era um guerreiro do exército real",
+                    "Era uma posição de extrema confiança, responsável por provar o vinho do rei",
+                    "Era o governador da província",
+                    "Era o escriba do rei"
                 ],
                 correct: 1,
-                explanation: "A lição destaca que Neemias 'buscou o Único capaz de lhe dar direção diante daquela triste realidade: o Deus dos Céus'.",
+                explanation: "A lição explica: 'Neemias nasceu na terra do cativeiro de seu povo, onde servia ao rei como copeiro, uma posição de extrema confiança'.",
                 difficulty: "medium",
-                tip: "Antes de agir, ele orou.",
-                curiosity: "A oração de Neemias (Ne 1.5-11) é um modelo de intercessão baseada nas promessas de Deus."
+                tip: "O copeiro provava as bebidas para evitar envenenamento.",
+                curiosity: "Essa posição dava a Neemias acesso direto ao rei."
             },
             {
-                question: "Qual a importância do relacionamento entre Hanani e Neemias, segundo a lição?",
+                question: "O que significa o nome 'Hanani'?",
                 options: [
-                    "Eles eram inimigos",
-                    "Demonstra que bons relacionamentos e união de propósitos ajudam a vencer desafios",
-                    "Eram apenas conhecidos",
-                    "Não tinham qualquer relação"
+                    "O Senhor é meu pastor",
+                    "Deus é gracioso",
+                    "O Senhor é exaltado",
+                    "Meu Deus é Jeová"
                 ],
                 correct: 1,
-                explanation: "A lição afirma que 'os bons relacionamentos e a união de propósitos são fatores importantes para vencermos os desafios da vida'.",
+                explanation: "A lição menciona: 'Hanani' significa 'Deus é gracioso'.",
                 difficulty: "medium",
-                tip: "Hanani e Neemias trabalharam juntos na reconstrução.",
-                curiosity: "Neemias posteriormente colocou Hanani como governador de Jerusalém (Ne 7.2)."
+                tip: "É um nome teofórico que inclui o nome de Deus.",
+                curiosity: "Muitos nomes bíblicos carregam significados profundos sobre Deus."
             },
             {
-                question: "O que Neemias entendia sobre a situação de Jerusalém?",
+                question: "De acordo com a lição, qual é o perigo do conformismo?",
                 options: [
-                    "Era definitiva e sem solução",
-                    "Era reversível se buscassem a Deus",
-                    "Dependia apenas de recursos financeiros",
-                    "Dependia de alianças políticas"
-                ],
-                correct: 1,
-                explanation: "Neemias orou baseado nas promessas de Deus e acreditava na restauração do Seu povo.",
-                difficulty: "medium",
-                tip: "Sua oração (Ne 1.5-11) reflete fé nas promessas divinas.",
-                curiosity: "A restauração de Jerusalém era um cumprimento das profecias de Jeremias (Jr 25.11-12)."
-            },
-            {
-                question: "Segundo a lição, o que o conformismo pode causar na vida do cristão?",
-                options: [
-                    "Alegria constante",
+                    "Gera paz e tranquilidade",
                     "Mata sonhos e promessas",
-                    "Acelera o crescimento espiritual",
-                    "Traz paz interior"
+                    "Ajuda a aceitar as situações",
+                    "Promove a humildade"
                 ],
                 correct: 1,
                 explanation: "A lição afirma: 'O conformismo é um veneno que mata sonhos e promessas'.",
                 difficulty: "medium",
-                tip: "Neemias não se conformou com a situação.",
-                curiosity: "Davi, inconformado com a aparente impossibilidade, venceu Golias."
+                tip: "Neemias não se conformou com a situação de Jerusalém.",
+                curiosity: "Davi se destacou por não se conformar diante de Golias."
+            },
+            {
+                question: "O que Neemias fez após lamentar por alguns dias?",
+                options: [
+                    "Pediu demissão do cargo",
+                    "Jejum e oração",
+                    "Convocou uma assembleia",
+                    "Escreveu um livro"
+                ],
+                correct: 1,
+                explanation: "Neemias 1.4: '...estive jejuando e orando perante o Deus dos céus'.",
+                difficulty: "medium",
+                tip: "Ele buscou a direção divina.",
+                curiosity: "O jejum e a oração são práticas espirituais poderosas."
+            },
+            {
+                question: "O que a lição ensina sobre o relacionamento entre Neemias e Hanani?",
+                options: [
+                    "Eram apenas conhecidos",
+                    "Eram inimigos",
+                    "Eram próximos e trabalharam juntos na reconstrução",
+                    "Hanani era um espião"
+                ],
+                correct: 2,
+                explanation: "A lição diz: 'Hanani e Neemias eram próximos, tanto que trabalharam juntos na reconstrução de Jerusalém (Ne 7.2)'.",
+                difficulty: "medium",
+                tip: "A união de propósitos é importante.",
+                curiosity: "Provérbios 18.1 alerta sobre quem se separa."
             },
             
             // PERGUNTAS DIFÍCEIS (11-15)
             {
-                question: "O que Neemias entendeu sobre a batalha espiritual, de acordo com a lição?",
+                question: "Segundo a lição, o que a restauração de Jerusalém representava para o povo de Deus?",
                 options: [
-                    "Que os problemas eram apenas humanos",
-                    "Que havia uma realidade espiritual que se reflete na terra",
-                    "Que não havia oposição",
-                    "Que ele deveria lutar sozinho"
+                    "Apenas a reconstrução física",
+                    "A restauração do povo e o cumprimento de promessas futuras",
+                    "Uma oportunidade de negócios",
+                    "Um projeto político"
                 ],
                 correct: 1,
-                explanation: "A lição cita Daniel 10.13 e ensina que 'algumas realidades do mundo espiritual se refletem na terra'.",
+                explanation: "A lição afirma: 'A restauração de Jerusalém era também a restauração do povo de Deus e o cumprimento de promessas futuras, visto que Jesus morreu e ressuscitou em Jerusalém'.",
                 difficulty: "hard",
-                tip: "Havia oposição espiritual contra a restauração de Jerusalém.",
-                curiosity: "Daniel orou e jejuou, e um anjo foi enviado, mas enfrentou resistência espiritual por 21 dias."
+                tip: "Jerusalém tem significado espiritual profundo.",
+                curiosity: "Na Segunda Vinda, Jesus governará o mundo desde Jerusalém (Zc 14)."
             },
             {
-                question: "Qual era a arma espiritual usada por Neemias para enfrentar a oposição?",
+                question: "O que a lição menciona sobre a batalha espiritual em relação ao retorno de Israel?",
                 options: [
-                    "Força militar",
+                    "Não há batalha espiritual",
+                    "Realidades do mundo espiritual se refletem na terra",
+                    "Apenas questões políticas",
+                    "Deus não se envolve"
+                ],
+                correct: 1,
+                explanation: "A lição, citando Daniel 10.13, ensina que 'algumas realidades do mundo espiritual se refletem na terra'.",
+                difficulty: "hard",
+                tip: "Há uma guerra espiritual por trás dos eventos terrenos.",
+                curiosity: "O arcanjo Miguel lutou contra o príncipe da Pérsia para ajudar Daniel."
+            },
+            {
+                question: "Quais armas espirituais Neemias usou diante da adversidade, segundo a lição?",
+                options: [
+                    "Espada e escudo",
                     "Oração e jejum",
-                    "Alianças políticas",
-                    "Riquezas"
+                    "Riquezas e influência",
+                    "Alianças políticas"
                 ],
                 correct: 1,
-                explanation: "Neemias 'orou e jejuou em busca da direção de Deus para solucionar o problema do seu povo'.",
+                explanation: "A lição diz: 'Assim como Daniel, Neemias orou e jejuou em busca da direção de Deus para solucionar o problema do seu povo'.",
                 difficulty: "hard",
-                tip: "Jesus também jejuou antes de ser tentado.",
-                curiosity: "A oração e o jejum são disciplinas espirituais que fortalecem o crente para batalhas."
+                tip: "Jesus também jejuou antes de ser tentado (Mateus 4.2).",
+                curiosity: "Atos 13.2-3 mostra a igreja jejuando e orando antes de enviar missionários."
             },
             {
-                question: "De acordo com a lição, o que devemos evitar em relação à batalha espiritual?",
+                question: "O que a lição ensina sobre o amor de Neemias pelo seu povo?",
                 options: [
-                    "Desprezar a realidade espiritual",
-                    "Espiritualizar tudo",
-                    "Ignorar os problemas",
-                    "Buscar apenas ajuda humana"
+                    "Ele ignorou a situação para manter seu conforto",
+                    "O amor gerado em seu coração não permitiu que ele se omitisse",
+                    "Ele apenas sentiu pena, mas não agiu",
+                    "Ele amava apenas a Deus, não o povo"
                 ],
                 correct: 1,
-                explanation: "A lição adverte: 'Devemos evitar os extremos com relação a isso. Não podemos espiritualizar tudo, como se cada fato ruim que acontece à nossa volta tivesse como causa a ação de Satanás'.",
+                explanation: "A lição afirma: 'Neemias amava a Deus e Seu povo, e isso o levou a um choro contrito e verdadeiro por aquela situação de calamidade'.",
                 difficulty: "hard",
-                tip: "Equilíbrio é necessário.",
-                curiosity: "Efésios 6.12 fala sobre a luta contra as hostes espirituais da maldade."
+                tip: "O amor verdadeiro se manifesta em ações.",
+                curiosity: "1 João 3.14 diz que quem não ama permanece na morte."
             },
             {
-                question: "O que Neemias fez enquanto esperava a oportunidade de agir, segundo a lição?",
+                question: "Como a lição conclui sobre a atitude diante dos desafios da vida?",
                 options: [
-                    "Planejou estrategicamente",
-                    "Continuou jejuando e orando, confiando em Deus",
-                    "Recolheu doações",
-                    "Escreveu cartas"
+                    "Devemos confiar em Deus, nos revestir das armas espirituais e perseverar em oração",
+                    "Devemos desistir diante das dificuldades",
+                    "Apenas esperar que os problemas se resolvam sozinhos",
+                    "Buscar soluções humanas apenas"
                 ],
-                correct: 1,
-                explanation: "Neemias perseverou em oração e confiança em Deus, aguardando o momento certo (Ne 2.4).",
+                correct: 0,
+                explanation: "A Conclusão da lição: 'Diante dos desafios da vida, devemos confiar em Deus, nos revestir das armas espirituais, perseverar em oração e lançar sobre Ele todas as nossas preocupações'.",
                 difficulty: "hard",
-                tip: "Ele orou por dias antes de falar com o rei.",
-                curiosity: "A paciência de Neemias é um exemplo de esperança ativa."
-            },
-            {
-                question: "Qual a lição principal que Neemias nos ensina sobre o chamado de Deus?",
-                options: [
-                    "Que Deus chama apenas os que têm posição elevada",
-                    "Que o chamado pode surgir em meio a momentos difíceis e transformar a dor em propósito",
-                    "Que devemos ignorar as más notícias",
-                    "Que o chamado sempre vem com recursos financeiros"
-                ],
-                correct: 1,
-                explanation: "A introdução da lição diz: 'veremos que o chamado de Deus pode surgir em meio a momentos bastante difíceis'.",
-                difficulty: "hard",
-                tip: "A dor de Neemias o levou a agir.",
-                curiosity: "Neemias deixou sua posição confortável para se envolver na restauração de Jerusalém."
+                tip: "É um resumo prático da lição.",
+                curiosity: "Essa atitude nos ajuda a perseverar em tempos de tribulação."
             }
         ];
 
@@ -1685,6 +1718,30 @@
         // =============================================
         // INICIALIZAÇÃO
         // =============================================
+        document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById('start-btn').addEventListener('click', startQuizWithAnimation);
+            document.getElementById('share-initial-btn').addEventListener('click', shareInitialQuiz);
+            document.getElementById('prev-btn').addEventListener('click', showPreviousQuestion);
+            document.getElementById('next-btn').addEventListener('click', showNextQuestion);
+            document.getElementById('restart-btn').addEventListener('click', restartQuiz);
+            document.getElementById('share-whatsapp').addEventListener('click', shareWhatsApp);
+            document.getElementById('export-pdf').addEventListener('click', exportPDF);
+            document.getElementById('review-btn').addEventListener('click', toggleReview);
+            document.getElementById('theme-toggle').addEventListener('click', toggleTheme);
+            document.getElementById('sound-toggle').addEventListener('click', toggleSound);
+            
+            const logoImg = document.getElementById('logo-img');
+            logoImg.onerror = function() {
+                logoImg.src = 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="45" fill="%234361ee"/><text x="50" y="60" text-anchor="middle" fill="white" font-size="40" font-family="Arial">EBD</text></svg>';
+            };
+            updateRankingDisplay();
+        });
+
+        function shareInitialQuiz() {
+            const text = `📖 Quiz da EBD Fiel - Classe Adultos\n\nLição 1: O chamado que transforma a dor em propósito\n\nTeste seus conhecimentos sobre Neemias e como Deus transforma a dor em propósito! 15 perguntas bíblicas.\nAcesse: ${window.location.href}`;
+            window.open(`https://wa.me/?text=${encodeURIComponent(text)}`, '_blank');
+        }
+
         function startQuizWithAnimation() {
             const startAnimation = document.getElementById('quiz-start-animation');
             startAnimation.classList.add('active');
@@ -1719,20 +1776,17 @@
             currentQuestionIndex = 0;
             quizStarted = true;
             
-            // Verifica se o botão de início já existe para evitar duplicação
-            if (!document.getElementById('start-quiz-btn')) {
-                const startQuizBtn = document.createElement('button');
-                startQuizBtn.id = 'start-quiz-btn';
-                startQuizBtn.className = 'start-btn';
-                startQuizBtn.innerHTML = '<i class="fas fa-play"></i> Começar Agora';
-                startQuizBtn.style.margin = '20px auto';
-                startQuizBtn.onclick = function() {
-                    document.getElementById('instructions-screen').style.display = 'none';
-                    document.getElementById('quiz-section').style.display = 'block';
-                    showQuestion(currentQuestionIndex);
-                };
-                document.getElementById('instructions-screen').appendChild(startQuizBtn);
-            }
+            // Após instruções, iniciar o quiz de fato
+            const startQuizBtn = document.createElement('button');
+            startQuizBtn.className = 'start-btn';
+            startQuizBtn.innerHTML = '<i class="fas fa-play"></i> Começar Agora';
+            startQuizBtn.style.margin = '20px auto';
+            startQuizBtn.onclick = function() {
+                document.getElementById('instructions-screen').style.display = 'none';
+                document.getElementById('quiz-section').style.display = 'block';
+                showQuestion(currentQuestionIndex);
+            };
+            document.getElementById('instructions-screen').appendChild(startQuizBtn);
         }
 
         function showQuestion(index) {
@@ -1875,7 +1929,7 @@
             container.classList.add('active');
             container.innerHTML = '';
             
-            const colors = ['#ffb347', '#ff8c00', '#2c7a3e', '#28a745', '#ffc107', '#dc3545'];
+            const colors = ['#ffb347', '#ff8c00', '#00b4d8', '#28a745', '#ffc107', '#dc3545'];
             const confettiCount = Math.min(100, Math.floor(scorePercentage * 100));
             
             for (let i = 0; i < confettiCount; i++) {
@@ -1940,23 +1994,23 @@
             let message = '';
             
             if (score === shuffledQuestions.length) {
-                message = '<i class="fas fa-crown star-animation"></i> <strong>PERFEITO!</strong> Você acertou todas as questões! Que o exemplo de Neemias te inspire a buscar a Deus em oração!';
+                message = '<i class="fas fa-crown star-animation"></i> <strong>PERFEITO!</strong> Você acertou todas as questões! Neemias nos ensina que o chamado de Deus transforma a dor em propósito. Continue firme!';
                 trophyIcon.className = 'fas fa-crown trophy-animation';
                 createConfetti(1);
             } else if (scorePercentage >= 0.8) {
-                message = '<i class="fas fa-star star-animation"></i> <strong>EXCELENTE!</strong> Você demonstrou um conhecimento profundo sobre o chamado de Neemias. Continue firme na fé!';
+                message = '<i class="fas fa-star star-animation"></i> <strong>EXCELENTE!</strong> Você demonstrou um conhecimento profundo sobre Neemias. Que sua vida também reflita a dependência de Deus!';
                 trophyIcon.className = 'fas fa-trophy trophy-animation';
                 createConfetti(scorePercentage);
             } else if (scorePercentage >= 0.6) {
-                message = '<i class="fas fa-thumbs-up"></i> <strong>MUITO BOM!</strong> Você tem um bom entendimento da lição. Que Deus te fortaleça como fortaleceu Neemias!';
+                message = '<i class="fas fa-thumbs-up"></i> <strong>MUITO BOM!</strong> Você tem um bom entendimento da lição. Reveja os pontos que errou e continue aprendendo.';
                 trophyIcon.className = 'fas fa-award';
                 createConfetti(scorePercentage * 0.7);
             } else if (scorePercentage >= 0.5) {
-                message = '<i class="fas fa-check-circle"></i> <strong>BOM TRABALHO!</strong> Você acertou a maioria das questões. Reveja os pontos em que teve dificuldade sobre a oração de Neemias.';
+                message = '<i class="fas fa-check-circle"></i> <strong>BOM TRABALHO!</strong> Você acertou a maioria. Estude novamente a lição sobre Neemias e fortaleça seu conhecimento.';
                 trophyIcon.className = 'fas fa-medal';
                 createConfetti(scorePercentage * 0.5);
             } else {
-                message = '<i class="fas fa-book"></i> <strong>CONTINUE ESTUDANDO!</strong> Neemias nos ensina que o choro pode durar uma noite, mas a alegria vem pela manhã. Releia a lição e ore como ele orou.';
+                message = '<i class="fas fa-book"></i> <strong>CONTINUE ESTUDANDO!</strong> A história de Neemias é rica em lições. Releia o capítulo 1 e entenda como Deus age através da oração e do propósito.';
                 trophyIcon.className = 'fas fa-book';
             }
             
@@ -1967,18 +2021,18 @@
         }
 
         // =============================================
-        // RANKING (para Lição 01 do 2º trimestre)
+        // RANKING (adaptado para Lição 1)
         // =============================================
         function saveRanking(score) {
-            let ranking = JSON.parse(localStorage.getItem('quizRankingL01_2tri')) || [];
+            let ranking = JSON.parse(localStorage.getItem('quizRankingL01')) || [];
             ranking.push({ score: score, date: new Date().toLocaleDateString() });
             ranking.sort((a, b) => b.score - a.score);
             ranking = ranking.slice(0, 5);
-            localStorage.setItem('quizRankingL01_2tri', JSON.stringify(ranking));
+            localStorage.setItem('quizRankingL01', JSON.stringify(ranking));
         }
 
         function updateRankingDisplay() {
-            let ranking = JSON.parse(localStorage.getItem('quizRankingL01_2tri')) || [];
+            let ranking = JSON.parse(localStorage.getItem('quizRankingL01')) || [];
             let html = '';
             ranking.forEach((item, i) => {
                 html += `<li class="ranking-item"><span>${i+1}. ${item.score} pontos</span> <span>${item.date}</span></li>`;
@@ -1991,17 +2045,17 @@
         // =============================================
         function shareWhatsApp() {
             let score = document.getElementById('score').innerText;
-            let text = `Fiz ${score} no Quiz da EBD Fiel (Lição 01 - O chamado que transforma a dor em propósito)! Venha testar seus conhecimentos também! Acesse: ${window.location.href}`;
+            let text = `Fiz ${score} no Quiz da EBD Fiel (Lição 1 - O chamado que transforma a dor em propósito)! Venha testar seus conhecimentos também! Acesse: ${window.location.href}`;
             window.open(`https://wa.me/?text=${encodeURIComponent(text)}`, '_blank');
         }
 
         function exportPDF() {
             const { jsPDF } = window.jspdf;
             const doc = new jsPDF();
-            doc.text('Resultado do Quiz - Lição 01: O chamado que transforma a dor em propósito', 10, 10);
+            doc.text('Resultado do Quiz - Lição 1: O chamado que transforma a dor em propósito', 10, 10);
             doc.text(`Pontuação: ${document.getElementById('score').innerText}`, 10, 20);
             doc.text(document.getElementById('message').innerText.replace(/<[^>]*>/g, ''), 10, 30);
-            doc.save('resultado_licao01.pdf');
+            doc.save('resultado_licao1.pdf');
         }
 
         // =============================================
@@ -2061,38 +2115,10 @@
             document.querySelector('.modern-header').style.display = 'block';
             document.querySelector('.content-section').style.display = 'flex';
             document.getElementById('instructions-screen').style.display = 'none';
+            document.getElementById('quiz-section').style.display = 'none';
             
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
-
-        // =============================================
-        // EVENT LISTENERS (corrigido: apenas um handler para o botão iniciar)
-        // =============================================
-        document.addEventListener('DOMContentLoaded', function() {
-            // Remove qualquer outro listener e adiciona apenas este
-            const startBtn = document.getElementById('start-btn');
-            if (startBtn) {
-                // Remove possíveis listeners anteriores (por segurança)
-                const newStartBtn = startBtn.cloneNode(true);
-                startBtn.parentNode.replaceChild(newStartBtn, startBtn);
-                newStartBtn.addEventListener('click', startQuizWithAnimation);
-            }
-            
-            document.getElementById('prev-btn').addEventListener('click', showPreviousQuestion);
-            document.getElementById('next-btn').addEventListener('click', showNextQuestion);
-            document.getElementById('restart-btn').addEventListener('click', restartQuiz);
-            document.getElementById('share-whatsapp').addEventListener('click', shareWhatsApp);
-            document.getElementById('export-pdf').addEventListener('click', exportPDF);
-            document.getElementById('review-btn').addEventListener('click', toggleReview);
-            document.getElementById('theme-toggle').addEventListener('click', toggleTheme);
-            document.getElementById('sound-toggle').addEventListener('click', toggleSound);
-            
-            const logoImg = document.getElementById('logo-img');
-            logoImg.onerror = function() {
-                logoImg.src = 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="45" fill="%234361ee"/><text x="50" y="60" text-anchor="middle" fill="white" font-size="40" font-family="Arial">EBD</text></svg>';
-            };
-            updateRankingDisplay();
-        });
     </script>
 </body>
 </html>
