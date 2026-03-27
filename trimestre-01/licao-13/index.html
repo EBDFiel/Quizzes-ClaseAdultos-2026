@@ -251,6 +251,53 @@
             color: white;
         }
 
+        /* DESTAQUE: NÚMERO DA LIÇÃO GRANDE */
+        .lesson-number-hero {
+            margin: 10px 0 20px 0;
+            text-align: center;
+        }
+
+        .lesson-number-badge {
+            display: inline-flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            background: rgba(0,0,0,0.3);
+            backdrop-filter: blur(8px);
+            padding: 15px 35px;
+            border-radius: 70px;
+            border: 1px solid rgba(255,180,70,0.5);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
+
+        .lesson-number-badge .lesson-label {
+            font-size: 1.2rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #ffb347;
+        }
+
+        .lesson-number-badge .lesson-number-large {
+            font-size: 4rem;
+            font-weight: 800;
+            line-height: 1;
+            background: linear-gradient(135deg, #ffb347, #ff8c00);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+
+        .lesson-name-large {
+            font-size: 1.8rem;
+            font-weight: 800;
+            margin-top: 10px;
+            color: white;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+            letter-spacing: -0.5px;
+        }
+
         .welcome-card {
             background: rgba(0,0,0,0.2);
             backdrop-filter: blur(10px);
@@ -383,7 +430,7 @@
             font-weight: 600;
         }
 
-        /* Botão iniciar */
+        /* Botões iniciais */
         .cta-section {
             display: flex;
             flex-direction: column;
@@ -392,11 +439,10 @@
             margin-top: 30px;
         }
 
-        .start-btn {
+        .start-btn, .share-initial-btn {
             padding: 18px 40px;
             border: none;
             border-radius: 50px;
-            background: linear-gradient(135deg, #00b4d8, #0077b6);
             color: white;
             font-weight: 700;
             cursor: pointer;
@@ -405,14 +451,23 @@
             display: flex;
             align-items: center;
             gap: 12px;
-            box-shadow: 0 10px 25px rgba(0,180,216,0.3);
             width: 100%;
             max-width: 300px;
             justify-content: center;
             position: relative;
             overflow: hidden;
             z-index: 1;
+        }
+
+        .start-btn {
+            background: linear-gradient(135deg, #00b4d8, #0077b6);
+            box-shadow: 0 10px 25px rgba(0,180,216,0.3);
             animation: gentlePulse 3s infinite ease-in-out;
+        }
+
+        .share-initial-btn {
+            background: linear-gradient(135deg, #25D366, #128C7E);
+            box-shadow: 0 10px 25px rgba(37,211,102,0.3);
         }
 
         @keyframes gentlePulse {
@@ -421,7 +476,7 @@
             100% { transform: scale(1); }
         }
 
-        .start-btn::before {
+        .start-btn::before, .share-initial-btn::before {
             content: '';
             position: absolute;
             top: 0; left: -100%;
@@ -431,13 +486,12 @@
             z-index: -1;
         }
 
-        .start-btn:hover {
+        .start-btn:hover, .share-initial-btn:hover {
             transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(0,180,216,0.4);
             animation: none;
         }
 
-        .start-btn:hover::before {
+        .start-btn:hover::before, .share-initial-btn:hover::before {
             left: 100%;
         }
 
@@ -449,6 +503,7 @@
             border-radius: 30px;
             padding: 25px;
             margin: 20px;
+            display: none;
         }
 
         .instructions h3 {
@@ -1142,10 +1197,8 @@
             .animation-text { font-size: 1.8rem; }
             .animation-icon { font-size: 3.5rem; }
             .countdown { font-size: 3rem; width: 80px; height: 80px; }
-            .progress-info { flex-direction: column; gap: 10px; }
-            .progress-item { min-width: 100%; }
-            .progress-value { font-size: 1.3rem; }
-            .objective-item { padding: 12px; }
+            .lesson-number-badge .lesson-number-large { font-size: 3rem; }
+            .lesson-name-large { font-size: 1.4rem; }
         }
 
         @media (min-width: 768px) {
@@ -1157,14 +1210,11 @@
             .navigation { flex-direction: row-reverse; }
             .instagram-section { flex-direction: row; justify-content: center; }
             .options { grid-template-columns: 1fr 1fr; }
-            .progress-info { flex-direction: row; justify-content: space-between; }
-            .progress-item { min-width: auto; }
-            .objective-item { padding: 15px 20px; }
         }
 
         @media (min-width: 992px) {
             .container { max-width: 900px; }
-            .content-section { grid-template-columns: 1fr 1fr; display: grid; }
+            .content-section { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
             .logo-text h1 { font-size: 2rem; }
         }
     </style>
@@ -1181,11 +1231,9 @@
 
     <!-- ANIMAÇÃO INICIAL -->
     <div class="quiz-start-animation" id="quiz-start-animation">
-        <div class="animation-icon">
-            <i class="fas fa-cloud-sun"></i>
-        </div>
-        <div class="animation-text">Quiz da EBD Fiel - Classe Adultos 👨‍👩</div>
-        <div class="animation-subtext">Lição 13: Os discípulos de Cristo e a bem-aventurada esperança</div>
+        <div class="animation-icon"><i class="fas fa-cloud-sun"></i></div>
+        <div class="animation-text">Quiz da EBD Fiel - Classe Adultos</div>
+        <div class="animation-subtext">1º Trimestre 2026 - Lição 13</div>
         <div class="countdown" id="countdown">3</div>
     </div>
 
@@ -1202,29 +1250,29 @@
                         <img src="https://i.ibb.co/9mLXgx7k/logo.png" alt="Logo EBD Fiel" class="logo-img" id="logo-img" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 100 100\'><circle cx=\'50\' cy=\'50\' r=\'45\' fill=\'%234361ee\'/><text x=\'50\' y=\'60\' text-anchor=\'middle\' fill=\'white\' font-size=\'40\' font-family=\'Arial\'>EBD</text></svg>'">
                     </div>
                     <div class="logo-text">
-                        <h1>QUIZ DA EBD Fiel - Classe Adultos 👨‍👩</h1>
-                        <div class="subtitle">Lição 13: Os discípulos de Cristo e a bem-aventurada esperança</div>
+                        <h1>QUIZ DA EBD Fiel - Classe Adultos</h1>
+                        <div class="subtitle">2º Trimestre 2026</div>
                     </div>
                 </div>
 
+                <!-- NÚMERO DA LIÇÃO EM DESTAQUE -->
+                <div class="lesson-number-hero">
+                    <div class="lesson-number-badge">
+                        <span class="lesson-label"><i class="fas fa-book-open"></i> LIÇÃO</span>
+                        <div class="lesson-number-large">13</div>
+                    </div>
+                    <div class="lesson-name-large">A BEM-AVENTURADA ESPERANÇA</div>
+                </div>
+
                 <div class="welcome-card">
-                    <h2><i class="fas fa-hands"></i> Bem-vindo ao Quiz da EBD Fiel!</h2>
+                    <h2><i class="fas fa-hands"></i> A Bem-Aventurada Esperança</h2>
                     <p>Estude sobre a bendita esperança da Igreja: a Segunda Vinda de Jesus Cristo. Aprenda como essa esperança nos motiva a viver em vigilância, santificação e serviço.</p>
                 </div>
 
                 <div class="features">
-                    <div class="feature">
-                        <i class="fas fa-star"></i>
-                        <span>15 Perguntas</span>
-                    </div>
-                    <div class="feature">
-                        <i class="fas fa-check-circle"></i>
-                        <span>Feedback Imediato</span>
-                    </div>
-                    <div class="feature">
-                        <i class="fas fa-graduation-cap"></i>
-                        <span>Aprenda com a Bíblia</span>
-                    </div>
+                    <div class="feature"><i class="fas fa-star"></i><span>15 Perguntas</span></div>
+                    <div class="feature"><i class="fas fa-check-circle"></i><span>Feedback Imediato</span></div>
+                    <div class="feature"><i class="fas fa-graduation-cap"></i><span>Aprenda com a Bíblia</span></div>
                 </div>
             </div>
         </header>
@@ -1253,19 +1301,18 @@
                 </div>
             </div>
             
-            <!-- BOTÃO INICIAR NO FINAL -->
+            <!-- BOTÕES INICIAIS -->
             <div class="cta-section">
-                <button class="start-btn" id="start-btn">
-                    <i class="fas fa-play"></i> Iniciar Quiz
-                </button>
+                <button class="share-initial-btn" id="share-initial-btn"><i class="fab fa-whatsapp"></i> Compartilhar Quiz</button>
+                <button class="start-btn" id="start-btn"><i class="fas fa-play"></i> Iniciar Quiz</button>
             </div>
         </section>
 
         <!-- TELA DE INSTRUÇÕES -->
-        <div class="instructions" id="instructions-screen" style="display: none;">
+        <div class="instructions" id="instructions-screen">
             <h3><i class="fas fa-info-circle"></i> Como funciona</h3>
             <ul>
-                <li><i class="fas fa-check-circle" style="color:var(--success);"></i> 15 perguntas sobre a lição</li>
+                <li><i class="fas fa-check-circle"></i> 15 perguntas sobre a lição</li>
                 <li><i class="fas fa-lightbulb"></i> Perguntas difíceis têm dica (clique na lâmpada)</li>
                 <li><i class="fas fa-music"></i> Sons de acerto/erro (pode mutar)</li>
                 <li><i class="fas fa-chart-line"></i> Ao final, veja seu desempenho e compartilhe</li>
@@ -1289,12 +1336,8 @@
             </div>
 
             <div class="navigation">
-                <button id="prev-btn" disabled>
-                    <i class="fas fa-arrow-left"></i> Anterior
-                </button>
-                <button id="next-btn" class="btn-next">
-                    Próxima <i class="fas fa-arrow-right"></i>
-                </button>
+                <button id="prev-btn" disabled><i class="fas fa-arrow-left"></i> Anterior</button>
+                <button id="next-btn" class="btn-next">Próxima <i class="fas fa-arrow-right"></i></button>
             </div>
         </div>
 
@@ -1347,7 +1390,6 @@
         <div class="church-info">
             <div class="church-name">EBD FIEL</div>
             <div class="church-location">FIEL A PALAVRA</div>
-
             <div class="instagram-section">
                 <div class="instagram-text">Curta nossa página no Instagram:</div>
                 <a href="https://www.instagram.com/ebdfiel" target="_blank" class="instagram-link">
@@ -1398,7 +1440,7 @@
         drawParticles();
 
         // =============================================
-        // BANCO DE PERGUNTAS - LIÇÃO 13 (mesmo do original)
+        // BANCO DE PERGUNTAS - LIÇÃO 13 (15 perguntas)
         // =============================================
         const allQuestions = [
             // PERGUNTAS FÁCEIS (1-5)
@@ -1678,6 +1720,7 @@
         // =============================================
         document.addEventListener('DOMContentLoaded', function() {
             document.getElementById('start-btn').addEventListener('click', startQuizWithAnimation);
+            document.getElementById('share-initial-btn').addEventListener('click', shareInitialQuiz);
             document.getElementById('prev-btn').addEventListener('click', showPreviousQuestion);
             document.getElementById('next-btn').addEventListener('click', showNextQuestion);
             document.getElementById('restart-btn').addEventListener('click', restartQuiz);
@@ -1693,6 +1736,11 @@
             };
             updateRankingDisplay();
         });
+
+        function shareInitialQuiz() {
+            const text = `📖 Quiz da EBD Fiel - Classe Adultos\n\nLer mais: Os discípulos de Cristo e a bem-aventurada esperança\n\nTeste seus conhecimentos sobre a Segunda Vinda de Cristo! 15 perguntas bíblicas.\nAcesse: ${window.location.href}`;
+            window.open(`https://wa.me/?text=${encodeURIComponent(text)}`, '_blank');
+        }
 
         function startQuizWithAnimation() {
             const startAnimation = document.getElementById('quiz-start-animation');
@@ -2067,6 +2115,7 @@
             document.querySelector('.modern-header').style.display = 'block';
             document.querySelector('.content-section').style.display = 'flex';
             document.getElementById('instructions-screen').style.display = 'none';
+            document.getElementById('quiz-section').style.display = 'none';
             
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
