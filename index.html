@@ -9,6 +9,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
+        /* Estilos originais mantidos – apenas para não repetir, mantenho o mesmo bloco de CSS */
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
@@ -37,7 +38,6 @@
             z-index: 1;
         }
 
-        /* ===== HEADER ===== */
         header {
             text-align: center;
             padding: 3rem 2rem;
@@ -140,7 +140,6 @@
             border-color: transparent;
         }
 
-        /* ===== SAUDAÇÃO ===== */
         .saudacao {
             background: rgba(255,255,255,0.07);
             backdrop-filter: blur(20px);
@@ -187,7 +186,6 @@
             margin-top: 20px;
         }
 
-        /* ===== ACCORDION ===== */
         .trimestre {
             background: rgba(255,255,255,0.07);
             backdrop-filter: blur(20px);
@@ -259,7 +257,6 @@
             box-shadow: 0 8px 20px rgba(255,180,70,0.4);
         }
 
-        /* Accordion animado com max-height */
         .trimestre-conteudo {
             max-height: 0;
             overflow: hidden;
@@ -284,7 +281,6 @@
             font-weight: 500;
         }
 
-        /* ===== CAPA ===== */
         .capa-revista { text-align: center; margin: 20px 0 30px; }
         .capa-revista img {
             width: 100%;
@@ -300,7 +296,6 @@
             box-shadow: 0 32px 60px rgba(255,180,70,0.3);
         }
 
-        /* ===== DESCRIÇÃO ===== */
         .descricao-detalhada {
             background: rgba(255,255,255,0.06);
             backdrop-filter: blur(10px);
@@ -313,7 +308,6 @@
             line-height: 1.8;
         }
 
-        /* ===== VÍDEO ===== */
         .video-trimestre {
             background: rgba(255,255,255,0.06);
             backdrop-filter: blur(10px);
@@ -385,7 +379,6 @@
             box-shadow: 0 16px 30px rgba(255,180,70,0.6);
         }
 
-        /* ===== CARDS DAS LIÇÕES ===== */
         .licoes-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -474,7 +467,6 @@
             margin-left: 8px;
         }
 
-        /* Progress bar */
         .progress-bar {
             height: 5px;
             background: rgba(255,255,255,0.1);
@@ -628,7 +620,7 @@
 
         <main>
             <!-- 1º TRIMESTRE 2026 -->
-            <div class="trimestre">
+            <div class="trimestre" data-trimestre="1">
                 <div class="trimestre-header">
                     <h2>
                         <span>1º Trimestre 2026</span>
@@ -662,25 +654,26 @@
                     </div>
 
                     <div class="licoes-grid">
-                        <div class="licao-card"><div class="numero">01</div><h3>Os discípulos de Cristo são novas criaturas</h3><div class="data"><span>📅</span> 04/01/2026 <span class="status ativa">Disponível</span></div><div class="progress-bar"><div class="progress" style="width:100%"></div></div><a href="trimestre-01/licao-01/" class="btn-quiz"><i class="fas fa-play-circle"></i> Iniciar Quiz</a></div>
-                        <div class="licao-card"><div class="numero">02</div><h3>Princípios bíblicos para a vida dos discípulos de Cristo</h3><div class="data"><span>📅</span> 11/01/2026 <span class="status ativa">Disponível</span></div><div class="progress-bar"><div class="progress" style="width:100%"></div></div><a href="trimestre-01/licao-02/" class="btn-quiz"><i class="fas fa-play-circle"></i> Iniciar Quiz</a></div>
-                        <div class="licao-card"><div class="numero">03</div><h3>Os compromissos dos discípulos de Cristo</h3><div class="data"><span>📅</span> 18/01/2026 <span class="status ativa">Disponível</span></div><div class="progress-bar"><div class="progress" style="width:100%"></div></div><a href="trimestre-01/licao-03/" class="btn-quiz"><i class="fas fa-play-circle"></i> Iniciar Quiz</a></div>
-                        <div class="licao-card"><div class="numero">04</div><h3>Os discípulos de Cristo e a tentação</h3><div class="data"><span>📅</span> 25/01/2026 <span class="status ativa">Disponível</span></div><div class="progress-bar"><div class="progress" style="width:100%"></div></div><a href="trimestre-01/licao-04/" class="btn-quiz"><i class="fas fa-play-circle"></i> Iniciar Quiz</a></div>
-                        <div class="licao-card"><div class="numero">05</div><h3>A importância do jejum na vida dos discípulos de Cristo</h3><div class="data"><span>📅</span> 01/02/2026 <span class="status ativa">Disponível</span></div><div class="progress-bar"><div class="progress" style="width:100%"></div></div><a href="trimestre-01/licao-05/" class="btn-quiz"><i class="fas fa-play-circle"></i> Iniciar Quiz</a></div>
-                        <div class="licao-card"><div class="numero">06</div><h3>Oração: uma disciplina indispensável aos discípulos de Cristo</h3><div class="data"><span>📅</span> 08/02/2026 <span class="status ativa">Disponível</span></div><div class="progress-bar"><div class="progress" style="width:100%"></div></div><a href="trimestre-01/licao-06/" class="btn-quiz"><i class="fas fa-play-circle"></i> Iniciar Quiz</a></div>
-                        <div class="licao-card"><div class="numero">07</div><h3>Vencendo as estratégias e propostas do inimigo</h3><div class="data"><span>📅</span> 15/02/2026 <span class="status ativa">Disponível</span></div><div class="progress-bar"><div class="progress" style="width:100%"></div></div><a href="trimestre-01/licao-07/" class="btn-quiz"><i class="fas fa-play-circle"></i> Iniciar Quiz</a></div>
-                        <div class="licao-card"><div class="numero">08</div><h3>Os discípulos de Cristo e o bom ânimo</h3><div class="data"><span>📅</span> 22/02/2026 <span class="status ativa">Disponível</span></div><div class="progress-bar"><div class="progress" style="width:100%"></div></div><a href="trimestre-01/licao-08/" class="btn-quiz"><i class="fas fa-play-circle"></i> Iniciar Quiz</a></div>
-                        <div class="licao-card"><div class="numero">09</div><h3>Os discípulos de Cristo e o processo da santificação</h3><div class="data"><span>📅</span> 01/03/2026 <span class="status ativa">Disponível</span></div><div class="progress-bar"><div class="progress" style="width:100%"></div></div><a href="trimestre-01/licao-09/" class="btn-quiz"><i class="fas fa-play-circle"></i> Iniciar Quiz</a></div>
-                        <div class="licao-card"><div class="numero">10</div><h3>A missão dos discípulos de Cristo</h3><div class="data"><span>📅</span> 08/03/2026 <span class="status ativa">Disponível</span></div><div class="progress-bar"><div class="progress" style="width:100%"></div></div><a href="trimestre-01/licao-10/" class="btn-quiz"><i class="fas fa-play-circle"></i> Iniciar Quiz</a></div>
-                        <div class="licao-card"><div class="numero">11</div><h3>O caráter dos discípulos de Cristo</h3><div class="data"><span>📅</span> 15/03/2026 <span class="status ativa">Disponível</span></div><div class="progress-bar"><div class="progress" style="width:100%"></div></div><a href="trimestre-01/licao-11/" class="btn-quiz"><i class="fas fa-play-circle"></i> Iniciar Quiz</a></div>
-                        <div class="licao-card"><div class="numero">12</div><h3>Os discípulos de Cristo e o Espírito Santo</h3><div class="data"><span>📅</span> 22/03/2026 <span class="status ativa">Disponível</span></div><div class="progress-bar"><div class="progress" style="width:100%"></div></div><a href="trimestre-01/licao-12/" class="btn-quiz"><i class="fas fa-play-circle"></i> Iniciar Quiz</a></div>
-                        <div class="licao-card"><div class="numero">13</div><h3>Os discípulos de Cristo e a bem-aventurada esperança</h3><div class="data"><span>📅</span> 29/03/2026 <span class="status ativa">Disponível</span></div><div class="progress-bar"><div class="progress" style="width:100%"></div></div><a href="trimestre-01/licao-13/" class="btn-quiz"><i class="fas fa-play-circle"></i> Iniciar Quiz</a></div>
+                        <!-- Adicionados atributos data-trimestre e data-lesson para consistência (todas disponíveis) -->
+                        <div class="licao-card" data-trimestre="1" data-lesson="1"><div class="numero">01</div><h3>Os discípulos de Cristo são novas criaturas</h3><div class="data"><span>📅</span> 04/01/2026 <span class="status ativa">Disponível</span></div><div class="progress-bar"><div class="progress" style="width:100%"></div></div><a href="trimestre-01/licao-01/" class="btn-quiz" target="_blank" rel="noopener noreferrer"><i class="fas fa-play-circle"></i> Iniciar Quiz</a></div>
+                        <div class="licao-card" data-trimestre="1" data-lesson="2"><div class="numero">02</div><h3>Princípios bíblicos para a vida dos discípulos de Cristo</h3><div class="data"><span>📅</span> 11/01/2026 <span class="status ativa">Disponível</span></div><div class="progress-bar"><div class="progress" style="width:100%"></div></div><a href="trimestre-01/licao-02/" class="btn-quiz" target="_blank" rel="noopener noreferrer"><i class="fas fa-play-circle"></i> Iniciar Quiz</a></div>
+                        <div class="licao-card" data-trimestre="1" data-lesson="3"><div class="numero">03</div><h3>Os compromissos dos discípulos de Cristo</h3><div class="data"><span>📅</span> 18/01/2026 <span class="status ativa">Disponível</span></div><div class="progress-bar"><div class="progress" style="width:100%"></div></div><a href="trimestre-01/licao-03/" class="btn-quiz" target="_blank" rel="noopener noreferrer"><i class="fas fa-play-circle"></i> Iniciar Quiz</a></div>
+                        <div class="licao-card" data-trimestre="1" data-lesson="4"><div class="numero">04</div><h3>Os discípulos de Cristo e a tentação</h3><div class="data"><span>📅</span> 25/01/2026 <span class="status ativa">Disponível</span></div><div class="progress-bar"><div class="progress" style="width:100%"></div></div><a href="trimestre-01/licao-04/" class="btn-quiz" target="_blank" rel="noopener noreferrer"><i class="fas fa-play-circle"></i> Iniciar Quiz</a></div>
+                        <div class="licao-card" data-trimestre="1" data-lesson="5"><div class="numero">05</div><h3>A importância do jejum na vida dos discípulos de Cristo</h3><div class="data"><span>📅</span> 01/02/2026 <span class="status ativa">Disponível</span></div><div class="progress-bar"><div class="progress" style="width:100%"></div></div><a href="trimestre-01/licao-05/" class="btn-quiz" target="_blank" rel="noopener noreferrer"><i class="fas fa-play-circle"></i> Iniciar Quiz</a></div>
+                        <div class="licao-card" data-trimestre="1" data-lesson="6"><div class="numero">06</div><h3>Oração: uma disciplina indispensável aos discípulos de Cristo</h3><div class="data"><span>📅</span> 08/02/2026 <span class="status ativa">Disponível</span></div><div class="progress-bar"><div class="progress" style="width:100%"></div></div><a href="trimestre-01/licao-06/" class="btn-quiz" target="_blank" rel="noopener noreferrer"><i class="fas fa-play-circle"></i> Iniciar Quiz</a></div>
+                        <div class="licao-card" data-trimestre="1" data-lesson="7"><div class="numero">07</div><h3>Vencendo as estratégias e propostas do inimigo</h3><div class="data"><span>📅</span> 15/02/2026 <span class="status ativa">Disponível</span></div><div class="progress-bar"><div class="progress" style="width:100%"></div></div><a href="trimestre-01/licao-07/" class="btn-quiz" target="_blank" rel="noopener noreferrer"><i class="fas fa-play-circle"></i> Iniciar Quiz</a></div>
+                        <div class="licao-card" data-trimestre="1" data-lesson="8"><div class="numero">08</div><h3>Os discípulos de Cristo e o bom ânimo</h3><div class="data"><span>📅</span> 22/02/2026 <span class="status ativa">Disponível</span></div><div class="progress-bar"><div class="progress" style="width:100%"></div></div><a href="trimestre-01/licao-08/" class="btn-quiz" target="_blank" rel="noopener noreferrer"><i class="fas fa-play-circle"></i> Iniciar Quiz</a></div>
+                        <div class="licao-card" data-trimestre="1" data-lesson="9"><div class="numero">09</div><h3>Os discípulos de Cristo e o processo da santificação</h3><div class="data"><span>📅</span> 01/03/2026 <span class="status ativa">Disponível</span></div><div class="progress-bar"><div class="progress" style="width:100%"></div></div><a href="trimestre-01/licao-09/" class="btn-quiz" target="_blank" rel="noopener noreferrer"><i class="fas fa-play-circle"></i> Iniciar Quiz</a></div>
+                        <div class="licao-card" data-trimestre="1" data-lesson="10"><div class="numero">10</div><h3>A missão dos discípulos de Cristo</h3><div class="data"><span>📅</span> 08/03/2026 <span class="status ativa">Disponível</span></div><div class="progress-bar"><div class="progress" style="width:100%"></div></div><a href="trimestre-01/licao-10/" class="btn-quiz" target="_blank" rel="noopener noreferrer"><i class="fas fa-play-circle"></i> Iniciar Quiz</a></div>
+                        <div class="licao-card" data-trimestre="1" data-lesson="11"><div class="numero">11</div><h3>O caráter dos discípulos de Cristo</h3><div class="data"><span>📅</span> 15/03/2026 <span class="status ativa">Disponível</span></div><div class="progress-bar"><div class="progress" style="width:100%"></div></div><a href="trimestre-01/licao-11/" class="btn-quiz" target="_blank" rel="noopener noreferrer"><i class="fas fa-play-circle"></i> Iniciar Quiz</a></div>
+                        <div class="licao-card" data-trimestre="1" data-lesson="12"><div class="numero">12</div><h3>Os discípulos de Cristo e o Espírito Santo</h3><div class="data"><span>📅</span> 22/03/2026 <span class="status ativa">Disponível</span></div><div class="progress-bar"><div class="progress" style="width:100%"></div></div><a href="trimestre-01/licao-12/" class="btn-quiz" target="_blank" rel="noopener noreferrer"><i class="fas fa-play-circle"></i> Iniciar Quiz</a></div>
+                        <div class="licao-card" data-trimestre="1" data-lesson="13"><div class="numero">13</div><h3>Os discípulos de Cristo e a bem-aventurada esperança</h3><div class="data"><span>📅</span> 29/03/2026 <span class="status ativa">Disponível</span></div><div class="progress-bar"><div class="progress" style="width:100%"></div></div><a href="trimestre-01/licao-13/" class="btn-quiz" target="_blank" rel="noopener noreferrer"><i class="fas fa-play-circle"></i> Iniciar Quiz</a></div>
                     </div>
                 </div>
             </div>
 
             <!-- 2º TRIMESTRE 2026 -->
-            <div class="trimestre">
+            <div class="trimestre" data-trimestre="2">
                 <div class="trimestre-header">
                     <h2>
                         <span>2º Trimestre 2026</span>
@@ -700,7 +693,7 @@
                     </div>
                     <div class="licoes-grid" id="licoes-2tri">
                         <!-- Lição 01 (já disponível) -->
-                        <div class="licao-card" data-lesson="1">
+                        <div class="licao-card" data-trimestre="2" data-lesson="1">
                             <div class="numero">01</div>
                             <h3>O chamado que transforma a dor em propósito</h3>
                             <div class="data">
@@ -709,10 +702,10 @@
                                 <span class="release-date"></span>
                             </div>
                             <div class="progress-bar"><div class="progress" style="width:100%"></div></div>
-                            <a href="trimestre-02/licao-01/" class="btn-quiz"><i class="fas fa-play-circle"></i> Iniciar Quiz</a>
+                            <a href="trimestre-02/licao-01/" class="btn-quiz" target="_blank" rel="noopener noreferrer"><i class="fas fa-play-circle"></i> Iniciar Quiz</a>
                         </div>
-                        <!-- Lição 02 a 13: inicialmente inativas -->
-                        <div class="licao-card" data-lesson="2">
+                        <!-- Lições 02 a 13: inicialmente inativas -->
+                        <div class="licao-card" data-trimestre="2" data-lesson="2">
                             <div class="numero">02</div>
                             <h3>Preparando-se para o agir de Deus</h3>
                             <div class="data">
@@ -723,7 +716,7 @@
                             <div class="progress-bar"><div class="progress" style="width:0%"></div></div>
                             <a href="#" class="btn-quiz disabled"><i class="fas fa-clock"></i> Em preparação</a>
                         </div>
-                        <div class="licao-card" data-lesson="3">
+                        <div class="licao-card" data-trimestre="2" data-lesson="3">
                             <div class="numero">03</div>
                             <h3>Lidando com vozes contrárias</h3>
                             <div class="data">
@@ -734,7 +727,7 @@
                             <div class="progress-bar"><div class="progress" style="width:0%"></div></div>
                             <a href="#" class="btn-quiz disabled"><i class="fas fa-clock"></i> Em preparação</a>
                         </div>
-                        <div class="licao-card" data-lesson="4">
+                        <div class="licao-card" data-trimestre="2" data-lesson="4">
                             <div class="numero">04</div>
                             <h3>O poder das palavras: pedras que edificam e não ferem</h3>
                             <div class="data">
@@ -745,7 +738,7 @@
                             <div class="progress-bar"><div class="progress" style="width:0%"></div></div>
                             <a href="#" class="btn-quiz disabled"><i class="fas fa-clock"></i> Em preparação</a>
                         </div>
-                        <div class="licao-card" data-lesson="5">
+                        <div class="licao-card" data-trimestre="2" data-lesson="5">
                             <div class="numero">05</div>
                             <h3>Fortalecido pela fé para combater o medo com coragem</h3>
                             <div class="data">
@@ -756,7 +749,7 @@
                             <div class="progress-bar"><div class="progress" style="width:0%"></div></div>
                             <a href="#" class="btn-quiz disabled"><i class="fas fa-clock"></i> Em preparação</a>
                         </div>
-                        <div class="licao-card" data-lesson="6">
+                        <div class="licao-card" data-trimestre="2" data-lesson="6">
                             <div class="numero">06</div>
                             <h3>Discernimento espiritual: a sabedoria divina em tempos de engano</h3>
                             <div class="data">
@@ -767,7 +760,7 @@
                             <div class="progress-bar"><div class="progress" style="width:0%"></div></div>
                             <a href="#" class="btn-quiz disabled"><i class="fas fa-clock"></i> Em preparação</a>
                         </div>
-                        <div class="licao-card" data-lesson="7">
+                        <div class="licao-card" data-trimestre="2" data-lesson="7">
                             <div class="numero">07</div>
                             <h3>Unidade: a receita que nos faz vencer as adversidades da vida</h3>
                             <div class="data">
@@ -778,7 +771,7 @@
                             <div class="progress-bar"><div class="progress" style="width:0%"></div></div>
                             <a href="#" class="btn-quiz disabled"><i class="fas fa-clock"></i> Em preparação</a>
                         </div>
-                        <div class="licao-card" data-lesson="8">
+                        <div class="licao-card" data-trimestre="2" data-lesson="8">
                             <div class="numero">08</div>
                             <h3>A fidelidade e o temor: características que geram confiança</h3>
                             <div class="data">
@@ -789,7 +782,7 @@
                             <div class="progress-bar"><div class="progress" style="width:0%"></div></div>
                             <a href="#" class="btn-quiz disabled"><i class="fas fa-clock"></i> Em preparação</a>
                         </div>
-                        <div class="licao-card" data-lesson="9">
+                        <div class="licao-card" data-trimestre="2" data-lesson="9">
                             <div class="numero">09</div>
                             <h3>Alegria e gratidão ao Senhor resultam da Palavra de Deus</h3>
                             <div class="data">
@@ -800,7 +793,7 @@
                             <div class="progress-bar"><div class="progress" style="width:0%"></div></div>
                             <a href="#" class="btn-quiz disabled"><i class="fas fa-clock"></i> Em preparação</a>
                         </div>
-                        <div class="licao-card" data-lesson="10">
+                        <div class="licao-card" data-trimestre="2" data-lesson="10">
                             <div class="numero">10</div>
                             <h3>O arrependimento: aspecto indispensável para uma nova vida</h3>
                             <div class="data">
@@ -811,7 +804,7 @@
                             <div class="progress-bar"><div class="progress" style="width:0%"></div></div>
                             <a href="#" class="btn-quiz disabled"><i class="fas fa-clock"></i> Em preparação</a>
                         </div>
-                        <div class="licao-card" data-lesson="11">
+                        <div class="licao-card" data-trimestre="2" data-lesson="11">
                             <div class="numero">11</div>
                             <h3>O culto: a importância para uma vida cristã edificada</h3>
                             <div class="data">
@@ -822,7 +815,7 @@
                             <div class="progress-bar"><div class="progress" style="width:0%"></div></div>
                             <a href="#" class="btn-quiz disabled"><i class="fas fa-clock"></i> Em preparação</a>
                         </div>
-                        <div class="licao-card" data-lesson="12">
+                        <div class="licao-card" data-trimestre="2" data-lesson="12">
                             <div class="numero">12</div>
                             <h3>Vigilância e oração: o perigo das alianças erradas</h3>
                             <div class="data">
@@ -833,7 +826,7 @@
                             <div class="progress-bar"><div class="progress" style="width:0%"></div></div>
                             <a href="#" class="btn-quiz disabled"><i class="fas fa-clock"></i> Em preparação</a>
                         </div>
-                        <div class="licao-card" data-lesson="13">
+                        <div class="licao-card" data-trimestre="2" data-lesson="13">
                             <div class="numero">13</div>
                             <h3>Os elementos fundamentais da vitória de Neemias</h3>
                             <div class="data">
@@ -849,7 +842,7 @@
             </div>
 
             <!-- 3º TRIMESTRE 2026 -->
-            <div class="trimestre">
+            <div class="trimestre" data-trimestre="3">
                 <div class="trimestre-header">
                     <h2>
                         <span>3º Trimestre 2026</span>
@@ -867,7 +860,7 @@
             </div>
 
             <!-- 4º TRIMESTRE 2026 -->
-            <div class="trimestre">
+            <div class="trimestre" data-trimestre="4">
                 <div class="trimestre-header">
                     <h2>
                         <span>4º Trimestre 2026</span>
@@ -952,19 +945,19 @@
 
         // ===== DATAS DE LIBERAÇÃO DAS LIÇÕES (SEXTA ANTES DO DOMINGO) =====
         const lessonReleaseDates = [
-            { lesson: 1, releaseDate: new Date(2026, 3, 3) },  // 03/04/2026
-            { lesson: 2, releaseDate: new Date(2026, 3, 10) }, // 10/04/2026
-            { lesson: 3, releaseDate: new Date(2026, 3, 17) }, // 17/04/2026
-            { lesson: 4, releaseDate: new Date(2026, 3, 24) }, // 24/04/2026
-            { lesson: 5, releaseDate: new Date(2026, 4, 1) },  // 01/05/2026
-            { lesson: 6, releaseDate: new Date(2026, 4, 8) },  // 08/05/2026
-            { lesson: 7, releaseDate: new Date(2026, 4, 15) }, // 15/05/2026
-            { lesson: 8, releaseDate: new Date(2026, 4, 22) }, // 22/05/2026
-            { lesson: 9, releaseDate: new Date(2026, 4, 29) }, // 29/05/2026
-            { lesson: 10, releaseDate: new Date(2026, 5, 5) }, // 05/06/2026
-            { lesson: 11, releaseDate: new Date(2026, 5, 12) },// 12/06/2026
-            { lesson: 12, releaseDate: new Date(2026, 5, 19) },// 19/06/2026
-            { lesson: 13, releaseDate: new Date(2026, 5, 26) } // 26/06/2026
+            { trimestre: 2, lesson: 1, releaseDate: new Date(2026, 3, 3) },  // 03/04/2026
+            { trimestre: 2, lesson: 2, releaseDate: new Date(2026, 3, 10) }, // 10/04/2026
+            { trimestre: 2, lesson: 3, releaseDate: new Date(2026, 3, 17) }, // 17/04/2026
+            { trimestre: 2, lesson: 4, releaseDate: new Date(2026, 3, 24) }, // 24/04/2026
+            { trimestre: 2, lesson: 5, releaseDate: new Date(2026, 4, 1) },  // 01/05/2026
+            { trimestre: 2, lesson: 6, releaseDate: new Date(2026, 4, 8) },  // 08/05/2026
+            { trimestre: 2, lesson: 7, releaseDate: new Date(2026, 4, 15) }, // 15/05/2026
+            { trimestre: 2, lesson: 8, releaseDate: new Date(2026, 4, 22) }, // 22/05/2026
+            { trimestre: 2, lesson: 9, releaseDate: new Date(2026, 4, 29) }, // 29/05/2026
+            { trimestre: 2, lesson: 10, releaseDate: new Date(2026, 5, 5) }, // 05/06/2026
+            { trimestre: 2, lesson: 11, releaseDate: new Date(2026, 5, 12) },// 12/06/2026
+            { trimestre: 2, lesson: 12, releaseDate: new Date(2026, 5, 19) },// 19/06/2026
+            { trimestre: 2, lesson: 13, releaseDate: new Date(2026, 5, 26) } // 26/06/2026
         ];
 
         // Função para formatar data como DD/MM/AAAA
@@ -975,36 +968,42 @@
             return `${day}/${month}/${year}`;
         }
 
-        // Função principal para verificar disponibilidade (considera localStorage)
-        function isLessonAvailable(lessonNumber) {
+        // Verifica disponibilidade de uma lição específica (trimestre + lição)
+        function isLessonAvailable(trimestre, lessonNumber) {
             const today = new Date();
             today.setHours(0, 0, 0, 0);
 
-            // Verifica força via localStorage (painel admin)
-            const forcedLesson = localStorage.getItem('force_lesson');
-            if (forcedLesson && parseInt(forcedLesson) === lessonNumber) {
+            // Verifica força via localStorage (painel admin) – agora considera trimestre e lição
+            const forcedKey = `force_lesson_${trimestre}_${lessonNumber}`;
+            if (localStorage.getItem(forcedKey) === 'true') {
                 return true;
             }
 
-            const lessonInfo = lessonReleaseDates.find(item => item.lesson === lessonNumber);
-            if (!lessonInfo) return false;
+            // Para o 1º trimestre, todas as lições estão sempre disponíveis (já passaram)
+            if (trimestre === 1) return true;
+
+            // Para outros trimestres, verifica as datas cadastradas
+            const lessonInfo = lessonReleaseDates.find(item => item.trimestre === trimestre && item.lesson === lessonNumber);
+            if (!lessonInfo) return false; // sem data, ainda não disponível
             return today >= lessonInfo.releaseDate;
         }
 
-        // Aplica as alterações nos cards do 2º trimestre
+        // Aplica as alterações em todos os cards de todos os trimestres
         function applyLessonAvailability() {
-            const cards = document.querySelectorAll('#licoes-2tri .licao-card');
-            cards.forEach(card => {
+            // Seleciona todos os cards que possuem data-trimestre e data-lesson
+            const allCards = document.querySelectorAll('.licao-card[data-trimestre][data-lesson]');
+            allCards.forEach(card => {
+                const trimestre = parseInt(card.getAttribute('data-trimestre'), 10);
                 const lessonNum = parseInt(card.getAttribute('data-lesson'), 10);
-                const releaseInfo = lessonReleaseDates.find(item => item.lesson === lessonNum);
+                const releaseInfo = lessonReleaseDates.find(item => item.trimestre === trimestre && item.lesson === lessonNum);
                 const releaseDateSpan = card.querySelector('.release-date');
 
-                // Exibe a data de liberação no span
+                // Exibe a data de liberação (se houver)
                 if (releaseInfo && releaseDateSpan) {
                     releaseDateSpan.textContent = `📆 Disponível a partir de ${formatDate(releaseInfo.releaseDate)}`;
                 }
 
-                if (isLessonAvailable(lessonNum)) {
+                if (isLessonAvailable(trimestre, lessonNum)) {
                     const statusSpan = card.querySelector('.status');
                     const btn = card.querySelector('.btn-quiz');
                     const progressBar = card.querySelector('.progress');
@@ -1015,14 +1014,16 @@
                     }
                     if (btn) {
                         btn.classList.remove('disabled');
+                        // Monta o link correto conforme o trimestre e lição
                         const lessonStr = lessonNum.toString().padStart(2, '0');
-                        btn.href = `trimestre-02/licao-${lessonStr}/`;
+                        btn.href = `trimestre-${trimestre.toString().padStart(2, '0')}/licao-${lessonStr}/`;
                         btn.innerHTML = '<i class="fas fa-play-circle"></i> Iniciar Quiz';
+                        btn.setAttribute('target', '_blank');
+                        btn.setAttribute('rel', 'noopener noreferrer');
                     }
                     if (progressBar) {
                         progressBar.style.width = '100%';
                     }
-                    // Oculta a data de liberação quando disponível
                     if (releaseDateSpan) releaseDateSpan.style.display = 'none';
                 } else {
                     if (releaseDateSpan) releaseDateSpan.style.display = 'inline-block';
@@ -1030,7 +1031,7 @@
             });
         }
 
-        // ===== PAINEL ADMIN (CLIQUE 5 VEZES NO LOGO) =====
+        // ===== PAINEL ADMIN (CLIQUE 5 VEZES NO LOGO) – AGORA ABRANGE TODOS OS TRIMESTRES =====
         let logoClickCount = 0;
         const logo = document.getElementById('logoImg');
         const adminPanel = document.createElement('div');
@@ -1047,29 +1048,37 @@
         adminPanel.style.display = 'none';
         adminPanel.style.flexDirection = 'column';
         adminPanel.style.gap = '10px';
-        adminPanel.style.minWidth = '200px';
+        adminPanel.style.minWidth = '260px';
         adminPanel.innerHTML = `
             <div style="display:flex; justify-content:space-between; align-items:center;">
-                <strong style="color:#ffb347;">Liberar lição</strong>
+                <strong style="color:#ffb347;">Liberar lição (qualquer trimestre)</strong>
                 <button id="close-admin" style="background:none; border:none; color:white; cursor:pointer;">✕</button>
             </div>
-            <select id="lesson-select" style="padding:8px; border-radius:8px; background:#1e2f4a; color:white;">
-                <option value="1">Lição 01</option>
-                <option value="2">Lição 02</option>
-                <option value="3">Lição 03</option>
-                <option value="4">Lição 04</option>
-                <option value="5">Lição 05</option>
-                <option value="6">Lição 06</option>
-                <option value="7">Lição 07</option>
-                <option value="8">Lição 08</option>
-                <option value="9">Lição 09</option>
-                <option value="10">Lição 10</option>
-                <option value="11">Lição 11</option>
-                <option value="12">Lição 12</option>
-                <option value="13">Lição 13</option>
-            </select>
+            <div style="display:flex; gap:8px;">
+                <select id="admin-trimestre" style="flex:1; padding:8px; border-radius:8px; background:#1e2f4a; color:white;">
+                    <option value="1">1º Trimestre</option>
+                    <option value="2">2º Trimestre</option>
+                    <option value="3">3º Trimestre</option>
+                    <option value="4">4º Trimestre</option>
+                </select>
+                <select id="admin-lesson" style="flex:1; padding:8px; border-radius:8px; background:#1e2f4a; color:white;">
+                    <option value="1">Lição 01</option>
+                    <option value="2">Lição 02</option>
+                    <option value="3">Lição 03</option>
+                    <option value="4">Lição 04</option>
+                    <option value="5">Lição 05</option>
+                    <option value="6">Lição 06</option>
+                    <option value="7">Lição 07</option>
+                    <option value="8">Lição 08</option>
+                    <option value="9">Lição 09</option>
+                    <option value="10">Lição 10</option>
+                    <option value="11">Lição 11</option>
+                    <option value="12">Lição 12</option>
+                    <option value="13">Lição 13</option>
+                </select>
+            </div>
             <button id="force-release" style="background:#ffb347; color:#1e2f4a; border:none; padding:8px; border-radius:8px; cursor:pointer;">Liberar agora</button>
-            <button id="clear-all-forces" style="background:#555; color:white; border:none; padding:8px; border-radius:8px; cursor:pointer;">Limpar todas</button>
+            <button id="clear-all-forces" style="background:#555; color:white; border:none; padding:8px; border-radius:8px; cursor:pointer;">Limpar todas liberações</button>
         `;
         document.body.appendChild(adminPanel);
 
@@ -1089,13 +1098,21 @@
         });
 
         document.getElementById('force-release')?.addEventListener('click', () => {
-            const lesson = document.getElementById('lesson-select').value;
-            localStorage.setItem('force_lesson', lesson);
+            const trimestre = document.getElementById('admin-trimestre').value;
+            const lesson = document.getElementById('admin-lesson').value;
+            const key = `force_lesson_${trimestre}_${lesson}`;
+            localStorage.setItem(key, 'true');
             location.reload();
         });
 
         document.getElementById('clear-all-forces')?.addEventListener('click', () => {
-            localStorage.removeItem('force_lesson');
+            // Remove todas as chaves force_lesson_*
+            for (let i = 0; i < localStorage.length; i++) {
+                const key = localStorage.key(i);
+                if (key && key.startsWith('force_lesson_')) {
+                    localStorage.removeItem(key);
+                }
+            }
             location.reload();
         });
 
