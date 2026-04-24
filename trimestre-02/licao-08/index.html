@@ -1,945 +1,1695 @@
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>QUIZ DA EBD Fiel - Completo</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <!-- jsPDF -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-    <style>
-        :root {
-            --primary: #4361ee;
-            --primary-dark: #3a56d4;
-            --secondary: #7209b7;
-            --accent: #f72585;
-            --success: #4cc9f0;
-            --warning: #f8961e;
-            --danger: #f94144;
-            --light: #f8f9fa;
-            --dark: #212529;
-            --text: #343a40;
-            --gray: #6c757d;
-            --shadow: 0 10px 30px rgba(0,0,0,0.1);
-            --shadow-lg: 0 15px 50px rgba(0,0,0,0.15);
-            --gradient: linear-gradient(135deg, #4361ee 0%, #7209b7 100%);
-            --gradient-light: linear-gradient(135deg, #4cc9f0 0%, #4361ee 100%);
-            --instagram: #E1306C;
-            --bg-body: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            --bg-container: white;
-            --text-color: #343a40;
-            --card-bg: #f8f9fa;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>Quiz da EBD Fiel | Lição 8</title>
 
-        body.dark-mode {
-            --primary: #bb86fc;
-            --primary-dark: #9b67f0;
-            --secondary: #03dac6;
-            --accent: #cf6679;
-            --success: #4caf50;
-            --warning: #ff9800;
-            --danger: #f44336;
-            --light: #333;
-            --dark: #f8f9fa;
-            --text: #f8f9fa;
-            --gray: #aaa;
-            --bg-body: #121212;
-            --bg-container: #1e1e1e;
-            --text-color: #f8f9fa;
-            --card-bg: #2d2d2d;
-        }
+  <meta property="og:title" content="Quiz da EBD Fiel - Lição 8: A fidelidade e o temor" />
+  <meta property="og:description" content="Teste seus conhecimentos sobre a Lição 8: A fidelidade e o temor: características que geram confiança." />
+  <meta property="og:image" content="https://i.ibb.co/9mLXgx7k/logo.png" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="EBD Fiel" />
+  <meta property="og:locale" content="pt_BR" />
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Poppins', sans-serif;
-        }
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Quiz da EBD Fiel - Lição 4" />
+  <meta name="twitter:description" content="A fidelidade e o temor: características que geram confiança." />
+  <meta name="twitter:image" content="https://i.ibb.co/9mLXgx7k/logo.png" />
 
-        html {
-            scroll-behavior: smooth;
-        }
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
 
-        body {
-            background: var(--bg-body);
-            color: var(--text-color);
-            min-height: 100vh;
-            padding: 15px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            line-height: 1.6;
-            transition: background 0.3s, color 0.3s;
-        }
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-        .container {
-            max-width: 100%;
-            width: 100%;
-            background: var(--bg-container);
-            border-radius: 20px;
-            box-shadow: var(--shadow-lg);
-            overflow: hidden;
-            margin: 10px 0;
-            position: relative;
-            transition: background 0.3s;
-        }
+    :root {
+      --bg-1: #061827;
+      --bg-2: #0b2c47;
+      --bg-3: #123f63;
+      --card: rgba(3, 20, 38, 0.72);
+      --card-2: rgba(9, 42, 73, 0.72);
+      --line: rgba(255, 255, 255, 0.12);
+      --line-gold: rgba(255, 179, 71, 0.82);
+      --gold: #ffb347;
+      --gold-2: #ff8c00;
+      --white: #ffffff;
+      --muted: rgba(255,255,255,0.78);
+      --blue: #00b4d8;
+      --blue-2: #0077b6;
+      --green: #28a745;
+      --red: #dc3545;
+      --yellow: #ffc107;
+    }
 
-        /* Botões flutuantes */
-        .floating-buttons {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            z-index: 1000;
-            display: flex;
-            gap: 10px;
-        }
-        .floating-btn {
-            width: 45px;
-            height: 45px;
-            border-radius: 50%;
-            background: var(--primary);
-            color: white;
-            border: none;
-            cursor: pointer;
-            box-shadow: var(--shadow);
-            font-size: 1.2rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: transform 0.2s;
-        }
-        .floating-btn:hover {
-            transform: scale(1.1);
-        }
+    body {
+      font-family: "Inter", sans-serif;
+      min-height: 100vh;
+      background:
+        radial-gradient(circle at top left, rgba(0, 180, 216, 0.16), transparent 32%),
+        linear-gradient(135deg, var(--bg-1) 0%, var(--bg-2) 48%, var(--bg-3) 100%);
+      color: var(--white);
+      overflow-x: hidden;
+      line-height: 1.6;
+      padding: 14px;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+    }
 
-        /* Animações */
-        .fade-in {
-            animation: fadeIn 0.5s ease forwards;
-        }
-        .slide-in {
-            animation: slideIn 0.4s ease;
-        }
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        @keyframes slideIn {
-            from { transform: translateX(20px); opacity: 0; }
-            to { transform: translateX(0); opacity: 1; }
-        }
+    #particles {
+      position: fixed;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.45;
+    }
 
-        /* Header */
-        .modern-header {
-            background: var(--gradient);
-            color: white;
-            padding: 25px 20px;
-        }
-        .logo-container {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            flex-wrap: wrap;
-        }
-        .logo {
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
-            overflow: hidden;
-            background: white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-shrink: 0;
-        }
-        .logo-img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-        .logo-text h1 {
-            font-size: 1.8rem;
-            line-height: 1.2;
-        }
-        .welcome-card {
-            background: rgba(255,255,255,0.15);
-            padding: 20px;
-            border-radius: 16px;
-            margin: 20px 0;
-        }
+    .container {
+      position: relative;
+      z-index: 2;
+      width: min(940px, 100%);
+      margin: 10px auto 30px;
+      border-radius: 32px;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.12);
+      background: rgba(255,255,255,0.045);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      box-shadow: 0 24px 60px rgba(0,0,0,0.32);
+    }
 
-        /* Instruções */
-        .instructions {
-            padding: 20px;
-            background: var(--card-bg);
-            border-radius: 16px;
-            margin: 20px;
-        }
-        .instructions ul {
-            list-style: none;
-            margin-top: 15px;
-        }
-        .instructions li {
-            margin: 10px 0;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
+    .floating-buttons {
+      position: fixed;
+      right: 18px;
+      top: 18px;
+      z-index: 1000;
+      display: flex;
+      gap: 10px;
+    }
 
-        /* Seções de conteúdo (mantido original) */
-        .content-section {
-            padding: 30px 20px;
-            display: flex;
-            flex-direction: column;
-            gap: 25px;
-        }
-        .about-card, .details-card {
-            background: var(--card-bg);
-            border-radius: 16px;
-            padding: 25px 20px;
-            box-shadow: var(--shadow);
-        }
-        .card-title {
-            font-size: 1.3rem;
-            color: var(--primary);
-            margin-bottom: 15px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        .card-content p {
-            margin-bottom: 10px;
-        }
-        .card-content ul {
-            list-style: none;
-        }
-        .card-content li {
-            margin-bottom: 12px;
-            display: flex;
-            align-items: flex-start;
-            gap: 10px;
-        }
-        .highlight {
-            background: var(--gradient-light);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            font-weight: 600;
-        }
+    .floating-btn {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      border: 1px solid rgba(255,255,255,0.18);
+      background: rgba(0,0,0,0.28);
+      color: white;
+      cursor: pointer;
+      display: grid;
+      place-items: center;
+      box-shadow: 0 10px 24px rgba(0,0,0,0.25);
+      transition: 0.25s ease;
+    }
 
-        /* Botão iniciar */
-        .cta-section {
-            display: flex;
-            justify-content: center;
-            margin-top: 30px;
-        }
-        .start-btn {
-            padding: 16px 35px;
-            border: none;
-            border-radius: 50px;
-            background: var(--accent);
-            color: white;
-            font-weight: 600;
-            cursor: pointer;
-            transition: 0.3s;
-            font-size: 1.1rem;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            box-shadow: 0 8px 20px rgba(248, 37, 133, 0.4);
-        }
-        .start-btn:hover {
-            transform: translateY(-3px);
-        }
+    .floating-btn:hover {
+      background: var(--gold);
+      color: #102238;
+      transform: translateY(-2px) scale(1.04);
+    }
 
-        /* Quiz */
-        .quiz-section {
-            display: none;
-            padding: 20px;
-        }
-        .progress-container {
-            margin-bottom: 20px;
-        }
-        .progress-header {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 10px;
-        }
-        .progress-bar {
-            height: 8px;
-            background: #e9ecef;
-            border-radius: 10px;
-            overflow: hidden;
-        }
-        .progress {
-            height: 100%;
-            background: var(--gradient);
-            transition: width 0.5s;
-        }
+    .modern-header {
+      position: relative;
+      overflow: hidden;
+      text-align: center;
+      padding: 34px 30px 26px;
+      background:
+        linear-gradient(180deg, rgba(13, 55, 91, 0.88), rgba(5, 23, 43, 0.82)),
+        radial-gradient(circle at 50% 0%, rgba(255, 179, 71, 0.10), transparent 42%);
+      border-bottom: 1px solid rgba(255,255,255,0.12);
+    }
 
-        .question {
-            background: var(--card-bg);
-            border-radius: 16px;
-            padding: 20px;
-            margin-bottom: 20px;
-            border-left: 5px solid var(--primary);
-        }
-        .question-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 15px;
-        }
-        .difficulty-badge {
-            padding: 5px 12px;
-            border-radius: 20px;
-            color: white;
-            font-size: 0.8rem;
-            font-weight: 600;
-        }
-        .difficulty-easy { background: var(--success); }
-        .difficulty-medium { background: var(--warning); }
-        .difficulty-hard { background: var(--danger); }
+    .header-bg {
+      position: absolute;
+      inset: 0;
+      opacity: 0.13;
+      background-image:
+        radial-gradient(circle at 20% 30%, rgba(255,255,255,0.55) 1.5px, transparent 1.5px),
+        radial-gradient(circle at 80% 70%, rgba(255,255,255,0.45) 1.5px, transparent 1.5px);
+      background-size: 48px 48px;
+    }
 
-        .tip-icon {
-            cursor: pointer;
-            color: var(--warning);
-            font-size: 1.3rem;
-        }
-        .tip-text {
-            display: none;
-            background: var(--light);
-            padding: 10px;
-            border-radius: 8px;
-            margin: 10px 0;
-            font-style: italic;
-            border-left: 3px solid var(--warning);
-        }
+    .header-content {
+      position: relative;
+      z-index: 2;
+    }
 
-        .options {
-            display: grid;
-            gap: 12px;
-        }
-        .option {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            padding: 16px 15px;
-            background: var(--light);
-            border-radius: 12px;
-            cursor: pointer;
-            transition: 0.3s;
-            border: 2px solid transparent;
-        }
-        .option:hover {
-            transform: translateY(-2px);
-            border-color: var(--primary);
-        }
-        .option-letter {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 32px;
-            height: 32px;
-            background: rgba(255,255,255,0.3);
-            border-radius: 50%;
-            font-weight: bold;
-            flex-shrink: 0;
-        }
-        .option-text {
-            flex: 1;
-            word-break: break-word;
-        }
-        .option.selected.correct {
-            background: var(--success);
-            color: white;
-        }
-        .option.selected.incorrect {
-            background: var(--danger);
-            color: white;
-        }
-        .option.correct-answer {
-            background: var(--success);
-            color: white;
-        }
-        .feedback-curiosity {
-            margin-top: 15px;
-            padding: 10px;
-            background: var(--light);
-            border-radius: 8px;
-            font-size: 0.9rem;
-            border-left: 3px solid var(--primary);
-        }
+    .header-grid {
+      display: grid;
+      grid-template-columns: 135px 1fr 145px;
+      align-items: center;
+      gap: 22px;
+      margin-bottom: 24px;
+    }
 
-        /* Navegação */
-        .navigation {
-            display: flex;
-            gap: 10px;
-            margin-top: 20px;
-        }
-        button {
-            padding: 12px 20px;
-            border: none;
-            border-radius: 50px;
-            background: var(--primary);
-            color: white;
-            font-weight: 600;
-            cursor: pointer;
-            transition: 0.3s;
-            flex: 1;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-        }
-        button:hover {
-            transform: translateY(-2px);
-            filter: brightness(1.1);
-        }
-        button:disabled {
-            background: var(--gray);
-            cursor: not-allowed;
-            transform: none;
-        }
+    .logo-top {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
 
-        /* Resultados */
-        .results {
-            display: none;
-            padding: 30px 20px;
-            text-align: center;
-        }
-        .score {
-            font-size: 4rem;
-            font-weight: 700;
-            background: var(--gradient);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            margin: 20px 0;
-        }
-        .performance {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            margin: 20px 0;
-            flex-wrap: wrap;
-        }
-        .performance-item {
-            background: var(--card-bg);
-            padding: 15px 20px;
-            border-radius: 16px;
-            min-width: 100px;
-        }
-        .action-buttons {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            justify-content: center;
-            margin: 20px 0;
-        }
-        .action-btn {
-            background: var(--secondary);
-            padding: 10px 20px;
-            border: none;
-            border-radius: 50px;
-            color: white;
-            cursor: pointer;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-        }
-        #review-container {
-            text-align: left;
-            margin: 20px 0;
-            max-height: 400px;
-            overflow-y: auto;
-            padding: 15px;
-            background: var(--card-bg);
-            border-radius: 16px;
-        }
-        .review-item {
-            padding: 15px;
-            border-radius: 12px;
-            margin-bottom: 10px;
-            border-left: 5px solid;
-        }
-        .review-item.correct { border-color: var(--success); }
-        .review-item.incorrect { border-color: var(--danger); }
-        .ranking {
-            background: var(--card-bg);
-            padding: 20px;
-            border-radius: 16px;
-            margin-top: 20px;
-        }
-        .ranking-list {
-            list-style: none;
-            margin-top: 10px;
-        }
-        .ranking-item {
-            display: flex;
-            justify-content: space-between;
-            padding: 8px 0;
-            border-bottom: 1px solid var(--gray);
-        }
+    .logo-top img {
+      width: 112px;
+      height: 112px;
+      object-fit: contain;
+      border-radius: 50%;
+      padding: 8px;
+      background: rgba(255,255,255,0.10);
+      border: 1px solid rgba(255,255,255,0.22);
+      box-shadow:
+        0 12px 28px rgba(0,0,0,0.28),
+        inset 0 0 0 1px rgba(255,255,255,0.10);
+    }
 
-        /* Rodapé */
-        .church-info {
-            text-align: center;
-            padding: 20px;
-            background: var(--card-bg);
-            border-top: 1px solid #dee2e6;
-        }
-        .instagram-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            background: var(--instagram);
-            color: white;
-            padding: 10px 20px;
-            border-radius: 50px;
-            text-decoration: none;
-            margin-top: 10px;
-        }
+    .center-brand {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 13px;
+      min-width: 0;
+    }
 
-        /* Responsivo */
-        @media (max-width: 600px) {
-            .logo-container {
-                justify-content: center;
-                text-align: center;
-            }
-            .logo-text h1 {
-                font-size: 1.4rem;
-            }
-            .option {
-                padding: 12px 10px;
-                gap: 8px;
-            }
-            .option-letter {
-                width: 28px;
-                height: 28px;
-                font-size: 0.9rem;
-            }
-            .performance {
-                flex-direction: column;
-            }
-            .floating-buttons {
-                top: 10px;
-                right: 10px;
-            }
-        }
-    </style>
+    .quiz-badge {
+      background: linear-gradient(135deg, var(--gold), var(--gold-2));
+      color: #102238;
+      font-size: 1.48rem;
+      font-weight: 950;
+      letter-spacing: 3px;
+      padding: 9px 30px;
+      border-radius: 999px;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      box-shadow: 0 12px 28px rgba(255,140,0,0.34);
+      text-transform: uppercase;
+    }
+
+    .classe-img {
+      max-width: 285px;
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+      filter: drop-shadow(0 8px 18px rgba(0,0,0,0.52));
+    }
+
+    .trimestre-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: rgba(255,255,255,0.95);
+      background: rgba(42, 108, 165, 0.72);
+      border: 1px solid rgba(255,255,255,0.16);
+      padding: 7px 19px;
+      border-radius: 999px;
+      font-weight: 700;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.12);
+    }
+
+    .licao-circle {
+      width: 132px;
+      height: 132px;
+      border-radius: 50%;
+      border: 1px solid var(--line-gold);
+      background: rgba(0,0,0,0.24);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 16px 34px rgba(0,0,0,0.26);
+    }
+
+    .licao-circle span {
+      color: var(--gold);
+      font-size: 0.95rem;
+      font-weight: 900;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .licao-circle strong {
+      color: var(--gold);
+      font-size: 3.9rem;
+      line-height: 1;
+      font-weight: 950;
+      text-shadow: 0 5px 16px rgba(255,140,0,0.20);
+    }
+
+    .titulo-licao {
+      margin: 14px auto 22px;
+      max-width: 850px;
+      padding: 18px 24px;
+      border-radius: 22px;
+      background: rgba(0,0,0,0.22);
+      border: 1px solid rgba(255,255,255,0.12);
+      color: white;
+      font-size: clamp(1.45rem, 3.4vw, 2.2rem);
+      line-height: 1.22;
+      font-weight: 950;
+      text-transform: uppercase;
+      letter-spacing: -0.8px;
+      text-shadow: 0 2px 12px rgba(0,0,0,0.25);
+    }
+
+    .titulo-licao span {
+      color: var(--gold);
+      display: inline;
+    }
+
+    .resumo-card {
+      max-width: 850px;
+      margin: 0 auto;
+      text-align: left;
+      padding: 24px 26px;
+      border-radius: 25px;
+      background: rgba(8, 45, 87, 0.56);
+      border: 1px solid rgba(255, 179, 71, 0.26);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.22);
+    }
+
+    .resumo-card h3 {
+      color: var(--gold);
+      font-size: 1.35rem;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      line-height: 1.25;
+    }
+
+    .resumo-card p {
+      color: rgba(255,255,255,0.82);
+      font-size: 1.02rem;
+    }
+
+    .features {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px;
+      margin-top: 24px;
+    }
+
+    .feature {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      background: rgba(0,0,0,0.20);
+      border: 1px solid rgba(255,255,255,0.12);
+      padding: 11px 16px;
+      border-radius: 999px;
+      color: rgba(255,255,255,0.82);
+      font-weight: 600;
+    }
+
+    .feature i {
+      color: var(--gold);
+    }
+
+    .content-section {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 22px;
+      padding: 28px 24px;
+    }
+
+    .about-card,
+    .details-card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 26px;
+      padding: 24px;
+      box-shadow: 0 14px 30px rgba(0,0,0,0.20);
+    }
+
+    .card-title {
+      color: var(--gold);
+      font-size: 1.32rem;
+      margin-bottom: 15px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      line-height: 1.25;
+    }
+
+    .card-content {
+      color: rgba(255,255,255,0.78);
+    }
+
+    .card-content ul {
+      list-style: none;
+      display: grid;
+      gap: 12px;
+      margin-top: 14px;
+    }
+
+    .card-content li {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+    }
+
+    .card-content li i {
+      color: var(--gold);
+      margin-top: 4px;
+      flex-shrink: 0;
+    }
+
+    .highlight {
+      color: var(--gold);
+      font-weight: 800;
+    }
+
+    .cta-section {
+      grid-column: 1 / -1;
+      display: flex;
+      justify-content: center;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-top: 4px;
+    }
+
+    .start-btn,
+    .share-initial-btn,
+    button.action-btn {
+      border: 0;
+      cursor: pointer;
+      color: white;
+      font-weight: 800;
+      border-radius: 999px;
+      padding: 15px 26px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      transition: 0.25s ease;
+      min-width: 230px;
+      font-size: 1rem;
+    }
+
+    .start-btn {
+      background: linear-gradient(135deg, var(--gold), var(--gold-2));
+      color: #13243a;
+      box-shadow: 0 12px 25px rgba(255,140,0,0.25);
+      animation: gentlePulse 2.8s infinite ease-in-out;
+    }
+
+    .share-initial-btn {
+      background: linear-gradient(135deg, #25D366, #128C7E);
+      box-shadow: 0 12px 25px rgba(37,211,102,0.22);
+    }
+
+    .start-btn:hover,
+    .share-initial-btn:hover,
+    button:hover {
+      transform: translateY(-3px);
+    }
+
+    @keyframes gentlePulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.018); }
+    }
+
+    .quiz-section {
+      display: none;
+      padding: 28px 24px;
+    }
+
+    .progress-container {
+      margin-bottom: 22px;
+    }
+
+    .progress-header {
+      display: flex;
+      justify-content: space-between;
+      gap: 14px;
+      margin-bottom: 10px;
+      color: var(--gold);
+      font-weight: 800;
+    }
+
+    .progress-bar {
+      height: 9px;
+      background: rgba(255,255,255,0.10);
+      border-radius: 999px;
+      overflow: hidden;
+    }
+
+    .progress {
+      height: 100%;
+      width: 0;
+      background: linear-gradient(90deg, var(--gold), var(--gold-2));
+      border-radius: inherit;
+      transition: width 0.35s ease;
+    }
+
+    .question {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-left: 6px solid var(--gold);
+      border-radius: 28px;
+      padding: 24px;
+      margin-bottom: 22px;
+      box-shadow: 0 14px 30px rgba(0,0,0,0.20);
+    }
+
+    .question-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+
+    .question-difficulty {
+      padding: 7px 14px;
+      border-radius: 999px;
+      font-weight: 900;
+      font-size: 0.82rem;
+    }
+
+    .difficulty-easy {
+      background: var(--green);
+      color: white;
+    }
+
+    .difficulty-medium {
+      background: var(--yellow);
+      color: #102238;
+    }
+
+    .difficulty-hard {
+      background: var(--red);
+      color: white;
+    }
+
+    .tip-icon {
+      color: var(--gold);
+      cursor: pointer;
+      font-size: 1.2rem;
+    }
+
+    .tip-text {
+      display: none;
+      background: rgba(0,0,0,0.24);
+      border-left: 3px solid var(--gold);
+      border-radius: 14px;
+      padding: 12px 14px;
+      color: rgba(255,255,255,0.78);
+      margin-bottom: 14px;
+    }
+
+    .question-text {
+      font-size: 1.28rem;
+      font-weight: 850;
+      line-height: 1.35;
+      margin-bottom: 18px;
+    }
+
+    .options {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+
+    .option {
+      position: relative;
+      cursor: pointer;
+      padding: 16px;
+      border-radius: 18px;
+      background: rgba(0,0,0,0.22);
+      border: 1px solid rgba(255,255,255,0.13);
+      color: rgba(255,255,255,0.90);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-height: 74px;
+      transition: 0.22s ease;
+    }
+
+    .option:hover {
+      border-color: var(--gold);
+      transform: translateY(-2px);
+      box-shadow: 0 10px 20px rgba(255,179,71,0.13);
+    }
+
+    .option-letter {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background: rgba(255,179,71,0.18);
+      color: var(--gold);
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      font-weight: 950;
+      flex-shrink: 0;
+    }
+
+    .feedback-icon {
+      margin-left: auto;
+      opacity: 0;
+      font-size: 1.1rem;
+      flex-shrink: 0;
+    }
+
+    .option.selected.correct,
+    .option.correct-answer {
+      background: rgba(40, 167, 69, 0.90);
+      border-color: rgba(40, 167, 69, 1);
+      color: white;
+    }
+
+    .option.selected.incorrect {
+      background: rgba(220, 53, 69, 0.90);
+      border-color: rgba(220, 53, 69, 1);
+      color: white;
+    }
+
+    .option.selected .option-letter,
+    .option.correct-answer .option-letter {
+      background: rgba(255,255,255,0.25);
+      color: white;
+    }
+
+    .option.selected .feedback-icon,
+    .option.correct-answer .feedback-icon {
+      opacity: 1;
+    }
+
+    .feedback-curiosity {
+      margin-top: 18px;
+      background: rgba(0,0,0,0.22);
+      border-left: 3px solid var(--gold);
+      border-radius: 16px;
+      padding: 14px;
+      color: rgba(255,255,255,0.78);
+    }
+
+    .navigation {
+      display: flex;
+      gap: 14px;
+      justify-content: space-between;
+    }
+
+    .navigation button,
+    .results button {
+      border: 0;
+      border-radius: 999px;
+      padding: 14px 22px;
+      cursor: pointer;
+      color: white;
+      font-weight: 850;
+      background: linear-gradient(135deg, var(--blue), var(--blue-2));
+      box-shadow: 0 10px 22px rgba(0,180,216,0.22);
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      gap: 9px;
+      min-width: 160px;
+      transition: 0.22s ease;
+    }
+
+    .navigation .btn-next {
+      background: linear-gradient(135deg, var(--gold), var(--gold-2));
+      color: #13243a;
+    }
+
+    button:disabled {
+      opacity: 0.45;
+      cursor: not-allowed;
+      transform: none !important;
+    }
+
+    .results {
+      display: none;
+      padding: 38px 24px;
+      text-align: center;
+    }
+
+    .results-header h2 {
+      font-size: clamp(1.7rem, 4vw, 2.5rem);
+      margin-bottom: 10px;
+    }
+
+    .score {
+      font-size: 4.2rem;
+      font-weight: 950;
+      color: var(--gold);
+      line-height: 1;
+      margin: 18px 0 8px;
+      text-shadow: 0 6px 20px rgba(255,140,0,0.18);
+    }
+
+    .message {
+      max-width: 760px;
+      margin: 24px auto;
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      padding: 22px;
+      color: rgba(255,255,255,0.82);
+    }
+
+    .performance {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      max-width: 760px;
+      margin: 26px auto;
+    }
+
+    .performance-item {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      padding: 20px;
+    }
+
+    .performance-value {
+      font-size: 2.2rem;
+      font-weight: 950;
+      margin-top: 6px;
+    }
+
+    .performance-easy { color: var(--green); }
+    .performance-medium { color: var(--yellow); }
+    .performance-hard { color: var(--red); }
+
+    .action-buttons {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin: 20px 0;
+    }
+
+    #review-container {
+      display: none;
+      max-width: 820px;
+      margin: 20px auto;
+      text-align: left;
+      background: rgba(0,0,0,0.20);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 22px;
+      padding: 16px;
+      max-height: 430px;
+      overflow: auto;
+    }
+
+    .review-item {
+      border-left: 5px solid;
+      padding: 14px;
+      border-radius: 14px;
+      margin-bottom: 10px;
+      background: rgba(255,255,255,0.05);
+    }
+
+    .review-item.correct { border-color: var(--green); }
+    .review-item.incorrect { border-color: var(--red); }
+
+    .review-question {
+      font-weight: 850;
+      margin-bottom: 6px;
+    }
+
+    .review-answer,
+    .review-explanation {
+      color: rgba(255,255,255,0.72);
+      font-size: 0.95rem;
+    }
+
+    .church-info {
+      padding: 24px;
+      text-align: center;
+      background: rgba(0,0,0,0.22);
+      border-top: 1px solid rgba(255,255,255,0.12);
+    }
+
+    .church-name {
+      color: var(--gold);
+      font-size: 1.35rem;
+      font-weight: 950;
+      margin-bottom: 4px;
+    }
+
+    .church-location {
+      color: rgba(255,255,255,0.62);
+      margin-bottom: 16px;
+    }
+
+    .instagram-section {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .instagram-link {
+      color: white;
+      text-decoration: none;
+      font-weight: 850;
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      background: linear-gradient(45deg, #405DE6, #833AB4, #E1306C, #FD1D1D);
+      padding: 11px 20px;
+      border-radius: 999px;
+      box-shadow: 0 10px 22px rgba(225,48,108,0.22);
+    }
+
+    .quiz-start-animation {
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      display: none;
+      background: linear-gradient(135deg, #061827, #123f63);
+      color: white;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      text-align: center;
+      padding: 22px;
+    }
+
+    .quiz-start-animation.active {
+      display: flex;
+    }
+
+    .animation-icon {
+      color: var(--gold);
+      font-size: 4.2rem;
+      animation: bounce 1s infinite;
+      margin-bottom: 12px;
+    }
+
+    .animation-text {
+      font-size: clamp(1.6rem, 6vw, 2.7rem);
+      font-weight: 950;
+    }
+
+    .animation-subtext {
+      color: rgba(255,255,255,0.78);
+      font-size: 1.1rem;
+      margin-top: 5px;
+    }
+
+    .countdown {
+      margin-top: 22px;
+      color: var(--gold);
+      font-size: 3rem;
+      font-weight: 950;
+      width: 86px;
+      height: 86px;
+      border-radius: 50%;
+      border: 3px solid rgba(255,255,255,0.22);
+      background: rgba(255,255,255,0.08);
+      display: grid;
+      place-items: center;
+      animation: pulse 1s infinite;
+    }
+
+    .confetti-container {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      overflow: hidden;
+      z-index: 999;
+      display: none;
+    }
+
+    .confetti-container.active {
+      display: block;
+    }
+
+    .confetti {
+      position: absolute;
+      width: 11px;
+      height: 11px;
+      opacity: 0;
+      animation: confettiRain 2.2s ease forwards;
+    }
+
+    @keyframes confettiRain {
+      0% { transform: translateY(-100px) rotate(0deg); opacity: 1; }
+      100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
+    }
+
+    @keyframes bounce {
+      0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+      40% { transform: translateY(-14px); }
+      60% { transform: translateY(-7px); }
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.06); }
+    }
+
+    @media (max-width: 820px) {
+      body { padding: 9px; }
+      .modern-header { padding: 28px 18px 22px; }
+      .header-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
+      .logo-top img {
+        width: 96px;
+        height: 96px;
+      }
+      .classe-img {
+        max-width: 245px;
+      }
+      .licao-circle {
+        width: 118px;
+        height: 118px;
+        margin: 0 auto;
+      }
+      .licao-circle strong {
+        font-size: 3.35rem;
+      }
+      .content-section {
+        grid-template-columns: 1fr;
+        padding: 22px 16px;
+      }
+      .quiz-section,
+      .results {
+        padding: 22px 16px;
+      }
+      .options {
+        grid-template-columns: 1fr;
+      }
+      .performance {
+        grid-template-columns: 1fr;
+      }
+      .navigation {
+        flex-direction: column-reverse;
+      }
+      .navigation button {
+        width: 100%;
+      }
+      .floating-buttons {
+        top: 10px;
+        right: 10px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .container { border-radius: 24px; }
+      .quiz-badge {
+        font-size: 1.2rem;
+        padding: 8px 22px;
+      }
+      .titulo-licao {
+        padding: 15px;
+      }
+      .resumo-card {
+        padding: 20px;
+      }
+      .resumo-card h3 {
+        font-size: 1.15rem;
+      }
+      .start-btn,
+      .share-initial-btn,
+      button.action-btn {
+        width: 100%;
+      }
+      .cta-section {
+        flex-direction: column;
+      }
+    }
+  </style>
 </head>
+
 <body>
-    <div class="floating-buttons">
-        <button class="floating-btn" id="theme-toggle" title="Modo noturno/claro"><i class="fas fa-moon"></i></button>
-        <button class="floating-btn" id="sound-toggle" title="Ativar/desativar sons"><i class="fas fa-volume-up"></i></button>
-    </div>
+  <canvas id="particles"></canvas>
 
-    <!-- ANIMAÇÃO INICIAL (opcional, pode ser removida se preferir) -->
-    <div class="quiz-start-animation" id="quiz-start-animation" style="display: none; position: fixed; top:0; left:0; width:100%; height:100%; background:var(--gradient); z-index:9999; flex-direction:column; align-items:center; justify-content:center; color:white;">
-        <div class="animation-icon"><i class="fas fa-heart"></i></div>
-        <div class="animation-text">Quiz da EBD Fiel</div>
-        <div class="countdown" id="countdown">3</div>
-    </div>
+  <div class="floating-buttons">
+    <button class="floating-btn" id="theme-toggle" title="Modo claro/escuro">
+      <i class="fas fa-moon"></i>
+    </button>
+    <button class="floating-btn" id="sound-toggle" title="Ativar/desativar sons">
+      <i class="fas fa-volume-up"></i>
+    </button>
+  </div>
 
-    <div class="container">
-        <!-- HEADER -->
-        <header class="modern-header">
-            <div class="logo-container">
-                <div class="logo">
-                    <img src="https://i.ibb.co/9mLXgx7k/logo.png" alt="Logo EBD Fiel" class="logo-img" id="logo-img" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 100 100\'><circle cx=\'50\' cy=\'50\' r=\'45\' fill=\'%234361ee\'/><text x=\'50\' y=\'60\' text-anchor=\'middle\' fill=\'white\' font-size=\'40\' font-family=\'Arial\'>EBD</text></svg>'">
-                </div>
-                <div class="logo-text">
-                    <h1>QUIZ DA EBD Fiel</h1>
-                    <p>Lção 08: Os Discípulos de Cristo e o Bom Ânimo</p>
-                </div>
-            </div>
-            <div class="welcome-card">
-                <h2><i class="fas fa-hands"></i> Bem-vindo!</h2>
-                <p>Teste seus conhecimentos sobre a lição.</p>
-            </div>
-        </header>
+  <div class="quiz-start-animation" id="quiz-start-animation">
+    <div class="animation-icon"><i class="fas fa-bolt"></i></div>
+    <div class="animation-text">QUIZ EBD FIEL</div>
+    <div class="animation-subtext">Classe Adultos • Lição 8</div>
+    <div class="countdown" id="countdown">3</div>
+  </div>
 
-        <!-- CONTEÚDO ORIGINAL (exatamente como solicitado) -->
-        <section class="content-section">
-            <div class="about-card">
-                <h2 class="card-title"><i class="fas fa-info-circle"></i> Sobre Esta Lição</h2>
-                <div class="card-content">
-                    <p>Nesta lição, estudaremos como os discípulos de Cristo devem manter o bom ânimo mesmo diante das adversidades da vida. O Texto Áureo (João 16:33) nos lembra que no mundo teremos aflições, mas podemos ter bom ânimo porque Jesus venceu o mundo.</p>
-                    <p>A lição aborda exemplos inspiradores como José, que manteve a fé mesmo sendo vendido como escravo, e Paulo, que enfrentou perseguições sem perder o bom ânimo. Veremos como o perdão, a fé e a confiança em Deus são fundamentais para superar os desafios.</p>
-                    <p><span class="highlight">Em Cristo encontramos a força para vencer todas as adversidades</span> - este é o coração da mensagem desta lição.</p>
-                </div>
+  <div class="confetti-container" id="confetti-container"></div>
+
+  <main class="container">
+    <header class="modern-header">
+      <div class="header-bg"></div>
+
+      <div class="header-content">
+        <div class="header-grid">
+          <div class="logo-top">
+            <img src="https://i.ibb.co/9mLXgx7k/logo.png" alt="Logo EBD Fiel" />
+          </div>
+
+          <div class="center-brand">
+            <div class="quiz-badge">
+              <i class="fas fa-bolt"></i>
+              QUIZ
             </div>
 
-            <div class="details-card">
-                <h2 class="card-title"><i class="fas fa-book-open"></i> O Que Você Vai Aprender</h2>
-                <div class="card-content">
-                    <ul>
-                        <li><i class="fas fa-check"></i> Como manter o bom ânimo nas tribulações</li>
-                        <li><i class="fas fa-check"></i> O exemplo de José diante das adversidades</li>
-                        <li><i class="fas fa-check"></i> Como Paulo enfrentou perseguições com fé</li>
-                        <li><i class="fas fa-check"></i> O valor do perdão nas dificuldades</li>
-                        <li><i class="fas fa-check"></i> Como encontrar força e esperança na fé</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
+            <img src="https://i.imgur.com/5KKitzA.png" alt="Classe Adultos" class="classe-img" />
 
-        <!-- TELA DE INSTRUÇÕES -->
-        <div class="instructions" id="instructions-screen">
-            <h3><i class="fas fa-info-circle"></i> Como funciona</h3>
-            <ul>
-                <li><i class="fas fa-check-circle" style="color:var(--success);"></i> 15 perguntas sobre a lição</li>
-                <li><i class="fas fa-lightbulb" style="color:var(--warning);"></i> Perguntas difíceis têm dica (clique na lâmpada)</li>
-                <li><i class="fas fa-music"></i> Sons de acerto/erro (pode mutar)</li>
-                <li><i class="fas fa-chart-line"></i> Ao final, veja seu desempenho e compartilhe</li>
-                <li><i class="fas fa-trophy"></i> As 5 melhores pontuações ficam salvas</li>
-            </ul>
-            <div class="cta-section">
-                <button class="start-btn" id="start-btn"><i class="fas fa-play"></i> Iniciar Quiz</button>
-            </div>
+            <div class="trimestre-badge">2º Trimestre 2026</div>
+          </div>
+
+          <div class="licao-circle">
+            <span><i class="fas fa-book-open"></i> Lição</span>
+            <strong>8</strong>
+          </div>
         </div>
 
-        <!-- QUIZ -->
-        <div class="quiz-section" id="quiz-section">
-            <div class="progress-container">
-                <div class="progress-header">
-                    <span id="progress-text">Pergunta 1 de 15</span>
+        <h1 class="titulo-licao">
+          A fidelidade e o temor: <span>características que geram confiança</span>
+        </h1>
+
+        <div class="resumo-card">
+          <h3><i class="fas fa-hands-clapping"></i> Hananias: fidelidade, temor e confiança</h3>
+          <p>
+            Hananias foi reconhecido por Neemias como homem fiel e temente a Deus, mais do que muitos.
+            Esta lição mostra que fidelidade e temor ao Senhor geram confiança, firmeza e testemunho cristão.
+          </p>
+        </div>
+
+        <div class="features">
+          <div class="feature"><i class="fas fa-star"></i><span>15 perguntas</span></div>
+          <div class="feature"><i class="fas fa-check-circle"></i><span>Feedback imediato</span></div>
+          <div class="feature"><i class="fas fa-graduation-cap"></i><span>Aprenda com a Bíblia</span></div>
+        </div>
+      </div>
+    </header>
+
+    <section class="content-section" id="intro-section">
+      <div class="about-card">
+        <h2 class="card-title"><i class="fas fa-book-open"></i> Sobre esta lição</h2>
+        <div class="card-content">
+          <p>
+            A Lição 8 nos ensina que fidelidade e temor a Deus são marcas indispensáveis do discípulo de Cristo.
+            Hananias se destacou como homem íntegro, confiável e temente ao Senhor.
+          </p>
+          <ul>
+            <li><i class="fas fa-check"></i><span><span class="highlight">Texto Áureo:</span> Neemias 7.2</span></li>
+            <li><i class="fas fa-check"></i><span><span class="highlight">Tema:</span> Fidelidade e temor a Deus</span></li>
+            <li><i class="fas fa-check"></i><span><span class="highlight">Aplicação:</span> viver de forma fiel, reverente e confiável em todas as áreas da vida.</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="details-card">
+        <h2 class="card-title"><i class="fas fa-bullseye"></i> Objetivos da lição</h2>
+        <div class="card-content">
+          <ul>
+            <li><i class="fas fa-user-check"></i><span>Ressaltar o caráter fiel de Hananias.</span></li>
+            <li><i class="fas fa-shield-halved"></i><span>Reconhecer o valor da fidelidade a Deus.</span></li>
+            <li><i class="fas fa-cross"></i><span>Compreender o princípio do temor a Deus.</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="cta-section">
+        <button class="start-btn" id="start-btn">
+          <i class="fas fa-play"></i>
+          Iniciar Quiz
+        </button>
+
+        <button class="share-initial-btn" id="share-initial-btn">
+          <i class="fab fa-whatsapp"></i>
+          Compartilhar
+        </button>
+      </div>
+    </section>
+
+    <section class="quiz-section" id="quiz-section">
+      <div class="progress-container">
+        <div class="progress-header">
+          <span id="progress-text">Pergunta 1 de 15</span>
+          <span id="score-live">0 acertos</span>
+        </div>
+        <div class="progress-bar">
+          <div class="progress" id="progress"></div>
+        </div>
+      </div>
+
+      <div id="question-container"></div>
+
+      <div class="navigation">
+        <button id="next-btn" class="btn-next" disabled>
+          Próxima <i class="fas fa-arrow-right"></i>
+        </button>
+        <button id="prev-btn">
+          <i class="fas fa-arrow-left"></i> Voltar
+        </button>
+      </div>
+    </section>
+
+    <section class="results" id="results">
+      <div class="results-header">
+        <h2><i class="fas fa-trophy"></i> Resultado Final</h2>
+        <div class="score" id="final-score">0/15</div>
+      </div>
+
+      <div class="message" id="result-message"></div>
+
+      <div class="performance">
+        <div class="performance-item">
+          <div><i class="fas fa-seedling"></i> Fácil</div>
+          <div class="performance-value performance-easy" id="easy-score">0</div>
+        </div>
+        <div class="performance-item">
+          <div><i class="fas fa-fire"></i> Médio</div>
+          <div class="performance-value performance-medium" id="medium-score">0</div>
+        </div>
+        <div class="performance-item">
+          <div><i class="fas fa-mountain"></i> Difícil</div>
+          <div class="performance-value performance-hard" id="hard-score">0</div>
+        </div>
+      </div>
+
+      <div class="action-buttons">
+        <button class="action-btn" id="restart-btn">
+          <i class="fas fa-rotate-right"></i> Refazer Quiz
+        </button>
+        <button class="action-btn" id="review-btn">
+          <i class="fas fa-list-check"></i> Revisar respostas
+        </button>
+        <button class="action-btn" id="share-result-btn">
+          <i class="fab fa-whatsapp"></i> Compartilhar resultado
+        </button>
+      </div>
+
+      <div id="review-container"></div>
+    </section>
+
+    <footer class="church-info">
+      <div class="church-name">EBD Fiel</div>
+      <div class="church-location">Escola Bíblica Dominical • Fiel à Palavra</div>
+
+      <div class="instagram-section">
+        <span class="instagram-text">Siga e compartilhe:</span>
+        <a href="https://www.instagram.com/" target="_blank" class="instagram-link" rel="noopener">
+          <i class="fab fa-instagram"></i>
+          Instagram
+        </a>
+      </div>
+    </footer>
+  </main>
+
+  <script>
+    const quizData = [
+      {
+            "question": "Qual é o título da Lição 8?",
+            "options": [
+                  "Fortalecido pela fé para combater o medo com coragem",
+                  "A fidelidade e o temor: características que geram confiança",
+                  "O poder das palavras: pedras que edificam e não ferem",
+                  "Neemias e a reconstrução dos muros"
+            ],
+            "correct": 1,
+            "difficulty": "easy",
+            "tip": "O título aparece no topo da lição.",
+            "explanation": "A Lição 8 tem como título: A fidelidade e o temor: características que geram confiança."
+      },
+      {
+            "question": "Qual é o Texto Áureo da Lição 8?",
+            "options": [
+                  "Neemias 6.9",
+                  "Neemias 4.3",
+                  "Neemias 7.2",
+                  "1 Coríntios 4.2"
+            ],
+            "correct": 2,
+            "difficulty": "easy",
+            "tip": "O versículo fala de Hanani e Hananias sendo nomeados sobre Jerusalém.",
+            "explanation": "O Texto Áureo da Lição 8 está em Neemias 7.2."
+      },
+      {
+            "question": "Segundo a Verdade Aplicada, o que deve caracterizar o discípulo de Cristo?",
+            "options": [
+                  "A coragem e a força física",
+                  "A fidelidade e o temor a Deus",
+                  "A riqueza e a influência",
+                  "A inteligência e a popularidade"
+            ],
+            "correct": 1,
+            "difficulty": "easy",
+            "tip": "São os dois pilares principais da lição.",
+            "explanation": "A Verdade Aplicada ensina que fidelidade e temor a Deus devem caracterizar o discípulo de Cristo em todas as áreas da vida."
+      },
+      {
+            "question": "Quais são os dois pilares da vida cristã estudados na introdução da lição?",
+            "options": [
+                  "Fé e prosperidade",
+                  "Oração e jejum",
+                  "Fidelidade e temor a Deus",
+                  "Conhecimento e posição"
+            ],
+            "correct": 2,
+            "difficulty": "easy",
+            "tip": "A introdução apresenta esses dois valores como essenciais.",
+            "explanation": "A introdução afirma que a lição estuda dois pilares da vida cristã: fidelidade e temor a Deus."
+      },
+      {
+            "question": "Qual é o Ponto de Partida da Lição 8?",
+            "options": [
+                  "Quem teme a Deus permanece firme e confiável",
+                  "Quando confiamos em Deus, o medo perde força",
+                  "As palavras têm poder para ferir ou curar",
+                  "A fé silencia as vozes contrárias"
+            ],
+            "correct": 0,
+            "difficulty": "easy",
+            "tip": "O Ponto de Partida relaciona temor, firmeza e confiança.",
+            "explanation": "O Ponto de Partida afirma: Quem teme a Deus permanece firme e confiável."
+      },
+      {
+            "question": "O que significa o nome Hananias?",
+            "options": [
+                  "Deus é forte",
+                  "Deus é gracioso",
+                  "Deus é juiz",
+                  "Deus é guerreiro"
+            ],
+            "correct": 1,
+            "difficulty": "medium",
+            "tip": "O significado aponta para o amor e a graça de Deus.",
+            "explanation": "A lição explica que Hananias significa “Deus é gracioso”."
+      },
+      {
+            "question": "Qual responsabilidade Hananias recebeu em Jerusalém?",
+            "options": [
+                  "Cuidar apenas dos registros do templo",
+                  "Ser chefe da fortaleza e responsável pela defesa da cidade",
+                  "Administrar os tesouros do rei persa",
+                  "Comandar a reconstrução do altar"
+            ],
+            "correct": 1,
+            "difficulty": "medium",
+            "tip": "Sua função envolvia vigilância e proteção da cidade.",
+            "explanation": "Hananias era chefe da fortaleza e tinha papel importante na defesa de Jerusalém."
+      },
+      {
+            "question": "Segundo Neemias 7.2, Hananias era fiel e temente a Deus:",
+            "options": [
+                  "Apenas em público",
+                  "Mais do que muitos",
+                  "Somente quando estava em perigo",
+                  "Menos que Hanani"
+            ],
+            "correct": 1,
+            "difficulty": "medium",
+            "tip": "A expressão destaca seu caráter acima da média.",
+            "explanation": "A Bíblia ressalta que Hananias era homem fiel e temente a Deus, mais do que muitos."
+      },
+      {
+            "question": "O que a fidelidade de Hananias revela sobre sua vida?",
+            "options": [
+                  "Que ele buscava fama pessoal",
+                  "Que ele era firme, confiável e íntegro",
+                  "Que ele evitava responsabilidades",
+                  "Que ele dependia apenas de sua capacidade militar"
+            ],
+            "correct": 1,
+            "difficulty": "medium",
+            "tip": "A fidelidade o tornou confiável para uma posição de liderança.",
+            "explanation": "Hananias era firme, confiável, íntegro e temente ao Senhor, qualidades que o tornaram apto para liderar."
+      },
+      {
+            "question": "Segundo 1 Coríntios 15.58, qual deve ser a postura da Igreja de Cristo?",
+            "options": [
+                  "Ser firme e constante",
+                  "Ser instável e indecisa",
+                  "Ser silenciosa e escondida",
+                  "Ser movida por conveniência"
+            ],
+            "correct": 0,
+            "difficulty": "medium",
+            "tip": "A lição usa esse texto para falar de firmeza na fé.",
+            "explanation": "A ordem divina para a Igreja de Cristo é ser firme e constante."
+      },
+      {
+            "question": "O que 2 Timóteo 2.13 ensina sobre Deus?",
+            "options": [
+                  "Que Ele muda conforme a nossa fidelidade",
+                  "Que Ele permanece fiel, mesmo se formos infiéis",
+                  "Que Ele esquece Suas promessas",
+                  "Que Sua fidelidade depende das circunstâncias"
+            ],
+            "correct": 1,
+            "difficulty": "hard",
+            "tip": "Esse texto afirma a fidelidade imutável de Deus.",
+            "explanation": "2 Timóteo 2.13 ensina que, se formos infiéis, Deus permanece fiel, pois não pode negar-se a si mesmo."
+      },
+      {
+            "question": "Segundo a lição, até quando deve durar nossa fidelidade a Deus?",
+            "options": [
+                  "Até o primeiro desafio",
+                  "Enquanto for conveniente",
+                  "Por toda a vida",
+                  "Somente durante o culto"
+            ],
+            "correct": 2,
+            "difficulty": "medium",
+            "tip": "A lição cita Apocalipse 2.10.",
+            "explanation": "A fidelidade a Deus deve ser por toda a vida."
+      },
+      {
+            "question": "Na lição, o temor a Deus é definido como:",
+            "options": [
+                  "Pânico que afasta o homem de Deus",
+                  "Respeito e reverência pela Majestade e Santidade de Deus",
+                  "Medo de perder bens materiais",
+                  "Vergonha de assumir a fé"
+            ],
+            "correct": 1,
+            "difficulty": "hard",
+            "tip": "A definição vem do sentido bíblico da palavra temor.",
+            "explanation": "O temor a Deus é respeito e reverência pela Sua Majestade e Santidade."
+      },
+      {
+            "question": "Segundo Provérbios 1.7, o temor do Senhor é:",
+            "options": [
+                  "O fim da alegria",
+                  "O princípio do conhecimento",
+                  "A causa da fraqueza",
+                  "Algo desnecessário ao cristão"
+            ],
+            "correct": 1,
+            "difficulty": "hard",
+            "tip": "A lição relaciona temor a Deus com sabedoria e conhecimento.",
+            "explanation": "Provérbios 1.7 ensina que o temor do Senhor é o princípio do conhecimento."
+      },
+      {
+            "question": "Segundo a conclusão da lição, fidelidade e temor do Senhor devem caracterizar quem?",
+            "options": [
+                  "Apenas líderes e obreiros",
+                  "Aquele que nasceu de novo e cresce em Cristo",
+                  "Somente pessoas mais velhas",
+                  "Apenas quem ocupa cargo de confiança"
+            ],
+            "correct": 1,
+            "difficulty": "easy",
+            "tip": "A conclusão aplica a lição à vida de todo cristão.",
+            "explanation": "A conclusão afirma que fidelidade e temor do Senhor devem caracterizar aquele que nasceu de novo e amadurece em Cristo."
+      }
+];
+
+    let currentQuestion = 0;
+    let userAnswers = new Array(quizData.length).fill(null);
+    let soundEnabled = true;
+
+    const introSection = document.getElementById("intro-section");
+    const quizSection = document.getElementById("quiz-section");
+    const resultsSection = document.getElementById("results");
+    const questionContainer = document.getElementById("question-container");
+    const progress = document.getElementById("progress");
+    const progressText = document.getElementById("progress-text");
+    const scoreLive = document.getElementById("score-live");
+    const nextBtn = document.getElementById("next-btn");
+    const prevBtn = document.getElementById("prev-btn");
+
+    function difficultyLabel(type) {
+      if (type === "easy") return "Fácil";
+      if (type === "medium") return "Médio";
+      return "Difícil";
+    }
+
+    function difficultyClass(type) {
+      if (type === "easy") return "difficulty-easy";
+      if (type === "medium") return "difficulty-medium";
+      return "difficulty-hard";
+    }
+
+    function playBeep(freq = 660, duration = 0.08) {
+      if (!soundEnabled) return;
+      try {
+        const ctx = new (window.AudioContext || window.webkitAudioContext)();
+        const osc = ctx.createOscillator();
+        const gain = ctx.createGain();
+        osc.frequency.value = freq;
+        osc.type = "sine";
+        gain.gain.value = 0.035;
+        osc.connect(gain);
+        gain.connect(ctx.destination);
+        osc.start();
+        setTimeout(() => {
+          osc.stop();
+          ctx.close();
+        }, duration * 1000);
+      } catch (e) {}
+    }
+
+    function correctCount() {
+      return userAnswers.reduce((acc, answer, index) => {
+        return acc + (answer === quizData[index].correct ? 1 : 0);
+      }, 0);
+    }
+
+    function updateProgress() {
+      const percent = ((currentQuestion + 1) / quizData.length) * 100;
+      progress.style.width = percent + "%";
+      progressText.textContent = `Pergunta ${currentQuestion + 1} de ${quizData.length}`;
+      scoreLive.textContent = `${correctCount()} acertos`;
+      prevBtn.disabled = currentQuestion === 0;
+      nextBtn.disabled = userAnswers[currentQuestion] === null;
+      nextBtn.innerHTML = currentQuestion === quizData.length - 1
+        ? `Finalizar <i class="fas fa-flag-checkered"></i>`
+        : `Próxima <i class="fas fa-arrow-right"></i>`;
+    }
+
+    function renderQuestion() {
+      const item = quizData[currentQuestion];
+      const selected = userAnswers[currentQuestion];
+
+      const optionLetters = ["A", "B", "C", "D"];
+
+      questionContainer.innerHTML = `
+        <div class="question">
+          <div class="question-header">
+            <span class="question-difficulty ${difficultyClass(item.difficulty)}">${difficultyLabel(item.difficulty)}</span>
+            <i class="fas fa-lightbulb tip-icon" title="Ver dica"></i>
+          </div>
+
+          <div class="tip-text">${item.tip}</div>
+
+          <div class="question-text">${currentQuestion + 1}. ${item.question}</div>
+
+          <div class="options">
+            ${item.options.map((option, index) => {
+              let className = "option";
+              let icon = "";
+
+              if (selected !== null) {
+                if (index === selected && selected === item.correct) {
+                  className += " selected correct";
+                  icon = '<i class="fas fa-check feedback-icon"></i>';
+                } else if (index === selected && selected !== item.correct) {
+                  className += " selected incorrect";
+                  icon = '<i class="fas fa-xmark feedback-icon"></i>';
+                } else if (index === item.correct) {
+                  className += " correct-answer";
+                  icon = '<i class="fas fa-check feedback-icon"></i>';
+                }
+              }
+
+              return `
+                <div class="${className}" data-index="${index}">
+                  <span class="option-letter">${optionLetters[index]}</span>
+                  <span>${option}</span>
+                  ${icon}
                 </div>
-                <div class="progress-bar"><div class="progress" id="quiz-progress"></div></div>
+              `;
+            }).join("")}
+          </div>
+
+          ${selected !== null ? `
+            <div class="feedback-curiosity">
+              <strong>Explicação:</strong> ${item.explanation}
             </div>
-            <div id="quiz-container"></div>
-            <div class="navigation">
-                <button id="prev-btn" disabled><i class="fas fa-arrow-left"></i> Anterior</button>
-                <button id="next-btn" class="btn-next">Próxima <i class="fas fa-arrow-right"></i></button>
-            </div>
+          ` : ""}
         </div>
+      `;
 
-        <!-- RESULTADOS -->
-        <div class="results" id="results">
-            <h2><i class="fas fa-trophy" id="trophy-icon"></i> Resultado Final</h2>
-            <div class="score" id="score">0/0</div>
-            <div class="performance" id="performance"></div>
-            <div class="message" id="message"></div>
+      document.querySelector(".tip-icon").addEventListener("click", () => {
+        const tip = document.querySelector(".tip-text");
+        tip.style.display = tip.style.display === "block" ? "none" : "block";
+      });
 
-            <div class="action-buttons">
-                <button class="action-btn" id="share-whatsapp"><i class="fab fa-whatsapp"></i> Compartilhar</button>
-                <button class="action-btn" id="export-pdf"><i class="fas fa-file-pdf"></i> Exportar PDF</button>
-                <button class="action-btn" id="review-btn"><i class="fas fa-search"></i> Revisar respostas</button>
-            </div>
+      document.querySelectorAll(".option").forEach(option => {
+        option.addEventListener("click", () => {
+          if (userAnswers[currentQuestion] !== null) return;
+          const index = Number(option.dataset.index);
+          userAnswers[currentQuestion] = index;
+          playBeep(index === item.correct ? 760 : 220);
+          renderQuestion();
+          updateProgress();
+        });
+      });
 
-            <div id="review-container" style="display: none;"></div>
+      updateProgress();
+    }
 
-            <div class="ranking">
-                <h3><i class="fas fa-ranking-star"></i> Ranking Local (Top 5)</h3>
-                <ul class="ranking-list" id="ranking-list"></ul>
-            </div>
+    function startQuiz() {
+      const animation = document.getElementById("quiz-start-animation");
+      const countdown = document.getElementById("countdown");
 
-            <button id="restart-btn" style="background:var(--success); margin-top:20px;"><i class="fas fa-redo"></i> Fazer novamente</button>
-        </div>
+      animation.classList.add("active");
 
-        <!-- RODAPÉ -->
-        <div class="church-info">
-            <div class="church-name">EBD FIEL</div>
-            <div class="church-location">FIEL A PALAVRA</div>
-            <a href="https://www.instagram.com/ebdfiel" target="_blank" class="instagram-link">
-                <i class="fab fa-instagram"></i> @ebdfiel
-            </a>
-        </div>
-    </div>
+      let count = 3;
+      countdown.textContent = count;
 
-    <script>
-        // ---------- BANCO DE PERGUNTAS ----------
-        const allQuestions = [
-            // FÁCEIS
-            { question: "Qual é o versículo do Texto Áureo desta lição?", options: ["João 14:6", "João 16:33", "2 Coríntios 4:7", "Filipenses 4:13"], correct: 1, explanation: "O Texto Áureo é João 16:33.", difficulty: "easy", tip: "Jesus falou sobre ter paz em mim.", curiosity: "João 16:33 - 'Tenho-vos dito isto, para que em mim tenhais paz...'" },
-            { question: "O que significa ter 'bom ânimo' segundo a lição?", options: ["Estar sempre alegre e sorridente", "Não esmorecer e não perder a fé mesmo nas adversidades", "Ignorar os problemas da vida", "Esperar que tudo dê certo sem esforço"], correct: 1, explanation: "Bom ânimo é não esmorecer.", difficulty: "easy", tip: "Relacionado com fé.", curiosity: "Provérbios 18:10 - Torre forte é o nome do Senhor." },
-            { question: "Quem é o exemplo bíblico que manteve o bom ânimo mesmo sendo vendido como escravo?", options: ["Moisés", "José", "Davi", "Paulo"], correct: 1, explanation: "José confiou em Deus.", difficulty: "easy", tip: "Filho de Jacó.", curiosity: "Gênesis 45:5 - Deus me enviou adiante de vós." },
-            { question: "O que não paralisa o autêntico discípulo de Cristo, segundo a lição?", options: ["O desânimo", "A alegria", "A paz", "A fé"], correct: 0, explanation: "O desânimo não paralisa o autêntico discípulo.", difficulty: "easy", tip: "É o oposto de ânimo.", curiosity: "Filipenses 4:13 - Tudo posso naquele que me fortalece." },
-            { question: "Qual destes versículos mostra Jesus incentivando alguém a ter bom ânimo?", options: ["Mateus 9:2", "João 3:16", "Romanos 8:1", "Efésios 2:8"], correct: 0, explanation: "Ao paralítico.", difficulty: "easy", tip: "Ele disse: 'Filho, tem bom ânimo; perdoados são os teus pecados.'", curiosity: "Mateus 9:2 - A fé do paralítico." },
-            // MÉDIAS
-            { question: "Como Paulo reagia às perseguições e sofrimentos que enfrentava?", options: ["Desistia temporariamente de pregar", "Mantinha o bom ânimo por se fortalecer em Cristo", "Pedia aos outros apóstolos que pregassem em seu lugar", "Escrevia cartas de queixa às igrejas"], correct: 1, explanation: "Paulo se fortalecia em Cristo.", difficulty: "medium", tip: "Filipenses 4:13", curiosity: "2 Coríntios 11:24-27 - Lista de sofrimentos de Paulo." },
-            { question: "O que José entendeu sobre as adversidades que enfrentou no Egito?", options: ["Eram um castigo por seus pecados", "Tudo fazia parte do plano de Deus para preservação da vida", "Eram resultado do azar e do destino", "Mostravam que Deus o abandonara"], correct: 1, explanation: "Deus transformou o mal em bem.", difficulty: "medium", tip: "Gênesis 50:20", curiosity: "José disse: 'Vós intentastes o mal, mas Deus o tornou em bem.'" },
-            { question: "Segundo a lição, o que o perdão representa para o cristão?", options: ["Uma obrigação difícil que deve ser evitada", "Uma graça que Deus nos dá para prosseguir após um ferimento", "Um sinal de fraqueza e submissão", "Algo que só devemos fazer se a pessoa pedir desculpas"], correct: 1, explanation: "Graça para prosseguir.", difficulty: "medium", tip: "Dom divino", curiosity: "Efésios 4:32 - Perdoai-vos uns aos outros." },
-            { question: "O que as adversidades produzem no cristão, segundo a lição?", options: ["Apenas sofrimento e dor", "Crescimento e amadurecimento em Cristo", "Dúvidas e questionamentos", "Isolamento e solidão"], correct: 1, explanation: "Crescimento e amadurecimento.", difficulty: "medium", tip: "Romanos 5:3-5", curiosity: "A tribulação produz paciência." },
-            { question: "Onde encontramos ânimo para superar as adversidades?", options: ["Em nossas próprias forças", "Em Jesus Cristo", "Nos amigos e familiares", "No sucesso profissional"], correct: 1, explanation: "Em Jesus.", difficulty: "medium", tip: "João 16:33", curiosity: "Jesus venceu o mundo." },
-            // DIFÍCEIS
-            { question: "Segundo 2 Coríntios 4, por que Paulo não desanimava em meio às aflições?", options: ["Porque as aflições são leves comparadas à glória eterna", "Porque ele era naturalmente uma pessoa otimista", "Porque ele tinha riquezas que o confortavam", "Porque evitava situações difíceis sempre que possível"], correct: 0, explanation: "As aflições são leves e momentâneas.", difficulty: "hard", tip: "Peso eterno de glória", curiosity: "2 Coríntios 4:17 - 'Porque a nossa leve e momentânea tribulação...'" },
-            { question: "Qual o papel da Palavra de Deus para o cristão que enfrenta adversidades?", options: ["É a espada do Espírito que nos ajuda a vencer as batalhas", "É apenas um livro de histórias inspiradoras", "Serve apenas para estudos acadêmicos", "É útil apenas para líderes religiosos"], correct: 0, explanation: "É a espada do Espírito.", difficulty: "hard", tip: "Efésios 6:17", curiosity: "A palavra é viva e eficaz." },
-            { question: "Qual foi a atitude de José em relação a seus irmãos que o venderam?", options: ["Ele os perdoou e reconheceu que Deus usou aquilo para o bem", "Ele os denunciou às autoridades egípcias", "Ele os evitou pelo resto da vida", "Ele exigiu compensação financeira pelo mal sofrido"], correct: 0, explanation: "Perdoou e reconheceu o plano de Deus.", difficulty: "hard", tip: "Gênesis 50:20", curiosity: "Ele os confortou." },
-            { question: "Como a lição explica a relação entre fé e bom ânimo nas tribulações?", options: ["A fé em Cristo nos enche de força e esperança para enfrentar desafios", "Fé e bom ânimo são conceitos separados", "Primeiro vem o bom ânimo, depois a fé", "A fé substitui a necessidade de bom ânimo"], correct: 0, explanation: "A fé enche de força e esperança.", difficulty: "hard", tip: "Hebreus 11", curiosity: "Sem fé é impossível agradar a Deus." },
-            { question: "O que o Senhor representa para os que passam por provações, segundo a lição?", options: ["Uma torre segura e refúgio", "Um juiz severo que observa nossos erros", "Um observador distante", "Um mestre exigente que testa nossos limites"], correct: 0, explanation: "Torre forte e refúgio.", difficulty: "hard", tip: "Provérbios 18:10", curiosity: "O justo corre para ela e está seguro." }
-        ];
+      const timer = setInterval(() => {
+        count--;
+        countdown.textContent = count;
 
-        // ---------- VARIÁVEIS GLOBAIS ----------
-        let shuffledQuestions = [];
-        let shuffledOptionsState = [];
-        let userAnswers = [];
-        let currentQuestionIndex = 0;
-        let quizStarted = false;
-        let soundEnabled = true;
-        let darkMode = false;
-        const AudioContext = window.AudioContext || window.webkitAudioContext;
-        let audioCtx = null;
-
-        function playSound(type) {
-            if (!soundEnabled) return;
-            if (!audioCtx) audioCtx = new AudioContext();
-            const osc = audioCtx.createOscillator();
-            const gain = audioCtx.createGain();
-            osc.connect(gain);
-            gain.connect(audioCtx.destination);
-            osc.type = 'sine';
-            if (type === 'correct') {
-                osc.frequency.value = 800;
-                gain.gain.value = 0.1;
-                osc.start();
-                osc.stop(audioCtx.currentTime + 0.2);
-            } else {
-                osc.frequency.value = 400;
-                gain.gain.value = 0.1;
-                osc.start();
-                osc.stop(audioCtx.currentTime + 0.15);
-            }
+        if (count <= 0) {
+          clearInterval(timer);
+          animation.classList.remove("active");
+          introSection.style.display = "none";
+          resultsSection.style.display = "none";
+          quizSection.style.display = "block";
+          currentQuestion = 0;
+          userAnswers = new Array(quizData.length).fill(null);
+          renderQuestion();
+          document.getElementById("quiz-section").scrollIntoView({
+          behavior: "smooth",
+          block: "start"
+        });
         }
+      }, 700);
+    }
 
-        // ---------- INICIALIZAÇÃO ----------
-        document.addEventListener('DOMContentLoaded', function() {
-            document.getElementById('start-btn').addEventListener('click', startQuiz);
-            document.getElementById('prev-btn').addEventListener('click', showPreviousQuestion);
-            document.getElementById('next-btn').addEventListener('click', showNextQuestion);
-            document.getElementById('restart-btn').addEventListener('click', restartQuiz);
-            document.getElementById('share-whatsapp').addEventListener('click', shareWhatsApp);
-            document.getElementById('export-pdf').addEventListener('click', exportPDF);
-            document.getElementById('review-btn').addEventListener('click', toggleReview);
-            document.getElementById('theme-toggle').addEventListener('click', toggleTheme);
-            document.getElementById('sound-toggle').addEventListener('click', toggleSound);
-            updateRankingDisplay();
+    function showResults() {
+      quizSection.style.display = "none";
+      resultsSection.style.display = "block";
+
+      const total = correctCount();
+      const percent = Math.round((total / quizData.length) * 100);
+
+      document.getElementById("final-score").textContent = `${total}/${quizData.length}`;
+
+      const easyTotal = quizData.filter(q => q.difficulty === "easy").length;
+      const mediumTotal = quizData.filter(q => q.difficulty === "medium").length;
+      const hardTotal = quizData.filter(q => q.difficulty === "hard").length;
+
+      const easyScore = quizData.reduce((acc, q, i) => acc + (q.difficulty === "easy" && userAnswers[i] === q.correct ? 1 : 0), 0);
+      const mediumScore = quizData.reduce((acc, q, i) => acc + (q.difficulty === "medium" && userAnswers[i] === q.correct ? 1 : 0), 0);
+      const hardScore = quizData.reduce((acc, q, i) => acc + (q.difficulty === "hard" && userAnswers[i] === q.correct ? 1 : 0), 0);
+
+      document.getElementById("easy-score").textContent = `${easyScore}/${easyTotal}`;
+      document.getElementById("medium-score").textContent = `${mediumScore}/${mediumTotal}`;
+      document.getElementById("hard-score").textContent = `${hardScore}/${hardTotal}`;
+
+      const message = document.getElementById("result-message");
+
+      if (percent >= 90) {
+        message.innerHTML = "Excelente! Você demonstrou ótimo domínio da Lição 4. Continue usando suas palavras para edificar e abençoar.";
+        fireConfetti();
+      } else if (percent >= 70) {
+        message.innerHTML = "Muito bom! Você compreendeu bem a mensagem da lição. Revise alguns pontos e siga firme.";
+        fireConfetti();
+      } else if (percent >= 50) {
+        message.innerHTML = "Bom esforço! Vale revisar a lição com atenção, principalmente os exemplos de Neemias, Davi, José e Isaque.";
+      } else {
+        message.innerHTML = "Continue estudando. A Palavra de Deus fortalece, orienta e transforma nossa maneira de falar e agir.";
+      }
+
+      document.getElementById("quiz-section").scrollIntoView({
+          behavior: "smooth",
+          block: "start"
+        });
+    }
+
+    function renderReview() {
+      const review = document.getElementById("review-container");
+      const isVisible = review.style.display === "block";
+
+      if (isVisible) {
+        review.style.display = "none";
+        return;
+      }
+
+      review.innerHTML = quizData.map((q, i) => {
+        const user = userAnswers[i];
+        const ok = user === q.correct;
+        return `
+          <div class="review-item ${ok ? "correct" : "incorrect"}">
+            <div class="review-question">${i + 1}. ${q.question}</div>
+            <div class="review-answer">Sua resposta: ${user !== null ? q.options[user] : "Não respondida"}</div>
+            <div class="review-answer">Resposta correta: ${q.options[q.correct]}</div>
+            <div class="review-explanation">${q.explanation}</div>
+          </div>
+        `;
+      }).join("");
+
+      review.style.display = "block";
+    }
+
+    function shareText(text) {
+      if (navigator.share) {
+        navigator.share({ text }).catch(() => {});
+      } else {
+        const url = "https://wa.me/?text=" + encodeURIComponent(text);
+        window.open(url, "_blank");
+      }
+    }
+
+    function shareInitial() {
+      shareText("📖 QUIZ EBD FIEL - Lição 4\\nA fidelidade e o temor: características que geram confiança.\\nVenha testar seus conhecimentos!");
+    }
+
+    function shareResult() {
+      const total = correctCount();
+      shareText(`📖 QUIZ EBD FIEL - Lição 4\\nMeu resultado: ${total}/${quizData.length}\\nA fidelidade e o temor: características que geram confiança.`);
+    }
+
+    function fireConfetti() {
+      const container = document.getElementById("confetti-container");
+      container.innerHTML = "";
+      container.classList.add("active");
+
+      const colors = ["#ffb347", "#ff8c00", "#28a745", "#00b4d8", "#ffffff"];
+
+      for (let i = 0; i < 90; i++) {
+        const confetti = document.createElement("div");
+        confetti.className = "confetti";
+        confetti.style.left = Math.random() * 100 + "vw";
+        confetti.style.background = colors[Math.floor(Math.random() * colors.length)];
+        confetti.style.animationDelay = Math.random() * 0.7 + "s";
+        confetti.style.transform = `rotate(${Math.random() * 360}deg)`;
+        container.appendChild(confetti);
+      }
+
+      setTimeout(() => {
+        container.classList.remove("active");
+      }, 2800);
+    }
+
+    function initParticles() {
+      const canvas = document.getElementById("particles");
+      const ctx = canvas.getContext("2d");
+      let particles = [];
+
+      function resize() {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+      }
+
+      function createParticles() {
+        particles = [];
+        const total = Math.min(80, Math.floor(window.innerWidth / 14));
+        for (let i = 0; i < total; i++) {
+          particles.push({
+            x: Math.random() * canvas.width,
+            y: Math.random() * canvas.height,
+            r: Math.random() * 1.8 + 0.5,
+            dx: (Math.random() - 0.5) * 0.25,
+            dy: (Math.random() - 0.5) * 0.25
+          });
+        }
+      }
+
+      function draw() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        ctx.fillStyle = "rgba(255,255,255,0.42)";
+
+        particles.forEach(p => {
+          ctx.beginPath();
+          ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+          ctx.fill();
+
+          p.x += p.dx;
+          p.y += p.dy;
+
+          if (p.x < 0 || p.x > canvas.width) p.dx *= -1;
+          if (p.y < 0 || p.y > canvas.height) p.dy *= -1;
         });
 
-        function startQuiz() {
-            shuffledQuestions = shuffleArray([...allQuestions]);
-            shuffledOptionsState = [];
-            userAnswers = new Array(shuffledQuestions.length).fill(null);
-            currentQuestionIndex = 0;
-            quizStarted = true;
-            document.querySelector('.modern-header').style.display = 'none';
-            document.getElementById('instructions-screen').style.display = 'none';
-            document.querySelector('.content-section').style.display = 'none';
-            document.getElementById('quiz-section').style.display = 'block';
-            document.getElementById('results').style.display = 'none';
-            showQuestion(currentQuestionIndex);
-        }
+        requestAnimationFrame(draw);
+      }
 
-        function shuffleArray(arr) {
-            for (let i = arr.length - 1; i > 0; i--) {
-                const j = Math.floor(Math.random() * (i + 1));
-                [arr[i], arr[j]] = [arr[j], arr[i]];
-            }
-            return arr;
-        }
+      resize();
+      createParticles();
+      draw();
 
-        function getShuffledOptions(qIndex) {
-            if (!shuffledOptionsState[qIndex]) {
-                const q = shuffledQuestions[qIndex];
-                const opts = q.options.map((text, idx) => ({ text, originalIndex: idx }));
-                shuffledOptionsState[qIndex] = shuffleArray([...opts]);
-            }
-            return shuffledOptionsState[qIndex];
-        }
+      window.addEventListener("resize", () => {
+        resize();
+        createParticles();
+      });
+    }
 
-        function showQuestion(index) {
-            const q = shuffledQuestions[index];
-            const shuffledOpts = getShuffledOptions(index);
-            const letters = ['A', 'B', 'C', 'D'];
-            let html = `<div class="question slide-in">`;
-            html += `<div class="question-header">`;
-            html += `<span class="difficulty-badge difficulty-${q.difficulty}">${q.difficulty === 'easy' ? 'Fácil' : q.difficulty === 'medium' ? 'Médio' : 'Difícil'}</span>`;
-            if (q.difficulty === 'hard') {
-                html += `<span class="tip-icon" onclick="event.stopPropagation(); showTip(${index})"><i class="fas fa-lightbulb"></i></span>`;
-            }
-            html += `</div>`;
-            html += `<div class="question-text">${q.question}</div>`;
-            if (q.difficulty === 'hard') {
-                html += `<div class="tip-text" id="tip-${index}">💡 Dica: ${q.tip}</div>`;
-            }
-            html += `<div class="options">`;
-            shuffledOpts.forEach((opt, i) => {
-                const selected = userAnswers[index] === opt.originalIndex;
-                let cls = 'option';
-                if (selected) cls += ' selected' + (opt.originalIndex === q.correct ? ' correct' : ' incorrect');
-                if (userAnswers[index] !== null && opt.originalIndex === q.correct && userAnswers[index] !== q.correct) cls += ' correct-answer';
-                html += `<div class="${cls}" data-original-index="${opt.originalIndex}" onclick="selectOption(${index}, ${opt.originalIndex})">`;
-                html += `<span class="option-letter">${letters[i]}</span>`;
-                html += `<span class="option-text">${opt.text}</span>`;
-                html += `<span class="feedback-icon">${selected ? (opt.originalIndex === q.correct ? '<i class="fas fa-check"></i>' : '<i class="fas fa-times"></i>') : ''}</span>`;
-                html += `</div>`;
-            });
-            html += `</div>`;
-            if (userAnswers[index] !== null) {
-                html += `<div class="feedback-curiosity"><i class="fas fa-book-open"></i> ${q.curiosity}</div>`;
-            }
-            html += `</div>`;
-            document.getElementById('quiz-container').innerHTML = html;
-            updateProgressBar(index);
-            updateNavButtons();
-        }
+    document.getElementById("start-btn").addEventListener("click", startQuiz);
+    document.getElementById("share-initial-btn").addEventListener("click", shareInitial);
 
-        window.selectOption = function(qIndex, optIndex) {
-            if (!quizStarted) return;
-            userAnswers[qIndex] = optIndex;
-            const q = shuffledQuestions[qIndex];
-            if (optIndex === q.correct) playSound('correct');
-            else playSound('incorrect');
-            showQuestion(qIndex);
-        };
+    nextBtn.addEventListener("click", () => {
+      if (currentQuestion < quizData.length - 1) {
+        currentQuestion++;
+        renderQuestion();
+        document.getElementById("quiz-section").scrollIntoView({
+          behavior: "smooth",
+          block: "start"
+        });
+      } else {
+        showResults();
+      }
+    });
 
-        window.showTip = function(qIndex) {
-            const tip = document.getElementById(`tip-${qIndex}`);
-            if (tip) tip.style.display = tip.style.display === 'block' ? 'none' : 'block';
-        };
+    prevBtn.addEventListener("click", () => {
+      if (currentQuestion > 0) {
+        currentQuestion--;
+        renderQuestion();
+        document.getElementById("quiz-section").scrollIntoView({
+          behavior: "smooth",
+          block: "start"
+        });
+      }
+    });
 
-        function updateProgressBar(index) {
-            const pct = ((index + 1) / shuffledQuestions.length) * 100;
-            document.getElementById('quiz-progress').style.width = pct + '%';
-            document.getElementById('progress-text').innerText = `Pergunta ${index+1} de ${shuffledQuestions.length}`;
-        }
+    document.getElementById("restart-btn").addEventListener("click", () => {
+      resultsSection.style.display = "none";
+      introSection.style.display = "grid";
+      userAnswers = new Array(quizData.length).fill(null);
+      currentQuestion = 0;
+      document.getElementById("review-container").style.display = "none";
+      document.getElementById("quiz-section").scrollIntoView({
+          behavior: "smooth",
+          block: "start"
+        });
+    });
 
-        function updateNavButtons() {
-            document.getElementById('prev-btn').disabled = currentQuestionIndex === 0;
-            const nextBtn = document.getElementById('next-btn');
-            if (currentQuestionIndex === shuffledQuestions.length - 1) {
-                nextBtn.innerHTML = 'Ver Resultados <i class="fas fa-chart-bar"></i>';
-            } else {
-                nextBtn.innerHTML = 'Próxima <i class="fas fa-arrow-right"></i>';
-            }
-            nextBtn.disabled = userAnswers[currentQuestionIndex] === null;
-        }
+    document.getElementById("review-btn").addEventListener("click", renderReview);
+    document.getElementById("share-result-btn").addEventListener("click", shareResult);
 
-        function showNextQuestion() {
-            if (currentQuestionIndex < shuffledQuestions.length - 1) {
-                currentQuestionIndex++;
-                showQuestion(currentQuestionIndex);
-            } else {
-                showResults();
-            }
-        }
+    document.getElementById("sound-toggle").addEventListener("click", () => {
+      soundEnabled = !soundEnabled;
+      document.getElementById("sound-toggle").innerHTML = soundEnabled
+        ? '<i class="fas fa-volume-up"></i>'
+        : '<i class="fas fa-volume-xmark"></i>';
+    });
 
-        function showPreviousQuestion() {
-            if (currentQuestionIndex > 0) {
-                currentQuestionIndex--;
-                showQuestion(currentQuestionIndex);
-            }
-        }
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+      document.body.classList.toggle("light-mode");
+      const icon = document.getElementById("theme-toggle").querySelector("i");
+      icon.className = document.body.classList.contains("light-mode") ? "fas fa-sun" : "fas fa-moon";
+    });
 
-        // ---------- RESULTADOS ----------
-        function showResults() {
-            document.getElementById('quiz-section').style.display = 'none';
-            document.getElementById('results').style.display = 'block';
-            let score = 0, easy=0, med=0, hard=0, totEasy=0, totMed=0, totHard=0;
-            shuffledQuestions.forEach((q, i) => {
-                if (q.difficulty === 'easy') totEasy++;
-                if (q.difficulty === 'medium') totMed++;
-                if (q.difficulty === 'hard') totHard++;
-                if (userAnswers[i] === q.correct) {
-                    score++;
-                    if (q.difficulty === 'easy') easy++;
-                    if (q.difficulty === 'medium') med++;
-                    if (q.difficulty === 'hard') hard++;
-                }
-            });
-            document.getElementById('score').innerText = `${score}/${shuffledQuestions.length}`;
-            document.getElementById('performance').innerHTML = `
-                <div class="performance-item"><strong>Fáceis</strong><br>${easy}/${totEasy}</div>
-                <div class="performance-item"><strong>Médias</strong><br>${med}/${totMed}</div>
-                <div class="performance-item"><strong>Difíceis</strong><br>${hard}/${totHard}</div>
-            `;
-            let msg = '';
-            if (score === shuffledQuestions.length) msg = 'Perfeito! Você acertou todas!';
-            else if (score >= shuffledQuestions.length*0.8) msg = 'Excelente!';
-            else if (score >= shuffledQuestions.length*0.6) msg = 'Muito bom!';
-            else if (score >= shuffledQuestions.length*0.5) msg = 'Bom trabalho!';
-            else msg = 'Continue estudando!';
-            document.getElementById('message').innerHTML = `<i class="fas fa-smile"></i> ${msg}`;
-
-            saveRanking(score);
-            updateRankingDisplay();
-        }
-
-        function saveRanking(score) {
-            let ranking = JSON.parse(localStorage.getItem('quizRanking')) || [];
-            ranking.push({ score: score, date: new Date().toLocaleDateString() });
-            ranking.sort((a, b) => b.score - a.score);
-            ranking = ranking.slice(0, 5);
-            localStorage.setItem('quizRanking', JSON.stringify(ranking));
-        }
-
-        function updateRankingDisplay() {
-            let ranking = JSON.parse(localStorage.getItem('quizRanking')) || [];
-            let html = '';
-            ranking.forEach((item, i) => {
-                html += `<li class="ranking-item"><span>${i+1}. ${item.score} pontos</span> <span>${item.date}</span></li>`;
-            });
-            document.getElementById('ranking-list').innerHTML = html || '<li>Nenhuma pontuação ainda.</li>';
-        }
-
-        function shareWhatsApp() {
-            let score = document.getElementById('score').innerText;
-            let text = `Fiz ${score} no Quiz da EBD Fiel! Venha testar seus conhecimentos também! Acesse: ${window.location.href}`;
-            window.open(`https://wa.me/?text=${encodeURIComponent(text)}`, '_blank');
-        }
-
-        function exportPDF() {
-            const { jsPDF } = window.jspdf;
-            const doc = new jsPDF();
-            doc.text('Resultado do Quiz EBD Fiel', 10, 10);
-            doc.text(`Pontuação: ${document.getElementById('score').innerText}`, 10, 20);
-            doc.text(document.getElementById('message').innerText.replace(/<[^>]*>/g, ''), 10, 30);
-            doc.save('resultado_quiz.pdf');
-        }
-
-        function toggleReview() {
-            let container = document.getElementById('review-container');
-            if (container.style.display === 'none') {
-                let html = '<h3>Revisão das respostas</h3>';
-                shuffledQuestions.forEach((q, i) => {
-                    let userAns = userAnswers[i];
-                    let isCorrect = userAns === q.correct;
-                    html += `<div class="review-item ${isCorrect ? 'correct' : 'incorrect'}">`;
-                    html += `<div class="review-question"><strong>${i+1}. ${q.question}</strong></div>`;
-                    html += `<div class="review-answer">Sua resposta: ${q.options[userAns] || 'N/A'} - ${isCorrect ? '✅' : '❌'}</div>`;
-                    html += `<div class="review-explanation">${q.explanation}</div>`;
-                    html += `</div>`;
-                });
-                container.innerHTML = html;
-                container.style.display = 'block';
-            } else {
-                container.style.display = 'none';
-            }
-        }
-
-        function toggleTheme() {
-            document.body.classList.toggle('dark-mode');
-            const icon = document.querySelector('#theme-toggle i');
-            icon.className = document.body.classList.contains('dark-mode') ? 'fas fa-sun' : 'fas fa-moon';
-        }
-
-        function toggleSound() {
-            soundEnabled = !soundEnabled;
-            const icon = document.querySelector('#sound-toggle i');
-            icon.className = soundEnabled ? 'fas fa-volume-up' : 'fas fa-volume-mute';
-        }
-
-        function restartQuiz() {
-            quizStarted = false;
-            document.querySelector('.modern-header').style.display = 'block';
-            document.getElementById('instructions-screen').style.display = 'block';
-            document.querySelector('.content-section').style.display = 'flex';
-            document.getElementById('quiz-section').style.display = 'none';
-            document.getElementById('results').style.display = 'none';
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-    </script>
+    initParticles();
+  </script>
 </body>
 </html>
