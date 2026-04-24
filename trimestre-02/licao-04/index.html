@@ -1,75 +1,117 @@
+
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>QUIZ DA EBD Fiel | Lição 4: Os discípulos de Cristo e a tentação</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        /* ===== VARIÁVEIS E RESET ===== */
-        :root {
-            --primary: #4361ee;
-            --primary-dark: #3a56d4;
-            --secondary: #7209b7;
-            --accent: #f72585;
-            --success: #4cc9f0;
-            --warning: #f8961e;
-            --danger: #f94144;
-            --light: #f8f9fa;
-            --dark: #212529;
-            --text: #343a40;
-            --gray: #6c757d;
-            --shadow: 0 10px 30px rgba(0,0,0,0.1);
-            --shadow-lg: 0 15px 50px rgba(0,0,0,0.15);
-            --gradient: linear-gradient(135deg, #4361ee 0%, #7209b7 100%);
-            --gradient-light: linear-gradient(135deg, #4cc9f0 0%, #4361ee 100%);
-            --instagram: #E1306C;
-        }
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Quiz da EBD Fiel - Classe Adultos | Lição 4: O poder das palavras: pedras que edificam e não ferem</title>
 
+    <!-- ===== META TAGS PARA COMPARTILHAMENTO ===== -->
+    <meta property="og:title" content="Quiz da EBD Fiel - Lição 4: O poder das palavras: pedras que edificam e não ferem" />
+    <meta property="og:description" content="Teste seus conhecimentos sobre Neemias, as vozes contrárias e a fé que permanece firme em tempos de reconstrução. 15 perguntas bíblicas!" />
+    <meta property="og:image" content="https://i.ibb.co/9mLXgx7k/logo.png" />
+    <meta property="og:url" content="https://ebdfiel.com.br/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="EBD Fiel" />
+    <meta property="og:locale" content="pt_BR" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Quiz da EBD Fiel - Lição 4: O poder das palavras: pedras que edificam e não ferem" />
+    <meta name="twitter:description" content="Teste seus conhecimentos sobre Neemias, as vozes contrárias e a fé que permanece firme em tempos de reconstrução. 15 perguntas bíblicas!" />
+    <meta name="twitter:image" content="https://i.ibb.co/9mLXgx7k/logo.png" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Poppins', sans-serif;
-        }
-
-        html {
-            scroll-behavior: smooth;
         }
 
         body {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: var(--text);
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #0f2027 0%, #203a43 50%, #2c5364 100%);
             min-height: 100vh;
+            color: #eaf6ff;
+            overflow-x: hidden;
+            position: relative;
+            line-height: 1.6;
             padding: 15px;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            line-height: 1.6;
         }
 
-        /* ===== CONTAINER PRINCIPAL ===== */
+        /* Partículas de fundo */
+        #particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            pointer-events: none;
+        }
+
         .container {
             max-width: 100%;
             width: 100%;
-            background: white;
-            border-radius: 20px;
-            box-shadow: var(--shadow-lg);
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 30px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
             overflow: hidden;
             margin: 10px 0;
             position: relative;
+            z-index: 2;
         }
 
-        /* ===== ANIMAÇÃO INICIAL ===== */
+        /* Botões flutuantes */
+        .floating-buttons {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            display: flex;
+            gap: 10px;
+        }
+
+        .floating-btn {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255,255,255,0.2);
+            color: white;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+        }
+
+        .floating-btn:hover {
+            background: #ffb347;
+            color: #1e2f4a;
+            transform: scale(1.1);
+        }
+
+        /* Animação inicial */
         .quiz-start-animation {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: var(--gradient);
+            background: linear-gradient(135deg, #0f2027 0%, #203a43 50%, #2c5364 100%);
             display: none;
             flex-direction: column;
             align-items: center;
@@ -87,49 +129,63 @@
         .animation-icon {
             font-size: 5rem;
             margin-bottom: 20px;
-            animation: bounce 1s infinite, starPulse 2s infinite;
+            animation: bounce 1s infinite;
+            color: #ffb347;
         }
 
         .animation-text {
-            font-size: 2rem;
-            font-weight: bold;
+            font-size: 2.2rem;
+            font-weight: 800;
             margin-bottom: 10px;
             animation: slideInLeft 1s ease forwards;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.2);
         }
 
         .animation-subtext {
-            font-size: 1.2rem;
+            font-size: 1.3rem;
             opacity: 0.9;
             animation: slideInRight 1s ease forwards;
             animation-delay: 0.3s;
+            max-width: 80%;
         }
 
         .countdown {
-            font-size: 3rem;
-            font-weight: bold;
+            font-size: 3.5rem;
+            font-weight: 800;
             margin-top: 30px;
             animation: pulse 1s infinite;
+            background: rgba(255,255,255,0.1);
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            backdrop-filter: blur(5px);
+            border: 3px solid rgba(255,255,255,0.3);
+            color: #ffb347;
         }
 
-        /* ===== HEADER MODERNO ===== */
+        /* Header moderno */
         .modern-header {
-            background: var(--gradient);
+            background: linear-gradient(135deg, rgba(0,100,200,0.3), rgba(0,50,150,0.3));
             color: white;
-            padding: 25px 20px;
+            padding: 30px 20px;
             text-align: center;
             position: relative;
             overflow: hidden;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
         }
 
         .header-bg {
             position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
             opacity: 0.1;
-            background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAiIGhlaWdodD0iMTAwIiB2aWV3Qm94PSIwIDAgMTAwIDEwMCI+PHBhdGggZD0iTTIxLDMwIEMyMSwzMCA0MCwzMCA1MCw0MCBDNjAsMzAgNzksMzAgNzksMzAgQzc5LDMwIDg1LDM1IDg1LDQwIEM4NSw0NSA3OSw1MCA3OSw1MCBDNzksNTAgNjAsNTAgNTAsNjAgQzQwLDUwIDIxLDUwIDIxLDUwIEMyMSw1MCAxNSw0NSAxNSw0MCBDMTUsMzUgMjEsMzAgMjEsMzAgWiIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiLz48L3N2Zz4=');
-            background-size: 150px;
+            background-image:
+                radial-gradient(circle at 20% 30%, rgba(255,255,255,0.3) 2px, transparent 2px),
+                radial-gradient(circle at 80% 70%, rgba(255,255,255,0.3) 2px, transparent 2px);
+            background-size: 50px 50px;
         }
 
         .header-content {
@@ -145,7 +201,7 @@
             align-items: center;
             justify-content: center;
             gap: 15px;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
         }
 
         .logo {
@@ -156,15 +212,17 @@
             justify-content: center;
             overflow: hidden;
             border-radius: 50%;
-            background: white;
+            background: rgba(255,255,255,0.1);
             padding: 10px;
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255,255,255,0.2);
         }
 
         .logo-img {
             width: 100%;
             height: 100%;
             object-fit: contain;
-            border-radius: 50%;
+            filter: drop-shadow(0 4px 8px rgba(0,0,0,0.2));
         }
 
         .logo-text {
@@ -172,51 +230,112 @@
         }
 
         .logo-text h1 {
-            font-size: 1.8rem;
-            font-weight: 700;
+            font-size: 2rem;
+            font-weight: 800;
             margin: 0;
             line-height: 1.2;
+            background: linear-gradient(to right, #fff, #b3e5ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
         .logo-text .subtitle {
-            font-size: 1rem;
+            font-size: 1.1rem;
             opacity: 0.9;
             font-weight: 400;
-            margin-top: 5px;
+            margin-top: 8px;
+            background: rgba(255,255,255,0.1);
+            padding: 5px 15px;
+            border-radius: 50px;
+            display: inline-block;
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255,255,255,0.2);
+            color: white;
+        }
+
+        /* DESTAQUE: NÚMERO DA LIÇÃO GRANDE */
+        .lesson-number-hero {
+            margin: 10px 0 20px 0;
+            text-align: center;
+        }
+
+        .lesson-number-badge {
+            display: inline-flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            background: rgba(0,0,0,0.3);
+            backdrop-filter: blur(8px);
+            padding: 15px 35px;
+            border-radius: 70px;
+            border: 1px solid rgba(255,180,70,0.5);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
+
+        .lesson-number-badge .lesson-label {
+            font-size: 1.2rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #ffb347;
+        }
+
+        .lesson-number-badge .lesson-number-large {
+            font-size: 4rem;
+            font-weight: 800;
+            line-height: 1;
+            background: linear-gradient(135deg, #ffb347, #ff8c00);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+
+        .lesson-name-large {
+            font-size: 1.8rem;
+            font-weight: 800;
+            margin-top: 10px;
+            color: white;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+            letter-spacing: -0.5px;
         }
 
         .welcome-card {
-            background: rgba(255,255,255,0.15);
+            background: rgba(0,0,0,0.2);
             backdrop-filter: blur(10px);
-            padding: 20px;
-            border-radius: 16px;
-            margin: 20px 0;
-            border: 1px solid rgba(255,255,255,0.2);
+            padding: 25px;
+            border-radius: 30px;
+            margin: 25px 0;
+            border: 1px solid rgba(255,255,255,0.1);
             text-align: left;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
         }
 
         .welcome-card h2 {
-            font-size: 1.3rem;
-            margin-bottom: 10px;
+            font-size: 1.5rem;
+            margin-bottom: 12px;
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 12px;
+            font-weight: 700;
+            color: #ffb347;
         }
 
         .welcome-card p {
-            font-size: 1rem;
+            font-size: 1.05rem;
             opacity: 0.9;
-            line-height: 1.5;
+            line-height: 1.6;
+            color: rgba(255,255,255,0.8);
         }
 
         .features {
             display: flex;
-            flex-direction: column;
+            flex-wrap: wrap;
             justify-content: center;
             gap: 12px;
-            margin-top: 20px;
+            margin-top: 25px;
             width: 100%;
-            max-width: 300px;
+            max-width: 400px;
             margin-left: auto;
             margin-right: auto;
         }
@@ -225,108 +344,195 @@
             display: flex;
             align-items: center;
             gap: 10px;
-            background: rgba(255,255,255,0.1);
-            padding: 12px 15px;
-            border-radius: 30px;
-            font-size: 0.9rem;
+            background: rgba(0,0,0,0.2);
+            padding: 12px 18px;
+            border-radius: 50px;
+            font-size: 0.95rem;
             backdrop-filter: blur(5px);
-            justify-content: center;
+            border: 1px solid rgba(255,255,255,0.1);
+            transition: all 0.3s ease;
+            color: rgba(255,255,255,0.8);
         }
 
-        /* ===== SEÇÃO DE CONTEÚDO ===== */
+        .feature:hover {
+            background: rgba(255,180,70,0.2);
+            transform: translateY(-3px);
+        }
+
+        .feature i {
+            color: #ffb347;
+        }
+
+        /* Seção de conteúdo */
         .content-section {
-            padding: 30px 20px;
+            padding: 35px 25px;
             display: flex;
             flex-direction: column;
-            gap: 25px;
+            gap: 30px;
         }
 
         .about-card, .details-card {
-            background: var(--light);
-            border-radius: 16px;
-            padding: 25px 20px;
-            box-shadow: var(--shadow);
+            background: rgba(0,0,0,0.2);
+            backdrop-filter: blur(10px);
+            border-radius: 30px;
+            padding: 30px 25px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            border: 1px solid rgba(255,255,255,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .about-card:hover, .details-card:hover {
+            transform: translateY(-5px);
         }
 
         .card-title {
-            font-size: 1.3rem;
-            color: var(--primary);
-            margin-bottom: 15px;
+            font-size: 1.5rem;
+            color: #ffb347;
+            margin-bottom: 20px;
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 12px;
+            font-weight: 700;
         }
 
         .card-content {
-            font-size: 0.95rem;
-            color: var(--text);
-            line-height: 1.6;
+            font-size: 1rem;
+            color: rgba(255,255,255,0.8);
+            line-height: 1.7;
         }
 
         .card-content ul {
             list-style: none;
-            margin-top: 15px;
+            margin-top: 20px;
         }
 
         .card-content li {
-            margin-bottom: 12px;
+            margin-bottom: 15px;
             display: flex;
             align-items: flex-start;
-            gap: 10px;
+            gap: 12px;
+            padding: 10px;
+            border-radius: 10px;
+            transition: background 0.3s ease;
+        }
+
+        .card-content li:hover {
+            background: rgba(255,180,70,0.1);
         }
 
         .card-content li i {
-            color: var(--primary);
+            color: #ffb347;
             margin-top: 3px;
             flex-shrink: 0;
+            font-size: 1.2rem;
         }
 
         .highlight {
-            background: var(--gradient-light);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
+            color: #ffb347;
             font-weight: 600;
         }
 
-        /* ===== BOTÃO INICIAR ===== */
+        /* Botões iniciais */
         .cta-section {
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 15px;
+            gap: 20px;
             margin-top: 30px;
         }
 
-        .start-btn {
-            padding: 16px 35px;
+        .start-btn, .share-initial-btn {
+            padding: 18px 40px;
             border: none;
             border-radius: 50px;
-            background: var(--accent);
             color: white;
-            font-weight: 600;
+            font-weight: 700;
             cursor: pointer;
             transition: all 0.3s ease;
-            font-size: 1.1rem;
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            width: 100%;
+            max-width: 300px;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .start-btn {
+            background: linear-gradient(135deg, #00b4d8, #0077b6);
+            box-shadow: 0 10px 25px rgba(0,180,216,0.3);
+            animation: gentlePulse 3s infinite ease-in-out;
+        }
+
+        .share-initial-btn {
+            background: linear-gradient(135deg, #25D366, #128C7E);
+            box-shadow: 0 10px 25px rgba(37,211,102,0.3);
+        }
+
+        @keyframes gentlePulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.02); }
+            100% { transform: scale(1); }
+        }
+
+        .start-btn::before, .share-initial-btn::before {
+            content: '';
+            position: absolute;
+            top: 0; left: -100%;
+            width: 100%; height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.7s ease;
+            z-index: -1;
+        }
+
+        .start-btn:hover, .share-initial-btn:hover {
+            transform: translateY(-5px);
+            animation: none;
+        }
+
+        .start-btn:hover::before, .share-initial-btn:hover::before {
+            left: 100%;
+        }
+
+        /* Instruções */
+        .instructions {
+            background: rgba(0,0,0,0.2);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 30px;
+            padding: 25px;
+            margin: 20px;
+            display: none;
+        }
+
+        .instructions h3 {
+            color: #ffb347;
+            margin-bottom: 15px;
+        }
+
+        .instructions ul {
+            list-style: none;
+        }
+
+        .instructions li {
+            margin: 12px 0;
             display: flex;
             align-items: center;
             gap: 10px;
-            box-shadow: 0 8px 20px rgba(248, 37, 133, 0.4);
-            width: 100%;
-            max-width: 280px;
-            justify-content: center;
+            color: rgba(255,255,255,0.8);
         }
 
-        .start-btn:hover {
-            transform: translateY(-3px) scale(1.03);
-            box-shadow: 0 12px 25px rgba(248, 37, 133, 0.5);
-            background: #ff2d95;
+        .instructions li i {
+            color: #ffb347;
         }
 
-        /* ===== SEÇÃO DO QUIZ ===== */
+        /* Seção do quiz */
         .quiz-section {
             display: none;
-            padding: 20px 15px;
+            padding: 25px 20px;
         }
 
         .progress-container {
@@ -344,12 +550,12 @@
         .progress-text {
             font-size: 1rem;
             font-weight: 600;
-            color: var(--primary);
+            color: #ffb347;
         }
 
         .progress-bar {
             height: 8px;
-            background: #e9ecef;
+            background: rgba(255,255,255,0.1);
             border-radius: 10px;
             overflow: hidden;
             position: relative;
@@ -357,7 +563,7 @@
 
         .progress {
             height: 100%;
-            background: var(--gradient);
+            background: linear-gradient(90deg, #ffb347, #ff8c00);
             border-radius: 10px;
             transition: width 0.5s ease;
             position: relative;
@@ -366,17 +572,14 @@
         .progress::after {
             content: '';
             position: absolute;
-            top: 0;
-            left: 0;
-            bottom: 0;
-            right: 0;
+            top: 0; left: 0; bottom: 0; right: 0;
             background-image: linear-gradient(
                 -45deg,
-                rgba(255, 255, 255, 0.2) 25%,
+                rgba(255,255,255,0.3) 25%,
                 transparent 25%,
                 transparent 50%,
-                rgba(255, 255, 255, 0.2) 50%,
-                rgba(255, 255, 255, 0.2) 75%,
+                rgba(255,255,255,0.3) 50%,
+                rgba(255,255,255,0.3) 75%,
                 transparent 75%,
                 transparent
             );
@@ -390,107 +593,158 @@
         }
 
         .question {
+            padding: 25px;
+            border-radius: 30px;
+            background: rgba(0,0,0,0.2);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-left: 6px solid #ffb347;
+            position: relative;
+            overflow: hidden;
             margin-bottom: 25px;
-            padding: 20px;
-            border-radius: 16px;
-            background: white;
-            box-shadow: var(--shadow);
-            border-left: 5px solid var(--primary);
+        }
+
+        .question::before {
+            content: '';
+            position: absolute;
+            top: 0; right: 0;
+            width: 80px; height: 80px;
+            background: radial-gradient(circle, rgba(255,180,70,0.1) 0%, transparent 70%);
+            border-radius: 0 0 0 100%;
         }
 
         .question-header {
             display: flex;
-            flex-direction: column;
-            gap: 15px;
-            margin-bottom: 20px;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
         }
 
         .question-difficulty {
             padding: 8px 15px;
-            border-radius: 20px;
+            border-radius: 50px;
             font-size: 0.85rem;
-            font-weight: bold;
+            font-weight: 600;
             color: white;
             align-self: flex-start;
         }
 
-        .difficulty-easy { background: var(--success); }
-        .difficulty-medium { background: var(--warning); }
-        .difficulty-hard { background: var(--danger); }
+        .difficulty-easy {
+            background: #28a745;
+        }
+
+        .difficulty-medium {
+            background: #ffc107;
+            color: #1e2f4a;
+        }
+
+        .difficulty-hard {
+            background: #dc3545;
+        }
+
+        .tip-icon {
+            cursor: pointer;
+            color: #ffb347;
+            font-size: 1.3rem;
+            transition: transform 0.2s;
+        }
+
+        .tip-icon:hover {
+            transform: scale(1.2);
+        }
+
+        .tip-text {
+            display: none;
+            background: rgba(0,0,0,0.3);
+            padding: 12px;
+            border-radius: 15px;
+            margin: 10px 0;
+            font-style: italic;
+            border-left: 3px solid #ffb347;
+            color: rgba(255,255,255,0.8);
+        }
 
         .question-text {
-            font-size: 1.2rem;
-            font-weight: 600;
-            color: var(--primary);
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: white;
             line-height: 1.4;
+            margin-bottom: 20px;
         }
 
         .options {
             display: grid;
             grid-template-columns: 1fr;
-            gap: 12px;
+            gap: 15px;
         }
 
         .option {
-            padding: 16px 15px;
-            background: var(--light);
-            border-radius: 12px;
+            padding: 18px 20px;
+            background: rgba(0,0,0,0.2);
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 20px;
             cursor: pointer;
             transition: all 0.3s ease;
             display: flex;
             align-items: center;
-            border: 2px solid transparent;
             position: relative;
+            color: rgba(255,255,255,0.9);
         }
 
         .option:hover {
             transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            border-color: var(--primary);
+            box-shadow: 0 8px 20px rgba(255,180,70,0.2);
+            border-color: #ffb347;
         }
 
         .option.selected.correct {
-            background: var(--success);
+            background: #28a745;
             color: white;
-            border-color: var(--success);
+            border-color: #28a745;
             transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(40,167,69,0.3);
         }
 
         .option.selected.incorrect {
-            background: var(--danger);
+            background: #dc3545;
             color: white;
-            border-color: var(--danger);
+            border-color: #dc3545;
             transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(220,53,69,0.3);
         }
 
         .option.correct-answer {
-            background: var(--success);
+            background: #28a745;
             color: white;
-            border-color: var(--success);
+            border-color: #28a745;
             animation: pulse 0.6s ease;
+            box-shadow: 0 8px 20px rgba(40,167,69,0.3);
         }
 
         .option-letter {
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            width: 32px;
-            height: 32px;
-            background: rgba(255,255,255,0.3);
+            width: 36px; height: 36px;
+            background: rgba(255,180,70,0.2);
             border-radius: 50%;
-            margin-right: 12px;
-            font-weight: bold;
+            margin-right: 15px;
+            font-weight: 800;
             flex-shrink: 0;
+            color: #ffb347;
+            transition: all 0.3s ease;
         }
 
         .option.selected .option-letter,
         .option.correct-answer .option-letter {
-            background: rgba(255,255,255,0.2);
+            background: rgba(255,255,255,0.3);
+            color: white;
         }
 
         .feedback-icon {
             margin-left: auto;
-            font-size: 1.1rem;
+            font-size: 1.2rem;
             opacity: 0;
             transition: opacity 0.3s ease;
             flex-shrink: 0;
@@ -499,122 +753,272 @@
         .option.selected.correct .feedback-icon,
         .option.correct-answer .feedback-icon {
             opacity: 1;
+            color: white;
         }
 
         .option.selected.incorrect .feedback-icon {
             opacity: 1;
+            color: white;
         }
 
-        .option.locked {
-            cursor: not-allowed;
+        .feedback-curiosity {
+            margin-top: 20px;
+            padding: 15px;
+            background: rgba(0,0,0,0.2);
+            border-radius: 20px;
+            font-size: 0.95rem;
+            border-left: 3px solid #ffb347;
+            color: rgba(255,255,255,0.8);
         }
 
-        .option.locked:hover {
-            transform: none;
-            box-shadow: none;
-            border-color: transparent;
-        }
-
-        /* ===== NAVEGAÇÃO ===== */
         .navigation {
             display: flex;
             justify-content: space-between;
+            gap: 15px;
             margin-top: 25px;
-            gap: 10px;
             flex-direction: row-reverse;
         }
 
         button {
-            padding: 14px 20px;
+            padding: 16px 25px;
             border: none;
             border-radius: 50px;
-            background: var(--primary);
+            background: linear-gradient(135deg, #00b4d8, #0077b6);
             color: white;
-            font-weight: 600;
+            font-weight: 700;
             cursor: pointer;
             transition: all 0.3s ease;
             display: flex;
             align-items: center;
-            gap: 8px;
-            font-size: 0.95rem;
+            gap: 10px;
+            font-size: 1rem;
             flex: 1;
             justify-content: center;
+            box-shadow: 0 8px 20px rgba(0,180,216,0.3);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        button::before {
+            content: '';
+            position: absolute;
+            top: 0; left: -100%;
+            width: 100%; height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.7s ease;
+            z-index: -1;
         }
 
         button:hover {
             transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+            box-shadow: 0 12px 25px rgba(0,180,216,0.4);
+        }
+
+        button:hover::before {
+            left: 100%;
         }
 
         button:disabled {
-            background: #bdc3c7;
+            background: rgba(255,255,255,0.1);
+            color: rgba(255,255,255,0.3);
             cursor: not-allowed;
             transform: none;
             box-shadow: none;
         }
 
-        .btn-next {
-            background: var(--secondary);
+        button:disabled::before {
+            display: none;
         }
 
-        /* ===== RESULTADOS ===== */
+        .btn-next {
+            background: linear-gradient(135deg, #ffb347, #ff8c00);
+            box-shadow: 0 8px 20px rgba(255,140,0,0.3);
+        }
+
+        .btn-next:hover {
+            box-shadow: 0 12px 25px rgba(255,140,0,0.4);
+        }
+
+        /* Resultados */
         .results {
             text-align: center;
-            padding: 30px 20px;
+            padding: 40px 25px;
             display: none;
         }
 
         .results-header {
-            margin-bottom: 25px;
+            margin-bottom: 30px;
+        }
+
+        .results-header h2 {
+            font-size: 2rem;
+            color: white;
+            font-weight: 800;
         }
 
         .score {
-            font-size: 3.5rem;
-            font-weight: 700;
-            background: var(--gradient);
+            font-size: 4rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #ffb347, #ff8c00);
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
-            margin: 15px 0;
+            margin: 20px 0;
+            text-shadow: 0 5px 15px rgba(255,180,70,0.2);
         }
 
         .performance {
             display: flex;
             flex-direction: column;
             justify-content: center;
-            gap: 15px;
-            margin: 30px 0;
+            gap: 20px;
+            margin: 35px 0;
         }
 
         .performance-item {
             text-align: center;
-            padding: 20px;
-            border-radius: 16px;
-            background: var(--light);
-            box-shadow: var(--shadow);
+            padding: 25px 20px;
+            border-radius: 30px;
+            background: rgba(0,0,0,0.2);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .performance-item:hover {
+            transform: translateY(-5px);
         }
 
         .performance-value {
-            font-size: 2rem;
-            font-weight: 700;
+            font-size: 2.5rem;
+            font-weight: 800;
             margin: 10px 0;
         }
 
-        .performance-easy { color: var(--success); }
-        .performance-medium { color: var(--warning); }
-        .performance-hard { color: var(--danger); }
-
-        .message {
-            font-size: 1.1rem;
-            margin: 25px 0;
-            padding: 20px;
-            border-radius: 16px;
-            background: var(--light);
-            box-shadow: var(--shadow);
-            line-height: 1.5;
+        .performance-easy {
+            color: #28a745;
         }
 
-        /* ===== ANIMAÇÕES FINAIS ===== */
+        .performance-medium {
+            color: #ffc107;
+        }
+
+        .performance-hard {
+            color: #dc3545;
+        }
+
+        .message {
+            font-size: 1.2rem;
+            margin: 30px 0;
+            padding: 25px;
+            border-radius: 30px;
+            background: rgba(0,0,0,0.2);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.1);
+            line-height: 1.6;
+            color: rgba(255,255,255,0.9);
+        }
+
+        .action-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 20px 0;
+            justify-content: center;
+        }
+
+        .action-btn {
+            background: linear-gradient(135deg, #00b4d8, #0077b6);
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .action-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0,180,216,0.3);
+        }
+
+        #review-container {
+            text-align: left;
+            margin: 20px 0;
+            max-height: 400px;
+            overflow-y: auto;
+            padding: 15px;
+            background: rgba(0,0,0,0.2);
+            border-radius: 20px;
+        }
+
+        .review-item {
+            padding: 15px;
+            border-radius: 15px;
+            margin-bottom: 10px;
+            border-left: 5px solid;
+        }
+
+        .review-item.correct {
+            border-color: #28a745;
+            background: rgba(40,167,69,0.1);
+        }
+
+        .review-item.incorrect {
+            border-color: #dc3545;
+            background: rgba(220,53,69,0.1);
+        }
+
+        .review-question {
+            font-weight: 600;
+            color: white;
+        }
+
+        .review-answer {
+            margin-top: 5px;
+            font-size: 0.95rem;
+            color: rgba(255,255,255,0.7);
+        }
+
+        .review-explanation {
+            margin-top: 5px;
+            font-style: italic;
+            color: rgba(255,255,255,0.5);
+        }
+
+        .ranking {
+            background: rgba(0,0,0,0.2);
+            backdrop-filter: blur(10px);
+            padding: 25px;
+            border-radius: 30px;
+            margin-top: 20px;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .ranking h3 {
+            color: #ffb347;
+            margin-bottom: 15px;
+        }
+
+        .ranking-list {
+            list-style: none;
+        }
+
+        .ranking-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            color: rgba(255,255,255,0.7);
+        }
+
+        /* Confetes */
         .confetti-container {
             position: fixed;
             top: 0;
@@ -633,105 +1037,9 @@
 
         .confetti {
             position: absolute;
-            width: 10px;
-            height: 10px;
+            width: 12px; height: 12px;
             opacity: 0;
             animation: confettiRain 2s ease forwards;
-        }
-
-        .trophy-animation {
-            animation: trophyGlow 2s infinite;
-        }
-
-        .star-animation {
-            animation: starPulse 1.5s infinite;
-        }
-
-        /* ===== INFORMAÇÕES DA IGREJA E INSTAGRAM ===== */
-        .church-info {
-            text-align: center;
-            padding: 20px;
-            background: var(--light);
-            border-top: 1px solid #dee2e6;
-        }
-
-        .church-name {
-            font-size: 1.2rem;
-            font-weight: 700;
-            color: var(--primary);
-            margin-bottom: 5px;
-        }
-
-        .church-location {
-            color: var(--text);
-            opacity: 0.8;
-            font-size: 0.95rem;
-            margin-bottom: 15px;
-        }
-
-        .instagram-section {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 10px;
-            margin-top: 10px;
-        }
-
-        .instagram-text {
-            font-size: 0.9rem;
-            color: var(--text);
-        }
-
-        .instagram-link {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            padding: 10px 20px;
-            background: var(--instagram);
-            color: white;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(225, 48, 108, 0.3);
-        }
-
-        .instagram-link:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(225, 48, 108, 0.4);
-            background: #C13584;
-        }
-
-        .instagram-icon {
-            font-size: 1.2rem;
-        }
-
-        /* ===== ANIMAÇÕES ===== */
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-            100% { transform: scale(1); }
-        }
-
-        @keyframes bounce {
-            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
-            40% { transform: translateY(-10px); }
-            60% { transform: translateY(-5px); }
-        }
-
-        @keyframes slideInLeft {
-            from { opacity: 0; transform: translateX(-50px); }
-            to { opacity: 1; transform: translateX(0); }
-        }
-
-        @keyframes slideInRight {
-            from { opacity: 0; transform: translateX(50px); }
-            to { opacity: 1; transform: translateX(0); }
         }
 
         @keyframes confettiRain {
@@ -739,153 +1047,195 @@
             100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
         }
 
+        .trophy-animation {
+            animation: trophyGlow 2s infinite;
+            color: #ffb347;
+        }
+
+        .star-animation {
+            animation: starPulse 1.5s infinite;
+            color: #ffb347;
+        }
+
         @keyframes starPulse {
             0%, 100% { transform: scale(1); opacity: 1; }
-            50% { transform: scale(1.2); opacity: 0.8; }
+            50% { transform: scale(1.3); opacity: 0.8; }
         }
 
         @keyframes trophyGlow {
-            0%, 100% { filter: drop-shadow(0 0 5px rgba(255, 215, 0, 0.7)); }
-            50% { filter: drop-shadow(0 0 20px rgba(255, 215, 0, 0.9)); }
+            0%, 100% { filter: drop-shadow(0 0 10px rgba(255,180,70,0.7)); }
+            50% { filter: drop-shadow(0 0 25px rgba(255,180,70,0.9)); }
+        }
+
+        /* Informações da igreja */
+        .church-info {
+            text-align: center;
+            padding: 25px 20px;
+            background: rgba(0,0,0,0.2);
+            backdrop-filter: blur(10px);
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .church-name {
+            font-size: 1.4rem;
+            font-weight: 800;
+            color: #ffb347;
+            margin-bottom: 8px;
+        }
+
+        .church-location {
+            color: rgba(255,255,255,0.6);
+            font-size: 1rem;
+            margin-bottom: 20px;
+        }
+
+        .instagram-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .instagram-text {
+            font-size: 1rem;
+            color: rgba(255,255,255,0.8);
+            font-weight: 500;
+        }
+
+        .instagram-link {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 25px;
+            background: linear-gradient(45deg, #405DE6, #5851DB, #833AB4, #C13584, #E1306C, #FD1D1D);
+            color: white;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 20px rgba(225,48,108,0.3);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .instagram-link::before {
+            content: '';
+            position: absolute;
+            top: 0; left: -100%;
+            width: 100%; height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.7s ease;
+            z-index: -1;
+        }
+
+        .instagram-link:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 25px rgba(225,48,108,0.4);
+        }
+
+        .instagram-link:hover::before {
+            left: 100%;
+        }
+
+        .instagram-icon {
+            font-size: 1.3rem;
+        }
+
+        /* Animações gerais */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes slideIn {
+            from { transform: translateX(20px); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-15px); }
+            60% { transform: translateY(-7px); }
+        }
+        @keyframes slideInLeft {
+            from { opacity: 0; transform: translateX(-50px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+        @keyframes slideInRight {
+            from { opacity: 0; transform: translateX(50px); }
+            to { opacity: 1; transform: translateX(0); }
         }
 
         .fade-in {
             animation: fadeIn 0.5s ease forwards;
         }
+        .slide-in {
+            animation: slideIn 0.4s ease;
+        }
 
-        /* ===== RESPONSIVO ===== */
+        /* Responsivo */
         @media (max-width: 480px) {
-            body {
-                padding: 10px;
-            }
-            
-            .container {
-                border-radius: 16px;
-            }
-            
-            .modern-header {
-                padding: 20px 15px;
-            }
-            
-            .logo-text h1 {
-                font-size: 1.6rem;
-            }
-            
-            .logo {
-                width: 100px;
-                height: 100px;
-            }
-            
-            .welcome-card {
-                padding: 15px;
-            }
-            
-            .content-section {
-                padding: 25px 15px;
-            }
-            
-            .about-card, .details-card {
-                padding: 20px 15px;
-            }
-            
-            .quiz-section {
-                padding: 15px 10px;
-            }
-            
-            .question {
-                padding: 15px;
-            }
-            
-            .question-text {
-                font-size: 1.1rem;
-            }
-            
-            .option {
-                padding: 14px 12px;
-            }
-            
-            .navigation {
-                flex-direction: column-reverse;
-            }
-            
-            button {
-                width: 100%;
-            }
-            
-            .results {
-                padding: 25px 15px;
-            }
-            
-            .score {
-                font-size: 3rem;
-            }
-            
-            .animation-text {
-                font-size: 1.5rem;
-            }
-            
-            .animation-icon {
-                font-size: 3.5rem;
-            }
-            
-            .countdown {
-                font-size: 2.5rem;
-            }
+            body { padding: 10px; }
+            .container { border-radius: 25px; }
+            .modern-header { padding: 25px 15px; }
+            .logo-text h1 { font-size: 1.6rem; }
+            .logo { width: 100px; height: 100px; }
+            .welcome-card { padding: 20px; }
+            .content-section { padding: 30px 20px; }
+            .about-card, .details-card { padding: 25px 20px; }
+            .quiz-section { padding: 20px 15px; }
+            .question { padding: 20px; }
+            .question-text { font-size: 1.2rem; }
+            .option { padding: 16px 15px; }
+            .navigation { flex-direction: column-reverse; }
+            button { width: 100%; }
+            .results { padding: 30px 20px; }
+            .score { font-size: 3.5rem; }
+            .animation-text { font-size: 1.8rem; }
+            .animation-icon { font-size: 3.5rem; }
+            .countdown { font-size: 3rem; width: 80px; height: 80px; }
+            .lesson-number-badge .lesson-number-large { font-size: 3rem; }
+            .lesson-name-large { font-size: 1.4rem; }
         }
 
         @media (min-width: 768px) {
-            .container {
-                max-width: 700px;
-            }
-            
-            .logo-container {
-                flex-direction: row;
-                text-align: left;
-            }
-            
-            .logo-text {
-                text-align: left;
-            }
-            
-            .features {
-                flex-direction: row;
-                max-width: 100%;
-            }
-            
-            .performance {
-                flex-direction: row;
-            }
-            
-            .navigation {
-                flex-direction: row-reverse;
-            }
-            
-            .instagram-section {
-                flex-direction: row;
-                justify-content: center;
-            }
+            .container { max-width: 750px; }
+            .logo-container { flex-direction: row; text-align: left; gap: 25px; }
+            .logo-text { text-align: left; }
+            .features { flex-direction: row; max-width: 100%; flex-wrap: nowrap; }
+            .performance { flex-direction: row; }
+            .navigation { flex-direction: row-reverse; }
+            .instagram-section { flex-direction: row; justify-content: center; }
+            .options { grid-template-columns: 1fr 1fr; }
         }
 
         @media (min-width: 992px) {
-            .container {
-                max-width: 900px;
-            }
-            
-            .content-section {
-                grid-template-columns: 1fr 1fr;
-                display: grid;
-            }
+            .container { max-width: 900px; }
+            .content-section { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
+            .logo-text h1 { font-size: 2rem; }
         }
     </style>
 </head>
 <body>
+    <!-- Partículas de fundo -->
+    <canvas id="particles"></canvas>
+
+    <!-- BOTÕES FLUTUANTES -->
+    <div class="floating-buttons">
+        <button class="floating-btn" id="theme-toggle" title="Modo noturno/claro"><i class="fas fa-moon"></i></button>
+        <button class="floating-btn" id="sound-toggle" title="Ativar/desativar sons"><i class="fas fa-volume-up"></i></button>
+    </div>
+
     <!-- ANIMAÇÃO INICIAL -->
     <div class="quiz-start-animation" id="quiz-start-animation">
-        <div class="animation-icon">
-            <i class="fas fa-book-bible"></i>
-        </div>
-        <div class="animation-text">Quiz da EBD Fiel</div>
-        <div class="animation-subtext">Lição 04: Os discípulos de Cristo e a tentação</div>
+        <div class="animation-icon"><i class="fas fa-cloud-sun"></i></div>
+        <div class="animation-text">Quiz da EBD Fiel - Classe Adultos</div>
+        <div class="animation-subtext">2º Trimestre 2026 - Lição 4</div>
         <div class="countdown" id="countdown">3</div>
     </div>
 
@@ -899,44 +1249,44 @@
             <div class="header-content">
                 <div class="logo-container">
                     <div class="logo">
-                        <img src="https://i.ibb.co/9mLXgx7k/logo.png" alt="Logo EBD Fiel" class="logo-img" id="logo-img">
+                        <img src="https://i.ibb.co/9mLXgx7k/logo.png" alt="Logo EBD Fiel" class="logo-img" id="logo-img" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 100 100\'><circle cx=\'50\' cy=\'50\' r=\'45\' fill=\'%234361ee\'/><text x=\'50\' y=\'60\' text-anchor=\'middle\' fill=\'white\' font-size=\'40\' font-family=\'Arial\'>EBD</text></svg>'">
                     </div>
                     <div class="logo-text">
-                        <h1>QUIZ DA EBD Fiel</h1>
-                        <div class="subtitle">Lição 04: Os discípulos de Cristo e a tentação</div>
+                        <h1>QUIZ DA EBD Fiel - Classe Adultos</h1>
+                        <div class="subtitle">2º Trimestre 2026</div>
                     </div>
+                </div>
+
+                <!-- NÚMERO DA LIÇÃO EM DESTAQUE -->
+                <div class="lesson-number-hero">
+                    <div class="lesson-number-badge">
+                        <span class="lesson-label"><i class="fas fa-book-open"></i> LIÇÃO</span>
+                        <div class="lesson-number-large">4</div>
+                    </div>
+                    <div class="lesson-name-large">O PODER DAS PALAVRAS: PEDRAS QUE EDIFICAM E NÃO FEREM</div>
                 </div>
 
                 <div class="welcome-card">
-                    <h2><i class="fas fa-hands"></i> Bem-vindo ao Quiz da EBD Fiel!</h2>
-                    <p>Explore os ensinamentos sobre como os discípulos de Cristo podem vencer as tentações. Descubra como Jesus enfrentou as tentações e como podemos aplicar esses princípios em nossa vida cristã.</p>
+                    <h2><i class="fas fa-hands"></i> Neemias: palavras que edificam e fé que resiste</h2>
+                    <p>Neemias enfrentou zombaria, calúnia e ataques verbais enquanto os muros de Jerusalém eram reconstruídos. Esta lição mostra que nossas palavras podem ferir ou curar, e que os servos de Deus vencem com trabalho, oração e fé.</p>
                 </div>
 
                 <div class="features">
-                    <div class="feature">
-                        <i class="fas fa-star" style="color: #4cc9f0;"></i>
-                        <span>15 Perguntas</span>
-                    </div>
-                    <div class="feature">
-                        <i class="fas fa-check-circle" style="color: #f8961e;"></i>
-                        <span>Feedback Imediato</span>
-                    </div>
-                    <div class="feature">
-                        <i class="fas fa-graduation-cap" style="color: #f94144;"></i>
-                        <span>Aprenda com a Bíblia</span>
-                    </div>
+                    <div class="feature"><i class="fas fa-star"></i><span>15 Perguntas</span></div>
+                    <div class="feature"><i class="fas fa-check-circle"></i><span>Feedback Imediato</span></div>
+                    <div class="feature"><i class="fas fa-graduation-cap"></i><span>Aprenda com a Bíblia</span></div>
                 </div>
             </div>
         </header>
 
-        <!-- CONTEÚDO -->
+        <!-- CONTEÚDO (LIÇÃO 4) -->
         <section class="content-section">
             <div class="about-card">
                 <h2 class="card-title"><i class="fas fa-info-circle"></i> Sobre Esta Lição</h2>
                 <div class="card-content">
-                    <p>Esta lição nos ensina sobre a realidade das tentações na caminhada cristã e como, com a graça de Deus, é possível vencê-las através da oração e vigilância. Veremos que Jesus, mesmo sendo tentado, não pecou, nos deixando o exemplo perfeito.</p>
-                    <p>A lição também aborda como a tentação não vem de Deus, mas de nossos próprios desejos e do inimigo, e como podemos resistir através da Palavra de Deus e da oração.</p>
-                    <p><span class="highlight">"Filho meu, se os pecadores, com blandícies, te quiserem tentar, não consistas" (Provérbios 1:10).</span> Este é o texto áureo que norteia esta lição.</p>
+                    <p>A Lição 4 nos ensina que as palavras têm poder para ferir ou curar. Os inimigos de Neemias usaram zombaria, calúnia e desprezo para tentar enfraquecer o povo, mas Neemias permaneceu firme, orou e continuou a obra.</p>
+                    <p><span class="highlight">Texto Áureo:</span> "Estava com ele Tobias, o amonita, e disse: Ainda que edifiquem, vindo uma raposa, derribará o seu muro de pedra" (Neemias 4.3).</p>
+                    <p>A lição aborda o poder da língua, a necessidade de superar ataques verbais, os exemplos de Davi, José e Isaque, e a firmeza de Neemias diante das calúnias dos opositores.</p>
                 </div>
             </div>
 
@@ -944,22 +1294,33 @@
                 <h2 class="card-title"><i class="fas fa-book-open"></i> O Que Você Vai Aprender</h2>
                 <div class="card-content">
                     <ul>
-                        <li><i class="fas fa-check"></i> Como Jesus venceu as tentações no deserto</li>
-                        <li><i class="fas fa-check"></i> O perigo de ceder à tentação</li>
-                        <li><i class="fas fa-check"></i> Estratégias bíblicas para vencer tentações</li>
-                        <li><i class="fas fa-check"></i> A importância da oração e vigilância</li>
-                        <li><i class="fas fa-check"></i> Exemplos bíblicos de vitória e queda diante da tentação</li>
+                        <li><i class="fas fa-check"></i> Reconhecer que as palavras podem ferir o outro</li>
+                        <li><i class="fas fa-check"></i> Saber lidar com as injúrias</li>
+                        <li><i class="fas fa-check"></i> Ressaltar que os servos de Deus vencem com trabalho e fé</li>
+                        <li><i class="fas fa-check"></i> Aprender a vencer ataques verbais sem sair da rota de Deus</li>
+                        <li><i class="fas fa-check"></i> Usar as palavras para louvar, edificar e abençoar pessoas</li>
                     </ul>
                 </div>
             </div>
             
-            <!-- BOTÃO INICIAR NO FINAL -->
+            <!-- BOTÕES INICIAIS -->
             <div class="cta-section">
-                <button class="start-btn" id="start-btn">
-                    <i class="fas fa-play"></i> Iniciar Quiz
-                </button>
-            </div>
+                 <button class="start-btn" id="start-btn"><i class="fas fa-play"></i> Iniciar Quiz</button>
+                <button class="share-initial-btn" id="share-initial-btn"><i class="fab fa-whatsapp"></i> Compartilhar Quiz</button>
+               </div>
         </section>
+
+        <!-- TELA DE INSTRUÇÕES -->
+        <div class="instructions" id="instructions-screen">
+            <h3><i class="fas fa-info-circle"></i> Como funciona</h3>
+            <ul>
+                <li><i class="fas fa-check-circle"></i> 15 perguntas sobre a Lição 4: O poder das palavras</li>
+                <li><i class="fas fa-lightbulb"></i> Perguntas difíceis têm dica (clique na lâmpada)</li>
+                <li><i class="fas fa-music"></i> Sons de acerto/erro (pode mutar)</li>
+                <li><i class="fas fa-chart-line"></i> Ao final, veja seu desempenho e compartilhe</li>
+                <li><i class="fas fa-trophy"></i> As 5 melhores pontuações ficam salvas</li>
+            </ul>
+        </div>
 
         <!-- QUIZ -->
         <div class="quiz-section" id="quiz-section">
@@ -977,12 +1338,8 @@
             </div>
 
             <div class="navigation">
-                <button id="prev-btn" disabled>
-                    <i class="fas fa-arrow-left"></i> Anterior
-                </button>
-                <button id="next-btn" class="btn-next">
-                    Próxima <i class="fas fa-arrow-right"></i>
-                </button>
+                <button id="prev-btn" disabled><i class="fas fa-arrow-left"></i> Anterior</button>
+                <button id="next-btn" class="btn-next">Próxima <i class="fas fa-arrow-right"></i></button>
             </div>
         </div>
 
@@ -1010,7 +1367,23 @@
 
             <div class="message" id="message"></div>
 
-            <button id="restart-btn" style="background: var(--success);">
+            <!-- Botões de ação -->
+            <div class="action-buttons">
+                <button class="action-btn" id="share-whatsapp"><i class="fab fa-whatsapp"></i> Compartilhar</button>
+                <button class="action-btn" id="export-pdf"><i class="fas fa-file-pdf"></i> Exportar PDF</button>
+                <button class="action-btn" id="review-btn"><i class="fas fa-search"></i> Revisar respostas</button>
+            </div>
+
+            <!-- Revisão (inicialmente oculta) -->
+            <div id="review-container" style="display: none;"></div>
+
+            <!-- Ranking -->
+            <div class="ranking">
+                <h3><i class="fas fa-ranking-star"></i> Ranking Local (Top 5)</h3>
+                <ul class="ranking-list" id="ranking-list"></ul>
+            </div>
+
+            <button id="restart-btn" style="background: linear-gradient(135deg, #00b4d8, #0077b6); margin-top:20px;">
                 <i class="fas fa-redo"></i> Fazer Quiz Novamente
             </button>
         </div>
@@ -1019,7 +1392,6 @@
         <div class="church-info">
             <div class="church-name">EBD FIEL</div>
             <div class="church-location">FIEL A PALAVRA</div>
-
             <div class="instagram-section">
                 <div class="instagram-text">Curta nossa página no Instagram:</div>
                 <a href="https://www.instagram.com/ebdfiel" target="_blank" class="instagram-link">
@@ -1032,195 +1404,258 @@
 
     <script>
         // =============================================
-        // BANCO DE PERGUNTAS - LIÇÃO 4 (RESPOSTAS VARIADAS)
+        // PARTÍCULAS
+        // =============================================
+        const canvas = document.getElementById('particles');
+        const ctx = canvas.getContext('2d');
+
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+        resizeCanvas();
+        window.addEventListener('resize', resizeCanvas);
+
+        const particles = Array.from({ length: 100 }, () => ({
+            x: Math.random() * canvas.width,
+            y: Math.random() * canvas.height,
+            r: Math.random() * 2,
+            d: Math.random() * 1 + 0.5,
+            o: Math.random() * 0.3 + 0.1
+        }));
+
+        function drawParticles() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            particles.forEach(p => {
+                ctx.beginPath();
+                ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+                ctx.fillStyle = `rgba(255, 180, 70, ${p.o})`;
+                ctx.fill();
+                p.y += p.d;
+                if (p.y > canvas.height) {
+                    p.y = 0;
+                    p.x = Math.random() * canvas.width;
+                }
+            });
+            requestAnimationFrame(drawParticles);
+        }
+        drawParticles();
+
+        // =============================================
+        // BANCO DE PERGUNTAS - LIÇÃO 3 (15 perguntas)
         // =============================================
         const allQuestions = [
-            // PERGUNTAS FÁCEIS (1-5) - Respostas corretas: A, B, D, C, B (variadas)
             {
-                question: "Qual é o texto áureo da lição 4?",
-                options: [
-                    "Provérbios 1:10 - 'Filho meu, se os pecadores, com blandícies, te quiserem tentar, não consistas'",
-                    "Mateus 4:4 - 'Nem só de pão viverá o homem, mas de toda palavra que sai da boca de Deus'", 
-                    "Hebreus 4:15 - 'Porque não temos um sumo sacerdote que não possa compadecer-se das nossas fraquezas'",
-                    "Tiago 1:14 - 'Cada um, porém, é tentado, quando atraído e engodado pela sua própria concupiscência'"
-                ],
-                correct: 0, // A
-                explanation: "O texto áureo da lição 4 é Provérbios 1:10, conforme indicado no início do material: 'Filho meu, se os pecadores, com blandícies, te quiserem tentar, não consistas'.",
-                difficulty: "easy"
+                        "question": "Qual é o título da Lição 4?",
+                        "options": [
+                                    "Lidando com vozes contrárias",
+                                    "O chamado que transforma a palavras que edificam",
+                                    "O poder das palavras: pedras que edificam e não ferem",
+                                    "Reconstruindo os muros com silêncio"
+                        ],
+                        "correct": 2,
+                        "explanation": "A Lição 4 tem como título: O poder das palavras: pedras que edificam e não ferem.",
+                        "difficulty": "easy",
+                        "tip": "Observe o cabeçalho da lição.",
+                        "curiosity": "A lição trabalha o impacto das palavras na vida espiritual, familiar e comunitária."
             },
             {
-                question: "Segundo a Verdade Aplicada da lição, como é possível vencer as tentações?",
-                options: [
-                    "Com a própria força de vontade",
-                    "Com a Graça de Deus, perseverando em oração e vigilância",
-                    "Evitando todas as situações difíceis",
-                    "Apenas lendo a Bíblia diariamente"
-                ],
-                correct: 1, // B
-                explanation: "A Verdade Aplicada afirma: 'Com a Graça de Deus, é possível vencer as tentações, perseverando em oração e vigilância'.",
-                difficulty: "easy"
+                        "question": "Qual é o Texto Áureo da Lição 4?",
+                        "options": [
+                                    "Neemias 2.17",
+                                    "Neemias 4.3",
+                                    "Provérbios 18.21",
+                                    "Efésios 4.29"
+                        ],
+                        "correct": 1,
+                        "explanation": "O Texto Áureo está em Neemias 4.3, quando Tobias zombou dizendo que até uma raposa derrubaria o muro.",
+                        "difficulty": "easy",
+                        "tip": "O texto cita Tobias, o amonita.",
+                        "curiosity": "Os opositores tentaram diminuir a obra usando zombaria e desprezo."
             },
             {
-                question: "Onde Jesus foi conduzido pelo Espírito para ser tentado pelo diabo?",
-                options: [
-                    "Ao monte Sinai",
-                    "Ao Jardim do Getsêmani",
-                    "Ao mar da Galileia",
-                    "Ao deserto"
-                ],
-                correct: 3, // D
-                explanation: "Mateus 4:1 diz: 'Então foi conduzido Jesus pelo Espírito ao deserto, para ser tentado pelo diabo'.",
-                difficulty: "easy"
+                        "question": "Segundo a Verdade Aplicada, diante dos astutos ataques do inimigo, o que precisamos fazer?",
+                        "options": [
+                                    "Responder com palavras duras",
+                                    "Nos revestir do poder do alto e saber quem somos em Deus",
+                                    "Abandonar a missão",
+                                    "Provar nossa força aos inimigos"
+                        ],
+                        "correct": 1,
+                        "explanation": "A Verdade Aplicada afirma que precisamos nos revestir do poder do alto e saber quem somos em Deus.",
+                        "difficulty": "easy",
+                        "tip": "A resposta fala de identidade espiritual e poder vindo de Deus.",
+                        "curiosity": "Saber quem somos em Deus ajuda a não sermos destruídos por palavras de oposição."
             },
             {
-                question: "Quantos dias Jesus jejuou antes de ser tentado?",
-                options: [
-                    "3 dias e 3 noites",
-                    "7 dias e 7 noites",
-                    "40 dias e 40 noites",
-                    "21 dias e 21 noites"
-                ],
-                correct: 2, // C
-                explanation: "Mateus 4:2 diz: 'E, tendo jejuado quarenta dias e quarenta noites, depois teve fome'.",
-                difficulty: "easy"
+                        "question": "Qual é o principal tema do primeiro ponto da lição?",
+                        "options": [
+                                    "Morte e vida estão no poder da língua",
+                                    "Neemias guardou segredo",
+                                    "José interpretou sonhos",
+                                    "O povo recusou trabalhar"
+                        ],
+                        "correct": 0,
+                        "explanation": "O primeiro ponto ensina que morte e vida estão no poder da língua, conforme Provérbios 18.21.",
+                        "difficulty": "easy",
+                        "tip": "A lição começa falando sobre a força das palavras.",
+                        "curiosity": "Palavras podem ferir profundamente, mas também podem curar e edificar."
             },
             {
-                question: "Qual foi a primeira tentação de Jesus no deserto?",
-                options: [
-                    "Lançar-se do pináculo do Templo",
-                    "Transformar pedras em pães",
-                    "Adorar Satanás em troca dos reinos do mundo",
-                    "Provar que era Filho de Deus realizando um milagre"
-                ],
-                correct: 1, // B
-                explanation: "A primeira tentação foi quando Satanás disse a Jesus: 'Se tu és o Filho de Deus, manda que estas pedras se tornem em pães' (Mateus 4:3).",
-                difficulty: "easy"
-            },
-            
-            // PERGUNTAS MÉDIAS (6-10) - Respostas corretas: C, A, D, B, A (variadas)
-            {
-                question: "O que Jesus respondeu quando tentado a transformar pedras em pães?",
-                options: [
-                    "'Não só de pão viverá o homem, mas de toda palavra que sai da boca de Deus'",
-                    "'Não tentarás o Senhor teu Deus'",
-                    "'Ao Senhor teu Deus adorarás, e só a ele servirás'",
-                    "'Afasta-te de mim, Satanás'"
-                ],
-                correct: 0, // A (mas index 0)
-                explanation: "Jesus respondeu: 'Está escrito: Nem só de pão viverá o homem, mas de toda palavra que sai da boca de Deus' (Mateus 4:4).",
-                difficulty: "medium"
+                        "question": "O que Jesus ensinou em Mateus 12.34, citado na lição?",
+                        "options": [
+                                    "Que a boca revela o que há no coração",
+                                    "Que devemos falar sem pensar",
+                                    "Que a oposição nunca surgirá",
+                                    "Que o silêncio sempre é pecado"
+                        ],
+                        "correct": 0,
+                        "explanation": "Jesus ensinou que a boca fala do que há em abundância no coração.",
+                        "difficulty": "medium",
+                        "tip": "A resposta relaciona boca e coração.",
+                        "curiosity": "A fala revela muito sobre o estado interior de uma pessoa."
             },
             {
-                question: "Qual destes NÃO é um dos aspectos em que Jesus foi tentado, segundo a lição?",
-                options: [
-                    "No aspecto espiritual de abandonar a fé",
-                    "No aspecto físico (fome)",
-                    "A testar sua filiação divina",
-                    "Na ambição pelo poder"
-                ],
-                correct: 0, // A
-                explanation: "Segundo a lição, Jesus foi tentado: 1) no aspecto físico (fome), 2) a testar sua filiação divina, 3) na ambição pelo poder. Não foi tentado a abandonar a fé.",
-                difficulty: "medium"
+                        "question": "Segundo a lição, o que palavras mal colocadas podem provocar?",
+                        "options": [
+                                    "Apenas pequenos incômodos",
+                                    "Feridas profundas naqueles que as ouvem",
+                                    "Nenhuma consequência",
+                                    "Somente alegria"
+                        ],
+                        "correct": 1,
+                        "explanation": "A lição afirma que palavras mal colocadas podem provocar feridas profundas.",
+                        "difficulty": "easy",
+                        "tip": "Veja o foco da lição na página sobre o poder da língua.",
+                        "curiosity": "Por isso a Bíblia orienta que nossas palavras sejam boas para edificação."
             },
             {
-                question: "Qual livro da Bíblia afirma que 'a tentação não vem de Deus'?",
-                options: [
-                    "Mateus",
-                    "Provérbios",
-                    "Hebreus",
-                    "Tiago"
-                ],
-                correct: 3, // D
-                explanation: "Tiago 1:13 diz: 'Ninguém, sendo tentado, diga: De Deus sou tentado; porque Deus não pode ser tentado pelo mal, e a ninguém tenta'.",
-                difficulty: "medium"
+                        "question": "Que atitude Neemias teve diante dos ataques verbais dos opositores?",
+                        "options": [
+                                    "Parou a obra imediatamente",
+                                    "Respondeu com ódio",
+                                    "Orou, permaneceu firme e continuou a obra",
+                                    "Foi discutir com todos os inimigos"
+                        ],
+                        "correct": 2,
+                        "explanation": "Neemias entregou a causa a Deus em oração, manteve o foco e prosseguiu na reconstrução.",
+                        "difficulty": "medium",
+                        "tip": "Neemias não deixou a zombaria parar a missão.",
+                        "curiosity": "O inimigo tenta usar palavras para desanimar, mas Neemias respondeu com oração e ação."
             },
             {
-                question: "O que a lição ensina sobre a tentação durante a caminhada cristã?",
-                options: [
-                    "Que os cristãos maduros não são mais tentados",
-                    "Que passar por tentações não é pecado, mas ceder à tentação sim",
-                    "Que a tentação vem diretamente de Deus para nos testar",
-                    "Que a única maneira de evitar a tentação é isolando-se do mundo"
-                ],
-                correct: 1, // B
-                explanation: "A lição afirma: 'Passar por tentações não é pecado, mas ceder à tentação sim'.",
-                difficulty: "medium"
+                        "question": "No exemplo de Davi, quem se levantou contra ele antes de enfrentar Golias?",
+                        "options": [
+                                    "Saul",
+                                    "Samuel",
+                                    "Eliabe, seu irmão mais velho",
+                                    "Jônatas"
+                        ],
+                        "correct": 2,
+                        "explanation": "Davi precisou lidar com a oposição de Eliabe, seu irmão mais velho, antes de enfrentar Golias.",
+                        "difficulty": "medium",
+                        "tip": "A oposição veio de dentro da própria família.",
+                        "curiosity": "Às vezes, a resistência aparece antes mesmo do grande desafio."
             },
             {
-                question: "Segundo a lição, qual é a melhor estratégia para vencer a tentação?",
-                options: [
-                    "Fugir da tentação",
-                    "Enfrentar a tentação com coragem",
-                    "Pedir ajuda a outras pessoas",
-                    "Ignorar a tentação até ela passar"
-                ],
-                correct: 0, // A
-                explanation: "O PONTO DE PARTIDA da lição afirma: 'Fugir da tentação é a melhor estratégia para vencê-la'.",
-                difficulty: "medium"
-            },
-            
-            // PERGUNTAS DIFÍCEIS (11-15) - Respostas corretas: C, B, D, A, B (variadas)
-            {
-                question: "Qual exemplo bíblico a lição cita como alguém que resistiu à tentação fugindo?",
-                options: [
-                    "Davi, ao fugir do rei Saul",
-                    "Paulo, ao fugir de Damasco",
-                    "José, ao fugir da mulher de Potifar",
-                    "Pedro, ao fugir do aprisionamento"
-                ],
-                correct: 2, // C
-                explanation: "A lição cita José como exemplo: 'José resistiu à tentação ao fugir da mulher de Potifar (Gn 39.12)'.",
-                difficulty: "hard"
+                        "question": "Como Davi reagiu às palavras duras de Eliabe?",
+                        "options": [
+                                    "Desistiu da batalha",
+                                    "Desviou-se dele e seguiu em frente",
+                                    "Entrou em briga com o irmão",
+                                    "Voltou para cuidar das ovelhas"
+                        ],
+                        "correct": 1,
+                        "explanation": "Davi desviou-se de Eliabe e continuou firme no propósito, sem entrar em discussão desnecessária.",
+                        "difficulty": "medium",
+                        "tip": "Davi não saiu da rota por causa de palavras ofensivas.",
+                        "curiosity": "Nem toda provocação merece resposta; algumas precisam ser vencidas com foco."
             },
             {
-                question: "Qual destas figuras bíblicas a lição menciona como exemplo de quem cedeu à tentação nos desejos da carne?",
-                options: [
-                    "Moisés",
-                    "Davi",
-                    "Salomão",
-                    "Jonas"
-                ],
-                correct: 1, // B
-                explanation: "A lição menciona Davi como exemplo: 'A Bíblia nos revela que Davi não resistiu a tentação ao ser atraído pela beleza de Bate-Seba enquanto se banhava (2Sm 11.2-4)'.",
-                difficulty: "hard"
+                        "question": "Que personagem bíblico sofreu calúnia e prisão injusta, mas permaneceu firme?",
+                        "options": [
+                                    "José",
+                                    "Jonas",
+                                    "Esaú",
+                                    "Ló"
+                        ],
+                        "correct": 0,
+                        "explanation": "José foi vendido, caluniado pela mulher de Potifar e preso injustamente, mas Deus mudou sua história.",
+                        "difficulty": "medium",
+                        "tip": "Ele se tornou governador do Egito.",
+                        "curiosity": "A fidelidade de José permaneceu mesmo quando sua reputação foi atacada."
             },
             {
-                question: "Quem foi tentado na área material, aceitando presentes que seu mestre havia recusado?",
-                options: [
-                    "Judas Iscariotes",
-                    "Ananias",
-                    "Simão, o Mago",
-                    "Geazi, servo de Eliseu"
-                ],
-                correct: 3, // D
-                explanation: "A lição cita Geazi: 'O servo do profeta Eliseu, Geazi, foi tentado a aceitar os presentes que Eliseu recusou e cedeu à tentação, pecando' (2Rs 5.16-24).",
-                difficulty: "hard"
+                        "question": "Por que Isaque abriu mão dos poços em meio às contendas?",
+                        "options": [
+                                    "Porque tinha medo de trabalhar",
+                                    "Porque sabia que a bênção não estava no poço, mas sobre sua vida",
+                                    "Porque não precisava de água",
+                                    "Porque seus servos desistiram"
+                        ],
+                        "correct": 1,
+                        "explanation": "Isaque abriu mão porque sabia que a bênção de Deus estava sobre sua vida; onde ele cavava, achava água.",
+                        "difficulty": "hard",
+                        "tip": "A lição fala dos poços Eseque e Sitna.",
+                        "curiosity": "Nem toda disputa vale o desgaste; quem tem a bênção de Deus pode seguir em paz."
             },
             {
-                question: "Qual destas afirmações sobre a tentação está correta segundo a lição?",
-                options: [
-                    "Todos somos tentados, independentemente de nossa vida estar firmada na Palavra",
-                    "Somente os cristãos novos são tentados com frequência",
-                    "A tentação vem principalmente das circunstâncias difíceis da vida",
-                    "Deus permite a tentação para nos fazer mais fortes"
-                ],
-                correct: 0, // A
-                explanation: "A lição afirma: 'Todos somos tentados. Por mais que nossa vida esteja firmada na Palavra de Deus, as tentações sempre surgem'.",
-                difficulty: "hard"
+                        "question": "Qual foi a resposta de Neemias quando tentaram fazê-lo descer do muro?",
+                        "options": [
+                                    "Estou cansado e vou parar",
+                                    "Estou fazendo uma grande obra e não poderei descer",
+                                    "Preciso ouvir meus opositores",
+                                    "A obra acabou"
+                        ],
+                        "correct": 1,
+                        "explanation": "Neemias respondeu: 'Estou fazendo uma grande obra, de modo que não poderei descer'.",
+                        "difficulty": "hard",
+                        "tip": "Leia Neemias 6.3.",
+                        "curiosity": "Foco espiritual é saber dizer não ao que tenta tirar você da missão."
             },
             {
-                question: "Segundo Hebreus 4:15, como Jesus foi tentado?",
-                options: [
-                    "De maneira mais leve que nós",
-                    "Em tudo, à nossa semelhança, mas sem pecado",
-                    "Apenas em aspectos espirituais, não físicos",
-                    "De maneira diferente, pois era o Filho de Deus"
-                ],
-                correct: 1, // B
-                explanation: "Hebreus 4:15 diz: 'Porque não temos um sumo sacerdote que não possa compadecer-se das nossas fraquezas; porém, um que, como nós, em tudo foi tentado, mas sem pecado'.",
-                difficulty: "hard"
+                        "question": "Segundo a lição, o que acontece quando deixamos de orar?",
+                        "options": [
+                                    "Ficamos mais fortes naturalmente",
+                                    "Ficamos expostos aos ataques do mal",
+                                    "Não muda nada",
+                                    "Não precisamos mais de vigilância"
+                        ],
+                        "correct": 1,
+                        "explanation": "A lição ensina que, quando deixamos de orar, ficamos expostos aos ataques do mal.",
+                        "difficulty": "medium",
+                        "tip": "Está no 'Eu ensinei que' do terceiro ponto.",
+                        "curiosity": "Neemias aparece orando em vários momentos decisivos do livro."
+            },
+            {
+                        "question": "Qual é uma prática correta para lidar com palavras negativas, segundo a lição?",
+                        "options": [
+                                    "Alimentar discussões inúteis",
+                                    "Responder sempre com ira",
+                                    "Falar com mansidão, vigiar e promover a paz",
+                                    "Espalhar a ofensa para todos"
+                        ],
+                        "correct": 2,
+                        "explanation": "A lição orienta a responder com mansidão, ser pronto para ouvir, tardio para falar e promover a paz.",
+                        "difficulty": "medium",
+                        "tip": "A lição cita princípios como Provérbios 15.1 e Tiago 1.19.",
+                        "curiosity": "Sem lenha, o fogo se apaga; sem intriga, a contenda perde força."
+            },
+            {
+                        "question": "Qual é a conclusão principal da Lição 4?",
+                        "options": [
+                                    "Devemos usar palavras para vencer discussões",
+                                    "Devemos nos revestir de Deus, vigiar os ataques e usar os lábios para louvar e abençoar",
+                                    "Devemos evitar toda forma de trabalho",
+                                    "Devemos responder aos opositores com ameaças"
+                        ],
+                        "correct": 1,
+                        "explanation": "A conclusão ensina que precisamos nos revestir de Deus, estar alertas e usar nossas palavras para louvar e ser fonte de bênção.",
+                        "difficulty": "hard",
+                        "tip": "A resposta une vigilância, revestimento espiritual e palavras de bênção.",
+                        "curiosity": "A boca do servo de Deus deve ser instrumento de edificação e graça."
             }
-        ];
+];
 
         // =============================================
         // VARIÁVEIS GLOBAIS
@@ -1228,36 +1663,86 @@
         let currentQuestionIndex = 0;
         let userAnswers = [];
         let quizStarted = false;
+        let shuffledQuestions = [];
+        let shuffledOptionsState = [];
+        let soundEnabled = true;
+        let darkMode = false;
+
+        // Sons
+        const AudioContext = window.AudioContext || window.webkitAudioContext;
+        let audioCtx = null;
+        function playSound(type) {
+            if (!soundEnabled) return;
+            if (!audioCtx) audioCtx = new AudioContext();
+            const osc = audioCtx.createOscillator();
+            const gain = audioCtx.createGain();
+            osc.connect(gain);
+            gain.connect(audioCtx.destination);
+            osc.type = 'sine';
+            if (type === 'correct') {
+                osc.frequency.value = 800;
+                gain.gain.value = 0.1;
+                osc.start();
+                osc.stop(audioCtx.currentTime + 0.2);
+            } else {
+                osc.frequency.value = 400;
+                gain.gain.value = 0.1;
+                osc.start();
+                osc.stop(audioCtx.currentTime + 0.15);
+            }
+        }
+
+        // =============================================
+        // FUNÇÕES AUXILIARES
+        // =============================================
+        function shuffleArray(array) {
+            for (let i = array.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [array[i], array[j]] = [array[j], array[i]];
+            }
+            return array;
+        }
+
+        function getShuffledOptionsForQuestion(questionIndex) {
+            if (!shuffledOptionsState[questionIndex]) {
+                const question = shuffledQuestions[questionIndex];
+                const optionsWithIndex = question.options.map((text, idx) => ({ text, originalIndex: idx }));
+                shuffledOptionsState[questionIndex] = shuffleArray([...optionsWithIndex]);
+            }
+            return shuffledOptionsState[questionIndex];
+        }
 
         // =============================================
         // INICIALIZAÇÃO
         // =============================================
         document.addEventListener('DOMContentLoaded', function() {
-            // Configurar eventos dos botões
             document.getElementById('start-btn').addEventListener('click', startQuizWithAnimation);
+            document.getElementById('share-initial-btn').addEventListener('click', shareInitialQuiz);
             document.getElementById('prev-btn').addEventListener('click', showPreviousQuestion);
             document.getElementById('next-btn').addEventListener('click', showNextQuestion);
             document.getElementById('restart-btn').addEventListener('click', restartQuiz);
+            document.getElementById('share-whatsapp').addEventListener('click', shareWhatsApp);
+            document.getElementById('export-pdf').addEventListener('click', exportPDF);
+            document.getElementById('review-btn').addEventListener('click', toggleReview);
+            document.getElementById('theme-toggle').addEventListener('click', toggleTheme);
+            document.getElementById('sound-toggle').addEventListener('click', toggleSound);
             
-            // Inicializar array de respostas
-            userAnswers = new Array(allQuestions.length).fill(null);
-            
-            // Configurar imagem da logo
             const logoImg = document.getElementById('logo-img');
             logoImg.onerror = function() {
                 logoImg.src = 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="45" fill="%234361ee"/><text x="50" y="60" text-anchor="middle" fill="white" font-size="40" font-family="Arial">EBD</text></svg>';
             };
+            updateRankingDisplay();
         });
 
-        // =============================================
-        // FUNÇÕES DO QUIZ
-        // =============================================
+        function shareInitialQuiz() {
+            const text = `📖 Quiz da EBD Fiel - Classe Adultos\n\nLição 4: O poder das palavras: pedras que edificam e não ferem\n\nTeste seus conhecimentos sobre o poder das palavras, ataques verbais e a firmeza de Neemias diante das calúnias! 15 perguntas bíblicas.\nAcesse: ${window.location.href}`;
+            window.open(`https://wa.me/?text=${encodeURIComponent(text)}`, '_blank');
+        }
+
         function startQuizWithAnimation() {
-            // Mostrar animação inicial
             const startAnimation = document.getElementById('quiz-start-animation');
             startAnimation.classList.add('active');
             
-            // Contagem regressiva
             let count = 3;
             const countdownElement = document.getElementById('countdown');
             
@@ -1273,117 +1758,133 @@
         }
 
         function startQuiz() {
-            // Esconder animação inicial
+            shuffledQuestions = shuffleArray([...allQuestions]);
+            shuffledOptionsState = [];
+            userAnswers = new Array(shuffledQuestions.length).fill(null);
+            
             document.getElementById('quiz-start-animation').classList.remove('active');
             
-            // Esconder elementos iniciais e mostrar quiz
             document.querySelector('.modern-header').style.display = 'none';
             document.querySelector('.content-section').style.display = 'none';
-            document.getElementById('quiz-section').style.display = 'block';
+            document.getElementById('instructions-screen').style.display = 'block';
+            document.getElementById('quiz-section').style.display = 'none';
             document.getElementById('results').style.display = 'none';
             
-            // Resetar variáveis
-            quizStarted = true;
             currentQuestionIndex = 0;
-            userAnswers = new Array(allQuestions.length).fill(null);
+            quizStarted = true;
             
-            // Mostrar primeira pergunta
-            showQuestion(currentQuestionIndex);
+            // Após instruções, iniciar o quiz de fato
+            const startQuizBtn = document.createElement('button');
+            startQuizBtn.className = 'start-btn';
+            startQuizBtn.innerHTML = '<i class="fas fa-play"></i> Começar Agora';
+            startQuizBtn.style.margin = '20px auto';
+            startQuizBtn.onclick = function() {
+                document.getElementById('instructions-screen').style.display = 'none';
+                document.getElementById('quiz-section').style.display = 'block';
+                showQuestion(currentQuestionIndex);
+            };
+            document.getElementById('instructions-screen').appendChild(startQuizBtn);
         }
 
         function showQuestion(index) {
-            const question = allQuestions[index];
+            const question = shuffledQuestions[index];
             const quizContainer = document.getElementById('quiz-container');
             
-            // Atualizar barra de progresso
             updateProgressBar();
             
-            // Criar HTML da pergunta
+            const shuffledOptions = getShuffledOptionsForQuestion(index);
+            
             let optionsHTML = '';
             const letters = ['A', 'B', 'C', 'D'];
             
-            question.options.forEach((option, i) => {
-                const isSelected = userAnswers[index] === i;
+            shuffledOptions.forEach((opt, i) => {
+                const originalIdx = opt.originalIndex;
+                const isSelected = userAnswers[index] === originalIdx;
                 let optionClass = 'option';
                 
                 if (isSelected) {
                     optionClass += ' selected';
-                    if (i === question.correct) {
+                    if (originalIdx === question.correct) {
                         optionClass += ' correct';
                     } else {
                         optionClass += ' incorrect';
                     }
                 }
                 
+                if (userAnswers[index] !== null && originalIdx === question.correct && userAnswers[index] !== question.correct) {
+                    optionClass += ' correct-answer';
+                }
+                
                 optionsHTML += `
-                    <div class="${optionClass}" data-index="${i}">
+                    <div class="${optionClass}" data-original-index="${originalIdx}">
                         <span class="option-letter">${letters[i]}</span>
-                        <span class="option-text">${option}</span>
+                        <span class="option-text">${opt.text}</span>
                         <span class="feedback-icon">
-                            ${isSelected ? (i === question.correct ? '<i class="fas fa-check"></i>' : '<i class="fas fa-times"></i>') : ''}
+                            ${isSelected ? (originalIdx === question.correct ? '<i class="fas fa-check"></i>' : '<i class="fas fa-times"></i>') : ''}
                         </span>
                     </div>
                 `;
             });
             
+            let tipHtml = '';
+            if (question.difficulty === 'hard') {
+                tipHtml = `<span class="tip-icon" onclick="event.stopPropagation(); showTip(${index})"><i class="fas fa-lightbulb"></i></span>`;
+            }
+            
+            let curiosityHtml = '';
+            if (userAnswers[index] !== null) {
+                curiosityHtml = `<div class="feedback-curiosity"><i class="fas fa-book-open"></i> ${question.curiosity}</div>`;
+            }
+            
             quizContainer.innerHTML = `
-                <div class="question fade-in">
+                <div class="question slide-in">
                     <div class="question-header">
                         <span class="question-difficulty difficulty-${question.difficulty}">
                             ${question.difficulty === 'easy' ? 'Fácil' : question.difficulty === 'medium' ? 'Médio' : 'Difícil'}
                         </span>
-                        <div class="question-text">${question.question}</div>
+                        ${tipHtml}
                     </div>
+                    <div class="question-text">${question.question}</div>
+                    ${question.difficulty === 'hard' ? `<div class="tip-text" id="tip-${index}">💡 Dica: ${question.tip}</div>` : ''}
                     <div class="options">
                         ${optionsHTML}
                     </div>
+                    ${curiosityHtml}
                 </div>
             `;
             
-            // Adicionar eventos às opções
             document.querySelectorAll('.option').forEach(option => {
                 option.addEventListener('click', function() {
                     if (!quizStarted) return;
                     
-                    const selectedIndex = parseInt(this.getAttribute('data-index'));
-                    selectOption(selectedIndex);
+                    const originalIndex = parseInt(this.getAttribute('data-original-index'));
+                    selectOption(originalIndex);
                 });
             });
             
-            // Atualizar botões de navegação
             updateNavigationButtons();
         }
 
-        function selectOption(optionIndex) {
-            userAnswers[currentQuestionIndex] = optionIndex;
-            const question = allQuestions[currentQuestionIndex];
+        window.selectOption = function(originalIndex) {
+            userAnswers[currentQuestionIndex] = originalIndex;
+            const question = shuffledQuestions[currentQuestionIndex];
             
-            // Atualizar visual das opções
-            const options = document.querySelectorAll('.option');
-            options.forEach((option, i) => {
-                option.classList.remove('selected', 'correct', 'incorrect', 'correct-answer');
-                
-                if (i === optionIndex) {
-                    option.classList.add('selected');
-                    if (i === question.correct) {
-                        option.classList.add('correct');
-                    } else {
-                        option.classList.add('incorrect');
-                    }
-                }
-                
-                // Mostrar resposta correta se o usuário errou
-                if (i === question.correct && optionIndex !== question.correct) {
-                    option.classList.add('correct-answer');
-                }
-            });
+            if (originalIndex === question.correct) {
+                playSound('correct');
+            } else {
+                playSound('incorrect');
+            }
             
-            // Atualizar botões de navegação
-            updateNavigationButtons();
-        }
+            showQuestion(currentQuestionIndex);
+        };
+
+        window.showTip = function(qIndex) {
+            const tip = document.getElementById(`tip-${qIndex}`);
+            if (tip) tip.style.display = tip.style.display === 'block' ? 'none' : 'block';
+        };
 
         function showNextQuestion() {
-            if (currentQuestionIndex < allQuestions.length - 1) {
+            if (currentQuestionIndex < shuffledQuestions.length - 1) {
                 currentQuestionIndex++;
                 showQuestion(currentQuestionIndex);
             } else {
@@ -1399,41 +1900,39 @@
         }
 
         function updateProgressBar() {
-            const progress = ((currentQuestionIndex + 1) / allQuestions.length) * 100;
+            const progress = ((currentQuestionIndex + 1) / shuffledQuestions.length) * 100;
             document.getElementById('quiz-progress').style.width = `${progress}%`;
-            document.getElementById('progress-text').textContent = `Pergunta ${currentQuestionIndex + 1} de ${allQuestions.length}`;
+            document.getElementById('progress-text').textContent = `Pergunta ${currentQuestionIndex + 1} de ${shuffledQuestions.length}`;
         }
 
         function updateNavigationButtons() {
             document.getElementById('prev-btn').disabled = currentQuestionIndex === 0;
             
             const nextButton = document.getElementById('next-btn');
-            if (currentQuestionIndex === allQuestions.length - 1) {
+            if (currentQuestionIndex === shuffledQuestions.length - 1) {
                 nextButton.innerHTML = 'Ver Resultados <i class="fas fa-chart-bar"></i>';
             } else {
                 nextButton.innerHTML = 'Próxima <i class="fas fa-arrow-right"></i>';
             }
             
-            // Habilitar próximo apenas se uma opção foi selecionada
             nextButton.disabled = userAnswers[currentQuestionIndex] === null;
         }
 
         // =============================================
-        // ANIMAÇÕES FINAIS
+        // RESULTADOS
         // =============================================
         function createConfetti(scorePercentage) {
             const container = document.getElementById('confetti-container');
             container.classList.add('active');
             container.innerHTML = '';
             
-            const colors = ['#4361ee', '#7209b7', '#f72585', '#4cc9f0', '#f8961e', '#f94144'];
+            const colors = ['#ffb347', '#ff8c00', '#00b4d8', '#28a745', '#ffc107', '#dc3545'];
             const confettiCount = Math.min(100, Math.floor(scorePercentage * 100));
             
             for (let i = 0; i < confettiCount; i++) {
                 const confetti = document.createElement('div');
                 confetti.className = 'confetti';
                 
-                // Configurações aleatórias
                 const left = Math.random() * 100;
                 const size = Math.random() * 10 + 5;
                 const color = colors[Math.floor(Math.random() * colors.length)];
@@ -1451,7 +1950,6 @@
                 container.appendChild(confetti);
             }
             
-            // Remover confetes após 5 segundos
             setTimeout(() => {
                 container.classList.remove('active');
                 container.innerHTML = '';
@@ -1462,18 +1960,15 @@
             document.getElementById('quiz-section').style.display = 'none';
             document.getElementById('results').style.display = 'block';
             
-            // Calcular pontuação
             let score = 0;
             let correctEasy = 0, correctMedium = 0, correctHard = 0;
             let totalEasy = 0, totalMedium = 0, totalHard = 0;
             
-            allQuestions.forEach((question, index) => {
-                // Contar totais por dificuldade
+            shuffledQuestions.forEach((question, index) => {
                 if (question.difficulty === 'easy') totalEasy++;
                 if (question.difficulty === 'medium') totalMedium++;
                 if (question.difficulty === 'hard') totalHard++;
                 
-                // Verificar resposta correta
                 if (userAnswers[index] === question.correct) {
                     score++;
                     
@@ -1483,83 +1978,142 @@
                 }
             });
             
-            const scorePercentage = score / allQuestions.length;
+            const scorePercentage = score / shuffledQuestions.length;
             
-            // Atualizar resultados na tela
-            document.getElementById('score').textContent = `${score}/${allQuestions.length}`;
+            document.getElementById('score').textContent = `${score}/${shuffledQuestions.length}`;
             document.getElementById('correct-easy').textContent = `${correctEasy}/${totalEasy}`;
             document.getElementById('correct-medium').textContent = `${correctMedium}/${totalMedium}`;
             document.getElementById('correct-hard').textContent = `${correctHard}/${totalHard}`;
             
-            // Configurar mensagem e animações baseadas na pontuação
             const trophyIcon = document.getElementById('trophy-icon');
             const messageElement = document.getElementById('message');
             
             let message = '';
-            let animationType = '';
             
-            if (score === allQuestions.length) {
-                // PERFEITO
-                message = '<i class="fas fa-crown star-animation"></i> <strong>PERFEITO!</strong> Você acertou todas as questões! Sua compreensão sobre as tentações e como vencê-las é excepcional.';
+            if (score === shuffledQuestions.length) {
+                message = '<i class="fas fa-crown star-animation"></i> <strong>PERFEITO!</strong> Você acertou todas as questões! Neemias nos ensina que o chamado de Deus transforma a palavras que edificam. Continue firme!';
                 trophyIcon.className = 'fas fa-crown trophy-animation';
                 createConfetti(1);
-                animationType = 'perfect';
             } else if (scorePercentage >= 0.8) {
-                // EXCELENTE
-                message = '<i class="fas fa-star star-animation"></i> <strong>EXCELENTE!</strong> Você demonstrou um conhecimento excepcional sobre como vencer as tentações seguindo o exemplo de Jesus.';
+                message = '<i class="fas fa-star star-animation"></i> <strong>EXCELENTE!</strong> Você demonstrou um conhecimento profundo sobre Neemias. Que sua vida também reflita a oração e no uso sábio das palavras!';
                 trophyIcon.className = 'fas fa-trophy trophy-animation';
                 createConfetti(scorePercentage);
-                animationType = 'excellent';
             } else if (scorePercentage >= 0.6) {
-                // MUITO BOM
-                message = '<i class="fas fa-thumbs-up"></i> <strong>MUITO BOM!</strong> Você tem um bom entendimento da lição sobre como os discípulos de Cristo podem vencer as tentações. Continue estudando!';
+                message = '<i class="fas fa-thumbs-up"></i> <strong>MUITO BOM!</strong> Você tem um bom entendimento da lição. Reveja os pontos que errou e continue aprendendo.';
                 trophyIcon.className = 'fas fa-award';
                 createConfetti(scorePercentage * 0.7);
-                animationType = 'good';
             } else if (scorePercentage >= 0.5) {
-                // BOM
-                message = '<i class="fas fa-check-circle"></i> <strong>BOM TRABALHO!</strong> Você acertou a maioria das questões. Revise os pontos em que teve dificuldade.';
+                message = '<i class="fas fa-check-circle"></i> <strong>BOM TRABALHO!</strong> Você acertou a maioria. Estude novamente a lição sobre Neemias e fortaleça seu conhecimento.';
                 trophyIcon.className = 'fas fa-medal';
                 createConfetti(scorePercentage * 0.5);
-                animationType = 'average';
             } else {
-                // CONTINUE ESTUDANDO
-                message = '<i class="fas fa-book"></i> <strong>CONTINUE ESTUDANDO!</strong> As tentações são realidade na caminhada cristã. Reveja a lição sobre como vencer as tentações e tente novamente.';
+                message = '<i class="fas fa-book"></i> <strong>CONTINUE ESTUDANDO!</strong> A história de Neemias é rica em lições. Releia o capítulo 4 e entenda como Deus age através da oração e do propósito.';
                 trophyIcon.className = 'fas fa-book';
-                animationType = 'study';
             }
             
             messageElement.innerHTML = message;
             
-            // Adicionar animação de entrada aos elementos
-            const resultElements = document.querySelectorAll('#results > *');
-            resultElements.forEach((element, index) => {
-                element.classList.add('fade-in');
-                element.style.animationDelay = `${index * 0.2}s`;
-            });
-            
-            // Rolagem suave para os resultados
-            setTimeout(() => {
-                document.getElementById('results').scrollIntoView({ behavior: 'smooth' });
-            }, 500);
+            saveRanking(score);
+            updateRankingDisplay();
         }
 
+        // =============================================
+        // RANKING (adaptado para Lição 4)
+        // =============================================
+        function saveRanking(score) {
+            let ranking = JSON.parse(localStorage.getItem('quizRankingL04')) || [];
+            ranking.push({ score: score, date: new Date().toLocaleDateString() });
+            ranking.sort((a, b) => b.score - a.score);
+            ranking = ranking.slice(0, 5);
+            localStorage.setItem('quizRankingL04', JSON.stringify(ranking));
+        }
+
+        function updateRankingDisplay() {
+            let ranking = JSON.parse(localStorage.getItem('quizRankingL04')) || [];
+            let html = '';
+            ranking.forEach((item, i) => {
+                html += `<li class="ranking-item"><span>${i+1}. ${item.score} pontos</span> <span>${item.date}</span></li>`;
+            });
+            document.getElementById('ranking-list').innerHTML = html || '<li>Nenhuma pontuação ainda.</li>';
+        }
+
+        // =============================================
+        // COMPARTILHAMENTO
+        // =============================================
+        function shareWhatsApp() {
+            let score = document.getElementById('score').innerText;
+            let text = `Fiz ${score} no Quiz da EBD Fiel (Lição 3 - Lidando com vozes contrárias)! Venha testar seus conhecimentos também! Acesse: ${window.location.href}`;
+            window.open(`https://wa.me/?text=${encodeURIComponent(text)}`, '_blank');
+        }
+
+        function exportPDF() {
+            const { jsPDF } = window.jspdf;
+            const doc = new jsPDF();
+            doc.text('Resultado do Quiz - Lição 4: O poder das palavras: pedras que edificam e não ferem', 10, 10);
+            doc.text(`Pontuação: ${document.getElementById('score').innerText}`, 10, 20);
+            doc.text(document.getElementById('message').innerText.replace(/<[^>]*>/g, ''), 10, 30);
+            doc.save('resultado_licao1.pdf');
+        }
+
+        // =============================================
+        // REVISÃO
+        // =============================================
+        function toggleReview() {
+            let container = document.getElementById('review-container');
+            if (container.style.display === 'none') {
+                let html = '<h3>Revisão das respostas</h3>';
+                shuffledQuestions.forEach((q, i) => {
+                    let userAns = userAnswers[i];
+                    let isCorrect = userAns === q.correct;
+                    html += `<div class="review-item ${isCorrect ? 'correct' : 'incorrect'}">`;
+                    html += `<div class="review-question"><strong>${i+1}. ${q.question}</strong></div>`;
+                    html += `<div class="review-answer">Sua resposta: ${q.options[userAns] || 'N/A'} - ${isCorrect ? '✅' : '❌'}</div>`;
+                    html += `<div class="review-explanation">${q.explanation}</div>`;
+                    html += `</div>`;
+                });
+                container.innerHTML = html;
+                container.style.display = 'block';
+            } else {
+                container.style.display = 'none';
+            }
+        }
+
+        // =============================================
+        // TEMA E SOM
+        // =============================================
+        function toggleTheme() {
+            document.body.classList.toggle('dark-mode');
+            const icon = document.querySelector('#theme-toggle i');
+            icon.className = document.body.classList.contains('dark-mode') ? 'fas fa-sun' : 'fas fa-moon';
+        }
+
+        function toggleSound() {
+            soundEnabled = !soundEnabled;
+            const icon = document.querySelector('#sound-toggle i');
+            icon.className = soundEnabled ? 'fas fa-volume-up' : 'fas fa-volume-mute';
+        }
+
+        // =============================================
+        // REINICIAR
+        // =============================================
         function restartQuiz() {
-            // Resetar variáveis
             currentQuestionIndex = 0;
-            userAnswers = new Array(allQuestions.length).fill(null);
+            userAnswers = [];
             quizStarted = false;
             
-            // Esconder resultados e confetes
+            shuffledOptionsState = [];
+            shuffledQuestions = shuffleArray([...allQuestions]);
+            userAnswers = new Array(shuffledQuestions.length).fill(null);
+            
             document.getElementById('results').style.display = 'none';
             document.getElementById('confetti-container').classList.remove('active');
             document.getElementById('confetti-container').innerHTML = '';
             
-            // Mostrar página inicial
             document.querySelector('.modern-header').style.display = 'block';
             document.querySelector('.content-section').style.display = 'flex';
+            document.getElementById('instructions-screen').style.display = 'none';
+            document.getElementById('quiz-section').style.display = 'none';
             
-            // Rolagem para o topo
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
     </script>
