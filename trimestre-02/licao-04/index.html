@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -1632,22 +1631,31 @@
     document.getElementById("share-initial-btn").addEventListener("click", shareInitial);
 
     nextBtn.addEventListener("click", () => {
-      if (currentQuestion < quizData.length - 1) {
-        currentQuestion++;
-        renderQuestion();
-        window.scrollTo({ top: 0, behavior: "smooth" });
-      } else {
-        showResults();
-      }
+  if (currentQuestion < quizData.length - 1) {
+    currentQuestion++;
+    renderQuestion();
+
+    document.getElementById("quiz-section").scrollIntoView({
+      behavior: "smooth",
+      block: "start"
     });
 
+  } else {
+    showResults();
+  }
+});
+
     prevBtn.addEventListener("click", () => {
-      if (currentQuestion > 0) {
-        currentQuestion--;
-        renderQuestion();
-        window.scrollTo({ top: 0, behavior: "smooth" });
-      }
+  if (currentQuestion > 0) {
+    currentQuestion--;
+    renderQuestion();
+
+    document.getElementById("quiz-section").scrollIntoView({
+      behavior: "smooth",
+      block: "start"
     });
+  }
+});
 
     document.getElementById("restart-btn").addEventListener("click", () => {
       resultsSection.style.display = "none";
