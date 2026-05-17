@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -9,7 +7,7 @@
 
   <meta property="og:title" content="Quiz da EBD Fiel - Lição 7: Unidade" />
   <meta property="og:description" content="Teste seus conhecimentos sobre a Lição 7: Unidade: a receita que nos faz vencer as adversidades da vida." />
-  <meta property="og:image" content="https://i.ibb.co/9mLXgx7k/logo.png" />
+  <meta property="og:image" content="https://i.imgur.com/Pe9xoPg.png" />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="EBD Fiel" />
   <meta property="og:locale" content="pt_BR" />
@@ -17,7 +15,7 @@
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Quiz da EBD Fiel - Lição 7" />
   <meta name="twitter:description" content="Unidade: a receita que nos faz vencer as adversidades da vida." />
-  <meta name="twitter:image" content="https://i.ibb.co/9mLXgx7k/logo.png" />
+  <meta name="twitter:image" content="https://i.imgur.com/Pe9xoPg.png" />
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
@@ -926,6 +924,167 @@
         flex-direction: column;
       }
     }
+
+    /* ===== Atualização visual leve - Classe Adultos ===== */
+    .modern-header {
+      background:
+        linear-gradient(180deg, rgba(56, 30, 18, 0.78), rgba(8, 24, 39, 0.88)),
+        radial-gradient(circle at 50% 0%, rgba(209, 145, 56, 0.20), transparent 45%);
+    }
+
+    .logo-top img {
+      background: rgba(255, 246, 225, 0.92);
+      padding: 10px;
+      border: 2px solid rgba(255, 179, 71, 0.55);
+      box-shadow:
+        0 16px 34px rgba(0,0,0,0.34),
+        0 0 0 7px rgba(255,179,71,0.08),
+        inset 0 0 0 1px rgba(255,255,255,0.38);
+    }
+
+    .quiz-badge {
+      background: linear-gradient(135deg, #d9a441, #8f4b22);
+      color: #fff8e8;
+      text-shadow: 0 2px 6px rgba(0,0,0,0.25);
+      box-shadow: 0 14px 30px rgba(143,75,34,0.30);
+    }
+
+    .trimestre-badge {
+      background: rgba(111, 70, 38, 0.72);
+      border-color: rgba(255, 179, 71, 0.30);
+    }
+
+    .licao-circle {
+      background:
+        radial-gradient(circle at 50% 20%, rgba(255,179,71,0.18), transparent 55%),
+        rgba(0,0,0,0.30);
+    }
+
+    .titulo-licao {
+      border-color: rgba(255, 179, 71, 0.24);
+      background: linear-gradient(180deg, rgba(0,0,0,0.28), rgba(58,32,18,0.22));
+    }
+
+    .resumo-card,
+    .about-card,
+    .details-card,
+    .question,
+    .performance-item,
+    .message {
+      background: linear-gradient(180deg, rgba(49, 31, 20, 0.62), rgba(3, 20, 38, 0.72));
+      border-color: rgba(255, 179, 71, 0.16);
+    }
+
+    .feature {
+      background: rgba(88, 55, 31, 0.32);
+      border-color: rgba(255, 179, 71, 0.18);
+    }
+
+    .start-btn,
+    .navigation .btn-next {
+      background: linear-gradient(135deg, #d9a441, #ff8c00);
+      color: #13243a;
+    }
+
+    .floating-btn:hover {
+      background: #d9a441;
+    }
+
+
+    /* ===== Logo em banner no topo - estilo Classe Jovens ===== */
+    .header-grid {
+      grid-template-columns: 1fr 150px;
+      align-items: center;
+      gap: 22px;
+    }
+
+    .logo-top {
+      grid-column: 1 / -1;
+      width: 100%;
+      justify-content: stretch;
+      align-items: stretch;
+      margin-bottom: 8px;
+    }
+
+    .logo-top img {
+      width: 100%;
+      height: auto;
+      max-width: 100%;
+      max-height: none;
+      aspect-ratio: 16 / 7;
+      object-fit: cover;
+      object-position: center;
+      border-radius: 28px;
+      padding: 0;
+      background: transparent;
+      border: 1px solid rgba(255, 179, 71, 0.38);
+      box-shadow:
+        0 20px 46px rgba(0,0,0,0.36),
+        0 0 0 6px rgba(255,179,71,0.07);
+    }
+
+    .center-brand {
+      grid-column: 1 / 2;
+      align-items: flex-start;
+      text-align: left;
+    }
+
+    .licao-circle {
+      grid-column: 2 / 3;
+      justify-self: center;
+    }
+
+    .classe-img {
+      display: none;
+    }
+
+    .quiz-badge {
+      margin-top: 4px;
+    }
+
+    .trimestre-badge {
+      align-self: flex-start;
+    }
+
+    @media (max-width: 820px) {
+      .header-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .logo-top {
+        grid-column: 1;
+      }
+
+      .logo-top img {
+        aspect-ratio: 16 / 9;
+        border-radius: 22px;
+      }
+
+      .center-brand {
+        grid-column: 1;
+        align-items: center;
+        text-align: center;
+      }
+
+      .licao-circle {
+        grid-column: 1;
+      }
+
+      .trimestre-badge {
+        align-self: center;
+      }
+    }
+
+
+    /* ===== Remover botão/badge QUIZ abaixo do banner ===== */
+    .quiz-badge {
+      display: none !important;
+    }
+
+    .center-brand {
+      gap: 8px;
+    }
+
   </style>
 </head>
 
@@ -957,7 +1116,7 @@
       <div class="header-content">
         <div class="header-grid">
           <div class="logo-top">
-            <img src="https://i.ibb.co/9mLXgx7k/logo.png" alt="Logo EBD Fiel" />
+            <img src="https://i.imgur.com/Pe9xoPg.png" alt="Logo EBD Fiel Adultos" />
           </div>
 
           <div class="center-brand">
