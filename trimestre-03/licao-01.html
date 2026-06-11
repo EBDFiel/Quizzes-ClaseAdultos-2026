@@ -3,59 +3,66 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-  <title>Quiz EBD Fiel | 3º Trimestre | Lição 1 - Provérbios</title>
+  <title>EBD Fiel | Provérbios | Lição 1 - A Sabedoria que Começa com o Temor do Senhor</title>
 
-  <meta property="og:title" content="Quiz EBD Fiel - Lição 1: A Sabedoria que Começa com o Temor do Senhor" />
-  <meta property="og:description" content="Teste seus conhecimentos sobre a Lição 1: A Sabedoria que Começa com o Temor do Senhor - Livro de Provérbios." />
+  <meta property="og:title" content="EBD Fiel - Provérbios: Lição 1 - A Sabedoria que Começa com o Temor do Senhor" />
+  <meta property="og:description" content="Quiz interativo sobre o livro de Provérbios - A Sabedoria que Começa com o Temor do Senhor." />
   <meta property="og:image" content="https://i.ibb.co/9mLXgx7k/logo.png" />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="EBD Fiel" />
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
 
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     :root {
-      --bg-1: #061827; --bg-2: #0b2c47; --bg-3: #123f63;
-      --card: rgba(3, 20, 38, 0.72); --gold: #ffb347; --gold-2: #ff8c00;
-      --white: #ffffff; --green: #28a745; --red: #dc3545; --yellow: #ffc107;
-      --blue: #00b4d8; --blue-2: #0077b6;
+      --bg-1: #0f172a;
+      --bg-2: #1e1b4b;
+      --bg-3: #2d1b69;
+      --card: rgba(30, 27, 75, 0.72);
+      --gold: #fbbf24;
+      --gold-dark: #d97706;
+      --white: #ffffff;
+      --green: #10b981;
+      --red: #ef4444;
+      --yellow: #f59e0b;
+      --blue: #3b82f6;
     }
     body {
       font-family: "Inter", sans-serif;
       min-height: 100vh;
-      background: radial-gradient(circle at top left, rgba(0, 180, 216, 0.16), transparent 32%),
-                  linear-gradient(135deg, var(--bg-1) 0%, var(--bg-2) 48%, var(--bg-3) 100%);
+      background: radial-gradient(circle at 10% 20%, rgba(251, 191, 36, 0.12), transparent 50%),
+                  linear-gradient(135deg, var(--bg-1) 0%, var(--bg-2) 50%, var(--bg-3) 100%);
       color: var(--white);
       padding: 14px;
       display: flex;
       justify-content: center;
       align-items: flex-start;
     }
-    #particles { position: fixed; inset: 0; pointer-events: none; z-index: 0; opacity: 0.45; }
+    #particles { position: fixed; inset: 0; pointer-events: none; z-index: 0; opacity: 0.35; }
     .container {
       position: relative; z-index: 2; width: min(940px, 100%); margin: 10px auto 30px;
-      border-radius: 32px; overflow: hidden; border: 1px solid rgba(255,255,255,0.12);
-      background: rgba(255,255,255,0.045); backdrop-filter: blur(16px);
-      box-shadow: 0 24px 60px rgba(0,0,0,0.32);
+      border-radius: 32px; overflow: hidden; border: 1px solid rgba(251,191,36,0.3);
+      background: rgba(15, 23, 42, 0.65); backdrop-filter: blur(16px);
+      box-shadow: 0 24px 60px rgba(0,0,0,0.4), 0 0 0 1px rgba(251,191,36,0.15);
     }
     .floating-buttons { position: fixed; right: 18px; top: 18px; z-index: 1000; display: flex; gap: 10px; }
-    .floating-btn { width: 44px; height: 44px; border-radius: 50%; border: 1px solid rgba(255,255,255,0.18);
-      background: rgba(0,0,0,0.28); color: white; cursor: pointer; display: grid; place-items: center;
-      transition: 0.25s ease; }
-    .floating-btn:hover { background: var(--gold); color: #102238; transform: translateY(-2px); }
+    .floating-btn { width: 44px; height: 44px; border-radius: 50%; border: 1px solid rgba(251,191,36,0.3);
+      background: rgba(0,0,0,0.5); color: var(--gold); cursor: pointer; display: grid; place-items: center;
+      transition: 0.25s ease; backdrop-filter: blur(8px); }
+    .floating-btn:hover { background: var(--gold); color: #0f172a; transform: translateY(-2px); border-color: transparent; }
     .modern-header {
       position: relative; overflow: hidden; text-align: center; padding: 34px 30px 26px;
-      background: linear-gradient(180deg, rgba(13, 55, 91, 0.88), rgba(5, 23, 43, 0.82)),
-                  radial-gradient(circle at 50% 0%, rgba(255, 179, 71, 0.10), transparent 42%);
-      border-bottom: 1px solid rgba(255,255,255,0.12);
+      background: linear-gradient(180deg, rgba(15, 23, 42, 0.95), rgba(30, 27, 75, 0.85)),
+                  radial-gradient(circle at 50% 0%, rgba(251, 191, 36, 0.15), transparent 60%);
+      border-bottom: 2px solid rgba(251,191,36,0.3);
     }
     .header-bg {
-      position: absolute; inset: 0; opacity: 0.13;
-      background-image: radial-gradient(circle at 20% 30%, rgba(255,255,255,0.55) 1.5px, transparent 1.5px),
-                        radial-gradient(circle at 80% 70%, rgba(255,255,255,0.45) 1.5px, transparent 1.5px);
-      background-size: 48px 48px;
+      position: absolute; inset: 0; opacity: 0.08;
+      background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><text x="10" y="30" font-size="14" fill="white">📖</text><text x="60" y="70" font-size="18" fill="white">👑</text><text x="30" y="90" font-size="12" fill="white">🕯️</text></svg>');
+      background-repeat: repeat;
+      background-size: 40px;
     }
     .header-content { position: relative; z-index: 2; }
     .header-grid {
@@ -64,129 +71,128 @@
     .logo-top { display: flex; justify-content: center; align-items: center; }
     .logo-top img {
       width: 112px; height: 112px; object-fit: contain; border-radius: 50%; padding: 8px;
-      background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22);
-      box-shadow: 0 12px 28px rgba(0,0,0,0.28), inset 0 0 0 1px rgba(255,255,255,0.10);
+      background: rgba(0,0,0,0.4); border: 2px solid var(--gold);
+      box-shadow: 0 12px 28px rgba(0,0,0,0.4), inset 0 0 0 1px rgba(251,191,36,0.3);
     }
     .center-brand { display: flex; flex-direction: column; align-items: center; gap: 13px; min-width: 0; }
     .quiz-badge {
-      background: linear-gradient(135deg, var(--gold), var(--gold-2)); color: #102238;
+      background: linear-gradient(135deg, var(--gold), var(--gold-dark)); color: #0f172a;
       font-size: 1.48rem; font-weight: 950; letter-spacing: 3px; padding: 9px 30px;
       border-radius: 999px; display: inline-flex; align-items: center; gap: 10px;
-      box-shadow: 0 12px 28px rgba(255,140,0,0.34); text-transform: uppercase;
+      box-shadow: 0 12px 28px rgba(251,191,36,0.4); text-transform: uppercase;
     }
-    .classe-img { max-width: 285px; width: 100%; height: auto; filter: drop-shadow(0 8px 18px rgba(0,0,0,0.52)); }
+    .classe-img { max-width: 285px; width: 100%; height: auto; filter: drop-shadow(0 8px 18px rgba(0,0,0,0.5)); }
     .trimestre-badge {
-      display: inline-flex; align-items: center; justify-content: center; color: rgba(255,255,255,0.95);
-      background: rgba(42, 108, 165, 0.72); border: 1px solid rgba(255,255,255,0.16);
-      padding: 7px 19px; border-radius: 999px; font-weight: 700;
+      display: inline-flex; align-items: center; justify-content: center; color: var(--gold);
+      background: rgba(251,191,36,0.12); border: 1px solid rgba(251,191,36,0.4);
+      padding: 7px 19px; border-radius: 999px; font-weight: 700; font-family: 'Playfair Display', serif;
     }
     .licao-circle {
-      width: 132px; height: 132px; border-radius: 50%; border: 1px solid rgba(255,179,71,0.82);
-      background: rgba(0,0,0,0.24); display: flex; flex-direction: column; align-items: center;
-      justify-content: center; box-shadow: 0 16px 34px rgba(0,0,0,0.26);
+      width: 132px; height: 132px; border-radius: 50%; border: 2px solid var(--gold);
+      background: rgba(0,0,0,0.4); display: flex; flex-direction: column; align-items: center;
+      justify-content: center; box-shadow: 0 16px 34px rgba(0,0,0,0.4);
     }
     .licao-circle span { color: var(--gold); font-size: 0.95rem; font-weight: 900; text-transform: uppercase; }
-    .licao-circle strong { color: var(--gold); font-size: 3.9rem; line-height: 1; font-weight: 950; }
+    .licao-circle strong { color: var(--gold); font-size: 3.9rem; line-height: 1; font-weight: 950; text-shadow: 0 0 15px rgba(251,191,36,0.3); }
     .form-card {
-      max-width: 600px; margin: 20px auto 0; background: rgba(0,0,0,0.35);
-      border: 1px solid rgba(255,179,71,0.3); border-radius: 24px; padding: 22px 28px;
+      max-width: 600px; margin: 20px auto 0; background: rgba(0,0,0,0.5);
+      border: 1px solid rgba(251,191,36,0.4); border-radius: 24px; padding: 22px 28px;
       text-align: left; backdrop-filter: blur(8px);
     }
-    .form-card h3 { color: var(--gold); font-size: 1.2rem; margin-bottom: 18px; display: flex; align-items: center; gap: 10px; border-bottom: 1px solid rgba(255,255,255,0.15); padding-bottom: 10px; }
+    .form-card h3 { color: var(--gold); font-size: 1.2rem; margin-bottom: 18px; display: flex; align-items: center; gap: 10px; border-bottom: 1px solid rgba(251,191,36,0.3); padding-bottom: 10px; }
     .form-group { margin-bottom: 16px; }
     .form-group label { display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 6px; color: rgba(255,255,255,0.85); }
     .form-group label i { color: var(--gold); margin-right: 6px; }
-    .form-group input, .form-group select { width: 100%; padding: 12px 14px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.2); background: rgba(0,0,0,0.4); color: white; font-size: 1rem; transition: all 0.2s ease; }
-    .form-group input:focus, .form-group select:focus { outline: none; border-color: var(--gold); background: rgba(0,0,0,0.6); box-shadow: 0 0 0 2px rgba(255,179,71,0.2); }
-    .form-group input::placeholder { color: rgba(255,255,255,0.4); }
-    .form-group select option { background: #0b2c47; color: white; }
+    .form-group input, .form-group select { width: 100%; padding: 12px 14px; border-radius: 12px; border: 1px solid rgba(251,191,36,0.3); background: rgba(0,0,0,0.5); color: white; font-size: 1rem; transition: all 0.2s ease; }
+    .form-group input:focus, .form-group select:focus { outline: none; border-color: var(--gold); background: rgba(0,0,0,0.7); box-shadow: 0 0 0 2px rgba(251,191,36,0.2); }
     .btn-iniciar-form {
-      background: linear-gradient(135deg, var(--gold), var(--gold-2)); color: #13243a; border: none;
+      background: linear-gradient(135deg, var(--gold), var(--gold-dark)); color: #0f172a; border: none;
       width: 100%; padding: 14px; border-radius: 999px; font-weight: 800; font-size: 1rem;
       cursor: pointer; margin-top: 12px; transition: 0.2s ease; display: flex;
       align-items: center; justify-content: center; gap: 10px;
     }
-    .btn-iniciar-form:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(255,140,0,0.3); }
-    .titulo-licao { margin: 14px auto 22px; max-width: 850px; padding: 18px 24px; border-radius: 22px; background: rgba(0,0,0,0.22); border: 1px solid rgba(255,255,255,0.12); color: white; font-size: clamp(1.45rem, 3.4vw, 2.2rem); line-height: 1.22; font-weight: 950; text-transform: uppercase; letter-spacing: -0.8px; text-shadow: 0 2px 12px rgba(0,0,0,0.25); }
+    .btn-iniciar-form:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(251,191,36,0.5); }
+    .titulo-licao { margin: 14px auto 22px; max-width: 850px; padding: 18px 24px; border-radius: 22px; background: rgba(0,0,0,0.35); border: 1px solid rgba(251,191,36,0.3); color: white; font-size: clamp(1.45rem, 3.4vw, 2.2rem); line-height: 1.22; font-weight: 950; text-transform: uppercase; letter-spacing: -0.8px; font-family: 'Playfair Display', serif; }
     .titulo-licao span { color: var(--gold); display: inline; }
-    .resumo-card { max-width: 850px; margin: 0 auto; text-align: left; padding: 24px 26px; border-radius: 25px; background: rgba(8, 45, 87, 0.56); border: 1px solid rgba(255, 179, 71, 0.26); box-shadow: 0 12px 30px rgba(0,0,0,0.22); }
+    .resumo-card { max-width: 850px; margin: 0 auto; text-align: left; padding: 24px 26px; border-radius: 25px; background: rgba(251,191,36,0.08); border: 1px solid rgba(251,191,36,0.35); box-shadow: 0 12px 30px rgba(0,0,0,0.2); }
     .resumo-card h3 { color: var(--gold); font-size: 1.35rem; margin-bottom: 10px; display: flex; align-items: center; gap: 10px; line-height: 1.25; }
-    .resumo-card p { color: rgba(255,255,255,0.82); font-size: 1.02rem; }
+    .resumo-card p { color: rgba(255,255,255,0.85); font-size: 1.02rem; }
     .features { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-top: 24px; }
-    .feature { display: inline-flex; align-items: center; gap: 9px; background: rgba(0,0,0,0.20); border: 1px solid rgba(255,255,255,0.12); padding: 11px 16px; border-radius: 999px; color: rgba(255,255,255,0.82); font-weight: 600; }
+    .feature { display: inline-flex; align-items: center; gap: 9px; background: rgba(0,0,0,0.3); border: 1px solid rgba(251,191,36,0.2); padding: 11px 16px; border-radius: 999px; color: rgba(255,255,255,0.85); font-weight: 600; }
     .feature i { color: var(--gold); }
     .content-section { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; padding: 28px 24px; }
-    .about-card, .details-card { background: var(--card); border: 1px solid var(--line); border-radius: 26px; padding: 24px; box-shadow: 0 14px 30px rgba(0,0,0,0.20); }
+    .about-card, .details-card { background: rgba(0,0,0,0.4); border: 1px solid rgba(251,191,36,0.2); border-radius: 26px; padding: 24px; backdrop-filter: blur(8px); }
     .card-title { color: var(--gold); font-size: 1.32rem; margin-bottom: 15px; display: flex; align-items: center; gap: 10px; line-height: 1.25; }
-    .card-content { color: rgba(255,255,255,0.78); }
+    .card-content { color: rgba(255,255,255,0.8); }
     .card-content ul { list-style: none; display: grid; gap: 12px; margin-top: 14px; }
     .card-content li { display: flex; gap: 10px; align-items: flex-start; }
     .card-content li i { color: var(--gold); margin-top: 4px; flex-shrink: 0; }
     .highlight { color: var(--gold); font-weight: 800; }
     .cta-section { grid-column: 1 / -1; display: flex; justify-content: center; gap: 14px; flex-wrap: wrap; margin-top: 4px; }
     .share-initial-btn {
-      border: 0; cursor: pointer; color: white; font-weight: 800; border-radius: 999px;
+      border: 0; cursor: pointer; color: #0f172a; font-weight: 800; border-radius: 999px;
       padding: 15px 26px; display: inline-flex; align-items: center; justify-content: center;
       gap: 10px; transition: 0.25s ease; min-width: 230px; font-size: 1rem;
-      background: linear-gradient(135deg, #25D366, #128C7E); box-shadow: 0 12px 25px rgba(37,211,102,0.22);
+      background: linear-gradient(135deg, #25D366, #128C7E); box-shadow: 0 12px 25px rgba(37,211,102,0.3);
+      color: white;
     }
     .share-initial-btn:hover { transform: translateY(-3px); }
     .quiz-section { display: none; padding: 28px 24px; }
     .progress-container { margin-bottom: 22px; }
     .progress-header { display: flex; justify-content: space-between; gap: 14px; margin-bottom: 10px; color: var(--gold); font-weight: 800; }
-    .progress-bar { height: 9px; background: rgba(255,255,255,0.10); border-radius: 999px; overflow: hidden; }
-    .progress { height: 100%; width: 0; background: linear-gradient(90deg, var(--gold), var(--gold-2)); border-radius: inherit; transition: width 0.35s ease; }
-    .question { background: var(--card); border: 1px solid var(--line); border-left: 6px solid var(--gold); border-radius: 28px; padding: 24px; margin-bottom: 22px; box-shadow: 0 14px 30px rgba(0,0,0,0.20); }
+    .progress-bar { height: 9px; background: rgba(255,255,255,0.1); border-radius: 999px; overflow: hidden; }
+    .progress { height: 100%; width: 0; background: linear-gradient(90deg, var(--gold), var(--gold-dark)); border-radius: inherit; transition: width 0.35s ease; }
+    .question { background: rgba(0,0,0,0.45); border: 1px solid rgba(251,191,36,0.3); border-left: 6px solid var(--gold); border-radius: 28px; padding: 24px; margin-bottom: 22px; backdrop-filter: blur(8px); }
     .question-header { display: flex; justify-content: space-between; align-items: center; gap: 12px; margin-bottom: 14px; }
     .question-difficulty { padding: 7px 14px; border-radius: 999px; font-weight: 900; font-size: 0.82rem; }
     .difficulty-easy { background: var(--green); color: white; }
-    .difficulty-medium { background: var(--yellow); color: #102238; }
+    .difficulty-medium { background: var(--yellow); color: #0f172a; }
     .difficulty-hard { background: var(--red); color: white; }
     .tip-icon { color: var(--gold); cursor: pointer; font-size: 1.2rem; }
-    .tip-text { display: none; background: rgba(0,0,0,0.24); border-left: 3px solid var(--gold); border-radius: 14px; padding: 12px 14px; color: rgba(255,255,255,0.78); margin-bottom: 14px; }
-    .question-text { font-size: 1.28rem; font-weight: 850; line-height: 1.35; margin-bottom: 18px; }
+    .tip-text { display: none; background: rgba(0,0,0,0.5); border-left: 3px solid var(--gold); border-radius: 14px; padding: 12px 14px; color: rgba(255,255,255,0.8); margin-bottom: 14px; }
+    .question-text { font-size: 1.28rem; font-weight: 800; line-height: 1.35; margin-bottom: 18px; font-family: 'Playfair Display', serif; }
     .options { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
-    .option { position: relative; cursor: pointer; padding: 16px; border-radius: 18px; background: rgba(0,0,0,0.22); border: 1px solid rgba(255,255,255,0.13); color: rgba(255,255,255,0.90); display: flex; align-items: center; gap: 12px; min-height: 74px; transition: 0.22s ease; }
-    .option:hover { border-color: var(--gold); transform: translateY(-2px); box-shadow: 0 10px 20px rgba(255,179,71,0.13); }
-    .option-letter { width: 34px; height: 34px; border-radius: 50%; background: rgba(255,179,71,0.18); color: var(--gold); display: inline-flex; justify-content: center; align-items: center; font-weight: 950; flex-shrink: 0; }
+    .option { position: relative; cursor: pointer; padding: 16px; border-radius: 18px; background: rgba(0,0,0,0.4); border: 1px solid rgba(251,191,36,0.2); color: rgba(255,255,255,0.9); display: flex; align-items: center; gap: 12px; min-height: 74px; transition: 0.22s ease; }
+    .option:hover { border-color: var(--gold); transform: translateY(-2px); box-shadow: 0 10px 20px rgba(251,191,36,0.15); }
+    .option-letter { width: 34px; height: 34px; border-radius: 50%; background: rgba(251,191,36,0.2); color: var(--gold); display: inline-flex; justify-content: center; align-items: center; font-weight: 950; flex-shrink: 0; }
     .feedback-icon { margin-left: auto; opacity: 0; font-size: 1.1rem; flex-shrink: 0; }
-    .option.selected.correct, .option.correct-answer { background: rgba(40, 167, 69, 0.90); border-color: rgba(40, 167, 69, 1); color: white; }
-    .option.selected.incorrect { background: rgba(220, 53, 69, 0.90); border-color: rgba(220, 53, 69, 1); color: white; }
+    .option.selected.correct, .option.correct-answer { background: rgba(16, 185, 129, 0.9); border-color: var(--green); color: white; }
+    .option.selected.incorrect { background: rgba(239, 68, 68, 0.9); border-color: var(--red); color: white; }
     .option.selected .option-letter, .option.correct-answer .option-letter { background: rgba(255,255,255,0.25); color: white; }
     .option.selected .feedback-icon, .option.correct-answer .feedback-icon { opacity: 1; }
-    .feedback-curiosity { margin-top: 18px; background: rgba(0,0,0,0.22); border-left: 3px solid var(--gold); border-radius: 16px; padding: 14px; color: rgba(255,255,255,0.78); }
+    .feedback-curiosity { margin-top: 18px; background: rgba(0,0,0,0.4); border-left: 3px solid var(--gold); border-radius: 16px; padding: 14px; color: rgba(255,255,255,0.8); }
     .navigation { display: flex; gap: 14px; justify-content: space-between; }
-    .navigation button, .results button { border: 0; border-radius: 999px; padding: 14px 22px; cursor: pointer; color: white; font-weight: 850; background: linear-gradient(135deg, var(--blue), var(--blue-2)); box-shadow: 0 10px 22px rgba(0,180,216,0.22); display: inline-flex; justify-content: center; align-items: center; gap: 9px; min-width: 160px; transition: 0.22s ease; }
-    .navigation .btn-next { background: linear-gradient(135deg, var(--gold), var(--gold-2)); color: #13243a; }
-    button:disabled { opacity: 0.45; cursor: not-allowed; transform: none !important; }
+    .navigation button, .results button { border: 0; border-radius: 999px; padding: 14px 22px; cursor: pointer; color: #0f172a; font-weight: 850; background: linear-gradient(135deg, var(--gold), var(--gold-dark)); display: inline-flex; justify-content: center; align-items: center; gap: 9px; min-width: 160px; transition: 0.22s ease; }
+    .navigation .btn-next { background: linear-gradient(135deg, var(--gold), var(--gold-dark)); }
+    .navigation button:disabled { opacity: 0.5; cursor: not-allowed; transform: none !important; }
     .results { display: none; padding: 38px 24px; text-align: center; }
     .results-header h2 { font-size: clamp(1.7rem, 4vw, 2.5rem); margin-bottom: 10px; }
-    .score { font-size: 4.2rem; font-weight: 950; color: var(--gold); line-height: 1; margin: 18px 0 8px; text-shadow: 0 6px 20px rgba(255,140,0,0.18); }
-    .message { max-width: 760px; margin: 24px auto; background: var(--card); border: 1px solid var(--line); border-radius: 24px; padding: 22px; color: rgba(255,255,255,0.82); }
+    .score { font-size: 4.2rem; font-weight: 950; color: var(--gold); line-height: 1; margin: 18px 0 8px; text-shadow: 0 6px 20px rgba(251,191,36,0.3); }
+    .message { max-width: 760px; margin: 24px auto; background: rgba(0,0,0,0.4); border: 1px solid rgba(251,191,36,0.2); border-radius: 24px; padding: 22px; color: rgba(255,255,255,0.85); }
     .performance { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; max-width: 760px; margin: 26px auto; }
-    .performance-item { background: var(--card); border: 1px solid var(--line); border-radius: 22px; padding: 20px; }
+    .performance-item { background: rgba(0,0,0,0.4); border: 1px solid rgba(251,191,36,0.2); border-radius: 22px; padding: 20px; }
     .performance-value { font-size: 2.2rem; font-weight: 950; margin-top: 6px; }
     .performance-easy { color: var(--green); }
     .performance-medium { color: var(--yellow); }
     .performance-hard { color: var(--red); }
     .action-buttons { display: flex; justify-content: center; flex-wrap: wrap; gap: 12px; margin: 20px 0; }
-    #review-container { display: none; max-width: 820px; margin: 20px auto; text-align: left; background: rgba(0,0,0,0.20); border: 1px solid rgba(255,255,255,0.12); border-radius: 22px; padding: 16px; max-height: 430px; overflow: auto; }
+    #review-container { display: none; max-width: 820px; margin: 20px auto; text-align: left; background: rgba(0,0,0,0.4); border: 1px solid rgba(251,191,36,0.2); border-radius: 22px; padding: 16px; max-height: 430px; overflow: auto; }
     .review-item { border-left: 5px solid; padding: 14px; border-radius: 14px; margin-bottom: 10px; background: rgba(255,255,255,0.05); }
     .review-item.correct { border-color: var(--green); }
     .review-item.incorrect { border-color: var(--red); }
     .review-question { font-weight: 850; margin-bottom: 6px; }
-    .review-answer, .review-explanation { color: rgba(255,255,255,0.72); font-size: 0.95rem; }
-    .church-info { padding: 24px; text-align: center; background: rgba(0,0,0,0.22); border-top: 1px solid rgba(255,255,255,0.12); }
+    .review-answer, .review-explanation { color: rgba(255,255,255,0.7); font-size: 0.95rem; }
+    .church-info { padding: 24px; text-align: center; background: rgba(0,0,0,0.3); border-top: 1px solid rgba(251,191,36,0.2); }
     .church-name { color: var(--gold); font-size: 1.35rem; font-weight: 950; margin-bottom: 4px; }
-    .church-location { color: rgba(255,255,255,0.62); margin-bottom: 16px; }
+    .church-location { color: rgba(255,255,255,0.6); margin-bottom: 16px; }
     .instagram-section { display: flex; justify-content: center; align-items: center; gap: 14px; flex-wrap: wrap; }
-    .instagram-link { color: white; text-decoration: none; font-weight: 850; display: inline-flex; align-items: center; gap: 9px; background: linear-gradient(45deg, #405DE6, #833AB4, #E1306C, #FD1D1D); padding: 11px 20px; border-radius: 999px; box-shadow: 0 10px 22px rgba(225,48,108,0.22); }
-    .quiz-start-animation { position: fixed; inset: 0; z-index: 9999; display: none; background: linear-gradient(135deg, #061827, #123f63); color: white; justify-content: center; align-items: center; flex-direction: column; text-align: center; padding: 22px; }
+    .instagram-link { color: white; text-decoration: none; font-weight: 850; display: inline-flex; align-items: center; gap: 9px; background: linear-gradient(45deg, #405DE6, #833AB4, #E1306C, #FD1D1D); padding: 11px 20px; border-radius: 999px; box-shadow: 0 10px 22px rgba(225,48,108,0.3); }
+    .quiz-start-animation { position: fixed; inset: 0; z-index: 9999; display: none; background: linear-gradient(135deg, #0f172a, #2d1b69); color: white; justify-content: center; align-items: center; flex-direction: column; text-align: center; padding: 22px; }
     .quiz-start-animation.active { display: flex; }
     .animation-icon { color: var(--gold); font-size: 4.2rem; animation: bounce 1s infinite; margin-bottom: 12px; }
-    .animation-text { font-size: clamp(1.6rem, 6vw, 2.7rem); font-weight: 950; }
-    .animation-subtext { color: rgba(255,255,255,0.78); font-size: 1.1rem; margin-top: 5px; }
-    .countdown { margin-top: 22px; color: var(--gold); font-size: 3rem; font-weight: 950; width: 86px; height: 86px; border-radius: 50%; border: 3px solid rgba(255,255,255,0.22); background: rgba(255,255,255,0.08); display: grid; place-items: center; animation: pulse 1s infinite; }
+    .animation-text { font-size: clamp(1.6rem, 6vw, 2.7rem); font-weight: 950; font-family: 'Playfair Display', serif; }
+    .animation-subtext { color: rgba(255,255,255,0.8); font-size: 1.1rem; margin-top: 5px; }
+    .countdown { margin-top: 22px; color: var(--gold); font-size: 3rem; font-weight: 950; width: 86px; height: 86px; border-radius: 50%; border: 3px solid rgba(251,191,36,0.4); background: rgba(0,0,0,0.4); display: grid; place-items: center; animation: pulse 1s infinite; }
     .confetti-container { position: fixed; inset: 0; pointer-events: none; overflow: hidden; z-index: 999; display: none; }
     .confetti-container.active { display: block; }
     .confetti { position: absolute; width: 11px; height: 11px; opacity: 0; animation: confettiRain 2.2s ease forwards; }
@@ -215,7 +221,6 @@
       .quiz-badge { font-size: 1.2rem; padding: 8px 22px; }
       .titulo-licao { padding: 15px; }
       .resumo-card { padding: 20px; }
-      .resumo-card h3 { font-size: 1.15rem; }
       .share-initial-btn { width: 100%; }
       .cta-section { flex-direction: column; }
     }
@@ -235,8 +240,8 @@
   </div>
 
   <div class="quiz-start-animation" id="quiz-start-animation">
-    <div class="animation-icon"><i class="fas fa-bolt"></i></div>
-    <div class="animation-text">QUIZ EBD FIEL</div>
+    <div class="animation-icon"><i class="fas fa-scroll"></i></div>
+    <div class="animation-text">PROVÉRBIOS</div>
     <div class="animation-subtext">Classe Adultos • 3º Trimestre • Lição 1</div>
     <div class="countdown" id="countdown">3</div>
   </div>
@@ -252,9 +257,9 @@
             <img src="https://i.ibb.co/9mLXgx7k/logo.png" alt="Logo EBD Fiel" />
           </div>
           <div class="center-brand">
-            <div class="quiz-badge"><i class="fas fa-bolt"></i> QUIZ</div>
+            <div class="quiz-badge"><i class="fas fa-scroll"></i> PROVÉRBIOS</div>
             <img src="https://i.imgur.com/5KKitzA.png" alt="Classe Adultos" class="classe-img" />
-            <div class="trimestre-badge">3º Trimestre 2026 - PROVÉRBIOS</div>
+            <div class="trimestre-badge"><i class="fas fa-calendar-alt"></i> 3º Trimestre 2026</div>
           </div>
           <div class="licao-circle">
             <span><i class="fas fa-book-open"></i> Lição</span>
@@ -284,15 +289,15 @@
             <label><i class="fas fa-map-marker-alt"></i> Estado *</label>
             <select id="aluno-estado">
               <option value="">Selecione o estado</option>
-              <option value="AC">Acre (AC)</option><option value="AL">Alagoas (AL)</option><option value="AP">Amapá (AP)</option>
-              <option value="AM">Amazonas (AM)</option><option value="BA">Bahia (BA)</option><option value="CE">Ceará (CE)</option>
-              <option value="DF">Distrito Federal (DF)</option><option value="ES">Espírito Santo (ES)</option><option value="GO">Goiás (GO)</option>
-              <option value="MA">Maranhão (MA)</option><option value="MT">Mato Grosso (MT)</option><option value="MS">Mato Grosso do Sul (MS)</option>
-              <option value="MG">Minas Gerais (MG)</option><option value="PA">Pará (PA)</option><option value="PB">Paraíba (PB)</option>
-              <option value="PR">Paraná (PR)</option><option value="PE">Pernambuco (PE)</option><option value="PI">Piauí (PI)</option>
-              <option value="RJ">Rio de Janeiro (RJ)</option><option value="RN">Rio Grande do Norte (RN)</option><option value="RS">Rio Grande do Sul (RS)</option>
-              <option value="RO">Rondônia (RO)</option><option value="RR">Roraima (RR)</option><option value="SC">Santa Catarina (SC)</option>
-              <option value="SP">São Paulo (SP)</option><option value="SE">Sergipe (SE)</option><option value="TO">Tocantins (TO)</option>
+              <option value="AC">Acre</option><option value="AL">Alagoas</option><option value="AP">Amapá</option>
+              <option value="AM">Amazonas</option><option value="BA">Bahia</option><option value="CE">Ceará</option>
+              <option value="DF">Distrito Federal</option><option value="ES">Espírito Santo</option><option value="GO">Goiás</option>
+              <option value="MA">Maranhão</option><option value="MT">Mato Grosso</option><option value="MS">Mato Grosso do Sul</option>
+              <option value="MG">Minas Gerais</option><option value="PA">Pará</option><option value="PB">Paraíba</option>
+              <option value="PR">Paraná</option><option value="PE">Pernambuco</option><option value="PI">Piauí</option>
+              <option value="RJ">Rio de Janeiro</option><option value="RN">Rio Grande do Norte</option><option value="RS">Rio Grande do Sul</option>
+              <option value="RO">Rondônia</option><option value="RR">Roraima</option><option value="SC">Santa Catarina</option>
+              <option value="SP">São Paulo</option><option value="SE">Sergipe</option><option value="TO">Tocantins</option>
             </select>
           </div>
           <button class="btn-iniciar-form" id="btn-iniciar-form"><i class="fas fa-play"></i> Iniciar Quiz</button>
@@ -304,9 +309,9 @@
         </div>
 
         <div class="features">
-          <div class="feature"><i class="fas fa-star"></i><span>15 perguntas</span></div>
+          <div class="feature"><i class="fas fa-star-of-life"></i><span>15 perguntas</span></div>
           <div class="feature"><i class="fas fa-check-circle"></i><span>Feedback imediato</span></div>
-          <div class="feature"><i class="fas fa-graduation-cap"></i><span>Baseado em Provérbios</span></div>
+          <div class="feature"><i class="fas fa-crown"></i><span>Baseado em Provérbios</span></div>
         </div>
       </div>
     </header>
@@ -315,7 +320,7 @@
       <div class="about-card">
         <h2 class="card-title"><i class="fas fa-book-open"></i> Sobre esta lição</h2>
         <div class="card-content">
-          <p>O livro de Provérbios é uma coletânea de ensinamentos sábios para o dia a dia. A lição 1 nos ensina que o <strong>temor do Senhor</strong> é o princípio fundamental para adquirir sabedoria.</p>
+          <p>O livro de Provérbios é uma coletânea de ensinamentos sábios para o dia a dia. A lição 1 nos ensina que o <strong class="highlight">temor do Senhor</strong> é o princípio fundamental para adquirir sabedoria.</p>
           <ul>
             <li><i class="fas fa-check"></i><span><span class="highlight">Texto Áureo:</span> Provérbios 1:7</span></li>
             <li><i class="fas fa-check"></i><span><span class="highlight">Tema:</span> O temor do Senhor como princípio da sabedoria</span></li>
@@ -342,7 +347,7 @@
 
     <section class="quiz-section" id="quiz-section">
       <div class="progress-container">
-        <div class="progress-header"><span id="progress-text">Pergunta 1 de 15</span><span id="score-live">0 acertos</span></div>
+        <div class="progress-header"><span id="progress-text">Pergunta 1 de 15</span><span id="score-live"><i class="fas fa-crown"></i> 0 acertos</span></div>
         <div class="progress-bar"><div class="progress" id="progress"></div></div>
       </div>
       <div id="question-container"></div>
@@ -369,7 +374,7 @@
     </section>
 
     <footer class="church-info">
-      <div class="church-name">EBD Fiel</div>
+      <div class="church-name"><i class="fas fa-church"></i> EBD Fiel</div>
       <div class="church-location">Escola Bíblica Dominical • Fiel à Palavra</div>
       <div class="instagram-section">
         <span class="instagram-text">Siga e compartilhe:</span>
@@ -385,17 +390,17 @@
       { "question": "Quem é tradicionalmente considerado o autor principal do livro de Provérbios?", "options": ["Moisés", "Davi", "Salomão", "Isaías"], "correct": 2, "difficulty": "easy", "tip": "Rei conhecido por sua sabedoria", "explanation": "Salomão, filho de Davi, é conhecido como o homem mais sábio que já existiu, e escreveu a maior parte dos provérbios." },
       { "question": "Segundo Provérbios 1:7, o que os tolos desprezam?", "options": ["A riqueza", "A sabedoria e a instrução", "A fama", "O poder"], "correct": 1, "difficulty": "easy", "tip": "Leia Provérbios 1:7 novamente", "explanation": "Os tolos desprezam a sabedoria e a instrução, enquanto os sábios a buscam." },
       { "question": "O que é 'o temor do Senhor' segundo o livro de Provérbios?", "options": ["Medo de Deus", "Respeito e reverência a Deus", "Pavor do castigo", "Ignorar a Deus"], "correct": 1, "difficulty": "medium", "tip": "Não é um medo paralisante", "explanation": "Temor do Senhor significa reverência, respeito profundo e obediência a Deus, reconhecendo Sua santidade e autoridade." },
-      { "question": "Complete: 'O temor do Senhor é o princípio da ________'", "options": ["Riqueza", "Sabedoria", "Felicidade", "Saúde"], "correct": 1, "difficulty": "easy", "tip": "Provérbios 1:7", "explanation": "O temor do Senhor é o princípio da sabedoria. A verdadeira sabedoria começa com Deus." },
-      { "question": "Em Provérbios, a sabedoria é personificada como:", "options": ["Uma mulher que clama nas ruas", "Um guerreiro", "Um rei", "Um anjo"], "correct": 0, "difficulty": "medium", "tip": "Provérbios capítulo 8", "explanation": "A sabedoria é personificada como uma mulher que clama nas ruas e praças, convidando todos a aprenderem." },
-      { "question": "Qual destes NÃO é um tema central do livro de Provérbios?", "options": ["Sabedoria", "Justiça", "Guerra", "Disciplina"], "correct": 2, "difficulty": "hard", "tip": "Provérbios fala de vida prática", "explanation": "Guerra não é um tema central de Provérbios. Os temas principais são sabedoria, justiça, disciplina, trabalho e relacionamentos." },
-      { "question": "O que a sabedoria oferece a quem a busca?", "options": ["Riquezas e fama", "Proteção e vida", "Poder e glória", "Férias e descanso"], "correct": 1, "difficulty": "medium", "tip": "Provérbios 4:6-9", "explanation": "A sabedoria oferece proteção, vida, honra e beleza àqueles que a buscam sinceramente." },
-      { "question": "Segundo Provérbios 3:5-6, o que devemos fazer para que Deus endireite nossos caminhos?", "options": ["Confiar no nosso próprio entendimento", "Confiar no Senhor de todo coração", "Seguir a multidão", "Buscar riquezas"], "correct": 1, "difficulty": "easy", "tip": "Versículo muito conhecido", "explanation": "Devemos confiar no Senhor de todo coração e não nos apoiar no nosso próprio entendimento." },
-      { "question": "O que a sabedoria divina ajuda a evitar?", "options": ["Trabalho", "Estudo", "O caminho do mal", "Família"], "correct": 2, "difficulty": "easy", "tip": "Provérbios 2:10-15", "explanation": "A sabedoria nos ajuda a evitar o caminho do mal e a companhia dos que praticam iniquidade." },
-      { "question": "Qual é a recompensa para quem ouve os conselhos da sabedoria?", "options": ["Viver em paz e segurança", "Ter muitos inimigos", "Viver na pobreza", "Ser ignorado"], "correct": 0, "difficulty": "medium", "tip": "Provérbios 1:33", "explanation": "Quem ouve a sabedoria viverá em paz, segurança e sem temor do mal." },
-      { "question": "O livro de Provérbios compara o tolo a:", "options": ["Um leão", "Uma águia", "Um cão que volta ao seu vômito", "Uma formiga"], "correct": 2, "difficulty": "hard", "tip": "Provérbios 26:11", "explanation": "O tolo é comparado a um cão que volta ao seu vômito, representando a repetição de erros." },
-      { "question": "Qual é a importância da disciplina segundo Provérbios?", "options": ["É algo opcional", "É sinal de ódio", "É uma demonstração de amor", "Não tem importância"], "correct": 2, "difficulty": "medium", "tip": "Provérbios 3:12", "explanation": "A disciplina é uma demonstração de amor do Senhor, assim como um pai disciplina o filho a quem quer bem." },
-      { "question": "O que o livro de Provérbios ensina sobre a língua/palavras?", "options": ["Podem trazer vida ou morte", "Não têm poder", "São apenas sons", "Devem ser usadas sem cuidado"], "correct": 0, "difficulty": "easy", "tip": "Provérbios 18:21", "explanation": "A língua tem poder de vida e morte; por isso devemos usar nossas palavras com sabedoria." },
-      { "question": "Qual é o conselho de Provérbios sobre a preguiça?", "options": ["É uma virtude", "Leva à pobreza", "É recomendada", "Traz riqueza"], "correct": 1, "difficulty": "easy", "tip": "Provérbios 6:6-11", "explanation": "A preguiça leva à pobreza; o sábio aprende com a formiga, que trabalha com diligência." }
+      { "question": "Complete: 'O temor do Senhor é o princípio da ________'", "options": ["Riqueza", "Sabedoria", "Felicidade", "Saúde"], "correct": 1, "difficulty": "easy", "tip": "Provérbios 1:7", "explanation": "O temor do Senhor é o princípio da sabedoria." },
+      { "question": "Em Provérbios, a sabedoria é personificada como:", "options": ["Uma mulher que clama nas ruas", "Um guerreiro", "Um rei", "Um anjo"], "correct": 0, "difficulty": "medium", "tip": "Provérbios capítulo 8", "explanation": "A sabedoria é personificada como uma mulher que clama nas ruas." },
+      { "question": "Qual destes NÃO é um tema central do livro de Provérbios?", "options": ["Sabedoria", "Justiça", "Guerra", "Disciplina"], "correct": 2, "difficulty": "hard", "tip": "Provérbios fala de vida prática", "explanation": "Guerra não é um tema central de Provérbios." },
+      { "question": "O que a sabedoria oferece a quem a busca?", "options": ["Riquezas e fama", "Proteção e vida", "Poder e glória", "Férias e descanso"], "correct": 1, "difficulty": "medium", "tip": "Provérbios 4:6-9", "explanation": "A sabedoria oferece proteção, vida, honra e beleza." },
+      { "question": "Segundo Provérbios 3:5-6, o que devemos fazer para que Deus endireite nossos caminhos?", "options": ["Confiar no nosso próprio entendimento", "Confiar no Senhor de todo coração", "Seguir a multidão", "Buscar riquezas"], "correct": 1, "difficulty": "easy", "tip": "Versículo muito conhecido", "explanation": "Devemos confiar no Senhor de todo coração." },
+      { "question": "O que a sabedoria divina ajuda a evitar?", "options": ["Trabalho", "Estudo", "O caminho do mal", "Família"], "correct": 2, "difficulty": "easy", "tip": "Provérbios 2:10-15", "explanation": "A sabedoria nos ajuda a evitar o caminho do mal." },
+      { "question": "Qual é a recompensa para quem ouve os conselhos da sabedoria?", "options": ["Viver em paz e segurança", "Ter muitos inimigos", "Viver na pobreza", "Ser ignorado"], "correct": 0, "difficulty": "medium", "tip": "Provérbios 1:33", "explanation": "Quem ouve a sabedoria viverá em paz." },
+      { "question": "O livro de Provérbios compara o tolo a:", "options": ["Um leão", "Uma águia", "Um cão que volta ao seu vômito", "Uma formiga"], "correct": 2, "difficulty": "hard", "tip": "Provérbios 26:11", "explanation": "O tolo é comparado a um cão que volta ao seu vômito." },
+      { "question": "Qual é a importância da disciplina segundo Provérbios?", "options": ["É algo opcional", "É sinal de ódio", "É uma demonstração de amor", "Não tem importância"], "correct": 2, "difficulty": "medium", "tip": "Provérbios 3:12", "explanation": "A disciplina é uma demonstração de amor do Senhor." },
+      { "question": "O que o livro de Provérbios ensina sobre a língua/palavras?", "options": ["Podem trazer vida ou morte", "Não têm poder", "São apenas sons", "Devem ser usadas sem cuidado"], "correct": 0, "difficulty": "easy", "tip": "Provérbios 18:21", "explanation": "A língua tem poder de vida e morte." },
+      { "question": "Qual é o conselho de Provérbios sobre a preguiça?", "options": ["É uma virtude", "Leva à pobreza", "É recomendada", "Traz riqueza"], "correct": 1, "difficulty": "easy", "tip": "Provérbios 6:6-11", "explanation": "A preguiça leva à pobreza." }
     ];
 
     const LICAO_ATUAL = 1;
@@ -422,11 +427,11 @@
     function difficultyClass(t) { return t === "easy" ? "difficulty-easy" : t === "medium" ? "difficulty-medium" : "difficulty-hard"; }
     function playBeep(f, d) { if(!soundEnabled) return; try { const ctx = new AudioContext(); const o = ctx.createOscillator(); const g = ctx.createGain(); o.frequency.value = f; o.type = "sine"; g.gain.value = 0.035; o.connect(g); g.connect(ctx.destination); o.start(); setTimeout(() => { o.stop(); ctx.close(); }, d*1000); } catch(e) {} }
     function correctCount() { return userAnswers.reduce((a,ans,i) => a + (ans === quizData[i].correct ? 1 : 0), 0); }
-    function updateProgress() { const p = ((currentQuestion+1)/quizData.length)*100; progress.style.width = p+"%"; progressText.textContent = `Pergunta ${currentQuestion+1} de ${quizData.length}`; scoreLive.textContent = `${correctCount()} acertos`; prevBtn.disabled = currentQuestion === 0; nextBtn.disabled = userAnswers[currentQuestion] === null; nextBtn.innerHTML = currentQuestion === quizData.length-1 ? `Finalizar <i class="fas fa-flag-checkered"></i>` : `Próxima <i class="fas fa-arrow-right"></i>`; }
+    function updateProgress() { const p = ((currentQuestion+1)/quizData.length)*100; progress.style.width = p+"%"; progressText.textContent = `Pergunta ${currentQuestion+1} de ${quizData.length}`; scoreLive.innerHTML = `<i class="fas fa-crown"></i> ${correctCount()} acertos`; prevBtn.disabled = currentQuestion === 0; nextBtn.disabled = userAnswers[currentQuestion] === null; nextBtn.innerHTML = currentQuestion === quizData.length-1 ? `Finalizar <i class="fas fa-flag-checkered"></i>` : `Próxima <i class="fas fa-arrow-right"></i>`; }
 
     function renderQuestion() {
       const item = quizData[currentQuestion], selected = userAnswers[currentQuestion], letters = ["A","B","C","D"];
-      questionContainer.innerHTML = `<div class="question"><div class="question-header"><span class="question-difficulty ${difficultyClass(item.difficulty)}">${difficultyLabel(item.difficulty)}</span><i class="fas fa-lightbulb tip-icon"></i></div><div class="tip-text">${item.tip}</div><div class="question-text">${currentQuestion+1}. ${item.question}</div><div class="options">${item.options.map((opt,idx) => { let cn = "option", ic = ""; if(selected !== null) { if(idx === selected && selected === item.correct) { cn += " selected correct"; ic = '<i class="fas fa-check feedback-icon"></i>'; } else if(idx === selected && selected !== item.correct) { cn += " selected incorrect"; ic = '<i class="fas fa-xmark feedback-icon"></i>'; } else if(idx === item.correct) { cn += " correct-answer"; ic = '<i class="fas fa-check feedback-icon"></i>'; } } return `<div class="${cn}" data-index="${idx}"><span class="option-letter">${letters[idx]}</span><span>${opt}</span>${ic}</div>`; }).join("")}</div>${selected !== null ? `<div class="feedback-curiosity"><strong>Explicação:</strong> ${item.explanation}</div>` : ""}</div>`;
+      questionContainer.innerHTML = `<div class="question"><div class="question-header"><span class="question-difficulty ${difficultyClass(item.difficulty)}">${difficultyLabel(item.difficulty)}</span><i class="fas fa-lightbulb tip-icon"></i></div><div class="tip-text">${item.tip}</div><div class="question-text">${currentQuestion+1}. ${item.question}</div><div class="options">${item.options.map((opt,idx) => { let cn = "option", ic = ""; if(selected !== null) { if(idx === selected && selected === item.correct) { cn += " selected correct"; ic = '<i class="fas fa-check feedback-icon"></i>'; } else if(idx === selected && selected !== item.correct) { cn += " selected incorrect"; ic = '<i class="fas fa-xmark feedback-icon"></i>'; } else if(idx === item.correct) { cn += " correct-answer"; ic = '<i class="fas fa-check feedback-icon"></i>'; } } return `<div class="${cn}" data-index="${idx}"><span class="option-letter">${letters[idx]}</span><span>${opt}</span>${ic}</div>`; }).join("")}</div>${selected !== null ? `<div class="feedback-curiosity"><strong><i class="fas fa-book-open"></i> Explicação:</strong> ${item.explanation}</div>` : ""}</div>`;
       document.querySelector(".tip-icon")?.addEventListener("click", () => { const t = document.querySelector(".tip-text"); t.style.display = t.style.display === "block" ? "none" : "block"; });
       document.querySelectorAll(".option").forEach(opt => { opt.addEventListener("click", () => { if(userAnswers[currentQuestion] !== null) return; const idx = Number(opt.dataset.index); userAnswers[currentQuestion] = idx; playBeep(idx === item.correct ? 760 : 220, 0.08); renderQuestion(); updateProgress(); }); });
       updateProgress();
@@ -434,10 +439,10 @@
 
     async function startQuiz() {
       const nome = document.getElementById("aluno-nome").value.trim(), igreja = document.getElementById("aluno-igreja").value.trim(), cidade = document.getElementById("aluno-cidade").value.trim(), estado = document.getElementById("aluno-estado").value;
-      if(!nome) { alert("Digite seu nome"); document.getElementById("aluno-nome").focus(); return; }
-      if(!igreja) { alert("Informe sua Igreja/Congregação"); document.getElementById("aluno-igreja").focus(); return; }
-      if(!cidade) { alert("Informe sua cidade"); document.getElementById("aluno-cidade").focus(); return; }
-      if(!estado) { alert("Selecione seu estado"); document.getElementById("aluno-estado").focus(); return; }
+      if(!nome) { alert("📝 Digite seu nome completo"); document.getElementById("aluno-nome").focus(); return; }
+      if(!igreja) { alert("⛪ Informe sua Igreja/Congregação ou Bairro"); document.getElementById("aluno-igreja").focus(); return; }
+      if(!cidade) { alert("🌆 Informe sua cidade"); document.getElementById("aluno-cidade").focus(); return; }
+      if(!estado) { alert("📍 Selecione seu estado"); document.getElementById("aluno-estado").focus(); return; }
       alunoIdentificado = { nome, igreja, cidade, estado };
       const anim = document.getElementById("quiz-start-animation"), cd = document.getElementById("countdown");
       anim.classList.add("active"); let count = 3; cd.textContent = count;
@@ -456,30 +461,30 @@
       document.getElementById("medium-score").textContent = `${mS}/${mT}`;
       document.getElementById("hard-score").textContent = `${hS}/${hT}`;
       const msg = document.getElementById("result-message");
-      if(percentual >= 90) { msg.innerHTML = "Excelente! Você domina os princípios de Provérbios!"; fireConfetti(); } 
-      else if(percentual >= 70) { msg.innerHTML = "Muito bom! Continue estudando a sabedoria divina!"; fireConfetti(); } 
-      else if(percentual >= 50) { msg.innerHTML = "Bom esforço! Vale revisar o livro de Provérbios."; } 
-      else { msg.innerHTML = "Continue estudando! O temor do Senhor é o princípio da sabedoria."; }
+      if(percentual >= 90) { msg.innerHTML = "<i class='fas fa-crown' style='color:#fbbf24'></i> Excelente! Você domina os princípios de Provérbios! Continue buscando a sabedoria divina!"; fireConfetti(); } 
+      else if(percentual >= 70) { msg.innerHTML = "<i class='fas fa-star' style='color:#fbbf24'></i> Muito bom! Continue estudando a sabedoria divina! O temor do Senhor é o princípio do conhecimento."; fireConfetti(); } 
+      else if(percentual >= 50) { msg.innerHTML = "<i class='fas fa-book-open'></i> Bom esforço! Vale revisar o livro de Provérbios para fixar melhor os conceitos."; } 
+      else { msg.innerHTML = "<i class='fas fa-scroll'></i> Continue estudando! Lembre-se: 'O temor do Senhor é o princípio da sabedoria' (Provérbios 1:7)."; }
       
       if(alunoIdentificado) {
         const ip = await obterIP();
         await enviarParaPlanilha({ licao: LICAO_ATUAL, nome: alunoIdentificado.nome, igreja: alunoIdentificado.igreja, cidade: alunoIdentificado.cidade, estado: alunoIdentificado.estado, acertos: total, total: quizData.length, percentual: percentual, facil: `${eS}/${eT}`, medio: `${mS}/${mT}`, dificil: `${hS}/${hT}`, ip: ip });
-        const confirm = document.createElement('div'); confirm.style.cssText = "margin-top:16px;padding:12px;background:rgba(40,167,69,0.2);border-radius:16px"; confirm.innerHTML = `<i class="fas fa-check-circle"></i> ✅ Seu resultado foi registrado com sucesso!<br><small>O professor já pode visualizar na planilha.</small>`; msg.appendChild(confirm);
+        const confirm = document.createElement('div'); confirm.style.cssText = "margin-top:16px;padding:12px;background:rgba(251,191,36,0.15);border:1px solid rgba(251,191,36,0.3);border-radius:16px"; confirm.innerHTML = `<i class="fas fa-check-circle" style="color:#fbbf24"></i> ✅ Seu resultado foi registrado com sucesso!<br><small>O professor já pode visualizar na planilha.</small>`; msg.appendChild(confirm);
       }
       document.getElementById("quiz-section").scrollIntoView({ behavior: "smooth", block: "start" });
     }
 
-    function renderReview() { const r = document.getElementById("review-container"); if(r.style.display === "block") { r.style.display = "none"; return; } r.innerHTML = quizData.map((q,i) => { const u = userAnswers[i]; const ok = u === q.correct; return `<div class="review-item ${ok ? "correct" : "incorrect"}"><div class="review-question">${i+1}. ${q.question}</div><div class="review-answer">Sua resposta: ${u !== null ? q.options[u] : "Não respondida"}</div><div class="review-answer">Resposta correta: ${q.options[q.correct]}</div><div class="review-explanation">${q.explanation}</div></div>`; }).join(""); r.style.display = "block"; }
+    function renderReview() { const r = document.getElementById("review-container"); if(r.style.display === "block") { r.style.display = "none"; return; } r.innerHTML = quizData.map((q,i) => { const u = userAnswers[i]; const ok = u === q.correct; return `<div class="review-item ${ok ? "correct" : "incorrect"}"><div class="review-question">${i+1}. ${q.question}</div><div class="review-answer"><i class="fas fa-user"></i> Sua resposta: ${u !== null ? q.options[u] : "Não respondida"}</div><div class="review-answer"><i class="fas fa-check-circle"></i> Resposta correta: ${q.options[q.correct]}</div><div class="review-explanation"><i class="fas fa-book-open"></i> ${q.explanation}</div></div>`; }).join(""); r.style.display = "block"; }
     function shareText(t) { if(navigator.share) navigator.share({ text: t }); else window.open("https://wa.me/?text="+encodeURIComponent(t), "_blank"); }
-    function shareInitial() { shareText(`📖 QUIZ EBD FIEL - 3º Trimestre - Lição 1 - PROVÉRBIOS\nA Sabedoria que Começa com o Temor do Senhor.`); }
-    function shareResult() { const total = correctCount(); shareText(`📖 QUIZ EBD FIEL - 3º Trimestre - Lição 1 - PROVÉRBIOS\nMeu resultado: ${total}/${quizData.length}`); }
-    function fireConfetti() { const c = document.getElementById("confetti-container"); c.innerHTML = ""; c.classList.add("active"); for(let i=0;i<90;i++) { const conf = document.createElement("div"); conf.className = "confetti"; conf.style.left = Math.random()*100+"vw"; conf.style.background = ["#ffb347","#ff8c00","#28a745","#00b4d8","#ffffff"][Math.floor(Math.random()*5)]; conf.style.animationDelay = Math.random()*0.7+"s"; c.appendChild(conf); } setTimeout(() => c.classList.remove("active"), 2800); }
+    function shareInitial() { shareText(`📖 EBD Fiel - PROVÉRBIOS | 3º Trimestre - Lição 1\n"A Sabedoria que Começa com o Temor do Senhor"\n\nTeste seus conhecimentos! 🕯️👑`); }
+    function shareResult() { const total = correctCount(); shareText(`📖 EBD Fiel - PROVÉRBIOS | Lição 1\nMeu resultado: ${total}/${quizData.length}\n\n"O temor do Senhor é o princípio da sabedoria" (Provérbios 1:7)`); }
+    function fireConfetti() { const c = document.getElementById("confetti-container"); c.innerHTML = ""; c.classList.add("active"); for(let i=0;i<90;i++) { const conf = document.createElement("div"); conf.className = "confetti"; conf.style.left = Math.random()*100+"vw"; conf.style.background = ["#fbbf24","#d97706","#10b981","#3b82f6","#ffffff"][Math.floor(Math.random()*5)]; conf.style.animationDelay = Math.random()*0.7+"s"; c.appendChild(conf); } setTimeout(() => c.classList.remove("active"), 2800); }
 
     function initParticles() {
       const canvas = document.getElementById("particles"), ctx = canvas.getContext("2d"); let particles = [];
       function resize() { canvas.width = window.innerWidth; canvas.height = window.innerHeight; }
       function createParticles() { particles = []; for(let i=0;i<80;i++) particles.push({ x:Math.random()*canvas.width, y:Math.random()*canvas.height, r:Math.random()*1.8+0.5, dx:(Math.random()-0.5)*0.25, dy:(Math.random()-0.5)*0.25 }); }
-      function draw() { ctx.clearRect(0,0,canvas.width,canvas.height); ctx.fillStyle="rgba(255,255,255,0.42)"; particles.forEach(p=>{ ctx.beginPath(); ctx.arc(p.x,p.y,p.r,0,Math.PI*2); ctx.fill(); p.x+=p.dx; p.y+=p.dy; if(p.x<0||p.x>canvas.width) p.dx*=-1; if(p.y<0||p.y>canvas.height) p.dy*=-1; }); requestAnimationFrame(draw); }
+      function draw() { ctx.clearRect(0,0,canvas.width,canvas.height); ctx.fillStyle="rgba(251,191,36,0.25)"; particles.forEach(p=>{ ctx.beginPath(); ctx.arc(p.x,p.y,p.r,0,Math.PI*2); ctx.fill(); p.x+=p.dx; p.y+=p.dy; if(p.x<0||p.x>canvas.width) p.dx*=-1; if(p.y<0||p.y>canvas.height) p.dy*=-1; }); requestAnimationFrame(draw); }
       resize(); createParticles(); draw(); window.addEventListener("resize",()=>{ resize(); createParticles(); });
     }
 
@@ -490,7 +495,7 @@
     document.getElementById("restart-btn").addEventListener("click", () => { resultsSection.style.display = "none"; introSection.style.display = "grid"; formCard.style.display = "block"; userAnswers.fill(null); currentQuestion = 0; document.getElementById("review-container").style.display = "none"; });
     document.getElementById("review-btn").addEventListener("click", renderReview);
     document.getElementById("share-result-btn").addEventListener("click", shareResult);
-    document.getElementById("sound-toggle").addEventListener("click", () => { soundEnabled = !soundEnabled; document.getElementById("sound-toggle").innerHTML = soundEnabled ? '<i class="fas fa-volume-up"></i>' : '<i class="fas fa-volume-xmark"></i>'; });
+    document.getElementById("sound-toggle").addEventListener("click", () => { soundEnabled = !soundEnabled; document.getElementById("sound-toggle").innerHTML = soundEnabled ? '<i class="fas fa-volume-up"></i>' : '<i class="fas fa-volume-mute"></i>'; });
     document.getElementById("theme-toggle").addEventListener("click", () => { document.body.classList.toggle("light-mode"); const i = document.getElementById("theme-toggle").querySelector("i"); i.className = document.body.classList.contains("light-mode") ? "fas fa-sun" : "fas fa-moon"; });
     initParticles();
   </script>
