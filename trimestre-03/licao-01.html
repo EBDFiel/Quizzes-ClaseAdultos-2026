@@ -8,7 +8,7 @@
   <meta property="og:title" content="EBD Fiel - Provérbios: Lição 1" />
   <meta property="og:description" content="Quiz interativo sobre o livro de Provérbios - A Sabedoria que Começa com o Temor do Senhor." />
   <meta property="og:image" content="https://i.ibb.co/9mLXgx7k/logo.png" />
-  <meta property="og:type" content="website" />
+  meta property="og:type" content="website" />
   <meta property="og:site_name" content="EBD Fiel" />
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
@@ -105,6 +105,9 @@
     .form-group label i { color: var(--gold); margin-right: 6px; }
     .form-group input, .form-group select { width: 100%; padding: 12px 14px; border-radius: 12px; border: 1px solid rgba(251,191,36,0.3); background: rgba(0,0,0,0.5); color: white; font-size: 1rem; transition: all 0.2s ease; }
     .form-group input:focus, .form-group select:focus { outline: none; border-color: var(--gold); background: rgba(0,0,0,0.7); box-shadow: 0 0 0 2px rgba(251,191,36,0.2); }
+    .form-group small {
+      display: block; margin-top: 5px; font-size: 0.7rem; color: rgba(255,255,255,0.5);
+    }
     .btn-iniciar-form {
       background: linear-gradient(135deg, var(--gold), var(--gold-dark)); color: #0f172a; border: none;
       width: 100%; padding: 14px; border-radius: 999px; font-weight: 800; font-size: 1rem;
@@ -259,29 +262,34 @@
         </div>
         <h1 class="titulo-licao">A Sabedoria que Começa: <span>com o Temor do Senhor</span></h1>
 
-        <div class="form-group">
-  <label><i class="fas fa-church"></i> Sede / Congregação *</label>
-  <input type="text" id="aluno-igreja" placeholder="Ex: Sede (Convenção Geral), Congregação do Bacuri, Ministério Belém..." autocomplete="off">
-  <small style="display: block; margin-top: 5px; font-size: 0.7rem; color: rgba(255,255,255,0.5);">
-    <i class="fas fa-info-circle"></i> Se você congrega na SEDE, escreva "Sede". Se for em uma CONGREGAÇÃO, escreva o nome da congregação (ex: Congregação do Jd. América, Ministério Belém, etc.).
-  </small>
-</div>
+        <div class="form-card" id="form-card">
+          <h3><i class="fas fa-user-edit"></i> Identificação do Aluno</h3>
+          
           <div class="form-group">
-            <label><i class="fas fa-church"></i> Igreja / Congregação ou Bairro *</label>
-            <input type="text" id="aluno-igreja" placeholder="Ex: Igreja Batista, Congregação Central..." autocomplete="off">
+            <label><i class="fas fa-user"></i> Nome e Sobrenome *</label>
+            <input type="text" id="aluno-nome" placeholder="Digite seu nome completo (ex: João Silva)" autocomplete="off">
           </div>
+          
+          <div class="form-group">
+            <label><i class="fas fa-church"></i> Sede / Congregação *</label>
+            <input type="text" id="aluno-igreja" placeholder="Ex: Sede, Congregação do Bacuri, Ministério Belém..." autocomplete="off">
+            <small><i class="fas fa-info-circle"></i> Se você congrega na SEDE da igreja, escreva "Sede". Se for em uma CONGREGAÇÃO, escreva o nome da congregação (ex: Congregação do Jd. América, Ministério Belém, etc.).</small>
+          </div>
+          
           <div class="form-group">
             <label><i class="fas fa-map-marker-alt"></i> Estado *</label>
             <select id="aluno-estado" required>
               <option value="">Selecione o estado</option>
             </select>
           </div>
+          
           <div class="form-group">
             <label><i class="fas fa-city"></i> Cidade *</label>
             <select id="aluno-cidade" required>
               <option value="">Primeiro selecione um estado</option>
             </select>
           </div>
+          
           <button class="btn-iniciar-form" id="btn-iniciar-form"><i class="fas fa-play"></i> Iniciar Quiz</button>
         </div>
 
@@ -484,8 +492,8 @@
       const estado = document.getElementById("aluno-estado").value;
       const cidade = document.getElementById("aluno-cidade").value;
       
-      if(!nome) { alert("📝 Digite seu nome completo"); document.getElementById("aluno-nome").focus(); return; }
-      if(!igreja) { alert("⛪ Informe sua Igreja/Congregação ou Bairro"); document.getElementById("aluno-igreja").focus(); return; }
+      if(!nome) { alert("📝 Digite seu nome e sobrenome"); document.getElementById("aluno-nome").focus(); return; }
+      if(!igreja) { alert("⛪ Informe Sede ou Congregação"); document.getElementById("aluno-igreja").focus(); return; }
       if(!estado) { alert("📍 Selecione seu estado"); document.getElementById("aluno-estado").focus(); return; }
       if(!cidade) { alert("🌆 Selecione sua cidade"); document.getElementById("aluno-cidade").focus(); return; }
       
